@@ -167,6 +167,12 @@
       </tags>
   </entry>
   <entry>
+    <title>Pytorch学习笔记-3</title>
+    <url>/archives/4dd3071d.html</url>
+    <content><![CDATA[<span id="more"></span>
+]]></content>
+  </entry>
+  <entry>
     <title>Pytorch学习笔记</title>
     <url>/archives/6859e29c.html</url>
     <content><![CDATA[<p>科研所迫，开始入坑深度学习。<br>之前断断续续的学过一些，了解一些概念，但没怎么敲过代码，看源码笔记费劲，更别谈复现了<br>好友给我推荐了一个通俗易懂的pytorch教程，花了三天看了一遍，这个教程讲得真的很好，为小土堆点赞</p>
@@ -256,12 +262,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Pytorch学习笔记-3</title>
-    <url>/archives/4dd3071d.html</url>
-    <content><![CDATA[<span id="more"></span>
-]]></content>
-  </entry>
-  <entry>
     <title>Typora+PicGo彻底解决图片上传问题</title>
     <url>/archives/f2a9bf9d.html</url>
     <content><![CDATA[<span id="more"></span>
@@ -287,16 +287,6 @@
       <tags>
         <tag>Typora</tag>
         <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>conda和pip的异同</title>
-    <url>/archives/44547c5f.html</url>
-    <content><![CDATA[<span id="more"></span>
-<p>``python</p>
-]]></content>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -328,6 +318,16 @@
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>conda和pip的异同</title>
+    <url>/archives/44547c5f.html</url>
+    <content><![CDATA[<span id="more"></span>
+<p>``python</p>
+]]></content>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -579,6 +579,62 @@
       </tags>
   </entry>
   <entry>
+    <title>工程案例2—文化遗产数字化保护思考</title>
+    <url>/archives/e682c69c.html</url>
+    <content><![CDATA[<p>今天上了工程案例课程的第二节课，请到了大势智慧徐副总裁为我们做了一次有关文化遗产数字化保护思考的讲座，收获颇多，下面就讲座内容做一下总结分析。</p>
+<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli2.grlmbx74zcw.webp" style="zoom:80%;" />
+
+<span id="more"></span>
+
+<h1 id="大势智慧"><a href="#大势智慧" class="headerlink" title="大势智慧"></a>大势智慧</h1><p>大势智慧，是一家专注于真实世界三维数字化重建及三维数据服务的高新技术企业。初创团队主要来自于重点实验室，这家企业将科研技术带到了活跃的市场环境，很好地完成了从“学和研”到“产和用”的转变。</p>
+<p>大势智慧主要涉足领域包括有城市高精度三维建模、模型应用及语义化理解和文化遗产数字化保护，有着领先的技术优势和丰富的实战经验。</p>
+<img data-src="工程案例2—文化遗产数字化保护思考/image-20220315110633651-16473135983361.png" style="zoom:80%;" />
+
+<h1 id="文化遗产数字化"><a href="#文化遗产数字化" class="headerlink" title="文化遗产数字化"></a>文化遗产数字化</h1><p>文化遗产对于每个国家、每个民族的重要性不言而喻。</p>
+<p>目前将文化遗产主要划分为三类，分别是可移动文物、不可移动文物和非物质文化遗产。其中物质文化遗产占据了绝大多数，物质文化遗产是珍贵的同时也是脆弱的，在漫长的岁月长河里，他们会经历长时间的风化侵蚀剥落，又或是在某一意外中直接被损毁。</p>
+<p>习近平总书记曾指出，“历史文化遗产不仅生动述说着过去，也深刻影响着当下和未来；不仅属于我们，也属于子孙后代。<strong>保护好、传承好历史文化遗产是对历史负责、对人民负责</strong>”。</p>
+<img data-src="https://s2.loli.net/2022/03/18/woAY1bFHyuJ3kDj.png" style="zoom: 50%;" />
+
+<p>在众多文化遗产保护措施中，数字化保护无疑是<strong>非常重要</strong>的一种手段。</p>
+<p>我曾经看过一句话，<strong>人类的活动创造了历史，也不断把曾经留下的痕迹抹去毁灭。数字化技术成了与后者相对抗的关键工具，阻止文化遗产遗址“从人类记忆中被彻底删除”。</strong></p>
+<h1 id="石窟寺数字化案例"><a href="#石窟寺数字化案例" class="headerlink" title="石窟寺数字化案例"></a>石窟寺数字化案例</h1><p>石窟寺简称“石窟”，是古代开凿于河畔山崖的佛教寺院。</p>
+<p>石窟寺源于印度，中国的石窟寺则约于3世纪始建于新疆，随后逐渐向东、向南传播，至5-8世纪时臻于繁盛，分布于国内各地区，此后渐趋衰落。</p>
+<p>在最近的一次全国石窟寺专项调查中，共统计有石窟寺2155处，摩崖造像3831处，全国重点文化保护单位有288处。其中最耳熟能详的莫过于 四大石窟，分别是甘肃 敦煌莫高窟、山西 云冈石窟、河南 龙门石窟和甘肃天水 麦积山石窟。</p>
+<img data-src="https://s2.loli.net/2022/03/18/q2bmVLBuvkHdoKC.png" style="zoom:50%;" />
+
+<p>目前来说，我国石窟寺数字化保护过程中主要存在四点技术难题：</p>
+<ul>
+<li>数据采集</li>
+<li>点云拼接</li>
+<li>几何模型</li>
+<li>纹理重建</li>
+</ul>
+<img data-src="https://s2.loli.net/2022/03/18/4J6BrOcPuaTeDjA.png" style="zoom: 50%;" />
+
+<p>后面徐总就莫高窟、云冈石窟等案例给我们做了详细的阐述，这里我就不一一说明了，因为在技术层面上很多都是三维重建的内容，我就汇报过程中印象较为深刻的几点做一些记录。</p>
+<ul>
+<li>项目实施中对于文物的安全保证。这是最基本也是最重要的一点，文物的损坏是不可逆的，不可以说为了文物数字媒介的留存而损坏了其实体，那完全是本末倒置了</li>
+<li>选取洞窟内部的自然特征点作为控制点。在传统的外业测量中，控制点的选取是可以通过标靶自由设置的，但是在洞窟内部却没有这样的条件，因为遵循上述原则不可用对墙壁、塑像有接触，所以实际作业中只能选取<strong>几何和纹理特征明显、且多角度通视的自然点</strong>作为控制点</li>
+<li>项目实施中的规范流程化。在洞窟内作业是代价很大的，十几米的高度需要搭建多层的脚手架，为了保证高精数据的获取只能是“慢工出细活”，整个过程，耗时耗力。<strong>没有重来的机会，必须制定规范的作业流程</strong>，包括现场质检、当天补色、及时补拍等。我相信在这方面经验比技术更重要，需要积累。</li>
+<li>必须有先进的技术。对于纹理映射、精细贴图、超大数据量的计算等这些我不太了解，但是整体听完，我的感受是没有金刚钻，别揽瓷器活。<strong>技术上的自研攻关突破是一切的基础</strong>，看到大势智慧的自研一系列软硬件产品在行业领域的广泛应用，更加觉得在校期间需打好自身本领。</li>
+</ul>
+<h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1><p>我个人是非常喜欢文化遗产的，四大石窟除了大同的云冈石窟没有看过，其他三个都去实地造访过，确实是非常震撼也更加觉得文化遗产保护的重要性和迫切性。</p>
+<p><img data-src="https://s2.loli.net/2022/03/18/O5blrJHMABdZLXE.jpg" alt="麦积山" style="zoom: 25%;" /><img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli2-2.4191n4se3140.jpg" alt="莫高窟" style="zoom: 25%;" /><img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli2-3.1rdtk32rja0w.jpg" alt="龙门石窟" style="zoom:25%;" /></p>
+<p>本次文化遗产数字化，以石窟寺为例的工程案例汇报，让我了解了传统的测绘技术如何在文物保护上发挥作用，也了解了项目方案的一系列流程和如何解决遇到的困难。</p>
+<p>大势智慧是一个由实验室孵化出的优质企业，也让我加深对于如何将所学所研运用到今后就业的理解。</p>
+<p>本次汇报是一次受益颇多的案例汇报。</p>
+]]></content>
+      <categories>
+        <category>工程案例</category>
+      </categories>
+      <tags>
+        <tag>互联网</tag>
+        <tag>文化遗产数字化</tag>
+        <tag>三维重建</tag>
+        <tag>行业</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>工程案例1—地图数据算法工程化</title>
     <url>/archives/577e831b.html</url>
     <content><![CDATA[<p>今天上了工程案例课程的第一节课，请到了丰图科技陈总工程师为我们做了一次有关地图数据工程化的技术讲座，收获颇多，下面就讲座内容做一下总结分析。</p>
@@ -677,62 +733,6 @@
         <tag>互联网</tag>
         <tag>行业</tag>
         <tag>地图算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>工程案例2—文化遗产数字化保护思考</title>
-    <url>/archives/e682c69c.html</url>
-    <content><![CDATA[<p>今天上了工程案例课程的第二节课，请到了大势智慧徐副总裁为我们做了一次有关文化遗产数字化保护思考的讲座，收获颇多，下面就讲座内容做一下总结分析。</p>
-<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli2.grlmbx74zcw.webp" style="zoom:80%;" />
-
-<span id="more"></span>
-
-<h1 id="大势智慧"><a href="#大势智慧" class="headerlink" title="大势智慧"></a>大势智慧</h1><p>大势智慧，是一家专注于真实世界三维数字化重建及三维数据服务的高新技术企业。初创团队主要来自于重点实验室，这家企业将科研技术带到了活跃的市场环境，很好地完成了从“学和研”到“产和用”的转变。</p>
-<p>大势智慧主要涉足领域包括有城市高精度三维建模、模型应用及语义化理解和文化遗产数字化保护，有着领先的技术优势和丰富的实战经验。</p>
-<img data-src="工程案例2—文化遗产数字化保护思考/image-20220315110633651-16473135983361.png" style="zoom:80%;" />
-
-<h1 id="文化遗产数字化"><a href="#文化遗产数字化" class="headerlink" title="文化遗产数字化"></a>文化遗产数字化</h1><p>文化遗产对于每个国家、每个民族的重要性不言而喻。</p>
-<p>目前将文化遗产主要划分为三类，分别是可移动文物、不可移动文物和非物质文化遗产。其中物质文化遗产占据了绝大多数，物质文化遗产是珍贵的同时也是脆弱的，在漫长的岁月长河里，他们会经历长时间的风化侵蚀剥落，又或是在某一意外中直接被损毁。</p>
-<p>习近平总书记曾指出，“历史文化遗产不仅生动述说着过去，也深刻影响着当下和未来；不仅属于我们，也属于子孙后代。<strong>保护好、传承好历史文化遗产是对历史负责、对人民负责</strong>”。</p>
-<img data-src="https://s2.loli.net/2022/03/18/woAY1bFHyuJ3kDj.png" style="zoom: 50%;" />
-
-<p>在众多文化遗产保护措施中，数字化保护无疑是<strong>非常重要</strong>的一种手段。</p>
-<p>我曾经看过一句话，<strong>人类的活动创造了历史，也不断把曾经留下的痕迹抹去毁灭。数字化技术成了与后者相对抗的关键工具，阻止文化遗产遗址“从人类记忆中被彻底删除”。</strong></p>
-<h1 id="石窟寺数字化案例"><a href="#石窟寺数字化案例" class="headerlink" title="石窟寺数字化案例"></a>石窟寺数字化案例</h1><p>石窟寺简称“石窟”，是古代开凿于河畔山崖的佛教寺院。</p>
-<p>石窟寺源于印度，中国的石窟寺则约于3世纪始建于新疆，随后逐渐向东、向南传播，至5-8世纪时臻于繁盛，分布于国内各地区，此后渐趋衰落。</p>
-<p>在最近的一次全国石窟寺专项调查中，共统计有石窟寺2155处，摩崖造像3831处，全国重点文化保护单位有288处。其中最耳熟能详的莫过于 四大石窟，分别是甘肃 敦煌莫高窟、山西 云冈石窟、河南 龙门石窟和甘肃天水 麦积山石窟。</p>
-<img data-src="https://s2.loli.net/2022/03/18/q2bmVLBuvkHdoKC.png" style="zoom:50%;" />
-
-<p>目前来说，我国石窟寺数字化保护过程中主要存在四点技术难题：</p>
-<ul>
-<li>数据采集</li>
-<li>点云拼接</li>
-<li>几何模型</li>
-<li>纹理重建</li>
-</ul>
-<img data-src="https://s2.loli.net/2022/03/18/4J6BrOcPuaTeDjA.png" style="zoom: 50%;" />
-
-<p>后面徐总就莫高窟、云冈石窟等案例给我们做了详细的阐述，这里我就不一一说明了，因为在技术层面上很多都是三维重建的内容，我就汇报过程中印象较为深刻的几点做一些记录。</p>
-<ul>
-<li>项目实施中对于文物的安全保证。这是最基本也是最重要的一点，文物的损坏是不可逆的，不可以说为了文物数字媒介的留存而损坏了其实体，那完全是本末倒置了</li>
-<li>选取洞窟内部的自然特征点作为控制点。在传统的外业测量中，控制点的选取是可以通过标靶自由设置的，但是在洞窟内部却没有这样的条件，因为遵循上述原则不可用对墙壁、塑像有接触，所以实际作业中只能选取<strong>几何和纹理特征明显、且多角度通视的自然点</strong>作为控制点</li>
-<li>项目实施中的规范流程化。在洞窟内作业是代价很大的，十几米的高度需要搭建多层的脚手架，为了保证高精数据的获取只能是“慢工出细活”，整个过程，耗时耗力。<strong>没有重来的机会，必须制定规范的作业流程</strong>，包括现场质检、当天补色、及时补拍等。我相信在这方面经验比技术更重要，需要积累。</li>
-<li>必须有先进的技术。对于纹理映射、精细贴图、超大数据量的计算等这些我不太了解，但是整体听完，我的感受是没有金刚钻，别揽瓷器活。<strong>技术上的自研攻关突破是一切的基础</strong>，看到大势智慧的自研一系列软硬件产品在行业领域的广泛应用，更加觉得在校期间需打好自身本领。</li>
-</ul>
-<h1 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h1><p>我个人是非常喜欢文化遗产的，四大石窟除了大同的云冈石窟没有看过，其他三个都去实地造访过，确实是非常震撼也更加觉得文化遗产保护的重要性和迫切性。</p>
-<p><img data-src="https://s2.loli.net/2022/03/18/O5blrJHMABdZLXE.jpg" alt="麦积山" style="zoom: 25%;" /><img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli2-2.4191n4se3140.jpg" alt="莫高窟" style="zoom: 25%;" /><img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli2-3.1rdtk32rja0w.jpg" alt="龙门石窟" style="zoom:25%;" /></p>
-<p>本次文化遗产数字化，以石窟寺为例的工程案例汇报，让我了解了传统的测绘技术如何在文物保护上发挥作用，也了解了项目方案的一系列流程和如何解决遇到的困难。</p>
-<p>大势智慧是一个由实验室孵化出的优质企业，也让我加深对于如何将所学所研运用到今后就业的理解。</p>
-<p>本次汇报是一次受益颇多的案例汇报。</p>
-]]></content>
-      <categories>
-        <category>工程案例</category>
-      </categories>
-      <tags>
-        <tag>互联网</tag>
-        <tag>行业</tag>
-        <tag>文化遗产数字化</tag>
-        <tag>三维重建</tag>
       </tags>
   </entry>
   <entry>
@@ -868,18 +868,6 @@
       </tags>
   </entry>
   <entry>
-    <title>工程案例6—企业视角下的时空信息创新</title>
-    <url>/archives/5c4085f6.html</url>
-    <content><![CDATA[<p>本次报告实在过于无聊，没什么好记录的…</p>
-<span id="more"></span>
-
-<p>nothing to see…</p>
-]]></content>
-      <categories>
-        <category>工程案例</category>
-      </categories>
-  </entry>
-  <entry>
     <title>工程案例7—商用车智能网联发展态势和未来布局</title>
     <url>/archives/3179256a.html</url>
     <content><![CDATA[<p>今天报告的题目是商用车智能网联发展态势和未来布局，报告人是中寰卫星的技术总监熊继林。熊总依次从商用车智能网联的基本情况、发展现状和未来布局三个方面进行介绍。本次报告非常精彩，下面附上PPT和个人感受。</p>
@@ -923,6 +911,18 @@
       </tags>
   </entry>
   <entry>
+    <title>工程案例6—企业视角下的时空信息创新</title>
+    <url>/archives/5c4085f6.html</url>
+    <content><![CDATA[<p>本次报告实在过于无聊，没什么好记录的…</p>
+<span id="more"></span>
+
+<p>nothing to see…</p>
+]]></content>
+      <categories>
+        <category>工程案例</category>
+      </categories>
+  </entry>
+  <entry>
     <title>工程案例8—大数据技术赋能数字乡村建设</title>
     <url>/archives/cd9e5954.html</url>
     <content><![CDATA[<p>今天报告的题目是大数据技术赋能数字乡村建设，报告人是东方有道公司的董事长王力鸿。王总重点介绍了近10年来农村农业部门中3S应用的重大工程实践，具体包括农村土地承包经营权确权、两区划定、第三次国土利用调查、农村宅基地、农业农村大数据平台等。下面结合讲座内容和个人感受做如下总结。</p>
@@ -962,6 +962,37 @@
       </categories>
       <tags>
         <tag>数字农村</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>挖坑填坑-系列文章</title>
+    <url>/archives/54a0864a.html</url>
+    <content><![CDATA[<p>只有不断的挖坑，才会有持续创作的能力~</p>
+<img data-src="https://cdn.pixabay.com/photo/2021/11/13/06/31/new-years-day-6790597_960_720.jpg" style="zoom: 50%;" />
+
+<span id="more"></span>
+
+<h2 id="待完成："><a href="#待完成：" class="headerlink" title="待完成："></a>待完成：</h2><ul>
+<li><a href="">hexo多平台同步使用</a></li>
+<li><a href="">多线程下载</a></li>
+</ul>
+<h2 id="已完成："><a href="#已完成：" class="headerlink" title="已完成："></a>已完成：</h2><ul>
+<li><a href="http://ychch.top/archives/3eece56f.html">Picx图床推荐</a></li>
+</ul>
+<h2 id="计划选题："><a href="#计划选题：" class="headerlink" title="计划选题："></a>计划选题：</h2><ul>
+<li><input disabled="" type="checkbox"> hexo与其他静态博客的对比</li>
+</ul>
+<p>总要捡起专业本行╥﹏╥…</p>
+<ul>
+<li><input disabled="" type="checkbox"> 开启时空大数据学习模块</li>
+<li><input disabled="" type="checkbox"> 开启精读论文模块</li>
+</ul>
+]]></content>
+      <categories>
+        <category>文章汇总</category>
+      </categories>
+      <tags>
+        <tag>文章</tag>
       </tags>
   </entry>
   <entry>
@@ -1011,37 +1042,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>挖坑填坑-系列文章</title>
-    <url>/archives/54a0864a.html</url>
-    <content><![CDATA[<p>只有不断的挖坑，才会有持续创作的能力~</p>
-<img data-src="https://cdn.pixabay.com/photo/2021/11/13/06/31/new-years-day-6790597_960_720.jpg" style="zoom: 50%;" />
-
-<span id="more"></span>
-
-<h2 id="待完成："><a href="#待完成：" class="headerlink" title="待完成："></a>待完成：</h2><ul>
-<li><a href="">hexo多平台同步使用</a></li>
-<li><a href="">多线程下载</a></li>
-</ul>
-<h2 id="已完成："><a href="#已完成：" class="headerlink" title="已完成："></a>已完成：</h2><ul>
-<li><a href="http://ychch.top/archives/3eece56f.html">Picx图床推荐</a></li>
-</ul>
-<h2 id="计划选题："><a href="#计划选题：" class="headerlink" title="计划选题："></a>计划选题：</h2><ul>
-<li><input disabled="" type="checkbox"> hexo与其他静态博客的对比</li>
-</ul>
-<p>总要捡起专业本行╥﹏╥…</p>
-<ul>
-<li><input disabled="" type="checkbox"> 开启时空大数据学习模块</li>
-<li><input disabled="" type="checkbox"> 开启精读论文模块</li>
-</ul>
-]]></content>
-      <categories>
-        <category>文章汇总</category>
-      </categories>
-      <tags>
-        <tag>文章</tag>
       </tags>
   </entry>
   <entry>
