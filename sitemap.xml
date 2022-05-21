@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ychch.top/archives/1ded5f68.html</loc>
+    
+    <lastmod>2022-05-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://ychch.top/about/index.html</loc>
     
     <lastmod>2022-05-21</lastmod>
@@ -591,6 +600,20 @@
   
   <url>
     <loc>https://ychch.top/tags/%E4%B8%8D%E8%89%AF%E4%BA%BA/</loc>
+    <lastmod>2022-05-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ychch.top/tags/%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD/</loc>
+    <lastmod>2022-05-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ychch.top/tags/%E7%B2%BE%E5%AF%86%E6%B5%8B%E9%87%8F/</loc>
     <lastmod>2022-05-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
