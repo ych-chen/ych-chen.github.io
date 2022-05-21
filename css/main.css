@@ -3005,6 +3005,16 @@ body {
   background-size: cover;
   background-position: 100% 100%;
 }
+/* 博客内容透明化 */
+.main-inner {
+  opacity: 0.9;
+}
+.sidebar {
+  opacity: 0.8;
+}
+.header-inner {
+  background: rgba(255,255,255,0.8);
+}
 /*gallery*/
 .gallery-page {
   margin-top: 40px;
