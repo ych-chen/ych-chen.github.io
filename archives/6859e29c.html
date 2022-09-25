@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="baidu-site-verification" content="code-oy2gTeqH9v" />
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/blogIcon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/blogIcon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/blogIcon.png">
+  <link rel="mask-icon" href="/images/blogIcon.png" color="#222">
+  <link rel="manifest" href="/images/blogIcon.png">
+  <meta name="google-site-verification" content="5O1JD7i07BBNtPS8GeMREfy3KlJKyIHRvUbt0Ulnc4k">
+  <meta name="msvalidate.01" content="defbadb89c5687f86ead63be53a1b83c">
+  <meta name="baidu-site-verification" content="kBCDbEEWrIWKXwYW">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/@fancyapps/fancybox/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/pace-js/themes/blue/pace-theme-minimal.css">
+  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ychch.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="科研所迫，开始入坑深度学习。之前断断续续的学过一些，了解一些概念，但没怎么敲过代码，看源码笔记费劲，更别谈复现了好友给我推荐了一个通俗易懂的pytorch教程，花了三天看了一遍，这个教程讲得真的很好，为小土堆点赞 今后忘记了再去看一遍视频又十分耗时间，所以在此做一下学习笔记，一是加深印象，二是方便自己后面随时复习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pytorch学习笔记">
+<meta property="og:url" content="https://ychch.top/archives/6859e29c.html">
+<meta property="og:site_name" content="CYC&#39;s 个人博客">
+<meta property="og:description" content="科研所迫，开始入坑深度学习。之前断断续续的学过一些，了解一些概念，但没怎么敲过代码，看源码笔记费劲，更别谈复现了好友给我推荐了一个通俗易懂的pytorch教程，花了三天看了一遍，这个教程讲得真的很好，为小土堆点赞 今后忘记了再去看一遍视频又十分耗时间，所以在此做一下学习笔记，一是加深印象，二是方便自己后面随时复习">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/03/17/KmlhoFEewVQ8Ab3.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/17/Y6Rwh87aBV4GcNi.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/18/YNaCLUhJjuogxty.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/17/FbDdlzPN7wCRUSG.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/17/o9CavfKeWTLmjw2.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/17/et4qQZK8rCEJfyI.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/17/KJQqxlf2yLpg7ER.png">
+<meta property="article:published_time" content="2022-03-14T23:31:09.000Z">
+<meta property="article:modified_time" content="2022-08-21T06:57:12.563Z">
+<meta property="article:author" content="ych-ch">
+<meta property="article:tag" content="pytorch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/03/17/KmlhoFEewVQ8Ab3.png">
+
+
+<link rel="canonical" href="https://ychch.top/archives/6859e29c.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ychch.top/archives/6859e29c.html","path":"archives/6859e29c.html","title":"Pytorch学习笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Pytorch学习笔记 | CYC's 个人博客</title>
+  
+
+
+
+
+<link rel="dns-prefetch" href="https://waline-comment-hoy3-17wrk4nkt-ych-chen.vercel.app/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="CYC's 个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">CYC's 个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">当我与世界初相见</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>我 & 友链</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">37</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">42</span></a></li>
+        <li class="menu-item menu-item-pictures"><a href="/gallery/" rel="section"><i class="fa fa-images fa-fw"></i>影像馆</a></li>
+        <li class="menu-item menu-item-movies"><a href="/movies/" rel="section"><i class="fa fa-video fa-fw"></i>光影岁月</a></li>
+        <li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>好书推荐</a></li>
+        <li class="menu-item menu-item-shuoshuo"><a href="/shuoshuo/" rel="section"><i class="fa fa-comment fa-fw"></i>只言片语</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cuda%E7%9A%84%E5%AE%89%E8%A3%85%E6%A3%80%E6%9F%A5"><span class="nav-number">1.</span> <span class="nav-text">cuda的安装检查</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python%E4%B8%A4%E5%A4%A7%E6%B3%95%E5%AE%9D%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">Python两大法宝函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pytorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">Pytorch加载数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dataset-%E5%AE%9A%E4%B9%89%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB"><span class="nav-number">3.1.</span> <span class="nav-text">Dataset 定义自己的数据类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dataloader%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="nav-number">3.2.</span> <span class="nav-text">dataloader如何处理数据集中的数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TensorBoard%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">TensorBoard的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-is-TensorBoard"><span class="nav-number">4.1.</span> <span class="nav-text">what is TensorBoard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#how-to-use-TensorBoard-in-pytorch"><span class="nav-number">4.2.</span> <span class="nav-text">how to use TensorBoard in pytorch</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#transform%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">transform的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">数据集的使用</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ych-ch"
+      src="/images/bird-in-snow.webp">
+  <p class="site-author-name" itemprop="name">ych-ch</p>
+  <div class="site-description" itemprop="description">个人博客</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ych-chen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ych-chen" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2021206190014@whu.edu.cn" title="E-Mail → mailto:2021206190014@whu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+
++     <div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>     
+ 
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ychch.top/archives/6859e29c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bird-in-snow.webp">
+      <meta itemprop="name" content="ych-ch">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CYC's 个人博客">
+      <meta itemprop="description" content="个人博客">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Pytorch学习笔记 | CYC's 个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Pytorch学习笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-15 07:31:09" itemprop="dateCreated datePublished" datetime="2022-03-15T07:31:09+08:00">2022-03-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-21 14:57:12" itemprop="dateModified" datetime="2022-08-21T14:57:12+08:00">2022-08-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/archives/6859e29c.html#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/archives/6859e29c.html" data-xid="/archives/6859e29c.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span id="/archives/6859e29c.html" class="post-meta-item leancloud_visitors" data-flag-title="Pytorch学习笔记" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>科研所迫，开始入坑深度学习。<br>之前断断续续的学过一些，了解一些概念，但没怎么敲过代码，看源码笔记费劲，更别谈复现了<br>好友给我推荐了一个通俗易懂的pytorch教程，花了三天看了一遍，这个教程讲得真的很好，为小土堆点赞</p>
+<p>今后忘记了再去看一遍视频又十分耗时间，所以在此做一下学习笔记，一是加深印象，二是方便自己后面随时复习</p>
+<p><img data-src="https://s2.loli.net/2022/03/17/KmlhoFEewVQ8Ab3.png"></p>
+<span id="more"></span>
+
+<h1 id="cuda的安装检查"><a href="#cuda的安装检查" class="headerlink" title="cuda的安装检查"></a>cuda的安装检查</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.cuda.is_available()</span><br></pre></td></tr></table></figure>
+
+<p>返回Ture，即GPU可用</p>
+<p>返回Flase，即GPU不可用，需要去好好检查一下了。</p>
+<h1 id="Python两大法宝函数"><a href="#Python两大法宝函数" class="headerlink" title="Python两大法宝函数"></a>Python两大法宝函数</h1><p>以torch.cuda.is_available()这个函数为例</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">dir</span><span class="params">(torch.cuda.is_available)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>以列表的形式返回 torch.cuda.is_available 所有的子函数or方法，具体效果如图所示：</p>
+<img data-src="https://s2.loli.net/2022/03/17/Y6Rwh87aBV4GcNi.png" style="zoom:50%;" />
+
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.cuda.<span class="keyword">is</span><span class="number">_</span>available?? </span><br></pre></td></tr></table></figure>
+
+<p>在函数后加2个？，不要再加括号，即可返回该函数的具体用法，方便用户查看，具体效果如图所示：</p>
+<img data-src="https://s2.loli.net/2022/03/18/YNaCLUhJjuogxty.png" style="zoom: 50%;" />
+
+<h1 id="Pytorch加载数据"><a href="#Pytorch加载数据" class="headerlink" title="Pytorch加载数据"></a>Pytorch加载数据</h1><h2 id="Dataset-定义自己的数据类"><a href="#Dataset-定义自己的数据类" class="headerlink" title="Dataset 定义自己的数据类"></a>Dataset 定义自己的数据类</h2><p>torch.utils.data.Dataset 提供一种方式去获取数据及其label，方便用户去定义自己的数据类。在重写dataset抽象类的时候，需要定义<code>__getitem__和__len__</code>这个两个函数</p>
+<p><img data-src="https://s2.loli.net/2022/03/17/FbDdlzPN7wCRUSG.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> Dataset</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyData</span>(<span class="params">Dataset</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,root_dir,label_dir</span>):</span></span><br><span class="line">        <span class="comment">#  后面的变量都需要一开始在这初始化</span></span><br><span class="line">        self.root_dir = root_dir</span><br><span class="line">        self.label_dir = label_dir</span><br><span class="line">        self.path = os.path.join(self.root_dir,self.label_dir)</span><br><span class="line">        self.img_path = os.listdir(self.path)</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    <span class="comment">#  __getitem__ 是必须要的重写函数，不要写错了</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span>(<span class="params">self,index</span>):</span></span><br><span class="line">         img_name = self.img_path[index]</span><br><span class="line">         img_item_path = os.path.join(self.root_dir,self.label_dir,img_name)</span><br><span class="line">         img = Image.<span class="built_in">open</span>(img_item_path)</span><br><span class="line">         label = self.label_dir</span><br><span class="line">         <span class="comment"># 返回的是一个数组</span></span><br><span class="line">         <span class="keyword">return</span> img,label</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.img_path)</span><br><span class="line"></span><br><span class="line"><span class="comment"># r表示不转义(python基础)</span></span><br><span class="line">root_dir = <span class="string">r&quot;hymenoptera_data\train&quot;</span></span><br><span class="line">ants_label_dir = <span class="string">&quot;ants&quot;</span></span><br><span class="line">bees_label_dir = <span class="string">&quot;bees&quot;</span></span><br><span class="line">ants_dataset = MyData(root_dir,ants_label_dir)</span><br><span class="line">bees_dataset = MyData(root_dir,bees_label_dir)   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回的是一个数组，所以a = img ，b = label (python基础)</span></span><br><span class="line">a,b = bees_dataset[<span class="number">1</span>]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+
+<img data-src="https://s2.loli.net/2022/03/17/o9CavfKeWTLmjw2.png" style="zoom:67%;" />
+
+<h2 id="dataloader如何处理数据集中的数据"><a href="#dataloader如何处理数据集中的数据" class="headerlink" title="dataloader如何处理数据集中的数据"></a>dataloader如何处理数据集中的数据</h2><p>torch.utils.data.dataloader 官方文档解释为：</p>
+<p>Combines a dataset and a sampler, and provides an iterable over the given dataset.</p>
+<p>简而言之：在后面的步骤中，如何去处理数据集中的数据，常用的参数有</p>
+<ul>
+<li><p>dataset：需要加载的是数据集是哪个 dataset from which to load the data.</p>
+</li>
+<li><p>batch_size：一次要加载多少个数据 how many samples per batch to load，default: <code>1</code></p>
+</li>
+<li><p>shuffle：每轮加载是否打乱顺序，set to <code>True</code> to have the data reshuffled at every epoch (default: <code>False</code>).</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"></span><br><span class="line"><span class="comment">#加载内置的数据集</span></span><br><span class="line">test_set = torchvision.datasets.CIFAR10(root = <span class="string">&#x27;./CIFAR10&#x27;</span>,train = <span class="literal">False</span>,transform = trans_tensor ,download=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#在后面的步骤中如何去处理数据集的数据呢，每次去64个，每轮采用中不打乱</span></span><br><span class="line">test_loader = DataLoader(dataset = test_set, batch_size = <span class="number">64</span>, shuffle = <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> test_loader:</span><br><span class="line">    <span class="comment"># 一个data里有64个img，64个targets</span></span><br><span class="line">    imgs,targets = data</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(imgs.shape)</span><br><span class="line">    <span class="built_in">print</span>(targets)</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://s2.loli.net/2022/03/17/et4qQZK8rCEJfyI.png"></p>
+<p>可以看到，imgs.shape = [64, 3, 32, 32] ，64张照片，3个通道，32*32像素</p>
+<p>targets是一个64个数字的列表</p>
+<p>由此验证，一个data里有64个img，64个targets。</p>
+<h1 id="TensorBoard的使用"><a href="#TensorBoard的使用" class="headerlink" title="TensorBoard的使用"></a>TensorBoard的使用</h1><h2 id="what-is-TensorBoard"><a href="#what-is-TensorBoard" class="headerlink" title="what is TensorBoard"></a>what is TensorBoard</h2><p>对大部分人而言，深度神经网络就像一个黑盒子，其内部的组织、结构、以及其训练过程很难理清楚，这给深度神经网络原理的理解和工程化带来了很大的挑战。</p>
+<p>TensorBoard是tensorflow内置的一个可视化工具，现在在pytorch也可以使用，具体可以做：</p>
+<ul>
+<li>跟踪和可视化损失及准确率等指标</li>
+<li>可视化模型图（操作和层）</li>
+<li>查看权重、偏差或其他张量随时间变化的直方图</li>
+<li>将嵌入投射到较低的维度空间</li>
+<li>显示图片、文字和音频数据</li>
+<li>……</li>
+</ul>
+<h2 id="how-to-use-TensorBoard-in-pytorch"><a href="#how-to-use-TensorBoard-in-pytorch" class="headerlink" title="how to use TensorBoard in pytorch"></a>how to use TensorBoard in pytorch</h2><p>直接在代码里记录吧</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> torch.utils.tensorboard <span class="keyword">import</span> SummaryWriter</span><br><span class="line"></span><br><span class="line"><span class="comment"># 给本次的可视化结果命个名，运行代码之后会发现多一个logs文件夹</span></span><br><span class="line">writer = SummaryWriter(<span class="string">&quot;logs&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    <span class="comment"># 在可视化结果添加一个表格，表格名字为&quot;y=2x&quot;，纵坐标为2*i，横坐标为i</span></span><br><span class="line">    writer.add_scalar(<span class="string">&quot;y=2x&quot;</span>,<span class="number">2</span>*i,i)</span><br><span class="line"></span><br><span class="line">image_path = <span class="string">r&quot;hymenoptera_data\train\ants\0013035.jpg&quot;</span></span><br><span class="line">image = Image.<span class="built_in">open</span>(image_path)</span><br><span class="line"></span><br><span class="line">image_array = np.array(image)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在可视化结果添加一张照片，表格名字为&quot;y=2x&quot;，纵坐标为img_tensor ，横坐标为step第几步骤了</span></span><br><span class="line"><span class="comment"># If you have non-default dimension setting, set the dataformats argument.</span></span><br><span class="line">writer.add_image(<span class="string">&quot;TEST&quot;</span>,img_tensor = image_array,global_step  = <span class="number">1</span>,dataformats=(<span class="string">&quot;HW3&quot;</span>))</span><br><span class="line"></span><br><span class="line">writer.close()</span><br></pre></td></tr></table></figure>
+
+<img data-src="https://s2.loli.net/2022/03/17/KJQqxlf2yLpg7ER.png" style="zoom:80%;" />
+
+
+
+<p>我对TensorBoard的理解是一个嵌入式的强大Excel，方便我们对于训练过程的理解</p>
+<h1 id="transform的使用"><a href="#transform的使用" class="headerlink" title="transform的使用"></a>transform的使用</h1><p>torchvision.transforms是pytorch中的图像预处理包，包含了很多种对图像数据进行变换的函数</p>
+<p>就是将图像数据的格式做各种转化，满足后续的使用</p>
+<p>下面写一下常用的变换方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> transforms</span><br><span class="line"><span class="keyword">from</span> torch.utils.tensorboard <span class="keyword">import</span> SummaryWriter</span><br><span class="line"></span><br><span class="line">writer = SummaryWriter(<span class="string">&quot;logs&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载一张照片进来做测试</span></span><br><span class="line">image_path = <span class="string">r&quot;hymenoptera_data\train\ants\892108839_f1aad4ca46.jpg&quot;</span></span><br><span class="line">image = Image.<span class="built_in">open</span>(image_path)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ToTensor</span></span><br><span class="line"><span class="comment"># Convert a PIL Image or numpy.ndarray to tensor.</span></span><br><span class="line">trans_tensor = transforms.ToTensor()</span><br><span class="line">img_tensor = trans_tensor(image)</span><br><span class="line"></span><br><span class="line">writer.add_image(<span class="string">&quot;ToTensor&quot;</span>,img_tensor)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Normalize逐channel的对图像进行标准化（均值变为0，标准差变为1），可以加快模型的收敛</span></span><br><span class="line">trans_norm = transforms.Normalize([<span class="number">3</span>,<span class="number">4</span>,<span class="number">80</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">img_norm = trans_norm(img_tensor)</span><br><span class="line"></span><br><span class="line">writer.add_image(<span class="string">&quot;Normalize&quot;</span>,img_norm,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Resize</span></span><br><span class="line">trans_resize = transforms.Resize((<span class="number">512</span>,<span class="number">512</span>))</span><br><span class="line">img_resize = trans_resize(img_tensor)</span><br><span class="line"></span><br><span class="line">writer.add_image(<span class="string">&quot;Resize&quot;</span>,img_resize,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Compose 把多个transforms的功能按照列表集合到一起</span></span><br><span class="line">trans_resize_2 = transforms.Resize((<span class="number">1026</span>,<span class="number">512</span>))</span><br><span class="line">trans_compose = transforms.Compose([trans_resize_2,trans_tensor])</span><br><span class="line">img_resize_2 = trans_compose(image)</span><br><span class="line">writer.add_image(<span class="string">&quot;Compose&quot;</span>,img_resize_2,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># RandomCrop 随机裁剪，不按照比例进行缩放</span></span><br><span class="line">trans_RandomCrop = transforms.RandomCrop((<span class="number">300</span>))</span><br><span class="line">trans_compose_2 = transforms.Compose([trans_RandomCrop,trans_tensor])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    img_crop = trans_compose_2(image)</span><br><span class="line">    writer.add_image(<span class="string">&quot;RandomCrop&quot;</span>,img_crop,i)</span><br><span class="line"></span><br><span class="line">writer.close()</span><br></pre></td></tr></table></figure>
+
+<h1 id="数据集的使用"><a href="#数据集的使用" class="headerlink" title="数据集的使用"></a>数据集的使用</h1><p>pytorch提供了很多自带的开源数据集，我们只需要通过很简单的几行代码即可调用</p>
+<p>方便初期的学习使用，后期就需要构建自己的数据集</p>
+<p>影像数据集地址：<a target="_blank" rel="noopener" href="https://pytorch.org/vision/stable/datasets.html">https://pytorch.org/vision/stable/datasets.html</a></p>
+<p>CIFAR10论文地址：<a target="_blank" rel="noopener" href="https://www.cs.toronto.edu/~kriz/cifar.html">https://www.cs.toronto.edu/~kriz/cifar.html</a></p>
+<p>这里我们以CIFAR10为例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把我们加载进来的图片转变成tensor格式，方便后续处理</span></span><br><span class="line">trans_tensor = torchvision.transforms.ToTensor()</span><br><span class="line"></span><br><span class="line">train_set = torchvision.datasets.CIFAR10(root = <span class="string">&#x27;./CIFAR10&#x27;</span>,train = <span class="literal">True</span>,transform = trans_tensor ,download=<span class="literal">False</span>)</span><br><span class="line">test_set = torchvision.datasets.CIFAR10(root = <span class="string">&#x27;./CIFAR10&#x27;</span>,train = <span class="literal">False</span>,transform = trans_tensor ,download=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p>不同数据集参数的调用上会有一些差别，基本大同小异，这里以CIFAR10为例;</p>
+<p>root：数据集路径在哪</p>
+<p>train：这是数据集中的训练集吗</p>
+<p>transform：需要对数据集中的数据做哪些预处理吗，我这里的ToTensor就是变换张量处理</p>
+<p>download：是否需要从网络上下载该数据集，如果下载过慢可以自己去相应的下载地址里用IDM等工具主动下载</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>ych-ch
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ychch.top/archives/6859e29c.html" title="Pytorch学习笔记">https://ychch.top/archives/6859e29c.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/pytorch/" rel="tag"># pytorch</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/archives/e682c69c.html" rel="prev" title="工程案例2—文化遗产数字化保护思考">
+                  <i class="fa fa-chevron-left"></i> 工程案例2—文化遗产数字化保护思考
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/archives/6859e29c.html" rel="next" title="Pytorch学习笔记-2">
+                  Pytorch学习笔记-2 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-crow"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ych-ch</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">93k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:24</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        你是本站第<span id="busuanzi_value_site_uv"></span>位访客
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        本站已被浏览<span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="/lib/jquery/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="/lib/@fancyapps/fancybox/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="/lib/lozad/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="/lib/pangu/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://waline-comment-hoy3-17wrk4nkt-ych-chen.vercel.app/","placeholder":"雁过留痕,欢迎交流评论(●'◡'●)","avatar":"mm","pageSize":10,"visitor":true,"comment_count":true,"requiredFields":["nick"],"meta":["nick","mail","link"],"libUrl":"//cdn.jsdelivr.net/npm/@waline/client","el":"#waline-comments","path":"/archives/6859e29c.html"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() => 
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => {
+    new Waline(CONFIG.waline);
+  });
+});
+</script>
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":80},"mobile":{"show":true},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</html>
