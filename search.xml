@@ -799,7 +799,8 @@
   <entry>
     <title>前端基础</title>
     <url>/archives/3d3ed3e0.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><span id="more"></span>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>前端关注点：美观、功能、无障碍、性能、兼容、安全、用户体验</p>
+<span id="more"></span>
 <p>前端技术栈，html+css+JavaScript</p>
 <p>前端关注点：美观、功能、无障碍、性能、兼容、安全、用户体验</p>
 <p>html</p>
@@ -857,6 +858,10 @@
 <li>浮动</li>
 <li>绝对定位</li>
 </ul>
+<p>常规流 normal flow</p>
+<p>除了根元素、浮动和绝对定位元素不在，其他都在常规流之内</p>
+<p>行级排版上下文，Inline Formatting Context IFC，水平排版</p>
+<p>块级排版上下文，Block Formatting Context BFC</p>
 <p>flexible box</p>
 <ol>
 <li><p>display: flex 生成块级flex容器；display: inline-flex 生成行级flex容器；</p>
@@ -914,6 +919,28 @@
 <li>align-self，justify-self 控制单个元素的布局</li>
 <li>justify-content 控制水平方向 网格总体布局，align-content 控制垂直方向 网格总体布局</li>
 </ol>
+<p>浮动 float</p>
+<ol>
+<li>浮动元素脱离常规流，漂浮在容器左边或右边；</li>
+<li>浮动元素贴着容器边缘或其他浮动元素</li>
+<li>浮动元素不会影响常规流中的块级盒子</li>
+<li>浮动元素后面的行盒会变短以避开浮动元素</li>
+<li>clear 属性控制元素受不受浮动元素影响</li>
+</ol>
+<p>绝对定位 position</p>
+<ol>
+<li>position有四个取值：<ul>
+<li>static、默认值，非定位元素；</li>
+<li>relative、相对自身原本位置偏移，不脱离文档流；</li>
+<li>absolute，相对于最近的非static祖先进行绝对定位；</li>
+<li>fixed，相对于浏览器窗口的绝对定位</li>
+</ul>
+</li>
+<li>position：relative，使用top、left、bottom、right设置偏移长度，流内其他元素当它没有偏移一样进行布局，即使会有遮挡</li>
+<li>position：absolute，脱离常规流，不影响流内元素布局</li>
+<li>position：fixed，相对于窗口定位，不随页面滚动而变化，常用于导航栏</li>
+</ol>
+<p>堆叠层级</p>
 ]]></content>
   </entry>
   <entry>
