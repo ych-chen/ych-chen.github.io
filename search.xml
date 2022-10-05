@@ -1054,7 +1054,86 @@
 <li>同一个属性，后书写的值会覆盖前面书写的值</li>
 <li>对浏览器无效的属性会被忽略</li>
 </ol>
-<p>JavaScript基础</p>
+<h1 id="JavaScript基础"><a href="#JavaScript基础" class="headerlink" title="JavaScript基础"></a>JavaScript基础</h1><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="主流浏览器"><a href="#主流浏览器" class="headerlink" title="主流浏览器"></a>主流浏览器</h3><table>
+<thead>
+<tr>
+<th>5大主流浏览器</th>
+<th>内核</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IE</td>
+<td>trident</td>
+</tr>
+<tr>
+<td>chrome</td>
+<td>webkit blink</td>
+</tr>
+<tr>
+<td>safari</td>
+<td>webkit</td>
+</tr>
+<tr>
+<td>firefox</td>
+<td>gocko</td>
+</tr>
+<tr>
+<td>opera</td>
+<td>presto</td>
+</tr>
+</tbody></table>
+<h3 id="浏览器历史"><a href="#浏览器历史" class="headerlink" title="浏览器历史"></a>浏览器历史</h3><ol>
+<li><p>1990 蒂姆 伯纳斯 李 发明超文本</p>
+</li>
+<li><p>1993 伊利诺大学 MOSIAC 浏览器 可以显示图片</p>
+</li>
+<li><p>1994 网景公司 Netscape navigator </p>
+</li>
+<li><p>1996 </p>
+<ol>
+<li>微软收购 spy glass -&gt; IE1.0</li>
+<li>网景公司开发 livescript</li>
+<li>Java火起来，livescript不温不火，livescript改名为JavaScript</li>
+</ol>
+</li>
+<li><p>2001 IE6 XP诞生，出现 js 引擎</p>
+</li>
+<li><p>2003 mozilla公司 firefox -&gt; netscape</p>
+</li>
+<li><p>2008 google基于webkit blink gears 开发Chrome</p>
+<p>Chrome —&gt; V8引擎，速度非常快：</p>
+<ol>
+<li><p>直接翻译机器码</p>
+</li>
+<li><p>独立于浏览器运行</p>
+</li>
+</ol>
+<p>v8的诞生，直接催化了 nodejs的诞生</p>
+</li>
+<li><p>2009 甲骨文Oracle收购SUN，JS所有权给甲骨文</p>
+</li>
+</ol>
+<h3 id="ECMA"><a href="#ECMA" class="headerlink" title="ECMA"></a>ECMA</h3><p>ECMA， 欧洲计算机制造联合会，评估、开发计算机各项标准</p>
+<p>其中ECMA -262是脚本语言的规范，ECMAScript</p>
+<p>ES5，ES6都是从这里来的</p>
+<p><img data-src="https://s2.loli.net/2022/10/05/l7ODdjGAKrZ9Bct.png"></p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>JS引擎，是单线程，但是可以通过<strong>轮转时间片</strong>来模拟多线程</p>
+<p>动态语言 -&gt; 脚本语言 -&gt; 解释型语言 -&gt; 弱类型语言</p>
+<p>静态语言 -&gt; 编译型语言 -&gt; 强类型语言</p>
+<h4 id="五种基本类型，原始值"><a href="#五种基本类型，原始值" class="headerlink" title="五种基本类型，原始值"></a>五种基本类型，原始值</h4><p>Number、String、Boolean、undefined、null</p>
+<p>JS的Number包含了浮点和整数型这些，根据具体的值来分配具体的类型，即为<strong>弱类型语言</strong></p>
+<p>原始值初始化赋值是发生在栈内存stack中，实际内容确实存放在栈内存中</p>
+<h4 id="引用值"><a href="#引用值" class="headerlink" title="引用值"></a>引用值</h4><p>object、array、function、date、RegExp</p>
+<p>引用值初始化赋值发生在堆内存heap中，实际内存存放在堆内存中，但将内存地址存放在栈内存中</p>
+<h4 id="加减乘除"><a href="#加减乘除" class="headerlink" title="加减乘除"></a>加减乘除</h4><ul>
+<li><strong>任何数据类型</strong> + 字符串 都是字符串</li>
+<li>NaN，not a number 中文翻译非数，是一个数字类型，用于一些没有意义的情况</li>
+<li>&lt;   &gt;   &lt;=   &gt;=   ===   !=   !==<ul>
+<li><img data-src="https://s2.loli.net/2022/10/05/EjqZh1bA4NJ38GF.png"></li>
+</ul>
+</li>
+<li></li>
+</ul>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -3323,5 +3402,15 @@
       <categories>
         <category>前端</category>
       </categories>
+  </entry>
+  <entry>
+    <title>vite+vue3.0手册阅读</title>
+    <url>/archives/c8cb6815.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><span id="more"></span>
+<p>2.0 options API  转为  3.0 composition API</p>
+<p>hook -&gt; 组合起来</p>
+<p>watch、onmounted、computed都没有了，变成了一个个钩子hook</p>
+<p>watch -&gt; {watch} from ‘vue’</p>
+<h1 id="setup"><a href="#setup" class="headerlink" title="setup"></a>setup</h1>]]></content>
   </entry>
 </search>
