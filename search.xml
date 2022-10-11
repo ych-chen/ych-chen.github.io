@@ -49,105 +49,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Markdown基本语法</title>
-    <url>/archives/5d36ff15.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote><p>优雅地沉浸式记录，专注内容而不是纠结排版</p>
-</blockquote>
-
-<p>Markdown是一种轻量级标记语言，常用标记符号不到十个，用于日常写作记录十分方便,下面对于一些常用的markdown语法进行介绍…</p>
-<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/markdown.3uk7anieerg0.webp" alt="" style="zoom: 50%;" />
-
-<span id="more"></span>
-
-<h1 id="如何标题-amp-分段"><a href="#如何标题-amp-分段" class="headerlink" title="如何标题 &amp; 分段"></a>如何标题 &amp; 分段</h1><p>1个#是一级标题，2个#是二级标题，以此类推…<br>代码示例：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br></pre></td></tr></table></figure>
-<p>seems like：</p>
-
-
-<p>如果分段的话，使用空白行将需要分段的文本进行分隔即可~<br><strong>不要使用制表符tabs缩进段落，那是word用的</strong></p>
-<h1 id="如何强调"><a href="#如何强调" class="headerlink" title="如何强调"></a>如何强调</h1><p>通过设置特定的文本形式来强调其重要性</p>
-<h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h2><p>倾斜的文字左右1个*</p>
-<h2 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h2><p>加粗的文字左右2个*</p>
-<h2 id="倾斜加粗"><a href="#倾斜加粗" class="headerlink" title="倾斜加粗"></a>倾斜加粗</h2><p>倾斜并且加粗的文字左右3个*</p>
-<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><p>加删除线的文字左右2个~</p>
-<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="strong">*倾斜体*</span></span><br><span class="line"><span class="strong">**加粗体**</span></span><br><span class="line"><span class="strong">***倾斜且加粗**</span>*</span><br><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
-<p>seems like：</p>
-
-
-<h1 id="如何引用"><a href="#如何引用" class="headerlink" title="如何引用"></a>如何引用</h1><ol>
-<li>在需要的文字前添加一个&gt;符号</li>
-<li>引用可以嵌套，比如加&gt;&gt;,也可以加&gt;&gt;&gt;</li>
-<li>如果引用内有分段，在段落之间的空白行添加一个&gt;符号<br>引用内可以包含其他格式的元素，比如 -</li>
-</ol>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">&gt; 天青色等烟雨</span><br><span class="line">&gt;</span><br><span class="line">&gt; 而我在等你</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 翠烟袅袅升起</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 隔江千万里</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 如传世的青花瓷</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 自顾自美丽</span><br></pre></td></tr></table></figure>
-<p>seems like：</p>
-
-
-<h1 id="如何使用列表"><a href="#如何使用列表" class="headerlink" title="如何使用列表"></a>如何使用列表</h1><p>列表分为有序和无序两种</p>
-<h2 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h2><p>列表项前添加数字并紧跟1个<strong>英文</strong>句号，数字应当从1开始</p>
-<h2 id="无序"><a href="#无序" class="headerlink" title="无序"></a>无序</h2><p>在每个列表项前面添加破折号 (-)、星号 (*) 或加号 (+)，通过缩进可创建嵌套列表</p>
-<h2 id="嵌套其他元素"><a href="#嵌套其他元素" class="headerlink" title="嵌套其他元素"></a>嵌套其他元素</h2><p>在使用前缩进4个空格或者1个制表符（tab）</p>
-<h2 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h2><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="bullet">* </span>打开窗 最后望一望</span><br><span class="line"><span class="bullet">* </span>今夜的月亮要去的地方</span><br><span class="line"><span class="code">    留恋吗 所有的旧时光</span></span><br><span class="line"><span class="bullet">* </span>什么也挽不回 就留下吧</span><br><span class="line"><span class="code">    - 忘了吧伤心的那一天</span></span><br><span class="line"><span class="code">    - 孤单的邮差送来的那份悲哀</span></span><br><span class="line"><span class="code">    1. 忘了冷冷的大街上</span></span><br><span class="line"><span class="code">    2. 冷冷的人群丢失的岁月皑皑</span></span><br></pre></td></tr></table></figure>
-<p>seems like：</p>
-
-
-<h1 id="如何使用链接"><a href="#如何使用链接" class="headerlink" title="如何使用链接"></a>如何使用链接</h1><p><code>[超链接显示名](超链接地址 &quot;超链接title&quot;)</code><br>这里的title指的是 鼠标悬停在链接上时会出现的文字，是可选项，与地址之间以空格分隔<br>eg：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">[这是一个bing官网](https:<span class="regexp">//</span>www.bing.com <span class="string">&quot;bingbingbing&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.bing.com/" title="bingbingbing">这是一个bing官网</a></p>
-<p>也可以使用尖括号 将URL直接变成可点击的链接<br>eg：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">&lt;https:<span class="regexp">//</span>www.bing.com&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.bing.com/">https://www.bing.com</a></p>
-<h1 id="如何使用图片"><a href="#如何使用图片" class="headerlink" title="如何使用图片"></a>如何使用图片</h1><p><code>![图片alt](图片链接 &quot;图片title&quot;)</code></p>
-<ul>
-<li>图片alt：图片加载失败时你看到的东西</li>
-<li>图片链接: 图片链接</li>
-<li>图片title：鼠标悬停在图片上时会出现的文字</li>
-</ul>
-<p>eg:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">![markdown](https:<span class="comment">//cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/markdown.3uk7anieerg0.webp)</span></span><br></pre></td></tr></table></figure>
-<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/markdown.3uk7anieerg0.webp" alt="markdown" style="zoom:50%;" />
-
-<h1 id="几个注意项"><a href="#几个注意项" class="headerlink" title="几个注意项"></a>几个注意项</h1><ul>
-<li>以上格式语法之间基本上都是可以混用的，比如强调可以用在链接上，列表里也可以插入图片…随意DIY</li>
-<li>很多时候没有意料中的结果，都是因为在符号和文本之间少了一个空格</li>
-<li>hexo并不支持markdown格式的图片引用方法</li>
-<li>使用完列表后，记得空一行继续写作，不然下一行就归为列表下属内容了</li>
-<li>…</li>
-</ul>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="https://markdown.com.cn/">Markdown官方教程</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>hexo</category>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java字符串相等陷阱</title>
-    <url>/archives/2f6e7165.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>前两天在android开发中判断两个字符串相等的时候犯了个小错误，就是在判断两个相同字符串的变量的时候用的是==，但是结果一直返回的是false，折腾了好久，一百度才知道在Java中判断字符串内容相等需要用equals函数。<br>搜了搜其他的资料，做了一些总结拓展，内容如下：</p>
-<span id="more"></span>
-<h1 id="内容判断和地址判断"><a href="#内容判断和地址判断" class="headerlink" title="内容判断和地址判断"></a>内容判断和地址判断</h1><p>在Java中字符串的判断分为内容判断和地址判断</p>
-<ol>
-<li>内容判断<br>其实百分之九十九需要的都是内容上的判断相等与否，而且绝大部分错误也是在这~<br>内容上在用equals函数，即 s1.equals(s2)</li>
-<li>地址判断<br>地址判断指的是比较这两个字符串是否具有相同的地址；<br>一般来说，有相同的地址 内容上就肯定相同，<br>反之，内容上相同地址上不一定相同，这得具体看定义的是不是同一个对象<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String a = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">        String b = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">        <span class="keyword">boolean</span> c = (a == b);</span><br><span class="line">        System.out.println(c);</span><br><span class="line"></span><br><span class="line">        String d = <span class="keyword">new</span> String(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">        String e = <span class="keyword">new</span> String(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">        <span class="keyword">boolean</span> f = (d == e);</span><br><span class="line">        System.out.println(f);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行得到的结果是：<br>true<br>false</p>
-]]></content>
-      <categories>
-        <category>coding</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Nodejs基础知识</title>
     <url>/archives/af7d4850.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>此时不学 更待何时，不想毕业就失业的我  (っ °Д °;)っ</p>
@@ -479,73 +380,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Picx图床推荐</title>
-    <url>/archives/3eece56f.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>PicX 是一款基于 GitHub API &amp; jsDelivr 开发的具有 CDN 加速功能的图床管理工具<br>免费、稳定好用、不限容量不限速度，~~Picx谁用谁知道~~~</p>
-<p>因为不知名原因，PicX的压缩突然出了问题，这就严重影响了我的使用，问了开发者之后，他们说没有问题，however搞了半天还是没有搞定，就换了个平台，一下子入坑 PicGo+Typora，感觉比PicX 好用</p>
-<p>详情请转至：<a href="https://ychch.top/archives/f2a9bf9d.html">https://ychch.top/archives/f2a9bf9d.html</a></p>
-<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/Picx.7d9g65n3wt00.webp" alt="Picx" style="zoom: 50%;" />
-
-
-<span id="more"></span>
-
-<h1 id="何为图床"><a href="#何为图床" class="headerlink" title="何为图床"></a>何为图床</h1><p>图床就是在互联网中存储图片的空间，举个例子<br>QQ空间里的相册、微博里的相册其实都是一种形式的图床，当你将这些照片分享给好友时，你分享的是其实是一个独一无二的访问链接，这个链接指向的空间就是图床。<br>简而言之：</p>
-<blockquote>
-<p> 图床 = ( 图片 + 访问链接) 的集合</p>
-</blockquote>
-<h1 id="为什么需要图床"><a href="#为什么需要图床" class="headerlink" title="为什么需要图床"></a>为什么需要图床</h1><p>会接触到图床的人通常是一些网络上喜欢写博客的人，写博客时通常会采用markdown的格式去编辑文字。<br>markdown中添加图片通常是使用如下标签：</p>
-<blockquote>
-<p>! [图片名称] (图片链接地址)</p>
-</blockquote>
-<p>当你的文章发布到互联网中时，其他人如果也想看到这张图片，必须将图片放到互联网中云端存储，每张图片就会有独一无二的访问链接，当图片一多，就变成了图床。</p>
-<h1 id="使用图床中常见的问题"><a href="#使用图床中常见的问题" class="headerlink" title="使用图床中常见的问题"></a>使用图床中常见的问题</h1><p>市面上的图床主要分为免费和付费两种，收费的优点在于地址保持、独立域名、速度和稳定性上可以会好一点，免费的大部分都不太靠谱，有跑路的风险。<br>下面列举了使用图床中常见的问题</p>
-<ul>
-<li>hexo静态博客写文章，不知图片保存到哪里去…</li>
-<li>花钱租服务器托管图片，又贵又难配置…</li>
-<li>网上心仪图片的链接，用着用着某一天就失效了…</li>
-<li>市面上的大多数图床，付费、容量小、限时限流又限量，劝退一众博主…</li>
-<li>….</li>
-</ul>
-<p>Picx则兼顾了两种的优点，又免费又好用，配置起来也简单</p>
-<h1 id="Picx功能特性"><a href="#Picx功能特性" class="headerlink" title="Picx功能特性"></a>Picx功能特性</h1><p>PicX 是一款基于 GitHub API &amp; jsDelivr 开发的具有 CDN 加速功能的图床管理工具，免费、稳定好用、不限容量不限速度，非常好用</p>
-<ul>
-<li>支持github、CDN两种外链，国内国外访问都有保障</li>
-<li>支持拖拽、复制粘贴、选择文件等多种方式选择图片</li>
-<li>支持图片重命名、哈希化和设置命名前缀</li>
-<li>支持批量上传、删除和复制图片</li>
-<li>支持多级目录管理</li>
-<li>支持一键转化markdown格式外链</li>
-<li>支持图片压缩</li>
-</ul>
-<img data-src="https://s2.loli.net/2022/03/18/C89lR6MJwnbt2pi.png" style="zoom:80%;" />
-
-<p>……更多功能持续拓展中</p>
-<h1 id="目前不足的"><a href="#目前不足的" class="headerlink" title="目前不足的"></a>目前不足的</h1><ul>
-<li>不支持设置图片水印</li>
-<li><strong>不支持其他git厂商</strong>(gitee or coding)</li>
-</ul>
-<h1 id="Picx使用教程"><a href="#Picx使用教程" class="headerlink" title="Picx使用教程"></a>Picx使用教程</h1><p>Picx的使用非常简单，配置下来10分钟就搞定了，主要分为以下三步</p>
-<ol>
-<li>创建github仓库</li>
-<li>获取github token</li>
-<li>配置图床即可</li>
-</ol>
-<img data-src="https://s2.loli.net/2022/03/18/lzN14TSnAgOwqXe.png" style="zoom: 80%;" />
-
-<p>在这里就不赘述了，具体可见官方文档</p>
-<blockquote>
-<p><a href="https://picx-docs.xpoet.cn/tutorial/get-start.html">https://picx-docs.xpoet.cn/tutorial/get-start.html</a></p>
-</blockquote>
-<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p>-<a href="https://picx-docs.xpoet.cn/">picx官方文档</a><br>-<a href="https://opensourcelibs.com/lib/picx">https://opensourcelibs.com/lib/picx</a><br>-<a href="https://www.cnblogs.com/cs-markdown10086/p/15091673.html">https://www.cnblogs.com/cs-markdown10086/p/15091673.html</a></p>
-]]></content>
-      <categories>
-        <category>效率</category>
-      </categories>
-      <tags>
-        <tag>图床</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Pytorch学习笔记-2</title>
     <url>/archives/6859e29c.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>书接上回，继续做笔记</p>
@@ -723,10 +557,176 @@
       </tags>
   </entry>
   <entry>
+    <title>Markdown基本语法</title>
+    <url>/archives/5d36ff15.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote><p>优雅地沉浸式记录，专注内容而不是纠结排版</p>
+</blockquote>
+
+<p>Markdown是一种轻量级标记语言，常用标记符号不到十个，用于日常写作记录十分方便,下面对于一些常用的markdown语法进行介绍…</p>
+<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/markdown.3uk7anieerg0.webp" alt="" style="zoom: 50%;" />
+
+<span id="more"></span>
+
+<h1 id="如何标题-amp-分段"><a href="#如何标题-amp-分段" class="headerlink" title="如何标题 &amp; 分段"></a>如何标题 &amp; 分段</h1><p>1个#是一级标题，2个#是二级标题，以此类推…<br>代码示例：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br></pre></td></tr></table></figure>
+<p>seems like：</p>
+
+
+<p>如果分段的话，使用空白行将需要分段的文本进行分隔即可~<br><strong>不要使用制表符tabs缩进段落，那是word用的</strong></p>
+<h1 id="如何强调"><a href="#如何强调" class="headerlink" title="如何强调"></a>如何强调</h1><p>通过设置特定的文本形式来强调其重要性</p>
+<h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h2><p>倾斜的文字左右1个*</p>
+<h2 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h2><p>加粗的文字左右2个*</p>
+<h2 id="倾斜加粗"><a href="#倾斜加粗" class="headerlink" title="倾斜加粗"></a>倾斜加粗</h2><p>倾斜并且加粗的文字左右3个*</p>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><p>加删除线的文字左右2个~</p>
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="strong">*倾斜体*</span></span><br><span class="line"><span class="strong">**加粗体**</span></span><br><span class="line"><span class="strong">***倾斜且加粗**</span>*</span><br><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
+<p>seems like：</p>
+
+
+<h1 id="如何引用"><a href="#如何引用" class="headerlink" title="如何引用"></a>如何引用</h1><ol>
+<li>在需要的文字前添加一个&gt;符号</li>
+<li>引用可以嵌套，比如加&gt;&gt;,也可以加&gt;&gt;&gt;</li>
+<li>如果引用内有分段，在段落之间的空白行添加一个&gt;符号<br>引用内可以包含其他格式的元素，比如 -</li>
+</ol>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">&gt; 天青色等烟雨</span><br><span class="line">&gt;</span><br><span class="line">&gt; 而我在等你</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 翠烟袅袅升起</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 隔江千万里</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 如传世的青花瓷</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 自顾自美丽</span><br></pre></td></tr></table></figure>
+<p>seems like：</p>
+
+
+<h1 id="如何使用列表"><a href="#如何使用列表" class="headerlink" title="如何使用列表"></a>如何使用列表</h1><p>列表分为有序和无序两种</p>
+<h2 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h2><p>列表项前添加数字并紧跟1个<strong>英文</strong>句号，数字应当从1开始</p>
+<h2 id="无序"><a href="#无序" class="headerlink" title="无序"></a>无序</h2><p>在每个列表项前面添加破折号 (-)、星号 (*) 或加号 (+)，通过缩进可创建嵌套列表</p>
+<h2 id="嵌套其他元素"><a href="#嵌套其他元素" class="headerlink" title="嵌套其他元素"></a>嵌套其他元素</h2><p>在使用前缩进4个空格或者1个制表符（tab）</p>
+<h2 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h2><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="bullet">* </span>打开窗 最后望一望</span><br><span class="line"><span class="bullet">* </span>今夜的月亮要去的地方</span><br><span class="line"><span class="code">    留恋吗 所有的旧时光</span></span><br><span class="line"><span class="bullet">* </span>什么也挽不回 就留下吧</span><br><span class="line"><span class="code">    - 忘了吧伤心的那一天</span></span><br><span class="line"><span class="code">    - 孤单的邮差送来的那份悲哀</span></span><br><span class="line"><span class="code">    1. 忘了冷冷的大街上</span></span><br><span class="line"><span class="code">    2. 冷冷的人群丢失的岁月皑皑</span></span><br></pre></td></tr></table></figure>
+<p>seems like：</p>
+
+
+<h1 id="如何使用链接"><a href="#如何使用链接" class="headerlink" title="如何使用链接"></a>如何使用链接</h1><p><code>[超链接显示名](超链接地址 &quot;超链接title&quot;)</code><br>这里的title指的是 鼠标悬停在链接上时会出现的文字，是可选项，与地址之间以空格分隔<br>eg：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">[这是一个bing官网](https:<span class="regexp">//</span>www.bing.com <span class="string">&quot;bingbingbing&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.bing.com/" title="bingbingbing">这是一个bing官网</a></p>
+<p>也可以使用尖括号 将URL直接变成可点击的链接<br>eg：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">&lt;https:<span class="regexp">//</span>www.bing.com&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.bing.com/">https://www.bing.com</a></p>
+<h1 id="如何使用图片"><a href="#如何使用图片" class="headerlink" title="如何使用图片"></a>如何使用图片</h1><p><code>![图片alt](图片链接 &quot;图片title&quot;)</code></p>
+<ul>
+<li>图片alt：图片加载失败时你看到的东西</li>
+<li>图片链接: 图片链接</li>
+<li>图片title：鼠标悬停在图片上时会出现的文字</li>
+</ul>
+<p>eg:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">![markdown](https:<span class="comment">//cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/markdown.3uk7anieerg0.webp)</span></span><br></pre></td></tr></table></figure>
+<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/markdown.3uk7anieerg0.webp" alt="markdown" style="zoom:50%;" />
+
+<h1 id="几个注意项"><a href="#几个注意项" class="headerlink" title="几个注意项"></a>几个注意项</h1><ul>
+<li>以上格式语法之间基本上都是可以混用的，比如强调可以用在链接上，列表里也可以插入图片…随意DIY</li>
+<li>很多时候没有意料中的结果，都是因为在符号和文本之间少了一个空格</li>
+<li>hexo并不支持markdown格式的图片引用方法</li>
+<li>使用完列表后，记得空一行继续写作，不然下一行就归为列表下属内容了</li>
+<li>…</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://markdown.com.cn/">Markdown官方教程</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Pytorch学习笔记-3</title>
     <url>/archives/4dd3071d.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><span id="more"></span>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Java字符串相等陷阱</title>
+    <url>/archives/2f6e7165.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>前两天在android开发中判断两个字符串相等的时候犯了个小错误，就是在判断两个相同字符串的变量的时候用的是==，但是结果一直返回的是false，折腾了好久，一百度才知道在Java中判断字符串内容相等需要用equals函数。<br>搜了搜其他的资料，做了一些总结拓展，内容如下：</p>
+<span id="more"></span>
+<h1 id="内容判断和地址判断"><a href="#内容判断和地址判断" class="headerlink" title="内容判断和地址判断"></a>内容判断和地址判断</h1><p>在Java中字符串的判断分为内容判断和地址判断</p>
+<ol>
+<li>内容判断<br>其实百分之九十九需要的都是内容上的判断相等与否，而且绝大部分错误也是在这~<br>内容上在用equals函数，即 s1.equals(s2)</li>
+<li>地址判断<br>地址判断指的是比较这两个字符串是否具有相同的地址；<br>一般来说，有相同的地址 内容上就肯定相同，<br>反之，内容上相同地址上不一定相同，这得具体看定义的是不是同一个对象<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String a = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">        String b = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">        <span class="keyword">boolean</span> c = (a == b);</span><br><span class="line">        System.out.println(c);</span><br><span class="line"></span><br><span class="line">        String d = <span class="keyword">new</span> String(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">        String e = <span class="keyword">new</span> String(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">        <span class="keyword">boolean</span> f = (d == e);</span><br><span class="line">        System.out.println(f);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行得到的结果是：<br>true<br>false</p>
+]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Picx图床推荐</title>
+    <url>/archives/3eece56f.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>PicX 是一款基于 GitHub API &amp; jsDelivr 开发的具有 CDN 加速功能的图床管理工具<br>免费、稳定好用、不限容量不限速度，~~Picx谁用谁知道~~~</p>
+<p>因为不知名原因，PicX的压缩突然出了问题，这就严重影响了我的使用，问了开发者之后，他们说没有问题，however搞了半天还是没有搞定，就换了个平台，一下子入坑 PicGo+Typora，感觉比PicX 好用</p>
+<p>详情请转至：<a href="https://ychch.top/archives/f2a9bf9d.html">https://ychch.top/archives/f2a9bf9d.html</a></p>
+<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/Picx.7d9g65n3wt00.webp" alt="Picx" style="zoom: 50%;" />
+
+
+<span id="more"></span>
+
+<h1 id="何为图床"><a href="#何为图床" class="headerlink" title="何为图床"></a>何为图床</h1><p>图床就是在互联网中存储图片的空间，举个例子<br>QQ空间里的相册、微博里的相册其实都是一种形式的图床，当你将这些照片分享给好友时，你分享的是其实是一个独一无二的访问链接，这个链接指向的空间就是图床。<br>简而言之：</p>
+<blockquote>
+<p> 图床 = ( 图片 + 访问链接) 的集合</p>
+</blockquote>
+<h1 id="为什么需要图床"><a href="#为什么需要图床" class="headerlink" title="为什么需要图床"></a>为什么需要图床</h1><p>会接触到图床的人通常是一些网络上喜欢写博客的人，写博客时通常会采用markdown的格式去编辑文字。<br>markdown中添加图片通常是使用如下标签：</p>
+<blockquote>
+<p>! [图片名称] (图片链接地址)</p>
+</blockquote>
+<p>当你的文章发布到互联网中时，其他人如果也想看到这张图片，必须将图片放到互联网中云端存储，每张图片就会有独一无二的访问链接，当图片一多，就变成了图床。</p>
+<h1 id="使用图床中常见的问题"><a href="#使用图床中常见的问题" class="headerlink" title="使用图床中常见的问题"></a>使用图床中常见的问题</h1><p>市面上的图床主要分为免费和付费两种，收费的优点在于地址保持、独立域名、速度和稳定性上可以会好一点，免费的大部分都不太靠谱，有跑路的风险。<br>下面列举了使用图床中常见的问题</p>
+<ul>
+<li>hexo静态博客写文章，不知图片保存到哪里去…</li>
+<li>花钱租服务器托管图片，又贵又难配置…</li>
+<li>网上心仪图片的链接，用着用着某一天就失效了…</li>
+<li>市面上的大多数图床，付费、容量小、限时限流又限量，劝退一众博主…</li>
+<li>….</li>
+</ul>
+<p>Picx则兼顾了两种的优点，又免费又好用，配置起来也简单</p>
+<h1 id="Picx功能特性"><a href="#Picx功能特性" class="headerlink" title="Picx功能特性"></a>Picx功能特性</h1><p>PicX 是一款基于 GitHub API &amp; jsDelivr 开发的具有 CDN 加速功能的图床管理工具，免费、稳定好用、不限容量不限速度，非常好用</p>
+<ul>
+<li>支持github、CDN两种外链，国内国外访问都有保障</li>
+<li>支持拖拽、复制粘贴、选择文件等多种方式选择图片</li>
+<li>支持图片重命名、哈希化和设置命名前缀</li>
+<li>支持批量上传、删除和复制图片</li>
+<li>支持多级目录管理</li>
+<li>支持一键转化markdown格式外链</li>
+<li>支持图片压缩</li>
+</ul>
+<img data-src="https://s2.loli.net/2022/03/18/C89lR6MJwnbt2pi.png" style="zoom:80%;" />
+
+<p>……更多功能持续拓展中</p>
+<h1 id="目前不足的"><a href="#目前不足的" class="headerlink" title="目前不足的"></a>目前不足的</h1><ul>
+<li>不支持设置图片水印</li>
+<li><strong>不支持其他git厂商</strong>(gitee or coding)</li>
+</ul>
+<h1 id="Picx使用教程"><a href="#Picx使用教程" class="headerlink" title="Picx使用教程"></a>Picx使用教程</h1><p>Picx的使用非常简单，配置下来10分钟就搞定了，主要分为以下三步</p>
+<ol>
+<li>创建github仓库</li>
+<li>获取github token</li>
+<li>配置图床即可</li>
+</ol>
+<img data-src="https://s2.loli.net/2022/03/18/lzN14TSnAgOwqXe.png" style="zoom: 80%;" />
+
+<p>在这里就不赘述了，具体可见官方文档</p>
+<blockquote>
+<p><a href="https://picx-docs.xpoet.cn/tutorial/get-start.html">https://picx-docs.xpoet.cn/tutorial/get-start.html</a></p>
+</blockquote>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p>-<a href="https://picx-docs.xpoet.cn/">picx官方文档</a><br>-<a href="https://opensourcelibs.com/lib/picx">https://opensourcelibs.com/lib/picx</a><br>-<a href="https://www.cnblogs.com/cs-markdown10086/p/15091673.html">https://www.cnblogs.com/cs-markdown10086/p/15091673.html</a></p>
+]]></content>
+      <categories>
+        <category>效率</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+      </tags>
   </entry>
   <entry>
     <title>Pytorch学习笔记</title>
@@ -815,197 +815,6 @@
       </categories>
       <tags>
         <tag>pytorch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Pytorch学习笔记2</title>
-    <url>/archives/e3043880.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>书接上回，继续做笔记</p>
-<p><img data-src="https://s2.loli.net/2022/03/17/KmlhoFEewVQ8Ab3.png"></p>
-<span id="more"></span>
-
-<h1 id="神经网络的搭建"><a href="#神经网络的搭建" class="headerlink" title="神经网络的搭建"></a>神经网络的搭建</h1><p>可以把以下代码当成个模板，有什么内容在里面填充即可</p>
-<p>以下只涉及了<strong>前向反馈</strong>，是最简单的模板</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"></span><br><span class="line"><span class="comment"># nn.Module：Base class for all neural network modules.</span></span><br><span class="line"><span class="comment"># 所有的模型都必须继承这个类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Module</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 所有的模型都必须继承这个类</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self,<span class="built_in">input</span></span>):</span></span><br><span class="line">        <span class="comment"># 把输入的加个1再返回出去</span></span><br><span class="line">        output = <span class="built_in">input</span>+<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化这个类</span></span><br><span class="line">module = Module()</span><br><span class="line">x = torch.tensor(<span class="number">1.0</span>)</span><br><span class="line">y = module(x)</span><br><span class="line"><span class="built_in">print</span>(y)</span><br></pre></td></tr></table></figure>
-
-<p>下面一一往框架里填充内容，让我们的神经网络丰富起来~</p>
-<h1 id="卷积层的使用"><a href="#卷积层的使用" class="headerlink" title="卷积层的使用"></a><strong>卷积层的使用</strong></h1><h2 id="如何去理解卷积层"><a href="#如何去理解卷积层" class="headerlink" title="如何去理解卷积层"></a>如何去理解卷积层</h2><p>学过数字图像处理应该就很好理解这个概念，就是拿一个模板去遍历图像里的栅格，得到一个处理过的新图像。</p>
-<p>更为详细的理解就不赘述了，在网上有很多很好的视频教程。</p>
-<ul>
-<li><p><a href="https://pytorch.org/docs/stable/nn.html#convolution-layers">https://pytorch.org/docs/stable/nn.html#convolution-layers</a></p>
-</li>
-<li><p><a href="https://www.bilibili.com/video/BV1hE411t7RN?p=17">https://www.bilibili.com/video/BV1hE411t7RN?p=17</a></p>
-</li>
-</ul>
-<p>我们在官方文档的介绍里看到有很多种卷积层结构，1d即为一维卷积核，2d即为二维卷积核，我们以最常用的二维卷积核为代码实例</p>
-<img data-src="https://s2.loli.net/2022/03/17/1jPUzN5esZ4J2Sv.png" style="zoom: 50%;" />
-
-<h2 id="如何去使用卷积层"><a href="#如何去使用卷积层" class="headerlink" title="如何去使用卷积层"></a>如何去使用卷积层</h2><p>结合上文里学到的知识点做一次代码实操记录</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.nn <span class="keyword">import</span> Conv2d</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"></span><br><span class="line"><span class="comment"># 引入数据集</span></span><br><span class="line">dataset = torchvision.datasets.CIFAR10(root = <span class="string">&#x27;./CIFAR10&#x27;</span>,train = <span class="literal">False</span>,transform = torchvision.transforms.ToTensor() ,download=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 每次中数据集中取64张照片</span></span><br><span class="line">dataloader = DataLoader(dataset=dataset ,batch_size  = <span class="number">64</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Module</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="comment"># 先在__init__定义好conv1之后才可以在后续中调用</span></span><br><span class="line">        <span class="comment"># Conv2d参数含义往下看</span></span><br><span class="line">        self.conv1 = Conv2d(in_channels=<span class="number">3</span>, out_channels=<span class="number">6</span>, kernel_size = <span class="number">3</span>, stride=<span class="number">1</span>, padding=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self,x</span>):</span></span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">module = Module()</span><br><span class="line">writer = SummaryWriter(<span class="string">&#x27;CIFAR10&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> dataloader:</span><br><span class="line">    imgs,targets = data</span><br><span class="line">    <span class="built_in">input</span> = imgs</span><br><span class="line">    output = module(imgs)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># torch.size([64,3,32,32])</span></span><br><span class="line">    writer.add_images(<span class="string">&quot;Conv2d&quot;</span>,<span class="built_in">input</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># torch.size([64,6,30,30]) -&gt; [-1,3,30,30]</span></span><br><span class="line">    <span class="comment"># add_images不支持加载6通道的Tensor，所以需要做一下reshape，reshape之后变成了[128,3,30,30]</span></span><br><span class="line">    <span class="comment"># -1的意思是 这个位置的大小自动计算出</span></span><br><span class="line">    output = torch.reshape(output,(-<span class="number">1</span>,<span class="number">3</span>,<span class="number">32</span>,<span class="number">32</span>))</span><br><span class="line">    writer.add_images(<span class="string">&quot;Conv2d&quot;</span>,output,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    step += <span class="number">1</span></span><br><span class="line">writer.close()</span><br></pre></td></tr></table></figure>
-
-<p>Conv2d具体参数含义：</p>
-<ul>
-<li>in_channels：输入通道数，一般照片都是3，在遥感影像里就要多注意</li>
-<li>out_channels：卷积后的通道数</li>
-<li>kernel_size：卷积核的长*宽，kernel_size = 3 即 3*3的卷积核</li>
-<li>stride：卷积核每次<strong>移动的格数</strong>，默认都是1</li>
-<li>padding：边缘填充格数，这决定了输入的图像尺寸大小，<strong>这个参数由卷积核的大小和输入图像尺寸决定</strong>，画图一看就很好理解，不要去背公式！</li>
-</ul>
-<p>result：</p>
-<p>这里明显可以看出，输入的图像是64张，输入变成了128张</p>
-<p>卷积之后的图片也变得面目全非~这就算是一次特征变换吧</p>
-<img data-src="https://s2.loli.net/2022/03/17/YIEdVKMT5pNOLJX.png" style="zoom:50%;" />
-
-<h1 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h1><h2 id="如何去理解池化层"><a href="#如何去理解池化层" class="headerlink" title="如何去理解池化层"></a>如何去理解池化层</h2><p>池化层一般来说就是降采样。有很多种池化方式，最常见的是最大池化</p>
-<ul>
-<li><a href="https://www.bilibili.com/video/BV1hE411t7RN?p=19">https://www.bilibili.com/video/BV1hE411t7RN?p=19</a></li>
-<li><a href="https://pytorch.org/docs/stable/nn.html#pooling-layers">https://pytorch.org/docs/stable/nn.html#pooling-layers</a></li>
-</ul>
-<p>以最大池化为例：将输入的图像划分为若干个矩形区域，对每个子区域输出最大值，如下图所示</p>
-<img data-src="https://s2.loli.net/2022/03/17/8rD7cqdtwLiFTJR.png" style="zoom: 80%;" />
-
-<p>从上面的例子可以看出，池化层的引入明显就是一种对于数据的压缩，为什么要引入池化层呢</p>
-<ul>
-<li><strong>降维、去除冗余信息、对特征进行压缩、简化网络复杂度</strong></li>
-<li><strong>在一定程度上也控制了过拟合</strong></li>
-</ul>
-<h2 id="如何去使用池化层"><a href="#如何去使用池化层" class="headerlink" title="如何去使用池化层"></a>如何去使用池化层</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.nn <span class="keyword">import</span> MaxPool2d</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"></span><br><span class="line">dataset = torchvision.datasets.CIFAR10(root = <span class="string">&#x27;./CIFAR10&#x27;</span>,train = <span class="literal">False</span>,transform = torchvision.transforms.ToTensor() ,download=<span class="literal">False</span>)</span><br><span class="line">dataloader = DataLoader(dataset=dataset ,batch_size  = <span class="number">64</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Module</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="comment"># 在__init__定义好MaxPool2d</span></span><br><span class="line">        <span class="comment"># 参数见下</span></span><br><span class="line">        self.maxP2d = MaxPool2d(kernel_size = <span class="number">2</span>, stride= <span class="number">2</span>, padding=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self,x</span>):</span></span><br><span class="line">        x = self.maxP2d(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">module = Module()</span><br><span class="line">writer = SummaryWriter(<span class="string">&#x27;CIFAR10&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> dataloader:</span><br><span class="line">    imgs,targets = data</span><br><span class="line">    <span class="built_in">input</span> = imgs</span><br><span class="line">    output = module(imgs)</span><br><span class="line">    <span class="comment"># torch.size([64,3,32,32])</span></span><br><span class="line">    writer.add_images(<span class="string">&quot;maxpool&quot;</span>,<span class="built_in">input</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># torch.size([64,3,16,16]) </span></span><br><span class="line">    writer.add_images(<span class="string">&quot;maxpool&quot;</span>,output,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">writer.close()</span><br></pre></td></tr></table></figure>
-
-<p>MaxPool2d具体参数含义：基本和卷积层很像</p>
-<ul>
-<li>kernel_size：层化核的长*宽，kernel_size =2 即 3*3的层化核</li>
-<li>stride：层化核每次<strong>移动的格数</strong></li>
-<li>padding：边缘填充格数，这决定了输入的图像尺寸大小，<strong>这个参数由卷积核的大小和输入图像尺寸决定</strong>，画图一看就很好理解，不要去背公式！</li>
-</ul>
-<p>图像池化之后很明显的变模糊了，因为像素格数发生了变化  [3,32,32] –&gt; [3,16,16]</p>
-<p><img data-src="https://s2.loli.net/2022/03/17/csja6AeYC4nDMxB.png"></p>
-<h1 id="非线性激活"><a href="#非线性激活" class="headerlink" title="非线性激活"></a>非线性激活</h1><h2 id="什么是非线性激活"><a href="#什么是非线性激活" class="headerlink" title="什么是非线性激活"></a>什么是非线性激活</h2><p>就是引入激活函数，使得神经网络有拟合非线性函数的能力，这样就可以任意逼近任何非线性函数，从而应用到众多的非线性模型中。</p>
-<h2 id="常见的激活函数"><a href="#常见的激活函数" class="headerlink" title="常见的激活函数"></a>常见的激活函数</h2><p>先列着，以后深刻理解了各自的应用场景之后再来补充</p>
-<h3 id="Sigmoid激活函数"><a href="#Sigmoid激活函数" class="headerlink" title="Sigmoid激活函数"></a>Sigmoid激活函数</h3><img data-src="https://pic4.zhimg.com/80/v2-eadc7f0dac07fe2d5f45c1e409694b13_720w.jpg" style="zoom:50%;" />
-
-<p>函数式： <img data-src="https://www.zhihu.com/equation?tex=f(x)=%5Csigma=%5Cfrac%7B1%7D%7B1+e%5E%7B-x%7D%7D"><br>导数式： <img data-src="https://www.zhihu.com/equation?tex=f%5E%7B%27%7D(x)=%5Csigma(1-%5Csigma)"></p>
-<p>值域：（0，1)</p>
-<h3 id="ReLU激活函数"><a href="#ReLU激活函数" class="headerlink" title="ReLU激活函数"></a>ReLU激活函数</h3><p>ReLU又叫“修正线性单元”，或者“线性整流函数”。</p>
-<img data-src="https://pic4.zhimg.com/80/v2-e4618f7c8ba93dd4b7f7ac684f7cb5f3_720w.jpg" style="zoom: 67%;" />
-
-<p>函数式： <img data-src="https://www.zhihu.com/equation?tex=f(x)=max(0,x)" alt="[公式]"><br>导数式： <img data-src="https://www.zhihu.com/equation?tex=f%5E%7B%27%7D(x)+=++%5Cbegin%7Bcases%7D+++++1+&+%5Ctext%7B(x%3E=0)%7D++%5C%5C++++0+++++++&+%5Ctext%7B(x%3C0)%7D++%5Cend%7Bcases%7D%5C%5C" alt="[公式]"><br>值域：[0，+∞)</p>
-<h2 id="激活函数的使用"><a href="#激活函数的使用" class="headerlink" title="激活函数的使用"></a>激活函数的使用</h2><p>就不重复写一大堆了</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Module</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="comment"># 先声明好</span></span><br><span class="line">        self.ReLU = ReLU(<span class="literal">False</span>)</span><br><span class="line">        self.Sigmoid = Sigmoid()</span><br><span class="line"> 	<span class="comment"># 再调用</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self,x</span>):</span></span><br><span class="line">        x = self.Sigmoid(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
-
-<p>这里我们用的是Sigmoid，看值域压缩到（0,1），看一下对比结果</p>
-<p>可以发现压缩之后就仿佛蒙上了<strong>一层蒙版</strong>，雾里看图的感觉</p>
-<img data-src="https://s2.loli.net/2022/03/17/nWH7OiTbvw6xMRV.png" alt="image-20220317230130950" style="zoom:67%;" />
-
-<h1 id="线性层"><a href="#线性层" class="headerlink" title="线性层"></a>线性层</h1><p>线性层又称为全连接层，其每个神经元与上一个层所有神经元相连，实现对前一层的线性组合或线性变换</p>
-<p>我对线程层的理解就是最后的分类，<em>不知道对不对</em></p>
-<p>让我们简单看个例子</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.nn <span class="keyword">import</span> Linear</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"></span><br><span class="line">dataset = torchvision.datasets.CIFAR10(root = <span class="string">&#x27;./CIFAR10&#x27;</span>,train = <span class="literal">False</span>,transform = torchvision.transforms.ToTensor() ,download=<span class="literal">False</span>)</span><br><span class="line">dataloader = DataLoader(dataset=dataset ,batch_size  = <span class="number">64</span>,drop_last =<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Module</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="comment"># 定义线性层</span></span><br><span class="line">        self.Linear = Linear(<span class="number">196608</span>,<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self,x</span>):</span></span><br><span class="line">        x = self.Linear(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">module = Module()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> dataloader:</span><br><span class="line">    imgs,targets = data</span><br><span class="line"></span><br><span class="line">    <span class="comment"># torch.size([64,3,32,32])</span></span><br><span class="line">    <span class="built_in">input</span> = imgs</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">input</span>.shape)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># torch.size([196608])</span></span><br><span class="line">    output = torch.flatten(imgs)</span><br><span class="line">    <span class="built_in">print</span>(output.shape)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># torch.size([10])</span></span><br><span class="line">    output1 = module(output)</span><br><span class="line">    <span class="built_in">print</span>(output1.shape)</span><br><span class="line"></span><br><span class="line">writer.close()</span><br></pre></td></tr></table></figure>
-
-<p>Linear(196608,10) 第一个参数196608是由输入图像的特征所得到的</p>
-<p>即 <strong>64,3,32,32</strong> 四个数相乘 = 196608，</p>
-<p>为什么要 在module(output)之前 加一个flatten呢？就是对高维张量tensor做一个压缩，这样才能满足Linear的参数格式</p>
-<p>Linear的用法很直接，最终打印的tensor.shape也和我们预想的一样</p>
-<p><img data-src="https://s2.loli.net/2022/03/17/xQhGsE6lkrDnKJf.png"></p>
-<h1 id="Sequential"><a href="#Sequential" class="headerlink" title="Sequential"></a>Sequential</h1><p>Sequential就是一种简化表达</p>
-<p>如果你的模型很复杂，有很多中间层，没有Sequential，写起来可能就是这样</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Module</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.conv1 = Conv2d(in_channels = <span class="number">3</span>,out_channels= <span class="number">32</span>,kernel_size= <span class="number">5</span>,padding=<span class="number">2</span>)</span><br><span class="line">        self.maxpool1 = MaxPool2d(<span class="number">2</span>)</span><br><span class="line">        self.conv2 = Conv2d(in_channels = <span class="number">32</span>,out_channels= <span class="number">32</span>,kernel_size= <span class="number">5</span>,padding=<span class="number">2</span>)</span><br><span class="line">        self.maxpool2 = MaxPool2d(<span class="number">2</span>)</span><br><span class="line">        self.conv3 = Conv2d(in_channels = <span class="number">32</span>,out_channels= <span class="number">64</span>,kernel_size= <span class="number">5</span>,padding=<span class="number">2</span>) </span><br><span class="line">        self.maxpool3 = MaxPool2d(<span class="number">2</span>)</span><br><span class="line">        self.flatten = Flatten()</span><br><span class="line">        self.Linear1 = Linear(<span class="number">1024</span>,<span class="number">64</span>)</span><br><span class="line">        self.Linear2 = Linear(<span class="number">64</span>,<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<p>有了Sequential，写起来就是这样：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Module</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line"></span><br><span class="line">        self.model1 = Sequential(</span><br><span class="line">            Conv2d(in_channels = <span class="number">3</span>,out_channels= <span class="number">32</span>,kernel_size= <span class="number">5</span>,padding=<span class="number">2</span>),</span><br><span class="line">            MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            Conv2d(in_channels = <span class="number">32</span>,out_channels= <span class="number">32</span>,kernel_size= <span class="number">5</span>,padding=<span class="number">2</span>),</span><br><span class="line">            MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            Conv2d(in_channels = <span class="number">32</span>,out_channels= <span class="number">64</span>,kernel_size= <span class="number">5</span>,padding=<span class="number">2</span>) ,</span><br><span class="line">            MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            Flatten(),</span><br><span class="line">            Linear(<span class="number">1024</span>,<span class="number">64</span>),</span><br><span class="line">            Linear(<span class="number">64</span>,<span class="number">10</span>)</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
-
-<p>代码的简洁明了很重要</p>
-<h1 id="损失函数-amp-反向传播"><a href="#损失函数-amp-反向传播" class="headerlink" title="损失函数 &amp; 反向传播"></a>损失函数 &amp; 反向传播</h1><h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><p>神经网络的训练过程一般来说就是 在已经x和y（又称标签）的训练集中，输入一个值（x)，通过一连串的网络结构(前向反馈)之后得到 预测的一个值（y’)，计算y‘和y的差距（损失函数），将这个差距反馈给网络（反向传播），以此来更新网络中的参数，以上的过程被称为一个epoch；然后我们再传入一次参数，一直往复，直至我们的损失函数小到让我们接受。</p>
-<p>损失函数就是用一个函数来衡量我们预测的值和实际的值的差距是多少</p>
-<p>不同的损失函数，有着不同的计算方式，适用于不同的场景，常见的有最小二乘、交叉熵、平均绝对值误差</p>
-<ul>
-<li><a href="https://pytorch.org/docs/stable/nn.html#loss-functions">https://pytorch.org/docs/stable/nn.html#loss-functions</a></li>
-</ul>
-<img data-src="https://s2.loli.net/2022/03/18/8532WQPyFdiVZjw.png" alt="image-20220318110120972" style="zoom:50%;" />
-
-<p>官方文档给出了很多损失函数，以后再去慢慢探究其中的差异</p>
-<p>反向传播是现在众多深度学习训练方法的基础，通过计算神经网络中损失函数对各参数的梯度，配合优化方法更新参数，从而降低损失函数。</p>
-<ul>
-<li><a href="https://pytorch.org/docs/stable/optim.html">https://pytorch.org/docs/stable/optim.html</a></li>
-</ul>
-<p>介绍一下主要的优化器：</p>
-<p>SGD，随机梯度下降</p>
-<p>SGDM，SGD with momentum，加入动量机制的SGD</p>
-<p>Adagrad，自适应梯度下降。利用迭代次数和累计梯度，对学习率进行自动衰减</p>
-<p>学习率除以前t-1迭代的梯度平方和，没有考虑迭代衰减</p>
-<p>RMSProp，在Adagrad的基础上加入了对于迭代衰减的考虑，学习率除以前t-1迭代的梯度的加权平方和。与当前迭代越近的梯度，对当前的影响应该越大。</p>
-<p>Adam，SGDM和RMSProp的结合，基本解决了梯度下降的一系列问题，比如随机小样本、自适应学习率、容易卡在梯度较小点等问题。</p>
-<p>（具体比较在之后补充）</p>
-<h2 id="代码实操"><a href="#代码实操" class="headerlink" title="代码实操"></a>代码实操</h2><p>先以<strong>交叉熵</strong>和<strong>SGD</strong>作为代码实例</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义要用什么损失函数</span></span><br><span class="line">loss = nn.CrossEntropyLoss()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义要用什么反向传播优化器</span></span><br><span class="line">optimizer = optim.SGD(params = model.parameters(), lr=<span class="number">0.01</span>, momentum=<span class="number">0.9</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据训练一轮是不够的，需要多轮训练，即多个epoch</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> dataloader:</span><br><span class="line">        imgs,targets = data</span><br><span class="line">        outputs = module(imgs)</span><br><span class="line">        result_loss = loss(outputs,targets)</span><br><span class="line">        <span class="comment"># 每次优化前都对模型中的参数梯度做清零</span></span><br><span class="line">        optim.zero_grad()</span><br><span class="line">        <span class="comment"># 求出每个节点的梯度</span></span><br><span class="line">        result_loss.backward()</span><br><span class="line">        <span class="comment"># 对模型参数进行调优</span></span><br><span class="line">        optim.step()</span><br></pre></td></tr></table></figure>
-
-<p>optim.SGD具体参数介绍：</p>
-<ul>
-<li>params：优化器要对哪个模型的参数做优化，这里填的是model.parameters()</li>
-<li>lr：leanring rate，学习率，学习率的设置影响了模型训练的速率和好坏，需要根据实际情况做多次测试进行调整</li>
-<li>momentum：动量大小，</li>
-</ul>
-<p>pytorch里的SGD方法实际上就涵盖了SGD和SGDM，区别就在于是否设置momentum</p>
-<p>设置了momentum，就是SGDM</p>
-<p>不设置momentum，就是SGD</p>
-<h1 id="模型的使用及修改"><a href="#模型的使用及修改" class="headerlink" title="模型的使用及修改"></a>模型的使用及修改</h1><p>官方文档里内置了很多有名的深度学习模型，当我们想直接使用的时候需用在model下调用即可</p>
-<ul>
-<li>计算机视觉的模型：<a href="https://pytorch.org/vision/stable/models.html">https://pytorch.org/vision/stable/models.html</a></li>
-<li>NLP的模型：<a href="https://pytorch.org/audio/stable/models.html#conformer">https://pytorch.org/audio/stable/models.html#conformer</a></li>
-</ul>
-<p>以vgg16模型为例，如何使用呢</p>
-<p><img data-src="https://s2.loli.net/2022/03/18/dExpwOj94KICbAJ.png"></p>
-<p>以上简单两行代码就可以了，其中<strong>pretrained</strong>表示是否下载训练好的模型<br>  pretrained (bool): If True, returns a model pre-trained on ImageNet<br>当我们打印这个模型的时候会发现，最后的输出是1000，即这个模型可以分类出1000个类别</p>
-<p>当我们将这个模型用在自己的数据集，肯定要做一些修改，</p>
-<p>比如我们的数据集类别只有10个类，那如何修改呢</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"></span><br><span class="line">vgg16_true = torchvision.models.vgg16(pretrained = <span class="literal">True</span>)</span><br><span class="line">vgg16_false = torchvision.models.vgg16(pretrained = <span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在模型最下面添加一个线性层</span></span><br><span class="line">vgg16_true.classifier.add_module(<span class="string">&quot;add_linear&quot;</span>,nn.Linear(<span class="number">1000</span>,<span class="number">10</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把模型最下面的一个线性层做修改</span></span><br><span class="line">vgg16_false.classifier[<span class="number">6</span>] = nn.Linear(<span class="number">4096</span>,<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="网络模型的保存与读取"><a href="#网络模型的保存与读取" class="headerlink" title="网络模型的保存与读取"></a>网络模型的保存与读取</h1><p>模型的保存和读取是一起的，各有两种方式</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vgg16_false = torchvision.models.vgg16(pretrained = <span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存方式1，可以保存下来模型的结构+模型里的参数</span></span><br><span class="line">torch.save(obj = vgg16_false, f = <span class="string">&quot;vgg16_method1.pth&quot;</span>)</span><br><span class="line"><span class="comment"># 加载方式1</span></span><br><span class="line">model = torch.load(<span class="string">&quot;vgg16_method1.pth&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(model)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vgg16_true = torchvision.models.vgg16(pretrained = <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存方式2，只保存 模型的参数（推荐)</span></span><br><span class="line">torch.save(vgg16_true.state_dict,<span class="string">&quot;vgg16_method2.pth&quot;</span>)</span><br><span class="line"><span class="comment"># 加载方式2</span></span><br><span class="line">vgg16_true.load_state_dict(torch.load(<span class="string">&quot;vgg16_method2.pth&quot;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="如何使用GPU训练"><a href="#如何使用GPU训练" class="headerlink" title="如何使用GPU训练"></a>如何使用GPU训练</h1><p>GPU是深度学习必不可少的一块内容，可以提高训练速度。</p>
-<p>使用GPU训练，其他的地方都不用改动</p>
-<p>只需要改动三块内容，分别是网络模型、数据和损失函数</p>
-<h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 网络模型</span></span><br><span class="line">model = Module()</span><br><span class="line"><span class="keyword">if</span> torch.cuda.is_available:</span><br><span class="line">    model = model.cuda()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 数据</span></span><br><span class="line"><span class="keyword">if</span> torch.cuda.is_available:</span><br><span class="line">    imgs = imgs.cuda()</span><br><span class="line">    targets = targets.cuda()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 损失函数</span></span><br><span class="line">loss_fn = nn.CrossEntropyLoss()</span><br><span class="line"><span class="keyword">if</span> torch.cuda.is_available:</span><br><span class="line">    loss_fn = loss_fn.cuda()</span><br></pre></td></tr></table></figure>
-
-<h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">device = torch.device(<span class="string">&quot;cuda&quot;</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&quot;cpu&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 网络模型</span></span><br><span class="line">model.todevice(device)</span><br><span class="line"><span class="comment"># 数据</span></span><br><span class="line">imgs.todevice(device)</span><br><span class="line">targets.todevice(device)</span><br><span class="line"><span class="comment"># 损失函数</span></span><br><span class="line">loss_fn.todevice(device)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">!nvidia -smi </span><br><span class="line">这个命令查看本机的GPU配置和使用情况</span><br></pre></td></tr></table></figure>
-
-<p>到这里，pytorch主要模块的介绍就结束了。</p>
-<p>把这些组装起来，就是一个完整简单的深度学习框架。</p>
-<p>下篇笔记中，做一个完整的实例介绍。</p>
-<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
-<li>非线性激活：<a href="https://zhuanlan.zhihu.com/p/260970955">https://zhuanlan.zhihu.com/p/260970955</a></li>
-<li>优化器的对比：<a href="https://xieyangyi.blog.csdn.net/article/details/108268525">https://xieyangyi.blog.csdn.net/article/details/108268525</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Typora体验+破解版安装包</title>
-    <url>/archives/b19d3262.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Typora编辑体验，过阵子再补上….</p>
-<p>网上有很多大佬讲了具体的破解流程，试了好久还是没有成功，最后是在评论区里找到了一个亲测可用的破解版安装包，分享一波~</p>
-<blockquote>
-<p>链接：<a href="https://pan.baidu.com/s/1wQEFkJDD-zU1Nv3xF99Gjg">https://pan.baidu.com/s/1wQEFkJDD-zU1Nv3xF99Gjg</a></p>
-<p>提取码：y8th</p>
-</blockquote>
-<img data-src="https://s2.loli.net/2022/03/18/yBCt6ZDejcrTqEJ.png" style="zoom: 67%;" />
-
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>效率</category>
-      </categories>
-      <tags>
-        <tag>typora</tag>
       </tags>
   </entry>
   <entry>
@@ -1529,6 +1338,26 @@
       </tags>
   </entry>
   <entry>
+    <title>Typora体验+破解版安装包</title>
+    <url>/archives/b19d3262.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Typora编辑体验，过阵子再补上….</p>
+<p>网上有很多大佬讲了具体的破解流程，试了好久还是没有成功，最后是在评论区里找到了一个亲测可用的破解版安装包，分享一波~</p>
+<blockquote>
+<p>链接：<a href="https://pan.baidu.com/s/1wQEFkJDD-zU1Nv3xF99Gjg">https://pan.baidu.com/s/1wQEFkJDD-zU1Nv3xF99Gjg</a></p>
+<p>提取码：y8th</p>
+</blockquote>
+<img data-src="https://s2.loli.net/2022/03/18/yBCt6ZDejcrTqEJ.png" style="zoom: 67%;" />
+
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>效率</category>
+      </categories>
+      <tags>
+        <tag>typora</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>conda和pip的异同</title>
     <url>/archives/44547c5f.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><span id="more"></span>
@@ -1593,7 +1422,7 @@
 
 <h1 id="博客现状"><a href="#博客现状" class="headerlink" title="博客现状"></a>博客现状</h1><p><strong>待完成：</strong></p>
 <ul>
-<li><input disabled="" type="checkbox"> 优化网站加载速度，会优化搜索排名！</li>
+<li><input checked="" disabled="" type="checkbox"> 优化网站加载速度，会优化搜索排名！</li>
 <li><input disabled="" type="checkbox"> 背景音乐的添加(没考虑好，加了可能比较鸡肋)</li>
 </ul>
 <p><strong>已完成：</strong></p>
@@ -1856,6 +1685,7 @@
 </ul>
 ]]></content>
       <categories>
+        <category>前端</category>
         <category>coding</category>
       </categories>
       <tags>
@@ -1879,6 +1709,10 @@
       <categories>
         <category>前端</category>
       </categories>
+      <tags>
+        <tag>Vue</tag>
+        <tag>Vite</tag>
+      </tags>
   </entry>
   <entry>
     <title>sps搜我广播</title>
@@ -2178,25 +2012,6 @@
       </tags>
   </entry>
   <entry>
-    <title>兰大人出躺村有多费劲</title>
-    <url>/archives/a81542e6.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>b站同名视频，算是博客内嵌视频的一个小测试，也欢迎一键三连~</p>
-<p>右键画面可更改播放速度</p>
-<span id="more"></span>
-
-<iframe src="//player.bilibili.com/player.html?aid=847451818&bvid=BV1cL4y1v7oo&cid=392530002&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-
-
-]]></content>
-      <categories>
-        <category>随记</category>
-      </categories>
-      <tags>
-        <tag>vlog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于FTP文件传输的一些总结</title>
     <url>/archives/a1c92ee3.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>最近项目上有个功能需求，就是要求在数据采集结束后，自动完成在设备间的数据传输。所以就想到了专门用来做数据传输的FTP，很简单的一个东西~<br>但是，网上对于主被动模式的具体使用场景介绍的大部分都很有问题，只是一味地说用被动模式，浪费了很多时间，所以在这里总结一下…</p>
@@ -2244,6 +2059,77 @@
         <tag>Android</tag>
         <tag>FTP</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>兰大人出躺村有多费劲</title>
+    <url>/archives/a81542e6.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>b站同名视频，算是博客内嵌视频的一个小测试，也欢迎一键三连~</p>
+<p>右键画面可更改播放速度</p>
+<span id="more"></span>
+
+<iframe src="//player.bilibili.com/player.html?aid=847451818&bvid=BV1cL4y1v7oo&cid=392530002&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+]]></content>
+      <categories>
+        <category>随记</category>
+      </categories>
+      <tags>
+        <tag>vlog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端汇总</title>
+    <url>/archives/fb4c86a7.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>学习前端，学新不学旧。市面上也没有一套为我量身打造的学习路线，为了不走“弯路”，也是一路上边学边看，整理了不少资料，在此记录一下。</p>
+<span id="more"></span>
+
+<p>前端学习路线</p>
+<ul>
+<li><a href="https://juejin.cn/post/6844904147951747086">前端学习路线</a></li>
+</ul>
+<p>html+css+js三件套基础知识</p>
+<ul>
+<li><a href="https://www.xuetangx.com/learn/THU08091000257/THU08091000257/12424461/video/23270160?channel=i.area.learn_title">Web前端攻城狮 - 清华大学 - 学堂在线 (xuetangx.com)</a></li>
+</ul>
+<p>css案例提升</p>
+<ul>
+<li><a href="https://space.bilibili.com/451368848/channel/series">CodingStartup起码课的个人空间</a><ul>
+<li>非常优质的up主，扎实的基本功和一口粤语话，跟着学非常带劲</li>
+</ul>
+</li>
+<li><a href="https://codepen.io/pen/">(codepen.io)</a><ul>
+<li>在线编辑的工具，可以跟着上述up主的案例一个个动手实现</li>
+</ul>
+</li>
+<li><a href="https://www.w3school.com.cn/cssref/">https://www.w3school.com.cn/cssref/</a><ul>
+<li>css语法查询，言简意赅，</li>
+</ul>
+</li>
+</ul>
+<p>vue</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1zq4y1p7ga/?spm_id_from=333.337.search-card.all.click">黑马程序员Vue全套视频教程</a><ul>
+<li>学完前面一些前端工程化的知识后，跳过vue2，直接从vue3开始学</li>
+</ul>
+</li>
+</ul>
+<p>前端汇总</p>
+<ul>
+<li><a href="https://github.com/helloqingfeng/Awsome-Front-End-learning-resource"> GitHub最全的前端资源汇总仓库（包括前端学习、开发资源、求职面试等）</a><ul>
+<li>结合个人情况，按需查询</li>
+</ul>
+</li>
+</ul>
+<p>前端展望</p>
+<ul>
+<li><a href="https://juejin.cn/post/7126869314572910600#heading-83">2022年国内外前端发展态势</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
   </entry>
   <entry>
     <title>前端基础</title>
@@ -2544,6 +2430,9 @@
 <p><img data-src="https://s2.loli.net/2022/10/05/l7ODdjGAKrZ9Bct.png"></p>
 <h3 id="其他知识"><a href="#其他知识" class="headerlink" title="其他知识"></a>其他知识</h3><h4 id="字节码"><a href="#字节码" class="headerlink" title="字节码"></a>字节码</h4><p>ASCII码， 表1 0-127  表2  128-255 ，一个字节 byte</p>
 <p>UNICODE码 涵盖ASCII码，2个字节</p>
+<ul>
+<li>charCodeAt() &gt; 255，检查每个字符是否大于255，大于返回两个字节，小于等于返回一个字节</li>
+</ul>
 <h4 id="JS单线程引擎"><a href="#JS单线程引擎" class="headerlink" title="JS单线程引擎"></a>JS单线程引擎</h4><p>JS引擎，是单线程，但是可以通过<strong>轮转时间片</strong>来模拟多线程</p>
 <p>动态语言 -&gt; 脚本语言 -&gt; 解释型语言 -&gt; 弱类型语言</p>
 <p>静态语言 -&gt; 编译型语言 -&gt; 强类型语言</p>
@@ -2556,41 +2445,129 @@
 <li><p>原始值初始化赋值是发生在栈内存stack中，实际内容确实存放在栈内存中</p>
 </li>
 <li><p>```JS<br>var a = 123;<br>a.len = 3;</p>
-<figure class="highlight haml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">-<span class="ruby"> </span></span><br><span class="line"><span class="ruby"></span></span><br><span class="line">#### 引用值</span><br><span class="line"></span><br><span class="line">object、array、function、date、RegExp</span><br><span class="line"></span><br><span class="line">-<span class="ruby"> 引用值**有自己的方法和属性**，如 length、push等</span></span><br><span class="line"><span class="ruby"></span></span><br><span class="line">-<span class="ruby"> 引用值初始化赋值发生在堆内存heap中，实际内存存放在堆内存中，但将内存地址存放在栈内存中</span></span><br><span class="line"><span class="ruby"></span></span><br><span class="line">#### 加减乘除</span><br><span class="line"></span><br><span class="line">-<span class="ruby"> **任何数据类型** + 字符串 都是字符串</span></span><br><span class="line"><span class="ruby"></span>-<span class="ruby"> NaN，<span class="keyword">not</span> a number 中文翻译非数，是一个数字类型，用于一些没有意义的情况</span></span><br><span class="line"><span class="ruby"></span>  -<span class="ruby"> Number(undefined)、Number(null) 得到的都是NaN</span></span><br><span class="line"><span class="ruby"></span></span><br><span class="line">-<span class="ruby"> &lt;   &gt;   &lt;=   &gt;=   ===   !=   !==</span></span><br><span class="line"><span class="ruby"></span>  -<span class="ruby"> ![](<span class="symbol">https:</span>/<span class="regexp">/s2.loli.net/</span><span class="number">2022</span>/<span class="number">10</span>/<span class="number">05</span>/HXmboL93Fwq5E7e.png)</span></span><br><span class="line"><span class="ruby"></span>-<span class="ruby"> 逻辑运算</span></span><br><span class="line"><span class="ruby"></span>  -<span class="ruby"> undefined、null、NaN、“”、<span class="number">0</span>、<span class="literal">false</span>，除上述以外全部都是真</span></span><br><span class="line"><span class="ruby"></span>  -<span class="ruby"> console.log(<span class="number">1</span> &amp;&amp; <span class="number">2</span> &amp;&amp; undefined &amp;&amp; <span class="number">10</span>)</span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> <span class="keyword">return</span> undefined </span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> 遇到真就往后走，遇到假或走到最后就返回当前的值</span></span><br><span class="line"><span class="ruby"></span>  -<span class="ruby"> console.log(<span class="number">1</span> <span class="params">||</span> <span class="number">2</span> <span class="params">||</span> undefined <span class="params">||</span> <span class="number">10</span>)</span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> <span class="keyword">return</span> <span class="number">1</span></span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> 遇到假就往后走，遇到真或走到最后就返回当前的值</span></span><br><span class="line"><span class="ruby"></span>-<span class="ruby"> typeof() 可以反映出的类型有：number string boolean **object** undefined function</span></span><br><span class="line"><span class="ruby"></span>  -<span class="ruby"> object 理解为 引用类型，具体包括对象object、数组array、null(历史遗留问题)</span></span><br><span class="line"><span class="ruby"></span>-<span class="ruby"> typeof(a)  <span class="keyword">return</span>  字符串的<span class="string">&#x27;undefined&#x27;</span>，返回为真 </span></span><br><span class="line"><span class="ruby"></span>-<span class="ruby"> 类型转换</span></span><br><span class="line"><span class="ruby"></span>  -<span class="ruby"> 显式类型转换</span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> Number，转数字类型；parseInt，转整数类型（向下取整）；parseFloat，转浮点类型(四舍五入)；String，转字符串；Boolean()，转布尔</span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> toFixed(<span class="number">2</span>)，取小数点两位</span></span><br><span class="line"><span class="ruby"></span>  -<span class="ruby"> 隐式类型转换</span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> === 不进行隐式转换</span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> 加减乘除 &gt;  &lt;  &gt;=  &lt;= ++ -- ，都会做隐式转number</span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> NaN == NaN，返回 <span class="literal">false</span>，NaN不等于任何东西</span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> undefined 不大于零 不等于零 不小于零</span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> null 不大于零 不等于零 不小于零</span></span><br><span class="line"><span class="ruby"></span>    -<span class="ruby"> undefined  == null ，<span class="keyword">return</span> <span class="literal">true</span></span></span><br><span class="line"><span class="ruby"></span></span><br><span class="line">#### 函数</span><br><span class="line"></span><br><span class="line">-<span class="ruby"> 函数在传递参数时，多传递的参数会被忽视，少传递的参数会被视为 undefined</span></span><br><span class="line"><span class="ruby"></span></span><br><span class="line">-<span class="ruby"> 实参和形参存储在不同的地方，数量匹配的 会存在一一对应的绑定关系；不匹配的，如多传递或少传递的，不会有这种关系</span></span><br><span class="line"><span class="ruby"></span></span><br><span class="line">  -<span class="ruby"> 实参和行参在取值时，默认取 不是undefined的值</span></span><br><span class="line"><span class="ruby"></span></span><br><span class="line">-<span class="ruby"> 实参求和</span></span><br><span class="line"><span class="ruby"></span></span><br><span class="line">  -<span class="ruby"> <span class="string">``</span><span class="string">`js</span></span></span><br><span class="line"><span class="string"><span class="ruby"></span></span>    function sum()&#123;</span><br><span class="line">    var a = 0;</span><br><span class="line">    for(var i = 0; i &lt; arguments.length; i++)&#123;</span><br><span class="line">    ​		a += arguments[i]</span><br><span class="line">    ​	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    sum(1,2,3,4,5,6,7,8, .....)</span><br></pre></td></tr></table></figure></li>
-<li><p>实参是可被修改的</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- </span><br><span class="line"></span><br><span class="line"><span class="comment">#### 引用值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">object</span>、<span class="keyword">array</span>、<span class="function"><span class="keyword">function</span>、<span class="title">date</span>、<span class="title">RegExp</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">- 引用值**有自己的方法和属性**，如 <span class="title">length</span>、<span class="title">push</span>等</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">- 引用值初始化赋值发生在堆内存<span class="title">heap</span>中，实际内存存放在堆内存中，但将内存地址存放在栈内存中</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">- ```<span class="title">js</span></span></span><br><span class="line"><span class="function">  1. </span>&#123;&#125; == &#123;&#125;  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  对象是引用值，引用值对比的是地址，两个空对象存储在不同的地址，自然就不相等</span><br><span class="line">  </span><br><span class="line">  <span class="number">2</span>. 如何让两个对象相等</span><br><span class="line">  <span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">  obj1 = obj</span><br><span class="line">  obj1 == obj  <span class="keyword">return</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="返回类型typeof"><a href="#返回类型typeof" class="headerlink" title="返回类型typeof"></a>返回类型typeof</h4><p><code>typeof()</code> 可以反映出的类型有：number string boolean <strong>object</strong> undefined function</p>
 <ul>
-<li>```js<br>funtion a(x,y,z){<pre><code>z = 10;
-console.log(arguments[2])
+<li>object 在这里理解为 引用类型，具体包括对象Object {} 、数组Array []、null(历史遗留问题)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(a))  <span class="comment">//return  字符串的&#x27;undefined&#x27;，返回为真 </span></span><br><span class="line">    <span class="built_in">console</span>.log(a)  <span class="comment">//直接报错，因为a没有被定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="加减乘除"><a href="#加减乘除" class="headerlink" title="加减乘除"></a>加减乘除</h4><ul>
+<li><p><strong>任何数据类型</strong> + 字符串 都是字符串</p>
+</li>
+<li><p>NaN，not a number 中文翻译非数，是一个数字类型，用于一些没有意义的情况</p>
+<ul>
+<li>Number(undefined)、Number(null) 得到的都是NaN</li>
+</ul>
+</li>
+<li><p>&lt;   &gt;   &lt;=   &gt;=   ===   !=   !==</p>
+<ul>
+<li><img data-src="https://s2.loli.net/2022/10/05/HXmboL93Fwq5E7e.png"></li>
+</ul>
+</li>
+<li><p>逻辑运算</p>
+<ul>
+<li>undefined、null、NaN、“”、0、false，除上述以外全部都是真</li>
+<li>console.log(1 &amp;&amp; 2 &amp;&amp; undefined &amp;&amp; 10)<ul>
+<li>return undefined </li>
+<li>遇到真就往后走，遇到假或走到最后就返回当前的值</li>
+</ul>
+</li>
+<li>console.log(1 || 2 || undefined || 10)<ul>
+<li>return 1</li>
+<li>遇到假就往后走，遇到真或走到最后就返回当前的值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><ul>
+<li>显式类型转换<ul>
+<li><p>Number，转数字类型；parseInt，转整数类型（向下取整）；parseFloat，转浮点类型(四舍五入)；String，转字符串；Boolean()，转布尔</p>
+</li>
+<li><p>toFixed(2)，取小数点两位</p>
+</li>
+<li><p>parseInt()，从前往后看整数</p>
+</li>
+<li><p>```js<br>parseInt(‘123a’)  return 123<br>parseInt(‘12a123’)  return 12</p>
+<p>“89” &gt; ‘9’ return false 字符串比较大小 从第一位的ASCII码开始</p>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line">  </span><br><span class="line">  - </span><br><span class="line">- 隐式类型转换</span><br><span class="line">  - === 不进行隐式转换</span><br><span class="line">  </span><br><span class="line">  - 加减乘除 &gt;  &lt;  &gt;=  &lt;= ++ -- ，都会做隐式转number</span><br><span class="line">  </span><br><span class="line">  - <span class="literal">NaN</span> == <span class="literal">NaN</span>，返回 <span class="literal">false</span>，<span class="literal">NaN</span>不等于任何东西</span><br><span class="line">  </span><br><span class="line">  - <span class="literal">undefined</span> 不大于零 不等于零 不小于零</span><br><span class="line">  </span><br><span class="line">  - <span class="literal">null</span> 不大于零 不等于零 不小于零</span><br><span class="line">  </span><br><span class="line">  - <span class="literal">undefined</span>  == <span class="literal">null</span> ，<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  </span><br><span class="line">  - <span class="built_in">isNaN</span>有隐式类型转换，<span class="keyword">new</span> <span class="built_in">Number</span>()</span><br><span class="line">  </span><br><span class="line">  - ```<span class="javascript">js</span></span><br><span class="line"><span class="javascript">    <span class="built_in">isNaN</span>(<span class="string">&#x27;123&#x27;</span>)  <span class="keyword">return</span> <span class="literal">false</span></span></span><br><span class="line"><span class="javascript">    <span class="literal">undefined</span> == <span class="literal">null</span>  <span class="keyword">return</span> <span class="literal">true</span></span></span><br><span class="line"><span class="javascript">    <span class="literal">undefined</span> === <span class="literal">null</span>  <span class="keyword">return</span> <span class="literal">false</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">parseInt</span>(<span class="string">&#x27;123a&#x27;</span>) == <span class="literal">null</span>  <span class="keyword">return</span> <span class="literal">true</span></span></span><br></pre></td></tr></table></figure></li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><ul>
+<li><p>函数在传递参数时，多传递的参数会被忽视，少传递的参数会被视为 undefined</p>
+</li>
+<li><p>实参和形参存储在不同的地方，数量匹配的 会存在一一对应的绑定关系；不匹配的，如多传递或少传递的，不会有这种关系</p>
+<ul>
+<li>实参和行参在取值时，默认取 不是undefined的值</li>
+</ul>
+</li>
+<li><p>函数本身是有length的，test.length 返回实参的长度</p>
+</li>
+<li><p>实参求和</p>
+<ul>
+<li>```js<br>function sum(){<br>var a = 0;<br>for(var i = 0; i &lt; arguments.length; i++){<br>​        a += arguments[i]<br>​    }<br>}sum(1,2,3,4,5,6,7,8, …..)<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 实参是可被修改的</span><br><span class="line"></span><br><span class="line">  - ```<span class="javascript">js</span></span><br><span class="line"><span class="javascript">    funtion <span class="function"><span class="title">a</span>(<span class="params">x,y,z</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        z = <span class="number">10</span>;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">2</span>])</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">    a(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span></span><br><span class="line"><span class="javascript">    </span></span><br><span class="line"><span class="javascript">    # <span class="keyword">return</span> <span class="number">10</span></span></span><br><span class="line"><span class="javascript">    # reason <span class="literal">undefined</span> -&gt; <span class="number">3</span> -&gt; <span class="number">10</span></span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><ul>
+<li>arr.push 增</li>
+<li>arr.splice(序号，需要删去的数量)  减</li>
+<li>arr.indexOf(值) 根据值来寻找index</li>
+</ul>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><ul>
+<li>三种声明方式，var arr = {} 对象字面量；var arr = new Object() ；var arr = Object() ； 所有对象都继承于 Object.prototype</li>
+<li>对象里的函数 叫 方法 method；在对象中，this就指代对象主体</li>
+<li>字面量声明  var obj = { } ; </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> teacher = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;cyc&#x27;</span>,</span><br><span class="line">    <span class="attr">weight</span>: <span class="number">130</span>,</span><br><span class="line">    <span class="attr">eat</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.weight--</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">teacher.name  teacher[<span class="string">&#x27;name&#x27;</span>] 两个效果一样</span><br></pre></td></tr></table></figure>
+
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><ul>
+<li><p>三种声明方式，var arr = []  数组字面量；var arr = new Array() 不推荐；var arr =  Array() 用得少</p>
+</li>
+<li><p>所有数组都继承于 Array.prototype</p>
+</li>
+<li><p>数组内最后一位如果是 逗号， 系统会忽略，其余位置的逗号会认为 是empty元素</p>
+</li>
+<li><p>修改原数组的方法，push、unshift，pop，shift，splice，sort</p>
+</li>
+<li><p>push、unshift，pop，shift方法</p>
+<ul>
+<li>push在最后加元素，unshift在最前面加元素</li>
+<li>push、unshift这些方法都是继承Array原型的方法</li>
+<li>push、unshift方法的返回值 是<strong>执行方法之后的数组长度</strong></li>
+<li>pop 方法 剪切数组最后一位 并返回出来；shift方法 剪切数组第一位 并返回出来</li>
+<li>reverse方法 ，倒序数组</li>
+</ul>
+</li>
+<li><p>splice</p>
+<ul>
+<li>arr.splice(开始项的下标，剪切长度，在剪切后的位置添加新数据)</li>
+</ul>
+</li>
+<li><p>sort，返回排序后的数组结果</p>
+<ul>
+<li><p>sort() <strong>默认按照ASCII码进行升序排序</strong></p>
+</li>
+<li><p>```js<br>var arr = [27, 49, 5, 7]<br>console.log(arr.sort()) //return [27, 49, 5, 7]</p>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 系统内置方法，按照数字大小进行升序排序</span><br><span class="line"></span><br><span class="line">  - a 与 b进行比较，小于就不动，大于就交换位置，故有下述方法</span><br><span class="line"></span><br><span class="line">- ```<span class="javascript">js</span></span><br><span class="line"><span class="javascript">  arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> a-b; <span class="comment">// 返回升序排序</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> b-a; <span class="comment">// 返回降序排序</span></span></span><br><span class="line"><span class="javascript">      </span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> rand = <span class="built_in">Math</span>.random();</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> rand-<span class="number">0.5</span>;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>根据字符串长度排序</p>
+<ul>
+<li>```js<br>var arr = [‘12312’,’123’,’1231’,’1231231’]<br>arr.sort(function(a,b){<pre><code>if(a.length &gt; b.length)&#123;
+    return 1;
+&#125; else&#123;
+    return -1;
+&#125;
 </code></pre>
-}<br>a(1,2,3)<h1 id="return-10"><a href="#return-10" class="headerlink" title="return 10"></a>return 10</h1><h1 id="reason-undefined-gt-3-gt-10"><a href="#reason-undefined-gt-3-gt-10" class="headerlink" title="reason undefined -&gt; 3 -&gt; 10"></a>reason undefined -&gt; 3 -&gt; 10</h1><figure class="highlight oxygene"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">#### 列表</span><br><span class="line"></span><br><span class="line">- arr.push 增</span><br><span class="line">- arr.splice(序号，需要删去的数量)  减</span><br><span class="line">- arr.indexOf(值) 根据值来寻找<span class="keyword">index</span></span><br><span class="line"></span><br><span class="line">#### 对象</span><br><span class="line"></span><br><span class="line">- 对象里的函数 叫 方法 <span class="function"><span class="keyword">method</span></span></span><br><span class="line"><span class="function">- 在对象中，<span class="title">this</span>就指代对象主体</span></span><br><span class="line"><span class="function">- 字面量声明  <span class="title">var</span> <span class="title">obj</span> = <span class="comment">&#123; &#125;</span> ;</span> </span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line"><span class="keyword">var</span> teacher = <span class="comment">&#123;</span></span><br><span class="line"><span class="comment">    name: &#x27;cyc&#x27;,</span></span><br><span class="line"><span class="comment">    weight: 130,</span></span><br><span class="line"><span class="comment">    eat: function()&#123;</span></span><br><span class="line"><span class="comment">        this.weight--</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line">&#125;</span><br><span class="line">teacher.name  teacher[<span class="string">&#x27;name&#x27;</span>] 两个效果一样</span><br></pre></td></tr></table></figure></li>
+})<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 新建一个数组的方法，concat，toString(数组转字符串)，<span class="keyword">slice</span></span><br><span class="line"></span><br><span class="line">- arr.<span class="keyword">slice</span>(开始项的下标，截止项的下标)，要区分开<span class="keyword">slice</span>和splice</span><br><span class="line"></span><br><span class="line">- arr.<span class="keyword">join</span>()，把数组内的元素取出来用参数进行连接，不填参数默认用,逗号隔开</span><br><span class="line"></span><br><span class="line">- arr.split(‘分割参数‘ ，数组长度)，把字符串用分割参数分割后放入数组，和<span class="keyword">join</span>对应使用</span><br><span class="line"></span><br><span class="line">#### 类数组</span><br><span class="line"></span><br><span class="line">### 进阶知识</span><br><span class="line"></span><br><span class="line">#### 预编译</span><br><span class="line"></span><br><span class="line">- 预编译过程中 只看 有无变量声明和函数声明，最后再执行（<span class="keyword">if</span>,<span class="keyword">while</span>都算执行里）</span><br><span class="line"></span><br><span class="line">- 暗示全局变量，<span class="keyword">window</span>是一个全局作用域对象，函数外部的变量声明实际上都是挂载到<span class="keyword">window</span>上</span><br><span class="line">- 在一般函数，**函数未被实例化前，this指向<span class="keyword">window</span>**，this.a=<span class="number">1</span> 实际上为 a=<span class="number">1</span>，都保存在全局中</span><br><span class="line">- AO 函数上下文的预编译流程</span><br><span class="line">  <span class="number">1.</span> 寻找形参和变量声明，初始都为undefined，**this 指向<span class="keyword">window</span>**</span><br><span class="line">  <span class="number">2.</span> 实参值赋值给形参</span><br><span class="line">  <span class="number">3.</span> 找函数声明、赋值</span><br><span class="line">  <span class="number">4.</span>  执行</span><br><span class="line">- GO <span class="keyword">global</span> <span class="keyword">object</span>，全局上下文 的预编译流程</span><br><span class="line">  <span class="number">1.</span> 找变量声明，初始都为undefined</span><br><span class="line">  <span class="number">2.</span> 找函数声明</span><br><span class="line">  <span class="number">3.</span> 执行 -&gt; 该赋值就赋值 该执行就执行</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">var x = <span class="number">1</span>;</span><br><span class="line">	y = z = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="keyword">add</span>(n)&#123;</span><br><span class="line">    <span class="keyword">return</span> n += <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">y = <span class="keyword">add</span>(x);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="keyword">add</span>(n)&#123;</span><br><span class="line">    <span class="keyword">return</span> n += <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line">z = <span class="keyword">add</span>(x);</span><br><span class="line"></span><br><span class="line">console.log(x,y,z);</span><br><span class="line"># <span class="keyword">return</span> <span class="number">1</span>,<span class="number">4</span>,<span class="number">4</span> </span><br><span class="line"># reason: 预编译过程中<span class="keyword">add</span>函数会被后面的覆盖</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
-<h3 id="进阶知识"><a href="#进阶知识" class="headerlink" title="进阶知识"></a>进阶知识</h3><h4 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h4><ul>
-<li><p>预编译过程中 只看 有无变量声明和函数声明，最后再执行（if,while都算执行里）</p>
-</li>
-<li><p>暗示全局变量，window是一个全局作用域对象，函数外部的变量声明实际上都是挂载到window上</p>
-</li>
-<li><p>AO 函数上下文的预编译流程</p>
-<ol>
-<li>寻找形参和变量声明，初始都为undefined</li>
-<li>实参值赋值给形参</li>
-<li>找函数声明、赋值</li>
-<li> 执行</li>
-</ol>
-</li>
-<li><p>GO global object，全局上下文 的预编译流程</p>
-<ol>
-<li>找变量声明，初始都为undefined</li>
-<li>找函数声明</li>
-<li>执行</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line">	y = z = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n += <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">y = add(x);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n += <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line">z = add(x);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(x,y,z);</span><br><span class="line"># <span class="keyword">return</span> <span class="number">1</span>,<span class="number">4</span>,<span class="number">4</span> </span><br><span class="line"># reason: 预编译过程中add函数会被后面的覆盖</span><br></pre></td></tr></table></figure>
-
-
-
 <h4 id="作用域和作用域链"><a href="#作用域和作用域链" class="headerlink" title="作用域和作用域链"></a>作用域和作用域链</h4><ul>
 <li>函数在被定义的时候，生成自己的作用域和作用域链[[scope]]，放入自己的GO；在被执行的时候，生成AO；自己的AO排在GO前面，</li>
 </ul>
@@ -2621,12 +2598,32 @@ return x;
 </ul>
 <h4 id="逗号分隔符，返回最后一个值"><a href="#逗号分隔符，返回最后一个值" class="headerlink" title="逗号分隔符，返回最后一个值"></a>逗号分隔符，返回最后一个值</h4><ul>
 <li><p>```js<br>var num = (1,2,3,4,5)<br>console.log(num)    </p>
-<h1 id="return-5"><a href="#return-5" class="headerlink" title="return  5"></a>return  5</h1><figure class="highlight zephir"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- ```js</span><br><span class="line">  <span class="keyword">var</span> <span class="function"><span class="keyword">fn</span>= <span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">      <span class="keyword">function</span> test1<span class="params">()</span>&#123;</span></span></span><br><span class="line"><span class="params"><span class="function">          <span class="keyword">return</span> <span class="number">1</span>;</span></span></span><br><span class="line"><span class="params"><span class="function">  	&#125;</span></span></span><br><span class="line"><span class="params"><span class="function">      <span class="keyword">function</span> test2<span class="params">()</span>&#123;</span></span></span><br><span class="line"><span class="params"><span class="function">          <span class="keyword">return</span> <span class="string">&#x27;2&#x27;</span>;</span></span></span><br><span class="line"><span class="params"><span class="function">  	&#125;</span></span></span><br><span class="line"><span class="params"><span class="function">  )</span><span class="params">()</span></span>;</span><br><span class="line">  console.log(typeof(<span class="function"><span class="keyword">fn</span>))</span>;</span><br><span class="line">  # <span class="keyword">return</span> <span class="keyword">string</span> </span><br></pre></td></tr></table></figure></li>
-<li><p>```js<br>var a =10<br>if(function b(){}){</p>
-<pre><code>a += typeof(b);
+<h1 id="return-5"><a href="#return-5" class="headerlink" title="return  5"></a>return  5</h1><figure class="highlight zephir"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- ```js</span><br><span class="line">  <span class="keyword">var</span> <span class="function"><span class="keyword">fn</span>= <span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">      <span class="keyword">function</span> test1<span class="params">()</span>&#123;</span></span></span><br><span class="line"><span class="params"><span class="function">          <span class="keyword">return</span> <span class="number">1</span>;</span></span></span><br><span class="line"><span class="params"><span class="function">  	&#125;</span></span></span><br><span class="line"><span class="params"><span class="function">      <span class="keyword">function</span> test2<span class="params">()</span>&#123;</span></span></span><br><span class="line"><span class="params"><span class="function">          <span class="keyword">return</span> <span class="string">&#x27;2&#x27;</span>;</span></span></span><br><span class="line"><span class="params"><span class="function">  	&#125;</span></span></span><br><span class="line"><span class="params"><span class="function">  )</span></span>;</span><br><span class="line">  console.log(typeof(<span class="function"><span class="keyword">fn</span>))</span>;</span><br><span class="line">  # <span class="keyword">return</span> <span class="function"><span class="keyword">function</span></span></span><br></pre></td></tr></table></figure></li>
+<li><p>```js<br>var fn= (</p>
+<pre><code>function test1()&#123;
+    return 1;
+&#125;
+function test2()&#123;
+    return &#39;2&#39;;
+&#125;
 </code></pre>
-<p>}<br>console.log(a)</p>
-<h1 id="return-10undefined"><a href="#return-10undefined" class="headerlink" title="return 10undefined"></a>return 10undefined</h1><h1 id="reason-function-b-通过，且忽视函数名，b未被定义，即undefined"><a href="#reason-function-b-通过，且忽视函数名，b未被定义，即undefined" class="headerlink" title="reason:(function b(){})通过，且忽视函数名，b未被定义，即undefined"></a>reason:(function b(){})通过，且忽视函数名，b未被定义，即undefined</h1><figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#### 构造函数实例化</span><br><span class="line"></span><br><span class="line">- 函数默认返回值是undefined，构造函数实例化后默认返回值是<span class="keyword">this</span>，<span class="keyword">this</span>后跟函数会产生隐式闭包</span><br><span class="line">- 在实例化之前，构造函数就是一个函数</span><br><span class="line">- 实例化后，相当于创建了一个对象<span class="keyword">object</span>，**<span class="keyword">this</span>指向这个实例化对象，不指向构造函数**</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">function Teacher(opt)&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = opt.name;</span><br><span class="line">    <span class="keyword">this</span>.eat = function()&#123;</span><br><span class="line">        ...</span><br><span class="line">    <span class="comment">// 隐式做了这件事情，实例化后产生一个全局闭包   </span></span><br><span class="line">    <span class="comment">// return this    </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> teacher = new Teacher(&#123;</span><br><span class="line">    name:<span class="string">&#x27;123&#x27;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<p>)();<br>console.log(typeof(fn));</p>
+<h1 id="return-string"><a href="#return-string" class="headerlink" title="return string"></a>return string</h1><figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- </span><br><span class="line"></span><br><span class="line">  ```<span class="javascript">js</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> a =<span class="number">10</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">if</span>(<span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;)&#123;</span></span><br><span class="line"><span class="javascript">      a += <span class="keyword">typeof</span>(b);</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(a)</span></span><br><span class="line"><span class="javascript">  # <span class="keyword">return</span> 10<span class="literal">undefined</span> </span></span><br><span class="line"><span class="javascript">  # reason:(<span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;)通过，且忽视函数名，b未被定义，即<span class="literal">undefined</span></span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="构造函数实例化"><a href="#构造函数实例化" class="headerlink" title="构造函数实例化"></a>构造函数实例化</h4><ul>
+<li><p>在实例化之前，构造函数就是一个函数</p>
+</li>
+<li><p>函数默认返回值是undefined，构造函数实例化后默认返回值是this，this后跟函数会产生隐式闭包</p>
+</li>
+<li><p>实例化后，原本指向window的this 指向 一个实例化新对象</p>
+<ul>
+<li>```js<br>AO = {<pre><code>this: &#123;
+    __proto__: 函数名.prototype
+&#125;
+</code></pre>
+}<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 实例化后，相当于创建了一个对象object，**<span class="keyword">this</span>指向这个实例化对象，不指向构造函数**</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Teacher</span><span class="params">(opt)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = opt.name;</span><br><span class="line">    <span class="keyword">this</span>.eat = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    <span class="comment">// 隐式做了这件事情，实例化后产生一个全局闭包   </span></span><br><span class="line">    <span class="comment">// return this    </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> teacher = <span class="keyword">new</span> Teacher(&#123;</span><br><span class="line">    name:<span class="string">&#x27;123&#x27;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
 </ul>
 <h4 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h4><ul>
 <li>为了便于操作基本类型值，JS 提供了3个特殊的引用类型：Boolean、Number、String（undefined和null没有自己的包装类）</li>
@@ -2649,7 +2646,8 @@ return x;
 <li>Object.create( 填对象或者null) ，可以自定义原型 prototype</li>
 </ul>
 <h4 id="原型方法的重写"><a href="#原型方法的重写" class="headerlink" title="原型方法的重写"></a>原型方法的重写</h4><h4 id="call-apply"><a href="#call-apply" class="headerlink" title="call/apply"></a>call/apply</h4><ul>
-<li>call/apply可以更改 构造函数的this指向，只能借用指定的属性，不能继承上级全部的属性和方法</li>
+<li>call/apply<strong>可以更改 构造函数的this指向</strong>，只能借用指定的属性，不能继承上级全部的属性和方法</li>
+<li>两者区别是 传参不同，call(this, 1, 2, 3, …) ； apply(this, [1,2,3,…])</li>
 </ul>
 <h4 id="圣杯模式"><a href="#圣杯模式" class="headerlink" title="圣杯模式"></a>圣杯模式</h4><p>原型并不可以随便赋值，因为原型是引用对象，随便赋值会导致 子类轻易修改父类原型，如果需要 引用父类原型加以修改 且不产生影响，则可以引入第三个空构造函数实例化后做中转使用</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//企业级写法！不会污染全局变量  Origin被继承 Target欲继承 </span></span><br><span class="line"><span class="keyword">var</span> inherit = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Buffer</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">Target,Origin</span>)</span>&#123;</span><br><span class="line">        Buffer.prototype = Origin.prototype;</span><br><span class="line">        Target.prototype = <span class="keyword">new</span> Buffer();</span><br><span class="line">        <span class="comment">//还原构造器</span></span><br><span class="line">        Target.prototype.constructor = Target;</span><br><span class="line">        <span class="comment">//说明继承源</span></span><br><span class="line">        Target.prototype.super_class = Origin;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
@@ -2657,61 +2655,56 @@ return x;
 <h4 id="链式操作"><a href="#链式操作" class="headerlink" title="链式操作"></a>链式操作</h4><p>方法里每次最后都return this，可以达到连续调用的效果</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sched = &#123;</span><br><span class="line">    <span class="attr">morning</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">evening</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">sched.morning().evening()</span><br></pre></td></tr></table></figure>
 
+<h4 id="插件的写法"><a href="#插件的写法" class="headerlink" title="插件的写法"></a>插件的写法</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    Test.prototype = &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.Test = Test</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 
-
-
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>前端汇总</title>
-    <url>/archives/fb4c86a7.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>学习前端，学新不学旧。市面上也没有一套为我量身打造的学习路线，为了不走“弯路”，也是一路上边学边看，整理了不少资料，在此记录一下。</p>
-<span id="more"></span>
-
-<p>前端学习路线</p>
-<ul>
-<li><a href="https://juejin.cn/post/6844904147951747086">前端学习路线</a></li>
-</ul>
-<p>html+css+js三件套基础知识</p>
-<ul>
-<li><a href="https://www.xuetangx.com/learn/THU08091000257/THU08091000257/12424461/video/23270160?channel=i.area.learn_title">Web前端攻城狮 - 清华大学 - 学堂在线 (xuetangx.com)</a></li>
-</ul>
-<p>css案例提升</p>
-<ul>
-<li><a href="https://space.bilibili.com/451368848/channel/series">CodingStartup起码课的个人空间</a><ul>
-<li>非常优质的up主，扎实的基本功和一口粤语话，跟着学非常带劲</li>
-</ul>
+<h4 id="克隆-浅拷贝-深拷贝"><a href="#克隆-浅拷贝-深拷贝" class="headerlink" title="克隆/浅拷贝/深拷贝"></a>克隆/浅拷贝/深拷贝</h4><ul>
+<li><p>克隆，只拷贝的地址，var a = b =</p>
 </li>
-<li><a href="https://codepen.io/pen/">(codepen.io)</a><ul>
-<li>在线编辑的工具，可以跟着上述up主的案例一个个动手实现</li>
-</ul>
-</li>
-<li><a href="https://www.w3school.com.cn/cssref/">https://www.w3school.com.cn/cssref/</a><ul>
-<li>css语法查询，言简意赅，</li>
+<li><p>浅拷贝，只拷贝第一层属性信息，深层信息 一个变，其他跟着变</p>
+<ul>
+<li>浅复制仅仅复制所拷贝的对象，而不复制它所引用的对象。</li>
 </ul>
 </li>
 </ul>
-<p>vue</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">origin, target</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> tar = target || &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> origin)&#123;</span><br><span class="line">        <span class="keyword">if</span> (origin.hasOwnProperty(key))&#123;</span><br><span class="line">            tar[key] = origin[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><a href="https://www.bilibili.com/video/BV1zq4y1p7ga/?spm_id_from=333.337.search-card.all.click">黑马程序员Vue全套视频教程</a><ul>
-<li>学完前面一些前端工程化的知识后，跳过vue2，直接从vue3开始学</li>
+<li>深拷贝，全部完整的拷贝下来<ul>
+<li>深复制把要复制的对象所引用的对象都复制了一遍</li>
 </ul>
 </li>
 </ul>
-<p>前端汇总</p>
-<ul>
-<li><a href="https://github.com/helloqingfeng/Awsome-Front-End-learning-resource"> GitHub最全的前端资源汇总仓库（包括前端学习、开发资源、求职面试等）</a><ul>
-<li>结合个人情况，按需查询</li>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">origin, target</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> target = target || &#123;&#125;,</span><br><span class="line">    	toStr = <span class="built_in">Object</span>.prototype.toString,</span><br><span class="line">        arrType = <span class="string">&#x27;[object Array]&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> origin)&#123;</span><br><span class="line">        <span class="keyword">if</span> (origin.hasOwnProperty(key))&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="function"><span class="title">typeof</span>(<span class="params">origin[key] === <span class="string">&#x27;object&#x27;</span> &amp;&amp; origin[key] !== <span class="literal">null</span></span>)</span>&#123;</span><br><span class="line">              	toStr.call(origin[key]) === arrType ? target[key] = []</span><br><span class="line">            									   : target[key] = &#123;&#125;;</span><br><span class="line">            	deepClone(origin[key], target[key]);</span><br><span class="line">               &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                target[key] = origin[key];</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;222&#x27;</span></span><br><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">    name = <span class="string">&#x27;111&#x27;</span>,</span><br><span class="line">    <span class="attr">say</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fun = a.say; <span class="comment">// var fun = function()&#123; console.log(this.name);&#125;</span></span><br><span class="line">fun();  <span class="comment">// 222</span></span><br><span class="line">a.say(); <span class="comment">// 111</span></span><br><span class="line"><span class="keyword">var</span> b = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;333&#x27;</span>,</span><br><span class="line">    <span class="attr">say</span>: <span class="function"><span class="keyword">function</span>(<span class="params">fun</span>)</span>&#123;</span><br><span class="line">        fun();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">b.say(a.say); <span class="comment">// 222</span></span><br><span class="line">b.say = a.say; <span class="comment">// 333</span></span><br><span class="line">b.say()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">&#125;</span><br><span class="line">Foo.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Foo.getName(); <span class="comment">// 2 Foo.getName()理解为Foo对象的一个属性，并不涉及Foo内部</span></span><br><span class="line">getName(); <span class="comment">// 4 undefined -&gt; console.log(5); -&gt; console.log(4);</span></span><br><span class="line">Foo().getName(); <span class="comment">// 1  Foo()执行后,内部的getName被提升至全局，全局的console.log(4) -&gt; console.log(1)</span></span><br><span class="line">getName(); <span class="comment">// 1  Foo()执行后，内部的getName被提升至全局，全局的console.log(4) -&gt; console.log(1)</span></span><br><span class="line"><span class="keyword">new</span> Foo.getName(); <span class="comment">// 2  Foo.getName()理解为Foo对象的一个属性，并不涉及Foo内部</span></span><br><span class="line"><span class="keyword">new</span> Foo().getName(); <span class="comment">// 3  实例化Foo()后，找Foo内部的this.getName，但是找不到，因为getName是window的，只能去原型里找，故返回3</span></span><br><span class="line"><span class="keyword">new</span> <span class="keyword">new</span> Foo().getName(); <span class="comment">// 3 原因同上</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="常用的函数"><a href="#常用的函数" class="headerlink" title="常用的函数"></a>常用的函数</h3><h4 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty"></a>hasOwnProperty</h4><p>找对象自身的属性，排除原型上的所有属性，返回true or false</p>
+<h4 id="检查数据类型的三种方法"><a href="#检查数据类型的三种方法" class="headerlink" title="检查数据类型的三种方法"></a>检查数据类型的三种方法</h4><ul>
+<li>instanceof，A instanceof  B，A对象的原型链上到底有无B原型</li>
 </ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = []</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> a.construtor</span><br><span class="line"><span class="number">2.</span> a <span class="keyword">instanceof</span> <span class="built_in">Array</span></span><br><span class="line"><span class="number">3.</span> <span class="built_in">Object</span>.prototype.toString.call(a);  <span class="keyword">return</span> [object <span class="built_in">Array</span>]</span><br></pre></td></tr></table></figure>
+
+<h4 id="callee-和-caller"><a href="#callee-和-caller" class="headerlink" title="callee 和 caller"></a>callee 和 caller</h4><ul>
+<li><p>arguments.callee返回当前正执行的函数</p>
+<ul>
+<li><p>适用于自启动函数中递归</p>
+</li>
+<li><pre><code class="js">var sum =(function(n)&#123;
+    if(n&lt;1)&#123;
+        return 1;
+    &#125;
+    return n + arguments.callee(n-1)
+&#125;)(10);
+</code></pre>
 </li>
 </ul>
-<p>前端展望</p>
-<ul>
-<li><a href="https://juejin.cn/post/7126869314572910600#heading-83">2022年国内外前端发展态势</a></li>
+</li>
+<li><p>test.caller，返回正在调用test函数的函数</p>
+</li>
 </ul>
 ]]></content>
       <categories>
@@ -2727,7 +2720,7 @@ return x;
 
 <h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><p>meting 引用：</p>
 
-    <div id="aplayer-SPtpeWmN" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-HfVNpmVl" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="0030R0gA49FWxZ" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 
@@ -2845,6 +2838,20 @@ return x;
       </tags>
   </entry>
   <entry>
+    <title>工程案例10—实景三维建设与应用</title>
+    <url>/archives/32592c6d.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>最后一节课依然很无聊，就不做记录了，课程结束啦，finally！</p>
+<p>这学期又算是稀里糊涂的过去了吧，真是折磨的研一</p>
+<p>希望后面还是能继续记录┗|｀O′|┛ 嗷~~</p>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>工程案例</category>
+      </categories>
+      <tags>
+        <tag>实景三维</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>工程案例1—地图数据算法工程化</title>
     <url>/archives/577e831b.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>今天上了工程案例课程的第一节课，请到了丰图科技陈总工程师为我们做了一次有关地图数据工程化的技术讲座，收获颇多，下面就讲座内容做一下总结分析。</p>
@@ -2943,20 +2950,6 @@ return x;
         <tag>互联网</tag>
         <tag>行业</tag>
         <tag>地图算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>工程案例10—实景三维建设与应用</title>
-    <url>/archives/32592c6d.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>最后一节课依然很无聊，就不做记录了，课程结束啦，finally！</p>
-<p>这学期又算是稀里糊涂的过去了吧，真是折磨的研一</p>
-<p>希望后面还是能继续记录┗|｀O′|┛ 嗷~~</p>
-<span id="more"></span>]]></content>
-      <categories>
-        <category>工程案例</category>
-      </categories>
-      <tags>
-        <tag>实景三维</tag>
       </tags>
   </entry>
   <entry>
@@ -3119,6 +3112,18 @@ return x;
       </tags>
   </entry>
   <entry>
+    <title>工程案例6—企业视角下的时空信息创新</title>
+    <url>/archives/5c4085f6.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>本次报告实在过于无聊，没什么好记录的…</p>
+<span id="more"></span>
+
+<p>nothing to see…</p>
+]]></content>
+      <categories>
+        <category>工程案例</category>
+      </categories>
+  </entry>
+  <entry>
     <title>工程案例5—雷达遥感大数据工程实践与思考</title>
     <url>/archives/6c5dbd60.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>今天报告的题目是<strong>雷达遥感大数据工程实践与思考</strong>，请到了北京东方至远科技有限公司董事长李吉平为我们做本次报告。</p>
@@ -3146,18 +3151,6 @@ return x;
       <tags>
         <tag>遥感</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>工程案例6—企业视角下的时空信息创新</title>
-    <url>/archives/5c4085f6.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>本次报告实在过于无聊，没什么好记录的…</p>
-<span id="more"></span>
-
-<p>nothing to see…</p>
-]]></content>
-      <categories>
-        <category>工程案例</category>
-      </categories>
   </entry>
   <entry>
     <title>工程案例7—商用车智能网联发展态势和未来布局</title>
@@ -3203,6 +3196,47 @@ return x;
       </tags>
   </entry>
   <entry>
+    <title>工程案例9—基础设施结构行面激光图像精密测量技术及应用</title>
+    <url>/archives/1ded5f68.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>今天报告的题目是基础设施结构形面激光图像精密测量技术及应用，报告人是武汉汉宁轨道交通技术有限公司研发总监熊勇钢。本课程围绕基础设施结构形面激光图像检测技术展开讲解，具体针对轨道基础设施检测、轨道移动三维扫描系统、隧道移动三维激光图像检测技术、公路三维病害检测等领域介绍了具体的研究工作，并分享工程化过程中解决问题的思路和方法。是一次很不错的报告，下面结合讲座内容和个人感受做如下总结。</p>
+<span id="more"></span>
+
+<h1 id="武汉汉宁轨道交通"><a href="#武汉汉宁轨道交通" class="headerlink" title="武汉汉宁轨道交通"></a>武汉汉宁轨道交通</h1><p>武汉汉宁轨道交通技术有限公司成立于2008年，是国内领先的智能轨道交通运营安全解决方案提供商。公司依托多领域专家和学者，融合武汉大学宇航院前沿技术成果，致力于以自主研发的高精度三维激光测绘技术推动轨道交通数字化、智能化建设，为我国轨道交通运营安全提供坚实保障。</p>
+<h1 id="讲座内容"><a href="#讲座内容" class="headerlink" title="讲座内容"></a>讲座内容</h1><img data-src="https://s2.loli.net/2022/05/21/dxZNhpEXQ1mc8kI.png" style="zoom:67%;" />
+
+<img data-src="https://s2.loli.net/2022/05/21/oQMP5sajOhvWZz7.png" style="zoom:67%;" />
+
+<img data-src="https://s2.loli.net/2022/05/21/qB2EzdamcS1U8HG.png" alt="" style="zoom:67%;" />
+
+<img data-src="https://s2.loli.net/2022/05/21/cNfT5ij9yn82tL1.png" style="zoom:67%;" />
+
+<img data-src="https://s2.loli.net/2022/05/21/2ZK6NwWlypCAVXS.png" style="zoom:80%;" />
+
+<img data-src="https://s2.loli.net/2022/05/21/iQDFEesGk94CazP.png" style="zoom:67%;" />
+
+<img data-src="https://s2.loli.net/2022/05/21/mqbthIA8QJ563Xv.png" style="zoom:80%;" />
+
+<img data-src="https://s2.loli.net/2022/05/21/QW1qDf5ZUE6vKos.png" style="zoom: 80%;" />
+
+<p><img data-src="https://s2.loli.net/2022/05/21/htJc9ryMuo87bWC.png"></p>
+<img data-src="https://s2.loli.net/2022/05/21/BEaFn8lAI6ZU42c.png" style="zoom: 80%;" />
+
+<img data-src="https://s2.loli.net/2022/05/21/s28y9uJCA6DKNGQ.png" style="zoom: 80%;" />
+
+<img data-src="https://s2.loli.net/2022/05/21/Wnu34GL2DqfFcvZ.png" style="zoom:67%;" />
+
+<img data-src="https://s2.loli.net/2022/05/21/km5GvH6zuX4tsgF.png" style="zoom: 80%;" />
+
+]]></content>
+      <categories>
+        <category>工程案例</category>
+      </categories>
+      <tags>
+        <tag>基础设施</tag>
+        <tag>精密测量</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>工程案例8—大数据技术赋能数字乡村建设</title>
     <url>/archives/cd9e5954.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>今天报告的题目是大数据技术赋能数字乡村建设，报告人是东方有道公司的董事长王力鸿。王总重点介绍了近10年来农村农业部门中3S应用的重大工程实践，具体包括农村土地承包经营权确权、两区划定、第三次国土利用调查、农村宅基地、农业农村大数据平台等。下面结合讲座内容和个人感受做如下总结。</p>
@@ -3245,54 +3279,13 @@ return x;
       </tags>
   </entry>
   <entry>
-    <title>工程案例9—基础设施结构行面激光图像精密测量技术及应用</title>
-    <url>/archives/1ded5f68.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>今天报告的题目是基础设施结构形面激光图像精密测量技术及应用，报告人是武汉汉宁轨道交通技术有限公司研发总监熊勇钢。本课程围绕基础设施结构形面激光图像检测技术展开讲解，具体针对轨道基础设施检测、轨道移动三维扫描系统、隧道移动三维激光图像检测技术、公路三维病害检测等领域介绍了具体的研究工作，并分享工程化过程中解决问题的思路和方法。是一次很不错的报告，下面结合讲座内容和个人感受做如下总结。</p>
-<span id="more"></span>
-
-<h1 id="武汉汉宁轨道交通"><a href="#武汉汉宁轨道交通" class="headerlink" title="武汉汉宁轨道交通"></a>武汉汉宁轨道交通</h1><p>武汉汉宁轨道交通技术有限公司成立于2008年，是国内领先的智能轨道交通运营安全解决方案提供商。公司依托多领域专家和学者，融合武汉大学宇航院前沿技术成果，致力于以自主研发的高精度三维激光测绘技术推动轨道交通数字化、智能化建设，为我国轨道交通运营安全提供坚实保障。</p>
-<h1 id="讲座内容"><a href="#讲座内容" class="headerlink" title="讲座内容"></a>讲座内容</h1><img data-src="https://s2.loli.net/2022/05/21/dxZNhpEXQ1mc8kI.png" style="zoom:67%;" />
-
-<img data-src="https://s2.loli.net/2022/05/21/oQMP5sajOhvWZz7.png" style="zoom:67%;" />
-
-<img data-src="https://s2.loli.net/2022/05/21/qB2EzdamcS1U8HG.png" alt="" style="zoom:67%;" />
-
-<img data-src="https://s2.loli.net/2022/05/21/cNfT5ij9yn82tL1.png" style="zoom:67%;" />
-
-<img data-src="https://s2.loli.net/2022/05/21/2ZK6NwWlypCAVXS.png" style="zoom:80%;" />
-
-<img data-src="https://s2.loli.net/2022/05/21/iQDFEesGk94CazP.png" style="zoom:67%;" />
-
-<img data-src="https://s2.loli.net/2022/05/21/mqbthIA8QJ563Xv.png" style="zoom:80%;" />
-
-<img data-src="https://s2.loli.net/2022/05/21/QW1qDf5ZUE6vKos.png" style="zoom: 80%;" />
-
-<p><img data-src="https://s2.loli.net/2022/05/21/htJc9ryMuo87bWC.png"></p>
-<img data-src="https://s2.loli.net/2022/05/21/BEaFn8lAI6ZU42c.png" style="zoom: 80%;" />
-
-<img data-src="https://s2.loli.net/2022/05/21/s28y9uJCA6DKNGQ.png" style="zoom: 80%;" />
-
-<img data-src="https://s2.loli.net/2022/05/21/Wnu34GL2DqfFcvZ.png" style="zoom:67%;" />
-
-<img data-src="https://s2.loli.net/2022/05/21/km5GvH6zuX4tsgF.png" style="zoom: 80%;" />
-
-]]></content>
-      <categories>
-        <category>工程案例</category>
-      </categories>
-      <tags>
-        <tag>基础设施</tag>
-        <tag>精密测量</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>怎叹</title>
     <url>/archives/6c30b541.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>最喜欢这版的翻唱</p>
 <span id="more"></span>
 
 
-    <div id="aplayer-zWWDmnQc" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-pwwUnMhB" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="0030R0gA49FWxZ" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 
@@ -3344,6 +3337,73 @@ return x;
       </categories>
       <tags>
         <tag>音乐</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>拒绝久坐，健康生活</title>
+    <url>/archives/7ebadd91.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>健康生活，拒绝久坐！</p>
+<img data-src="https://s2.loli.net/2022/10/11/9f1Y24qRawETlOi.jpg" alt="img" style="zoom:50%;" />
+
+<span id="more"></span>
+
+<h1 id="视频内容总结"><a href="#视频内容总结" class="headerlink" title="视频内容总结"></a>视频内容总结</h1><h2 id="一、脖子变化（颈型颈椎病）"><a href="#一、脖子变化（颈型颈椎病）" class="headerlink" title="一、脖子变化（颈型颈椎病）"></a><strong>一、脖子变化（颈型颈椎病）</strong></h2><h3 id="1、症状"><a href="#1、症状" class="headerlink" title="1、症状"></a><strong>1、症状</strong></h3><ul>
+<li>平时坐久了脖子就开始疼</li>
+<li>低下头摸到自己后颈骨上最突兀的这个骨头，然后向上摸凹陷的小坑，稍微用点力按，有疼痛感。</li>
+</ul>
+<p><img data-src="https://s2.loli.net/2022/10/11/9f1Y24qRawETlOi.jpg" alt="img"></p>
+<h3 id="2、该怎么办？"><a href="#2、该怎么办？" class="headerlink" title="2、该怎么办？"></a><strong>2、该怎么办？</strong></h3><ul>
+<li>不要瞎去按摩，因为里面可能会有炎症</li>
+<li>应该做就是用热毛巾湿敷，有助于消炎止痛。</li>
+</ul>
+<h3 id="3、保护颈椎动作"><a href="#3、保护颈椎动作" class="headerlink" title="3、保护颈椎动作"></a>3、保护颈椎动作</h3><h4 id="①歪头"><a href="#①歪头" class="headerlink" title="①歪头"></a>①歪头</h4><p>（1）挺胸抬头，坐在椅子上，两眼目视前方然后</p>
+<p>（2）歪头感觉你的斜方肌在拉伸，坚持8秒回正，再另外一侧歪头，坚持8秒回正</p>
+<p>（3）来回两次为一组，每组做四次。</p>
+<p>注：<strong>千万不要过度疼痛</strong>，要找那种刚要疼就停的感觉。</p>
+<h4 id="②伸手往反方向扭头"><a href="#②伸手往反方向扭头" class="headerlink" title="②伸手往反方向扭头"></a>②伸手往反方向扭头</h4><p>（1）挺胸，抬头坐在椅子上，两眼目视前方</p>
+<p>（2）伸右手，同时向左看，达到疼痛的临界点，持续8秒回正，再相反方向做一遍，持续8秒回正</p>
+<p>（3）来回两次为一组，每组做四次。</p>
+<p><img data-src="https://s2.loli.net/2022/10/11/g3CaeTXPxnJ8R41.jpg" alt="img"></p>
+<h3 id="4、为什么不能过度疼痛呢？"><a href="#4、为什么不能过度疼痛呢？" class="headerlink" title="4、为什么不能过度疼痛呢？"></a>4、为什么不能过度疼痛呢？</h3><p>因为如果你是非肌肉型的脖子疼（如下图），那这么做会加大你的损害程度，达到疼痛的临界点就足以拉伸紧张的肌群了。</p>
+<h3 id="5、非肌肉型的颈椎病该咋办呢？"><a href="#5、非肌肉型的颈椎病该咋办呢？" class="headerlink" title="5、非肌肉型的颈椎病该咋办呢？"></a>5、非肌肉型的颈椎病该咋办呢？</h3><p>①【用颈托】限制脖子活动范围。比如整个颈托卡在脖子上</p>
+<p>②【直腰不低头】要写字的时候，腰部就跟着成一条直线倾斜</p>
+<p>③【目标与视线平行】把你的显示器垫高，大概让眼睛与屏幕上沿平行，就能保证你不低头了。 </p>
+<h2 id="二、腰部变化（腰肌劳损）"><a href="#二、腰部变化（腰肌劳损）" class="headerlink" title="二、腰部变化（腰肌劳损）"></a><strong>二、腰部变化（腰肌劳损）</strong></h2><h3 id="1、腰疼该怎么办？"><a href="#1、腰疼该怎么办？" class="headerlink" title="1、腰疼该怎么办？"></a><strong>1、腰疼该怎么办？</strong></h3><p>①坐在凳子上没一会就开始腰疼</p>
+<p>用暖宝宝</p>
+<p>机制：腰肌脑损，你一加热让血管打开，促进血液循环，无菌炎症引起的腰痛就缓解了。</p>
+<p>②疼得很严重（临床指导下使用）</p>
+<p>可以使用一些非甾体抗炎药，例如布洛芬、双氯芬酸、塞来昔布等</p>
+<h3 id="2、缓解腰痛动作"><a href="#2、缓解腰痛动作" class="headerlink" title="2、缓解腰痛动作"></a><strong>2、缓解腰痛动作</strong></h3><p>（1）心疼的抱抱自己</p>
+<p>站起身慢慢的蹲下，然后双臂抱膝重点来了。此时低头屁股往下坐，慢慢感觉你后背在拉伸，坚持个8秒，再起身做四次完成。</p>
+<p><img data-src="https://s2.loli.net/2022/10/11/3DXOWjPlRgeLTQb.jpg"></p>
+<p>机制：坐久了竖脊肌过度紧张，这么一拉伸就缓解了。</p>
+<p>（2）大腿夹矿泉水瓶</p>
+<p>矿泉水瓶子，坐在椅子上把它夹在两膝盖中间，然后双脚向外撇，坚持8秒，每天做四组</p>
+<img data-src="https://s2.loli.net/2022/10/11/kLmIR5Do7EbwGTe.jpg" alt="img" style="zoom:67%;" />
+
+<h3 id="3、正确坐姿"><a href="#3、正确坐姿" class="headerlink" title="3、正确坐姿"></a><strong>3、正确坐姿</strong></h3><p>可以用椅垫、靠腰、颈枕把人和椅子之间的缝隙填满，也可以用人体工学椅（全贴合）</p>
+<img data-src="https://s2.loli.net/2022/10/11/qWvnYexJiZ8klj3.jpg" style="zoom: 67%;" />
+
+<h2 id="三、久坐导致的疾病"><a href="#三、久坐导致的疾病" class="headerlink" title="三、久坐导致的疾病"></a><strong>三、久坐导致的疾病</strong></h2><p>疾病：前列腺炎、痔疮</p>
+<p>原因：坐时间长了，血液循环不畅</p>
+<p>预防：PC肌训练</p>
+<h3 id="1、预防久坐最实际有效的方法"><a href="#1、预防久坐最实际有效的方法" class="headerlink" title="1、预防久坐最实际有效的方法"></a><strong>1、预防久坐最实际有效的方法</strong></h3><p>每半小时变换一下姿势，可以起来活动活动，在合理的角度内调整自己的坐姿（腰背部要填满）</p>
+<h3 id="2、久坐健康指南"><a href="#2、久坐健康指南" class="headerlink" title="2、久坐健康指南"></a><strong>2、久坐健康指南</strong></h3><p><img data-src="https://s2.loli.net/2022/10/11/cetyBMThl7wXN2P.jpg"></p>
+<h1 id="原视频"><a href="#原视频" class="headerlink" title="原视频"></a>原视频</h1><iframe src="//player.bilibili.com/player.html?aid=603891029&bvid=BV1mB4y1j77G&cid=857849956&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><p><a href="https://www.bilibili.com/h5/note-app/view?cvid=19020101&pagefrom=comment">笔记详情 (bilibili.com)</a></p>
+</li>
+<li><p><a href="https://www.bilibili.com/video/BV1mB4y1j77G/?t=41&vd_source=57ac88e7b8d0e5cd1b0c032745042667">【医学博士】每天久坐8小时，身体会发生哪些变化？I 考研党、上班族必须收藏！_哔哩哔哩_bilibili</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>随记</category>
+        <category>养生之道</category>
+      </categories>
+      <tags>
+        <tag>久坐</tag>
       </tags>
   </entry>
   <entry>
