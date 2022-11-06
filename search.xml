@@ -49,81 +49,24 @@
       </categories>
   </entry>
   <entry>
-    <title>Markdown基本语法</title>
-    <url>/archives/5d36ff15.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote><p>优雅地沉浸式记录，专注内容而不是纠结排版</p>
-</blockquote>
-
-<p>Markdown是一种轻量级标记语言，常用标记符号不到十个，用于日常写作记录十分方便,下面对于一些常用的markdown语法进行介绍…</p>
-<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/markdown.3uk7anieerg0.webp" alt="" style="zoom: 50%;" />
-
+    <title>Java字符串相等陷阱</title>
+    <url>/archives/2f6e7165.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>前两天在android开发中判断两个字符串相等的时候犯了个小错误，就是在判断两个相同字符串的变量的时候用的是==，但是结果一直返回的是false，折腾了好久，一百度才知道在Java中判断字符串内容相等需要用equals函数。<br>搜了搜其他的资料，做了一些总结拓展，内容如下：</p>
 <span id="more"></span>
-
-<h1 id="如何标题-amp-分段"><a href="#如何标题-amp-分段" class="headerlink" title="如何标题 &amp; 分段"></a>如何标题 &amp; 分段</h1><p>1个#是一级标题，2个#是二级标题，以此类推…<br>代码示例：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br></pre></td></tr></table></figure>
-<p>seems like：</p>
-
-
-<p>如果分段的话，使用空白行将需要分段的文本进行分隔即可~<br><strong>不要使用制表符tabs缩进段落，那是word用的</strong></p>
-<h1 id="如何强调"><a href="#如何强调" class="headerlink" title="如何强调"></a>如何强调</h1><p>通过设置特定的文本形式来强调其重要性</p>
-<h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h2><p>倾斜的文字左右1个*</p>
-<h2 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h2><p>加粗的文字左右2个*</p>
-<h2 id="倾斜加粗"><a href="#倾斜加粗" class="headerlink" title="倾斜加粗"></a>倾斜加粗</h2><p>倾斜并且加粗的文字左右3个*</p>
-<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><p>加删除线的文字左右2个~</p>
-<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="strong">*倾斜体*</span></span><br><span class="line"><span class="strong">**加粗体**</span></span><br><span class="line"><span class="strong">***倾斜且加粗**</span>*</span><br><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
-<p>seems like：</p>
-
-
-<h1 id="如何引用"><a href="#如何引用" class="headerlink" title="如何引用"></a>如何引用</h1><ol>
-<li>在需要的文字前添加一个&gt;符号</li>
-<li>引用可以嵌套，比如加&gt;&gt;,也可以加&gt;&gt;&gt;</li>
-<li>如果引用内有分段，在段落之间的空白行添加一个&gt;符号<br>引用内可以包含其他格式的元素，比如 -</li>
+<h1 id="内容判断和地址判断"><a href="#内容判断和地址判断" class="headerlink" title="内容判断和地址判断"></a>内容判断和地址判断</h1><p>在Java中字符串的判断分为内容判断和地址判断</p>
+<ol>
+<li>内容判断<br>其实百分之九十九需要的都是内容上的判断相等与否，而且绝大部分错误也是在这~<br>内容上在用equals函数，即 s1.equals(s2)</li>
+<li>地址判断<br>地址判断指的是比较这两个字符串是否具有相同的地址；<br>一般来说，有相同的地址 内容上就肯定相同，<br>反之，内容上相同地址上不一定相同，这得具体看定义的是不是同一个对象<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1></li>
 </ol>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">&gt; 天青色等烟雨</span><br><span class="line">&gt;</span><br><span class="line">&gt; 而我在等你</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 翠烟袅袅升起</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 隔江千万里</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 如传世的青花瓷</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 自顾自美丽</span><br></pre></td></tr></table></figure>
-<p>seems like：</p>
-
-
-<h1 id="如何使用列表"><a href="#如何使用列表" class="headerlink" title="如何使用列表"></a>如何使用列表</h1><p>列表分为有序和无序两种</p>
-<h2 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h2><p>列表项前添加数字并紧跟1个<strong>英文</strong>句号，数字应当从1开始</p>
-<h2 id="无序"><a href="#无序" class="headerlink" title="无序"></a>无序</h2><p>在每个列表项前面添加破折号 (-)、星号 (*) 或加号 (+)，通过缩进可创建嵌套列表</p>
-<h2 id="嵌套其他元素"><a href="#嵌套其他元素" class="headerlink" title="嵌套其他元素"></a>嵌套其他元素</h2><p>在使用前缩进4个空格或者1个制表符（tab）</p>
-<h2 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h2><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="bullet">* </span>打开窗 最后望一望</span><br><span class="line"><span class="bullet">* </span>今夜的月亮要去的地方</span><br><span class="line"><span class="code">    留恋吗 所有的旧时光</span></span><br><span class="line"><span class="bullet">* </span>什么也挽不回 就留下吧</span><br><span class="line"><span class="code">    - 忘了吧伤心的那一天</span></span><br><span class="line"><span class="code">    - 孤单的邮差送来的那份悲哀</span></span><br><span class="line"><span class="code">    1. 忘了冷冷的大街上</span></span><br><span class="line"><span class="code">    2. 冷冷的人群丢失的岁月皑皑</span></span><br></pre></td></tr></table></figure>
-<p>seems like：</p>
-
-
-<h1 id="如何使用链接"><a href="#如何使用链接" class="headerlink" title="如何使用链接"></a>如何使用链接</h1><p><code>[超链接显示名](超链接地址 &quot;超链接title&quot;)</code><br>这里的title指的是 鼠标悬停在链接上时会出现的文字，是可选项，与地址之间以空格分隔<br>eg：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">[这是一个bing官网](https:<span class="regexp">//</span>www.bing.com <span class="string">&quot;bingbingbing&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.bing.com/" title="bingbingbing">这是一个bing官网</a></p>
-<p>也可以使用尖括号 将URL直接变成可点击的链接<br>eg：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">&lt;https:<span class="regexp">//</span>www.bing.com&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.bing.com/">https://www.bing.com</a></p>
-<h1 id="如何使用图片"><a href="#如何使用图片" class="headerlink" title="如何使用图片"></a>如何使用图片</h1><p><code>![图片alt](图片链接 &quot;图片title&quot;)</code></p>
-<ul>
-<li>图片alt：图片加载失败时你看到的东西</li>
-<li>图片链接: 图片链接</li>
-<li>图片title：鼠标悬停在图片上时会出现的文字</li>
-</ul>
-<p>eg:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">![markdown](https:<span class="comment">//cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/markdown.3uk7anieerg0.webp)</span></span><br></pre></td></tr></table></figure>
-<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/markdown.3uk7anieerg0.webp" alt="markdown" style="zoom:50%;" />
-
-<h1 id="几个注意项"><a href="#几个注意项" class="headerlink" title="几个注意项"></a>几个注意项</h1><ul>
-<li>以上格式语法之间基本上都是可以混用的，比如强调可以用在链接上，列表里也可以插入图片…随意DIY</li>
-<li>很多时候没有意料中的结果，都是因为在符号和文本之间少了一个空格</li>
-<li>hexo并不支持markdown格式的图片引用方法</li>
-<li>使用完列表后，记得空一行继续写作，不然下一行就归为列表下属内容了</li>
-<li>…</li>
-</ul>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="https://markdown.com.cn/">Markdown官方教程</a></li>
-</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String a = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">        String b = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">        <span class="keyword">boolean</span> c = (a == b);</span><br><span class="line">        System.out.println(c);</span><br><span class="line"></span><br><span class="line">        String d = <span class="keyword">new</span> String(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">        String e = <span class="keyword">new</span> String(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">        <span class="keyword">boolean</span> f = (d == e);</span><br><span class="line">        System.out.println(f);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行得到的结果是：<br>true<br>false</p>
 ]]></content>
       <categories>
-        <category>hexo</category>
-        <category>前端</category>
+        <category>coding</category>
       </categories>
       <tags>
-        <tag>Markdown</tag>
+        <tag>Java</tag>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
@@ -471,24 +414,81 @@
       </tags>
   </entry>
   <entry>
-    <title>Java字符串相等陷阱</title>
-    <url>/archives/2f6e7165.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>前两天在android开发中判断两个字符串相等的时候犯了个小错误，就是在判断两个相同字符串的变量的时候用的是==，但是结果一直返回的是false，折腾了好久，一百度才知道在Java中判断字符串内容相等需要用equals函数。<br>搜了搜其他的资料，做了一些总结拓展，内容如下：</p>
+    <title>Markdown基本语法</title>
+    <url>/archives/5d36ff15.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote><p>优雅地沉浸式记录，专注内容而不是纠结排版</p>
+</blockquote>
+
+<p>Markdown是一种轻量级标记语言，常用标记符号不到十个，用于日常写作记录十分方便,下面对于一些常用的markdown语法进行介绍…</p>
+<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/markdown.3uk7anieerg0.webp" alt="" style="zoom: 50%;" />
+
 <span id="more"></span>
-<h1 id="内容判断和地址判断"><a href="#内容判断和地址判断" class="headerlink" title="内容判断和地址判断"></a>内容判断和地址判断</h1><p>在Java中字符串的判断分为内容判断和地址判断</p>
-<ol>
-<li>内容判断<br>其实百分之九十九需要的都是内容上的判断相等与否，而且绝大部分错误也是在这~<br>内容上在用equals函数，即 s1.equals(s2)</li>
-<li>地址判断<br>地址判断指的是比较这两个字符串是否具有相同的地址；<br>一般来说，有相同的地址 内容上就肯定相同，<br>反之，内容上相同地址上不一定相同，这得具体看定义的是不是同一个对象<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1></li>
+
+<h1 id="如何标题-amp-分段"><a href="#如何标题-amp-分段" class="headerlink" title="如何标题 &amp; 分段"></a>如何标题 &amp; 分段</h1><p>1个#是一级标题，2个#是二级标题，以此类推…<br>代码示例：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br></pre></td></tr></table></figure>
+<p>seems like：</p>
+
+
+<p>如果分段的话，使用空白行将需要分段的文本进行分隔即可~<br><strong>不要使用制表符tabs缩进段落，那是word用的</strong></p>
+<h1 id="如何强调"><a href="#如何强调" class="headerlink" title="如何强调"></a>如何强调</h1><p>通过设置特定的文本形式来强调其重要性</p>
+<h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h2><p>倾斜的文字左右1个*</p>
+<h2 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h2><p>加粗的文字左右2个*</p>
+<h2 id="倾斜加粗"><a href="#倾斜加粗" class="headerlink" title="倾斜加粗"></a>倾斜加粗</h2><p>倾斜并且加粗的文字左右3个*</p>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><p>加删除线的文字左右2个~</p>
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="strong">*倾斜体*</span></span><br><span class="line"><span class="strong">**加粗体**</span></span><br><span class="line"><span class="strong">***倾斜且加粗**</span>*</span><br><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
+<p>seems like：</p>
+
+
+<h1 id="如何引用"><a href="#如何引用" class="headerlink" title="如何引用"></a>如何引用</h1><ol>
+<li>在需要的文字前添加一个&gt;符号</li>
+<li>引用可以嵌套，比如加&gt;&gt;,也可以加&gt;&gt;&gt;</li>
+<li>如果引用内有分段，在段落之间的空白行添加一个&gt;符号<br>引用内可以包含其他格式的元素，比如 -</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String a = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">        String b = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">        <span class="keyword">boolean</span> c = (a == b);</span><br><span class="line">        System.out.println(c);</span><br><span class="line"></span><br><span class="line">        String d = <span class="keyword">new</span> String(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">        String e = <span class="keyword">new</span> String(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">        <span class="keyword">boolean</span> f = (d == e);</span><br><span class="line">        System.out.println(f);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行得到的结果是：<br>true<br>false</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">&gt; 天青色等烟雨</span><br><span class="line">&gt;</span><br><span class="line">&gt; 而我在等你</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 翠烟袅袅升起</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 隔江千万里</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 如传世的青花瓷</span><br><span class="line"><span class="meta">&gt;&gt;</span> - 自顾自美丽</span><br></pre></td></tr></table></figure>
+<p>seems like：</p>
+
+
+<h1 id="如何使用列表"><a href="#如何使用列表" class="headerlink" title="如何使用列表"></a>如何使用列表</h1><p>列表分为有序和无序两种</p>
+<h2 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h2><p>列表项前添加数字并紧跟1个<strong>英文</strong>句号，数字应当从1开始</p>
+<h2 id="无序"><a href="#无序" class="headerlink" title="无序"></a>无序</h2><p>在每个列表项前面添加破折号 (-)、星号 (*) 或加号 (+)，通过缩进可创建嵌套列表</p>
+<h2 id="嵌套其他元素"><a href="#嵌套其他元素" class="headerlink" title="嵌套其他元素"></a>嵌套其他元素</h2><p>在使用前缩进4个空格或者1个制表符（tab）</p>
+<h2 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h2><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="bullet">* </span>打开窗 最后望一望</span><br><span class="line"><span class="bullet">* </span>今夜的月亮要去的地方</span><br><span class="line"><span class="code">    留恋吗 所有的旧时光</span></span><br><span class="line"><span class="bullet">* </span>什么也挽不回 就留下吧</span><br><span class="line"><span class="code">    - 忘了吧伤心的那一天</span></span><br><span class="line"><span class="code">    - 孤单的邮差送来的那份悲哀</span></span><br><span class="line"><span class="code">    1. 忘了冷冷的大街上</span></span><br><span class="line"><span class="code">    2. 冷冷的人群丢失的岁月皑皑</span></span><br></pre></td></tr></table></figure>
+<p>seems like：</p>
+
+
+<h1 id="如何使用链接"><a href="#如何使用链接" class="headerlink" title="如何使用链接"></a>如何使用链接</h1><p><code>[超链接显示名](超链接地址 &quot;超链接title&quot;)</code><br>这里的title指的是 鼠标悬停在链接上时会出现的文字，是可选项，与地址之间以空格分隔<br>eg：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">[这是一个bing官网](https:<span class="regexp">//</span>www.bing.com <span class="string">&quot;bingbingbing&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.bing.com/" title="bingbingbing">这是一个bing官网</a></p>
+<p>也可以使用尖括号 将URL直接变成可点击的链接<br>eg：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">&lt;https:<span class="regexp">//</span>www.bing.com&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.bing.com/">https://www.bing.com</a></p>
+<h1 id="如何使用图片"><a href="#如何使用图片" class="headerlink" title="如何使用图片"></a>如何使用图片</h1><p><code>![图片alt](图片链接 &quot;图片title&quot;)</code></p>
+<ul>
+<li>图片alt：图片加载失败时你看到的东西</li>
+<li>图片链接: 图片链接</li>
+<li>图片title：鼠标悬停在图片上时会出现的文字</li>
+</ul>
+<p>eg:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">![markdown](https:<span class="comment">//cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/markdown.3uk7anieerg0.webp)</span></span><br></pre></td></tr></table></figure>
+<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/markdown.3uk7anieerg0.webp" alt="markdown" style="zoom:50%;" />
+
+<h1 id="几个注意项"><a href="#几个注意项" class="headerlink" title="几个注意项"></a>几个注意项</h1><ul>
+<li>以上格式语法之间基本上都是可以混用的，比如强调可以用在链接上，列表里也可以插入图片…随意DIY</li>
+<li>很多时候没有意料中的结果，都是因为在符号和文本之间少了一个空格</li>
+<li>hexo并不支持markdown格式的图片引用方法</li>
+<li>使用完列表后，记得空一行继续写作，不然下一行就归为列表下属内容了</li>
+<li>…</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://markdown.com.cn/">Markdown官方教程</a></li>
+</ul>
 ]]></content>
       <categories>
-        <category>coding</category>
+        <category>前端</category>
+        <category>hexo</category>
       </categories>
       <tags>
-        <tag>Java</tag>
-        <tag>Android</tag>
+        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -823,71 +823,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Picx图床推荐</title>
-    <url>/archives/3eece56f.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>PicX 是一款基于 GitHub API &amp; jsDelivr 开发的具有 CDN 加速功能的图床管理工具<br>免费、稳定好用、不限容量不限速度，~~Picx谁用谁知道~~~</p>
-<p>因为不知名原因，PicX的压缩突然出了问题，这就严重影响了我的使用，问了开发者之后，他们说没有问题，however搞了半天还是没有搞定，就换了个平台，一下子入坑 PicGo+Typora，感觉比PicX 好用</p>
-<p>详情请转至：<a href="https://ychch.top/archives/f2a9bf9d.html">https://ychch.top/archives/f2a9bf9d.html</a></p>
-<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/Picx.7d9g65n3wt00.webp" alt="Picx" style="zoom: 50%;" />
-
-
-<span id="more"></span>
-
-<h1 id="何为图床"><a href="#何为图床" class="headerlink" title="何为图床"></a>何为图床</h1><p>图床就是在互联网中存储图片的空间，举个例子<br>QQ空间里的相册、微博里的相册其实都是一种形式的图床，当你将这些照片分享给好友时，你分享的是其实是一个独一无二的访问链接，这个链接指向的空间就是图床。<br>简而言之：</p>
-<blockquote>
-<p> 图床 = ( 图片 + 访问链接) 的集合</p>
-</blockquote>
-<h1 id="为什么需要图床"><a href="#为什么需要图床" class="headerlink" title="为什么需要图床"></a>为什么需要图床</h1><p>会接触到图床的人通常是一些网络上喜欢写博客的人，写博客时通常会采用markdown的格式去编辑文字。<br>markdown中添加图片通常是使用如下标签：</p>
-<blockquote>
-<p>! [图片名称] (图片链接地址)</p>
-</blockquote>
-<p>当你的文章发布到互联网中时，其他人如果也想看到这张图片，必须将图片放到互联网中云端存储，每张图片就会有独一无二的访问链接，当图片一多，就变成了图床。</p>
-<h1 id="使用图床中常见的问题"><a href="#使用图床中常见的问题" class="headerlink" title="使用图床中常见的问题"></a>使用图床中常见的问题</h1><p>市面上的图床主要分为免费和付费两种，收费的优点在于地址保持、独立域名、速度和稳定性上可以会好一点，免费的大部分都不太靠谱，有跑路的风险。<br>下面列举了使用图床中常见的问题</p>
-<ul>
-<li>hexo静态博客写文章，不知图片保存到哪里去…</li>
-<li>花钱租服务器托管图片，又贵又难配置…</li>
-<li>网上心仪图片的链接，用着用着某一天就失效了…</li>
-<li>市面上的大多数图床，付费、容量小、限时限流又限量，劝退一众博主…</li>
-<li>….</li>
-</ul>
-<p>Picx则兼顾了两种的优点，又免费又好用，配置起来也简单</p>
-<h1 id="Picx功能特性"><a href="#Picx功能特性" class="headerlink" title="Picx功能特性"></a>Picx功能特性</h1><p>PicX 是一款基于 GitHub API &amp; jsDelivr 开发的具有 CDN 加速功能的图床管理工具，免费、稳定好用、不限容量不限速度，非常好用</p>
-<ul>
-<li>支持github、CDN两种外链，国内国外访问都有保障</li>
-<li>支持拖拽、复制粘贴、选择文件等多种方式选择图片</li>
-<li>支持图片重命名、哈希化和设置命名前缀</li>
-<li>支持批量上传、删除和复制图片</li>
-<li>支持多级目录管理</li>
-<li>支持一键转化markdown格式外链</li>
-<li>支持图片压缩</li>
-</ul>
-<img data-src="https://s2.loli.net/2022/03/18/C89lR6MJwnbt2pi.png" style="zoom:80%;" />
-
-<p>……更多功能持续拓展中</p>
-<h1 id="目前不足的"><a href="#目前不足的" class="headerlink" title="目前不足的"></a>目前不足的</h1><ul>
-<li>不支持设置图片水印</li>
-<li><strong>不支持其他git厂商</strong>(gitee or coding)</li>
-</ul>
-<h1 id="Picx使用教程"><a href="#Picx使用教程" class="headerlink" title="Picx使用教程"></a>Picx使用教程</h1><p>Picx的使用非常简单，配置下来10分钟就搞定了，主要分为以下三步</p>
-<ol>
-<li>创建github仓库</li>
-<li>获取github token</li>
-<li>配置图床即可</li>
-</ol>
-<img data-src="https://s2.loli.net/2022/03/18/lzN14TSnAgOwqXe.png" style="zoom: 80%;" />
-
-<p>在这里就不赘述了，具体可见官方文档</p>
-<blockquote>
-<p><a href="https://picx-docs.xpoet.cn/tutorial/get-start.html">https://picx-docs.xpoet.cn/tutorial/get-start.html</a></p>
-</blockquote>
-<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p>-<a href="https://picx-docs.xpoet.cn/">picx官方文档</a><br>-<a href="https://opensourcelibs.com/lib/picx">https://opensourcelibs.com/lib/picx</a><br>-<a href="https://www.cnblogs.com/cs-markdown10086/p/15091673.html">https://www.cnblogs.com/cs-markdown10086/p/15091673.html</a></p>
+    <title>Pytorch学习笔记-3</title>
+    <url>/archives/4dd3071d.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><span id="more"></span>
 ]]></content>
-      <categories>
-        <category>效率</category>
-      </categories>
-      <tags>
-        <tag>图床</tag>
-      </tags>
   </entry>
   <entry>
     <title>Pytorch学习笔记-2</title>
@@ -1067,12 +1006,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Pytorch学习笔记-3</title>
-    <url>/archives/4dd3071d.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><span id="more"></span>
-]]></content>
-  </entry>
-  <entry>
     <title>Pytorch学习笔记</title>
     <url>/archives/6859e29c.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>科研所迫，开始入坑深度学习。<br>之前断断续续的学过一些，了解一些概念，但没怎么敲过代码，看源码笔记费劲，更别谈复现了<br>好友给我推荐了一个通俗易懂的pytorch教程，花了三天看了一遍，这个教程讲得真的很好，为小土堆点赞</p>
@@ -1162,16 +1095,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git的正确使用姿势</title>
-    <url>/archives/78356650.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><span id="more"></span>
-<p>``python</p>
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Typora体验+破解版安装包</title>
     <url>/archives/b19d3262.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Typora编辑体验，过阵子再补上….</p>
@@ -1189,6 +1112,86 @@
       </categories>
       <tags>
         <tag>typora</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>conda和pip的异同</title>
+    <url>/archives/44547c5f.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><span id="more"></span>
+<p>``python</p>
+]]></content>
+      <categories>
+        <category>coding</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Picx图床推荐</title>
+    <url>/archives/3eece56f.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>PicX 是一款基于 GitHub API &amp; jsDelivr 开发的具有 CDN 加速功能的图床管理工具<br>免费、稳定好用、不限容量不限速度，~~Picx谁用谁知道~~~</p>
+<p>因为不知名原因，PicX的压缩突然出了问题，这就严重影响了我的使用，问了开发者之后，他们说没有问题，however搞了半天还是没有搞定，就换了个平台，一下子入坑 PicGo+Typora，感觉比PicX 好用</p>
+<p>详情请转至：<a href="https://ychch.top/archives/f2a9bf9d.html">https://ychch.top/archives/f2a9bf9d.html</a></p>
+<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/Picx.7d9g65n3wt00.webp" alt="Picx" style="zoom: 50%;" />
+
+
+<span id="more"></span>
+
+<h1 id="何为图床"><a href="#何为图床" class="headerlink" title="何为图床"></a>何为图床</h1><p>图床就是在互联网中存储图片的空间，举个例子<br>QQ空间里的相册、微博里的相册其实都是一种形式的图床，当你将这些照片分享给好友时，你分享的是其实是一个独一无二的访问链接，这个链接指向的空间就是图床。<br>简而言之：</p>
+<blockquote>
+<p> 图床 = ( 图片 + 访问链接) 的集合</p>
+</blockquote>
+<h1 id="为什么需要图床"><a href="#为什么需要图床" class="headerlink" title="为什么需要图床"></a>为什么需要图床</h1><p>会接触到图床的人通常是一些网络上喜欢写博客的人，写博客时通常会采用markdown的格式去编辑文字。<br>markdown中添加图片通常是使用如下标签：</p>
+<blockquote>
+<p>! [图片名称] (图片链接地址)</p>
+</blockquote>
+<p>当你的文章发布到互联网中时，其他人如果也想看到这张图片，必须将图片放到互联网中云端存储，每张图片就会有独一无二的访问链接，当图片一多，就变成了图床。</p>
+<h1 id="使用图床中常见的问题"><a href="#使用图床中常见的问题" class="headerlink" title="使用图床中常见的问题"></a>使用图床中常见的问题</h1><p>市面上的图床主要分为免费和付费两种，收费的优点在于地址保持、独立域名、速度和稳定性上可以会好一点，免费的大部分都不太靠谱，有跑路的风险。<br>下面列举了使用图床中常见的问题</p>
+<ul>
+<li>hexo静态博客写文章，不知图片保存到哪里去…</li>
+<li>花钱租服务器托管图片，又贵又难配置…</li>
+<li>网上心仪图片的链接，用着用着某一天就失效了…</li>
+<li>市面上的大多数图床，付费、容量小、限时限流又限量，劝退一众博主…</li>
+<li>….</li>
+</ul>
+<p>Picx则兼顾了两种的优点，又免费又好用，配置起来也简单</p>
+<h1 id="Picx功能特性"><a href="#Picx功能特性" class="headerlink" title="Picx功能特性"></a>Picx功能特性</h1><p>PicX 是一款基于 GitHub API &amp; jsDelivr 开发的具有 CDN 加速功能的图床管理工具，免费、稳定好用、不限容量不限速度，非常好用</p>
+<ul>
+<li>支持github、CDN两种外链，国内国外访问都有保障</li>
+<li>支持拖拽、复制粘贴、选择文件等多种方式选择图片</li>
+<li>支持图片重命名、哈希化和设置命名前缀</li>
+<li>支持批量上传、删除和复制图片</li>
+<li>支持多级目录管理</li>
+<li>支持一键转化markdown格式外链</li>
+<li>支持图片压缩</li>
+</ul>
+<img data-src="https://s2.loli.net/2022/03/18/C89lR6MJwnbt2pi.png" style="zoom:80%;" />
+
+<p>……更多功能持续拓展中</p>
+<h1 id="目前不足的"><a href="#目前不足的" class="headerlink" title="目前不足的"></a>目前不足的</h1><ul>
+<li>不支持设置图片水印</li>
+<li><strong>不支持其他git厂商</strong>(gitee or coding)</li>
+</ul>
+<h1 id="Picx使用教程"><a href="#Picx使用教程" class="headerlink" title="Picx使用教程"></a>Picx使用教程</h1><p>Picx的使用非常简单，配置下来10分钟就搞定了，主要分为以下三步</p>
+<ol>
+<li>创建github仓库</li>
+<li>获取github token</li>
+<li>配置图床即可</li>
+</ol>
+<img data-src="https://s2.loli.net/2022/03/18/lzN14TSnAgOwqXe.png" style="zoom: 80%;" />
+
+<p>在这里就不赘述了，具体可见官方文档</p>
+<blockquote>
+<p><a href="https://picx-docs.xpoet.cn/tutorial/get-start.html">https://picx-docs.xpoet.cn/tutorial/get-start.html</a></p>
+</blockquote>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p>-<a href="https://picx-docs.xpoet.cn/">picx官方文档</a><br>-<a href="https://opensourcelibs.com/lib/picx">https://opensourcelibs.com/lib/picx</a><br>-<a href="https://www.cnblogs.com/cs-markdown10086/p/15091673.html">https://www.cnblogs.com/cs-markdown10086/p/15091673.html</a></p>
+]]></content>
+      <categories>
+        <category>效率</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
       </tags>
   </entry>
   <entry>
@@ -1303,6 +1306,7 @@
 </blockquote>
 <h4 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h4><p><code>v-bind:</code> 指令，简写为 <code>:</code>，作用：<strong>为元素属性添加 变量值</strong></p>
 <p>:bind就是为属性绑定插值，属性前不加冒号 后面的属性值统一视作 字符串</p>
+<p>有时候，为了后面跟一个 JavaScript 表达式，也可以加一个v-bind，即使没有变量值绑定</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//举例来说，如果你的组件实例有一个数据属性 attributeName，其值为 &quot;href&quot; 这个绑定就等价于 v-bind:href</span></span><br><span class="line"><span class="comment">// 动态属性名参数不能出现空格和引号，因为HTML合法属性名不能出现空格和引号</span></span><br><span class="line">&lt;a :[attributeName]=<span class="string">&quot;url&quot;</span>&gt; ... &lt;/a&gt;</span><br></pre></td></tr></table></figure>
 
 <h4 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h4><p><code>v-on:</code>   可以被简写为 <code>@</code>  使用方法 @事件名称  = “事件处理函数 (参数)”</p>
@@ -1440,30 +1444,23 @@
 <td>1. 首屏加载慢<br />2. 不利于SEO</td>
 </tr>
 </tbody></table>
-<p>首屏加载慢处理办法</p>
+<p><strong>首屏加载慢的处理办法</strong></p>
 <ul>
-<li><p>路由懒加载</p>
-<ul>
-<li>将路由对应的组件打包成一个个js代码块</li>
-<li>只要在这个路由被访问到的时候，才加载对应的组件</li>
+<li>路由懒加载<ul>
+<li>将路由对应的组件打包成一个个js代码块，只有在这个路由被访问到的时候，才加载对应的组件</li>
 </ul>
 </li>
-<li><p>代码压缩</p>
+<li>代码压缩</li>
+<li>CDN加速<ul>
+<li><strong>CND加速</strong>主要是加速静态资源，如网站上面上传的图片、媒体，以及引入的一些Js、css等文件，需要依靠各个网络节点</li>
+</ul>
 </li>
-<li><p>CDN加速</p>
+<li>网络传输压缩</li>
+</ul>
+<p><strong>不利于SEO的处理办法</strong></p>
 <ul>
-<li><strong>CND加速</strong>主要是加速静态资源，如网站上面上传的图片、媒体，以及引入的一些Js、css等文件。</li>
-<li>需要依靠各个网络节点</li>
-</ul>
-</li>
-<li><p>网络传输压缩</p>
-</li>
-</ul>
-<p>不利于SEO处理办法</p>
-<ul>
-<li>SSR 服务器端渲染 <ul>
-<li>Server Side Render，在<strong>服务端</strong>完成页面的 html 拼接处理， 然后再发送给浏览器，将不具有交互能力的 html 结构绑定事件和状态，在客户端展示为具有完整交互能力的应用程序。</li>
-</ul>
+<li><p>SSR 服务器端渲染 </p>
+<p>Server Side Render，在<strong>服务端</strong>完成页面的 html 拼接处理， 然后再发送给浏览器，将不具有交互能力的 html 结构绑定事件和状态，在客户端展示为具有完整交互能力的应用程序。</p>
 </li>
 </ul>
 <h3 id="vite目录结构及运行流程"><a href="#vite目录结构及运行流程" class="headerlink" title="vite目录结构及运行流程"></a>vite目录结构及运行流程</h3><p>通过main.js 把 App.vue 渲染到 index.html 的指定区域中</p>
@@ -1480,8 +1477,8 @@
 </li>
 <li><p>script节点，组件的JavaScript行为</p>
 <ul>
-<li>name节点，说明该组建的名称</li>
-<li>data节点，渲染期间需要用到的数据，不能直接定义，需要作为一个函数return出去</li>
+<li>name节点，说明该组件的名称</li>
+<li>data节点，渲染期间需要用到的数据，不能直接定义，<strong>需要作为一个函数return出去</strong>，要确保<strong>每一次执行函数后的返回来的数据引用都是独一无二</strong>的</li>
 </ul>
 </li>
 <li><p>style节点，组件样式 (scoped防止样式冲突，lang指定css语法)</p>
@@ -1506,7 +1503,8 @@
 <h3 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h3><p><img data-src="https://s2.loli.net/2022/08/31/kiAGPEef21cWwMg.png"></p>
 <p><img data-src="https://s2.loli.net/2022/08/31/3GUVhIjEur7WYsL.png"></p>
 <p><strong>在实际开发中，created是最常用的生命周期函数！</strong></p>
-<h4 id="mounted-和-updated"><a href="#mounted-和-updated" class="headerlink" title="mounted 和 updated"></a>mounted 和 updated</h4><p>mounted 只在元素第一次插入DOM时被调用，当DOM更新时mounted 不会被触发；updated函数会在每次DOM更新完成后被调用</p>
+<p><strong>mounted 和 updated</strong></p>
+<p>mounted 只在元素第一次插入DOM时被调用，当DOM更新时mounted 不会被触发；updated函数会在每次DOM更新完成后被调用</p>
 <blockquote>
 <p>vue2，mounted被称为bind，updated被称为 update</p>
 </blockquote>
@@ -1522,11 +1520,22 @@
 </ul>
 <p>style节点的 **scoped **属性，为每个组件分配唯一的自定义属性，从而防止组件之间的样式冲突问题。</p>
 <p>但如果想让某些样式对子组件生效，可以使用 深度选择器 :deep()</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;style lang=<span class="string">&quot;less&quot;</span> scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
 <h3 id="class与style绑定"><a href="#class与style绑定" class="headerlink" title="class与style绑定"></a>class与style绑定</h3><p>数据绑定的一个常见需求场景是操纵元素的 CSS class 列表和内联样式。</p>
 <p><code>class</code> 和 <code>style</code> 都是 attribute，我们可以和其他 attribute 一样使用 <code>v-bind</code> 将它们和动态的字符串绑定。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;h3 :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;isItalic ? &#x27;italic&#x27; : &#x27;&#x27;&quot;</span>&gt;&lt;/h3&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">:class</span>=<span class="string">&quot;[isItalic ? &#x27;italic&#x27;:&#x27;&#x27;,&#x27;isDelete&#x27; ? &#x27;delete&#x27;:&#x27;&#x27;]&quot;</span>&lt;/<span class="attr">h3</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">:style</span>=<span class="string">&quot;&#123;color:color,fontSize:fsize&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
-<h3 id="props属性"><a href="#props属性" class="headerlink" title="props属性"></a>props属性</h3><p>props是组件的自定义属性，使用者可以通过props把数据传递到子组件内部供其使用</p>
+<h3 id="props属性"><a href="#props属性" class="headerlink" title="props属性"></a>props属性</h3><p>props是组件的自定义属性，通过props把数据从父组件传递到子组件内部供其使用</p>
+<ul>
+<li>使用 <code>v-bind</code> 或缩写 <code>:</code> 来进行动态绑定的 props</li>
+<li>所有的 props 都遵循着<strong>单向绑定</strong>原则，props 因父组件的更新而变化，自然地将新的状态向下流往子组件，而不会逆向传递。这避免了子组件意外修改父组件的状态的情况，不然应用的数据流将很容易变得混乱而难以理解。</li>
+<li><strong>不应该</strong>在子组件中去更改一个 prop，更改一个 prop 的需求通常来源于以下两种场景<ul>
+<li><strong>prop 被用于传入初始值</strong></li>
+<li><strong>需要对传入的 prop 值做进一步的转换</strong></li>
+</ul>
+</li>
+</ul>
 <h4 id="props的使用"><a href="#props的使用" class="headerlink" title="props的使用"></a>props的使用</h4><ol>
 <li><strong>在子组件中定义声明</strong></li>
 </ol>
@@ -1535,16 +1544,22 @@
 <ol start="2">
 <li><strong>在父组件中导入引用</strong></li>
 </ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;MyArticle title=<span class="string">&quot;个人博客&quot;</span> author=<span class="string">&quot;cyc&quot;</span>&gt;&lt;/article&gt; </span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">import</span> MyArticle <span class="keyword">from</span> <span class="string">&#x27;./Article.vue&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	<span class="attr">name</span>:<span class="string">&#x27;MyApp&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">	<span class="attr">component</span>:&#123; MyArticle &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">&#125;          	</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 动态绑定的 props</span></span><br><span class="line">&lt;MyArticle :title=<span class="string">&quot;post.title&quot;</span> :author=<span class="string">&quot;post.author&quot;</span>&gt;&lt;/article&gt; </span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">import</span> MyArticle <span class="keyword">from</span> <span class="string">&#x27;./Article.vue&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	<span class="attr">name</span>:<span class="string">&#x27;MyApp&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">	<span class="attr">component</span>:&#123; MyArticle &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">&#125;          	</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span> </span><br></pre></td></tr></table></figure>
 
-<p>props作用：父组件通过props向子组件传递要展示的数据，提供组件的复用性。</p>
 <h4 id="props校验规则"><a href="#props校验规则" class="headerlink" title="props校验规则"></a><strong>props校验规则</strong></h4><p>使用对象类型的props节点，可以对外界传递的props数据进行合法性校验</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&#x27;MyArticle&#x27;</span></span><br><span class="line">	<span class="attr">props</span>:&#123;<span class="comment">//8种类型：String、Number、Boolean、Array、Object、Date、Function、Symbol</span></span><br><span class="line">        <span class="attr">type</span>: <span class="built_in">Number</span>,</span><br><span class="line">        <span class="comment">//多种数据类型 用列表    </span></span><br><span class="line">        <span class="attr">title</span>: [<span class="built_in">String</span>,<span class="built_in">Number</span>],</span><br><span class="line">        <span class="comment">//必填项校验</span></span><br><span class="line">        <span class="attr">propA</span>:&#123;</span><br><span class="line">            <span class="attr">type</span>:<span class="built_in">String</span>,</span><br><span class="line">            <span class="attr">required</span>:<span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//指定默认值</span></span><br><span class="line">        <span class="attr">propA</span>:&#123;</span><br><span class="line">            <span class="attr">type</span>:<span class="built_in">String</span>,</span><br><span class="line">            <span class="attr">default</span>:<span class="number">100</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;          	</span><br><span class="line">&lt;/script&gt;  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以使用字符串数组、对象的形式来声明 prop </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&#x27;MyArticle&#x27;</span></span><br><span class="line">	<span class="attr">props</span>:&#123;   <span class="comment">//8种类型：String、Number、Boolean、Array、Object、Date、Function、Symbol</span></span><br><span class="line">        <span class="comment">//多种数据类型 用列表    </span></span><br><span class="line">        <span class="attr">title</span>: [<span class="built_in">String</span>,<span class="built_in">Number</span>],</span><br><span class="line">        <span class="comment">//必填项校验</span></span><br><span class="line">        <span class="attr">propA</span>:&#123;</span><br><span class="line">            <span class="attr">type</span>:<span class="built_in">String</span>,</span><br><span class="line">            <span class="attr">required</span>:<span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">//指定默认值</span></span><br><span class="line">        <span class="attr">propA</span>:&#123;</span><br><span class="line">            <span class="attr">type</span>:<span class="built_in">String</span>,</span><br><span class="line">            <span class="attr">default</span>:<span class="number">100</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;          	</span><br><span class="line">&lt;/script&gt;  </span><br></pre></td></tr></table></figure>
 
 <h3 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h3><p>计算属性本质就是function，监听数据，返回新值，以function形式声明到组件的computed选项中</p>
-<p><strong>计算属性值会基于其响应式依赖被缓存</strong>，仅会在其响应式依赖更新时才重新计算。</p>
-<p>即计算属性会缓存计算的结果，性能会更好</p>
+<p><strong>计算属性值会基于其响应式依赖被缓存</strong>，仅会在其响应式依赖更新时才重新计算，即计算属性会缓存计算的结果，性能会更好</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;&#123;&#123; count &#125;&#125;乘以<span class="number">2</span>的值为&#123;&#123; plus &#125;&#125;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	<span class="attr">name</span>:<span class="string">&#x27;MyArticle&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	<span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="keyword">return</span> &#123; <span class="attr">count</span> : <span class="number">1</span>&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">	<span class="attr">computed</span>:&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="function"><span class="title">plus</span>(<span class="params"></span>)</span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="keyword">return</span> <span class="built_in">this</span>.count*<span class="number">2</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">&#125;          	</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span>  </span><br></pre></td></tr></table></figure>
+
+<p>计算属性默认是只读的，在某些特殊场景中你可能才需要用到“可写”的属性，你可以通过同时提供 getter 和 setter 来创建：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">firstName</span>: <span class="string">&#x27;John&#x27;</span>,</span><br><span class="line">      <span class="attr">lastName</span>: <span class="string">&#x27;Doe&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="attr">fullName</span>: &#123;</span><br><span class="line">      <span class="comment">// getter</span></span><br><span class="line">      <span class="function"><span class="title">get</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.firstName + <span class="string">&#x27; &#x27;</span> + <span class="built_in">this</span>.lastName</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// setter</span></span><br><span class="line">      <span class="function"><span class="title">set</span>(<span class="params">newValue</span>)</span> &#123;</span><br><span class="line">        <span class="comment">// 注意：我们这里使用的是解构赋值语法</span></span><br><span class="line">        [<span class="built_in">this</span>.firstName, <span class="built_in">this</span>.lastName] = newValue.split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
 <h3 id="自定义事件-子传父"><a href="#自定义事件-子传父" class="headerlink" title="自定义事件(子传父)"></a>自定义事件(子传父)</h3><p>在封装组件时，先声明再触发；在使用组件时，监听自定义事件</p>
 <ol>
@@ -1765,46 +1780,11 @@
       </tags>
   </entry>
   <entry>
-    <title>conda和pip的异同</title>
-    <url>/archives/44547c5f.html</url>
+    <title>git的正确使用姿势</title>
+    <url>/archives/78356650.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><span id="more"></span>
 <p>``python</p>
 ]]></content>
-      <categories>
-        <category>coding</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo使用中的疑难杂症</title>
-    <url>/archives/9e98bd51.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>hexo在使用过程中陆陆续续有不少的问题，不想在每一次百度之后就抛之脑后，所以在这里记录一下…<br>主要包括有：</p>
-<ul>
-<li>hexo d 推送至远程库时报错</li>
-<li>hexo-douban库爬取错误</li>
-<li>…<span id="more"></span>
-<h1 id="hexo-d-推送至远程库时报错"><a href="#hexo-d-推送至远程库时报错" class="headerlink" title="hexo d 推送至远程库时报错"></a>hexo d 推送至远程库时报错</h1>报错信息如下：</li>
-</ul>
-<p><img data-src="https://s2.loli.net/2022/08/24/fuWeTZEHLPOaMcK.png"></p>
-<p>对git不是很熟悉，网上针对这个问题有很多不同的解法，试了好几个，都没有成功,其中按照以下步骤成功解决了这个问题<br>步骤如下：</p>
-<ol>
-<li>删除主目录下的.deploy_git文件夹</li>
-<li>运行这个命令：git config –global core.autocrlf false</li>
-<li>hexo clean &amp; hexo g &amp; hexo d</li>
-<li>打开自己的网站，验证是否成功 </li>
-</ol>
-<p>其中git config –global core.autocrlf false的意思是，将core.autocrlf配置成false，即不开启自动转换功能。不懂……</p>
-<h1 id="hexo-douban库爬取错误"><a href="#hexo-douban库爬取错误" class="headerlink" title="hexo-douban库爬取错误"></a>hexo-douban库爬取错误</h1><p>安装了第三方库hexo-douban爬取数据时总是发生错误<br>需要把node.js版本降成12版本，高版本不支持<br>直接卸载当前的node，安装12版本的即可<br>hexo-douban开发者已停止维护了，如果还是要用这个库的话，暂时只有这个解决办法</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="https://www.zhihu.com/question/38219432/answer/123443945">出现hexo -d 报错如何解决</a></li>
-<li><a href="https://markdown.com.cn/">Markdown官方教程</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
       <tags>
         <tag>git</tag>
       </tags>
@@ -2020,6 +2000,38 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo使用中的疑难杂症</title>
+    <url>/archives/9e98bd51.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>hexo在使用过程中陆陆续续有不少的问题，不想在每一次百度之后就抛之脑后，所以在这里记录一下…<br>主要包括有：</p>
+<ul>
+<li>hexo d 推送至远程库时报错</li>
+<li>hexo-douban库爬取错误</li>
+<li>…<span id="more"></span>
+<h1 id="hexo-d-推送至远程库时报错"><a href="#hexo-d-推送至远程库时报错" class="headerlink" title="hexo d 推送至远程库时报错"></a>hexo d 推送至远程库时报错</h1>报错信息如下：</li>
+</ul>
+<p><img data-src="https://s2.loli.net/2022/08/24/fuWeTZEHLPOaMcK.png"></p>
+<p>对git不是很熟悉，网上针对这个问题有很多不同的解法，试了好几个，都没有成功,其中按照以下步骤成功解决了这个问题<br>步骤如下：</p>
+<ol>
+<li>删除主目录下的.deploy_git文件夹</li>
+<li>运行这个命令：git config –global core.autocrlf false</li>
+<li>hexo clean &amp; hexo g &amp; hexo d</li>
+<li>打开自己的网站，验证是否成功 </li>
+</ol>
+<p>其中git config –global core.autocrlf false的意思是，将core.autocrlf配置成false，即不开启自动转换功能。不懂……</p>
+<h1 id="hexo-douban库爬取错误"><a href="#hexo-douban库爬取错误" class="headerlink" title="hexo-douban库爬取错误"></a>hexo-douban库爬取错误</h1><p>安装了第三方库hexo-douban爬取数据时总是发生错误<br>需要把node.js版本降成12版本，高版本不支持<br>直接卸载当前的node，安装12版本的即可<br>hexo-douban开发者已停止维护了，如果还是要用这个库的话，暂时只有这个解决办法</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://www.zhihu.com/question/38219432/answer/123443945">出现hexo -d 报错如何解决</a></li>
+<li><a href="https://markdown.com.cn/">Markdown官方教程</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>moveTaskToback之Activity保活思路</title>
     <url>/archives/9f5d6a91.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>作为一个半吊子android开发者，前两天一直被程序闪退问题所困扰，就是从另外的程序切换回来时程序总会崩溃重进，十分影响用户体验。突然发现了moveTaskToBack()这个函数方法，很好的解决了这个问题…<br>下面对这个方法具体介绍：</p>
@@ -2088,8 +2100,8 @@
 </ul>
 ]]></content>
       <categories>
-        <category>前端</category>
         <category>coding</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>nodejs</tag>
@@ -2539,6 +2551,98 @@
 <p> 改变URL不会去服务器请求新的资源，因为改变的是前端路由。当然如果刷新的话还是会向服务器发送请求。</p>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://www.cnblogs.com/WuAnqi/p/15492721.html">什么是前端渲染和后端渲染？ - 打遍天下吴敌手 - 博客园 (cnblogs.com)</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>如何在hexo中播放音乐</title>
+    <url>/archives/884863d2.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>之前一直觉得自己会不需要音乐播放这个功能，觉得太鸡肋了，但某一天又想加上，所以也配置上来了。</p>
+<p>我这里用的是 <a href="https://github.com/MoePlayer/APlayer">APlayer</a>播放器的 Hexo 标签插件<a href="https://github.com/MoePlayer/hexo-tag-aplayer">hexo-tag-aplayer</a></p>
+<span id="more"></span>
+
+<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><p>meting 引用：</p>
+
+    <div id="aplayer-zWHMzraF" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="0030R0gA49FWxZ" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+
+<p>aplayer 引用：</p>
+<div id='demo1'></div>
+<script> 
+    const ap = new APlayer({
+    container: document.getElementById('demo1'),
+    audio: [{
+        name: '给我一首歌的时间',
+        artist: '周杰伦',
+        url: 'https://echeverra.cn/wp-content/uploads/2021/06/周杰伦-给我一首歌的时间.mp3',
+        cover: 'https://echeverra.cn/wp-content/uploads/2021/06/周杰伦-给我一首歌的时间-mp3-image.png'
+    }]
+});
+</script>
+### 食用方法
+
+<p>安装和配置 官方文档里已经说的很清楚了，我就不赘述了</p>
+<p>meting 的配置：</p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>默认值</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td><strong>必须值</strong></td>
+<td>歌曲 id / 播放列表 id / 相册 id / 搜索关键字</td>
+</tr>
+<tr>
+<td>server</td>
+<td><strong>必须值</strong></td>
+<td>音乐平台: <code>netease</code> , <code>tencent</code> , <code>kugou</code> , <code>xiami</code> , <code>baidu</code></td>
+</tr>
+<tr>
+<td>type</td>
+<td><strong>必须值</strong></td>
+<td><code>song</code> , <code>playlist</code> , <code>album</code> , <code>search</code> , <code>artist</code></td>
+</tr>
+</tbody></table>
+<p><strong>高级配置需要去看 aplayer说明文档！</strong></p>
+<p>这里有几点需要说明：</p>
+<ul>
+<li><p><code>&#123;% aplayer  %&#125;</code> 和 <code>&#123;% meting %&#125;</code> 在一个页面中不可以同时使用，如果需要同时使用直接  <code>&#123;% aplayer  %&#125;</code> 替换成 html+js代码</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&#x27;demo1&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"> </span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> ap = <span class="keyword">new</span> APlayer(&#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">container</span>: <span class="built_in">document</span>.getElementById(<span class="string">&#x27;demo1&#x27;</span>),</span></span><br><span class="line"><span class="javascript">    <span class="attr">audio</span>: [&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>: <span class="string">&#x27;给我一首歌的时间&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">artist</span>: <span class="string">&#x27;周杰伦&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">url</span>: <span class="string">&#x27;https://echeverra.cn/wp-content/uploads/2021/06/周杰伦-给我一首歌的时间.mp3&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">cover</span>: <span class="string">&#x27;https://echeverra.cn/wp-content/uploads/2021/06/周杰伦-给我一首歌的时间-mp3-image.png&#x27;</span></span></span><br><span class="line"><span class="javascript">    &#125;]</span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>&#123;% meting %&#125;</code>  适用于 在大平台可以免费听的曲子，当涉及到一些付费歌曲，就不好使了</p>
+</li>
+<li><p><code>&#123;% aplayer  %&#125;</code> 则支持自己配置歌曲的URL，所以可以将一些付费歌曲上传到自己的服务器</p>
+<ul>
+<li><a href="https://www.hifini.com/">https://www.hifini.com/</a> 这是一个强大的下歌网站</li>
+</ul>
+</li>
+<li><p>为了在目录页也可以正常显示歌曲，需要在配置项添加</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 音乐播放器</span></span><br><span class="line"><span class="attr">aplayer:</span></span><br><span class="line">  <span class="attr">meting:</span> <span class="literal">true</span>       <span class="comment"># MetingJS 支持</span></span><br><span class="line">  <span class="attr">asset_inject:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></li>
+<li><p>在本地部署时，偶尔会出现页面没有播放器的情况，刷新一下就好了，上线之后这种情况就不会出现了</p>
+</li>
+</ul>
+<p>当我配置完以上这些，追本溯源才发现 APlayer 竟然是DIYgod开发的，这是我从RSSHub的使用开始关注的一个技术博主，真是巧了。</p>
+<p>看到大佬在开源社区做的东西能够被广泛使用，希望后面自己也有能力为开源社区做一份贡献~~</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><p><a href="https://aplayer.js.org/#/zh-Hans/">首页 - APlayer</a></p>
+</li>
+<li><p><a href="https://easyhexo.com/3-Plugins-use-and-config/3-1-hexo-tag-aplayer/#%E4%BB%8B%E7%BB%8D">hexo-tag-aplayer | Easy Hexo 👨‍💻</a></p>
+</li>
+<li><p><a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE30-%E6%96%B0%E5%8A%9F%E8%83%BD">hexo-tag-aplayer | github</a></p>
+</li>
+<li><p><a href="https://echeverra.cn/aplayer">如何在博客中添加Aplayer音乐播放器 - echeverra</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>音乐</tag>
+      </tags>
   </entry>
   <entry>
     <title>前端汇总</title>
@@ -3569,112 +3673,6 @@
       </categories>
   </entry>
   <entry>
-    <title>如何在hexo中播放音乐</title>
-    <url>/archives/884863d2.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>之前一直觉得自己会不需要音乐播放这个功能，觉得太鸡肋了，但某一天又想加上，所以也配置上来了。</p>
-<p>我这里用的是 <a href="https://github.com/MoePlayer/APlayer">APlayer</a>播放器的 Hexo 标签插件<a href="https://github.com/MoePlayer/hexo-tag-aplayer">hexo-tag-aplayer</a></p>
-<span id="more"></span>
-
-<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><p>meting 引用：</p>
-
-    <div id="aplayer-zgdPxZYf" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="0030R0gA49FWxZ" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
-    ></div>
-
-<p>aplayer 引用：</p>
-<div id='demo1'></div>
-<script> 
-    const ap = new APlayer({
-    container: document.getElementById('demo1'),
-    audio: [{
-        name: '给我一首歌的时间',
-        artist: '周杰伦',
-        url: 'https://echeverra.cn/wp-content/uploads/2021/06/周杰伦-给我一首歌的时间.mp3',
-        cover: 'https://echeverra.cn/wp-content/uploads/2021/06/周杰伦-给我一首歌的时间-mp3-image.png'
-    }]
-});
-</script>
-### 食用方法
-
-<p>安装和配置 官方文档里已经说的很清楚了，我就不赘述了</p>
-<p>meting 的配置：</p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>默认值</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td><strong>必须值</strong></td>
-<td>歌曲 id / 播放列表 id / 相册 id / 搜索关键字</td>
-</tr>
-<tr>
-<td>server</td>
-<td><strong>必须值</strong></td>
-<td>音乐平台: <code>netease</code> , <code>tencent</code> , <code>kugou</code> , <code>xiami</code> , <code>baidu</code></td>
-</tr>
-<tr>
-<td>type</td>
-<td><strong>必须值</strong></td>
-<td><code>song</code> , <code>playlist</code> , <code>album</code> , <code>search</code> , <code>artist</code></td>
-</tr>
-</tbody></table>
-<p><strong>高级配置需要去看 aplayer说明文档！</strong></p>
-<p>这里有几点需要说明：</p>
-<ul>
-<li><p><code>&#123;% aplayer  %&#125;</code> 和 <code>&#123;% meting %&#125;</code> 在一个页面中不可以同时使用，如果需要同时使用直接  <code>&#123;% aplayer  %&#125;</code> 替换成 html+js代码</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&#x27;demo1&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"> </span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> ap = <span class="keyword">new</span> APlayer(&#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">container</span>: <span class="built_in">document</span>.getElementById(<span class="string">&#x27;demo1&#x27;</span>),</span></span><br><span class="line"><span class="javascript">    <span class="attr">audio</span>: [&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>: <span class="string">&#x27;给我一首歌的时间&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">artist</span>: <span class="string">&#x27;周杰伦&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">url</span>: <span class="string">&#x27;https://echeverra.cn/wp-content/uploads/2021/06/周杰伦-给我一首歌的时间.mp3&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">cover</span>: <span class="string">&#x27;https://echeverra.cn/wp-content/uploads/2021/06/周杰伦-给我一首歌的时间-mp3-image.png&#x27;</span></span></span><br><span class="line"><span class="javascript">    &#125;]</span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p><code>&#123;% meting %&#125;</code>  适用于 在大平台可以免费听的曲子，当涉及到一些付费歌曲，就不好使了</p>
-</li>
-<li><p><code>&#123;% aplayer  %&#125;</code> 则支持自己配置歌曲的URL，所以可以将一些付费歌曲上传到自己的服务器</p>
-<ul>
-<li><a href="https://www.hifini.com/">https://www.hifini.com/</a> 这是一个强大的下歌网站</li>
-</ul>
-</li>
-<li><p>为了在目录页也可以正常显示歌曲，需要在配置项添加</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 音乐播放器</span></span><br><span class="line"><span class="attr">aplayer:</span></span><br><span class="line">  <span class="attr">meting:</span> <span class="literal">true</span>       <span class="comment"># MetingJS 支持</span></span><br><span class="line">  <span class="attr">asset_inject:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></li>
-<li><p>在本地部署时，偶尔会出现页面没有播放器的情况，刷新一下就好了，上线之后这种情况就不会出现了</p>
-</li>
-</ul>
-<p>当我配置完以上这些，追本溯源才发现 APlayer 竟然是DIYgod开发的，这是我从RSSHub的使用开始关注的一个技术博主，真是巧了。</p>
-<p>看到大佬在开源社区做的东西能够被广泛使用，希望后面自己也有能力为开源社区做一份贡献~~</p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
-<li><p><a href="https://aplayer.js.org/#/zh-Hans/">首页 - APlayer</a></p>
-</li>
-<li><p><a href="https://easyhexo.com/3-Plugins-use-and-config/3-1-hexo-tag-aplayer/#%E4%BB%8B%E7%BB%8D">hexo-tag-aplayer | Easy Hexo 👨‍💻</a></p>
-</li>
-<li><p><a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE30-%E6%96%B0%E5%8A%9F%E8%83%BD">hexo-tag-aplayer | github</a></p>
-</li>
-<li><p><a href="https://echeverra.cn/aplayer">如何在博客中添加Aplayer音乐播放器 - echeverra</a></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>音乐</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>工程案例10—实景三维建设与应用</title>
-    <url>/archives/32592c6d.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>最后一节课依然很无聊，就不做记录了，课程结束啦，finally！</p>
-<p>这学期又算是稀里糊涂的过去了吧，真是折磨的研一</p>
-<p>希望后面还是能继续记录┗|｀O′|┛ 嗷~~</p>
-<span id="more"></span>]]></content>
-      <categories>
-        <category>工程案例</category>
-      </categories>
-      <tags>
-        <tag>实景三维</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何科学上网</title>
     <url>/archives/c827b2d4.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>科学上网，懂得都懂<br>绝对不能说 国外的风景有多好，其实看了一阵，你会发现国外很多媒体挺离谱的，没必要多当回事<br>更多的只是为了提高学习工作效率，不要在没必要的地方浪费太多时间，篇尾给出链接</p>
@@ -3706,6 +3704,20 @@
       <tags>
         <tag>VPN</tag>
         <tag>上网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>工程案例10—实景三维建设与应用</title>
+    <url>/archives/32592c6d.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>最后一节课依然很无聊，就不做记录了，课程结束啦，finally！</p>
+<p>这学期又算是稀里糊涂的过去了吧，真是折磨的研一</p>
+<p>希望后面还是能继续记录┗|｀O′|┛ 嗷~~</p>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>工程案例</category>
+      </categories>
+      <tags>
+        <tag>实景三维</tag>
       </tags>
   </entry>
   <entry>
@@ -4142,7 +4154,7 @@
 <span id="more"></span>
 
 
-    <div id="aplayer-iMxZLMxW" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-gJgDpXiW" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="0030R0gA49FWxZ" data-server="tencent" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 
