@@ -29,26 +29,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ychch.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CYC&#39;s 个人博客">
-<meta property="og:url" content="https://ychch.top/categories/coding/index.html">
+    <meta name="description" content="MVC，MVP和MVVM都是常见的软件架构设计模式，它通过分离关注点来改进代码的组织方式，一种架构模式往往使用了多种设计模式。 MVC表示“模型-视图-控制器”，MVP表示“模型-视图-演示者”，MVVM表示“模型-视图-视图模型”；MVP、MVVM都是由MVC衍生出的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端设计模式">
+<meta property="og:url" content="https://ychch.top/archives/aba4a302.html">
 <meta property="og:site_name" content="CYC&#39;s 个人博客">
-<meta property="og:description" content="个人博客">
+<meta property="og:description" content="MVC，MVP和MVVM都是常见的软件架构设计模式，它通过分离关注点来改进代码的组织方式，一种架构模式往往使用了多种设计模式。 MVC表示“模型-视图-控制器”，MVP表示“模型-视图-演示者”，MVVM表示“模型-视图-视图模型”；MVP、MVVM都是由MVC衍生出的。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-09T13:43:34.000Z">
+<meta property="article:modified_time" content="2022-11-09T15:07:35.800Z">
 <meta property="article:author" content="ych-ch">
-<meta property="article:tag" content="blog">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ychch.top/categories/coding/">
+<link rel="canonical" href="https://ychch.top/archives/aba4a302.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/coding/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ychch.top/archives/aba4a302.html","path":"archives/aba4a302.html","title":"前端设计模式"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分类: coding | CYC's 个人博客</title>
+<title>前端设计模式 | CYC's 个人博客</title>
   
 
 
@@ -148,7 +150,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -161,6 +163,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MVC"><span class="nav-number">1.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MVVM"><span class="nav-number">2.</span> <span class="nav-text">MVVM</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -492,166 +495,154 @@ if(canvas.getContext){
 </noscript>
 
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">coding
-          <small>分类</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ychch.top/archives/aba4a302.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bird-in-snow.webp">
+      <meta itemprop="name" content="ych-ch">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CYC's 个人博客">
+      <meta itemprop="description" content="个人博客">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="前端设计模式 | CYC's 个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端设计模式
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
-    </div>
 
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
+      <time title="创建时间：2022-11-09 21:43:34 / 修改时间：23:07:35" itemprop="dateCreated datePublished" datetime="2022-11-09T21:43:34+08:00">2022-11-09</time>
+    </span>
 
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2022-04-25T14:51:47+08:00"
-              content="2022-04-25">
-          04-25
-        </time>
-      </div>
-
-      <h2 class="my-post-title">
-          <a class="my-post-title-link" href="/archives/44547c5f.html" itemprop="url">
-            
-              <span itemprop="name">conda和pip的异同</span>
-            
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2022-04-20T05:54:17+08:00"
-              content="2022-04-20">
-          04-20
-        </time>
-      </div>
-
-      <h2 class="my-post-title">
-          <a class="my-post-title-link" href="/archives/7221dd0e.html" itemprop="url">
-            
-              <span itemprop="name">nodejs &amp; npm &amp; nvm</span>
-            
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2022-03-03T02:33:26+08:00"
-              content="2022-03-03">
-          03-03
-        </time>
-      </div>
-
-      <h2 class="my-post-title">
-          <a class="my-post-title-link" href="/archives/fcbdffd2.html" itemprop="url">
-            
-              <span itemprop="name">什么是CDN</span>
-            
-          </a>
-      </h2>
-
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2021-11-21T14:49:40+08:00"
-              content="2021-11-21">
-          11-21
-        </time>
-      </div>
-
-      <h2 class="my-post-title">
-          <a class="my-post-title-link" href="/archives/2f6e7165.html" itemprop="url">
-            
-              <span itemprop="name">Java字符串相等陷阱</span>
-            
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2021-11-10T07:46:50+08:00"
-              content="2021-11-10">
-          11-10
-        </time>
-      </div>
-
-      <h2 class="my-post-title">
-          <a class="my-post-title-link" href="/archives/9f5d6a91.html" itemprop="url">
-            
-              <span itemprop="name">moveTaskToback之Activity保活思路</span>
-            
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2021-10-23T13:41:36+08:00"
-              content="2021-10-23">
-          10-23
-        </time>
-      </div>
-
-      <h2 class="my-post-title">
-          <a class="my-post-title-link" href="/archives/a1c92ee3.html" itemprop="url">
-            
-              <span itemprop="name">关于FTP文件传输的一些总结</span>
-            
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-    </div>
-  </div>
   
   
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
   
+    <a title="waline" href="/archives/aba4a302.html#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/archives/aba4a302.html" data-xid="/archives/aba4a302.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>538</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
 
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>MVC，MVP和MVVM都是常见的软件架构设计模式，它通过分离关注点来改进代码的组织方式，一种架构模式往往使用了多种设计模式。</p>
+<p>MVC表示“模型-视图-控制器”，MVP表示“模型-视图-演示者”，MVVM表示“模型-视图-视图模型”；MVP、MVVM都是由MVC衍生出的。</p>
+<span id="more"></span>
+
+<h1 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h1><ul>
+<li>Model: 模型（对数据的劫持监听、用于封装与数据相关的处理方法）数据管理</li>
+<li>View: 视图（模板的自定义与保存，渲染页面）渲染管理</li>
+<li>Controller: 控制器（M和V之间的连接器，用于控制应用程序的流程，及页面的业务逻辑）事件绑定处理管理</li>
+</ul>
+<p>MVC模式的特点在于实现关注点分离，应用程序中的数据模型与业务和展示逻辑解耦</p>
+<p>缺点是 各个层都有各自的驱动，只做了横向切割，任务分离不明显，仅仅将应用抽象，并未限制数据流。</p>
+<h1 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h1><p>MVVM是将“数据模型数据双向绑定”的思想作为核心，因此在View和Model之间没有联系，通过ViewModel进行交互；</p>
+<p>Model和ViewModel之间的交互是双向的，因此视图的数据的变化会同时修改数据源，而数据源数据的变化也会立即反应到View上</p>
+<p>MVVM就是为了解决MVC的驱动不集中，更加解决了视图与模型之间完全隔离开的关系</p>
+<p>vm，viewmodel，收集依赖、模板编译、数据劫持</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>ych-ch
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ychch.top/archives/aba4a302.html" title="前端设计模式">https://ychch.top/archives/aba4a302.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"># 设计模式</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/archives/ae9190fc.html" rel="prev" title="前后端渲染">
+                  <i class="fa fa-chevron-left"></i> 前后端渲染
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline-comments"></div>
 </div>
   </main>
 
@@ -728,7 +719,7 @@ if(canvas.getContext){
 
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.ychch.top/","placeholder":"雁过留痕,欢迎交流评论(●'◡'●)","avatar":"mm","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"meta":["nick","mail","link"],"libUrl":"//cdn.jsdelivr.net/npm/@waline/client","el":"#waline-comments","path":"/categories/coding/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.ychch.top/","placeholder":"雁过留痕,欢迎交流评论(●'◡'●)","avatar":"mm","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"meta":["nick","mail","link"],"libUrl":"//cdn.jsdelivr.net/npm/@waline/client","el":"#waline-comments","path":"/archives/aba4a302.html"}</script>
 <script>
 document.addEventListener('page:loaded', () => {
   NexT.utils.loadComments(CONFIG.waline.el).then(() => 
