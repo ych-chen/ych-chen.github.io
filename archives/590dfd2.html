@@ -29,26 +29,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ychch.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CYC&#39;s 个人博客">
-<meta property="og:url" content="https://ychch.top/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.html">
+    <meta name="description" content="插件就是一个store、一个组件库、接受一个vue参数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组件库开发技巧">
+<meta property="og:url" content="https://ychch.top/archives/590dfd2.html">
 <meta property="og:site_name" content="CYC&#39;s 个人博客">
-<meta property="og:description" content="个人博客">
+<meta property="og:description" content="插件就是一个store、一个组件库、接受一个vue参数">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-18T12:04:16.000Z">
+<meta property="article:modified_time" content="2022-11-18T12:37:20.501Z">
 <meta property="article:author" content="ych-ch">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ychch.top/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+<link rel="canonical" href="https://ychch.top/archives/590dfd2.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/深度学习/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ychch.top/archives/590dfd2.html","path":"archives/590dfd2.html","title":"组件库开发技巧"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分类: 深度学习 | CYC's 个人博客</title>
+<title>组件库开发技巧 | CYC's 个人博客</title>
   
 
 
@@ -148,7 +150,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -161,6 +163,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E5%BA%93%E5%BC%80%E5%8F%91"><span class="nav-number">1.</span> <span class="nav-text">组件库开发</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E7%BB%84%E4%BB%B6%E7%9A%84%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7"><span class="nav-number">2.</span> <span class="nav-text">递归组件的开发技巧</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -492,75 +495,154 @@ if(canvas.getContext){
 </noscript>
 
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">深度学习
-          <small>分类</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ychch.top/archives/590dfd2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bird-in-snow.webp">
+      <meta itemprop="name" content="ych-ch">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CYC's 个人博客">
+      <meta itemprop="description" content="个人博客">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="组件库开发技巧 | CYC's 个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          组件库开发技巧
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+
+      <time title="创建时间：2022-11-18 20:04:16 / 修改时间：20:37:20" itemprop="dateCreated datePublished" datetime="2022-11-18T20:04:16+08:00">2022-11-18</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/archives/590dfd2.html#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/archives/590dfd2.html" data-xid="/archives/590dfd2.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>958</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>插件就是一个store、一个组件库、接受一个vue参数</p>
+<span id="more"></span>
+
+<h1 id="组件库开发"><a href="#组件库开发" class="headerlink" title="组件库开发"></a>组件库开发</h1><p>在组件库的main.js中 定义一个UI，给其一个install方法，导出出去</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> UI = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">UI.install = <span class="function"><span class="keyword">function</span>(<span class="params">Vue</span>)</span>&#123;</span><br><span class="line">    Vue.component(Carousel.name, Carousel);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> UI;</span><br></pre></td></tr></table></figure>
+
+<p>在使用中：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> UI <span class="keyword">from</span> <span class="string">&#x27;@/libs/ui&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = createApp(App)</span><br><span class="line">app.use(UI).mount(<span class="string">&#x27;#app&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="递归组件的开发技巧"><a href="#递归组件的开发技巧" class="headerlink" title="递归组件的开发技巧"></a>递归组件的开发技巧</h1><p>在无限多级菜单案例中，需要用到 递归组件 的设计。</p>
+<p>也很简单，在递归组件中 调用自己，传入所需要的参数即可。</p>
+<p>在下面这个案例中，ReSubMenu是递归组件，自己使用自己时，传入所需要的data属性即可。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">sub-menu</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">&quot;c of data.children&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">menu-item</span> </span></span></span><br><span class="line"><span class="tag"><span class="xml">				<span class="attr">v-if</span>=<span class="string">&quot;!c.children&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">                <span class="attr">:key</span>=<span class="string">&quot;c.id&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">            &gt;</span>&#123;&#123;c.title&#125;&#125;<span class="tag">&lt;/<span class="name">menu-item</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">re-sub-menu</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">                <span class="attr">v-else</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">                <span class="attr">:key</span>=<span class="string">&quot;c.id&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">                <span class="attr">:data</span>=<span class="string">&quot;c&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">            &gt;</span><span class="tag">&lt;/<span class="name">re-sub-menu</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">sub-menu</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="attr">name</span>: <span class="string">&#x27;ReSubMenu&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="attr">props</span>:&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">data</span>: <span class="built_in">Object</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">&#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
     </div>
 
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
+    
+    
+    
 
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2022-03-17T07:31:09+08:00"
-              content="2022-03-17">
-          03-17
-        </time>
-      </div>
+    <footer class="post-footer">
+          
 
-      <h2 class="my-post-title">
-          <a class="my-post-title-link" href="/archives/6859e29c.html" itemprop="url">
-            
-              <span itemprop="name">Pytorch学习笔记-2</span>
-            
-          </a>
-      </h2>
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>ych-ch
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ychch.top/archives/590dfd2.html" title="组件库开发技巧">https://ychch.top/archives/590dfd2.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-    </header>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/archives/41a21076.html" rel="prev" title="Axios的基本使用">
+                  <i class="fa fa-chevron-left"></i> Axios的基本使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
 
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2022-03-15T07:31:09+08:00"
-              content="2022-03-15">
-          03-15
-        </time>
-      </div>
 
-      <h2 class="my-post-title">
-          <a class="my-post-title-link" href="/archives/6859e29c.html" itemprop="url">
-            
-              <span itemprop="name">Pytorch学习笔记</span>
-            
-          </a>
-      </h2>
 
-    </header>
-  </article>
 
-    </div>
-  </div>
-  
-  
-  
 
+    <div class="comments" id="waline-comments"></div>
 </div>
   </main>
 
@@ -637,7 +719,7 @@ if(canvas.getContext){
 
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.ychch.top/","placeholder":"雁过留痕,欢迎交流评论(●'◡'●)","avatar":"mm","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"meta":["nick","mail","link"],"libUrl":"//cdn.jsdelivr.net/npm/@waline/client","el":"#waline-comments","path":"/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.ychch.top/","placeholder":"雁过留痕,欢迎交流评论(●'◡'●)","avatar":"mm","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"meta":["nick","mail","link"],"libUrl":"//cdn.jsdelivr.net/npm/@waline/client","el":"#waline-comments","path":"/archives/590dfd2.html"}</script>
 <script>
 document.addEventListener('page:loaded', () => {
   NexT.utils.loadComments(CONFIG.waline.el).then(() => 
