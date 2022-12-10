@@ -29,26 +29,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ychch.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CYC&#39;s 个人博客">
-<meta property="og:url" content="https://ychch.top/tags/%E5%9B%BE%E5%BA%8A/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="浏览器原理">
+<meta property="og:url" content="https://ychch.top/archives/f1e02d11.html">
 <meta property="og:site_name" content="CYC&#39;s 个人博客">
-<meta property="og:description" content="个人博客">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/12/09/hn6szuTWENfaHPZ.png">
+<meta property="og:image" content="https://s2.loli.net/2022/12/09/t4JQZ1aPoNdcBuw.png">
+<meta property="article:published_time" content="2022-12-09T06:09:10.000Z">
+<meta property="article:modified_time" content="2022-12-09T14:58:13.248Z">
 <meta property="article:author" content="ych-ch">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/12/09/hn6szuTWENfaHPZ.png">
 
 
-<link rel="canonical" href="https://ychch.top/tags/%E5%9B%BE%E5%BA%8A/">
+<link rel="canonical" href="https://ychch.top/archives/f1e02d11.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/图床/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ychch.top/archives/f1e02d11.html","path":"archives/f1e02d11.html","title":"浏览器原理"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: 图床 | CYC's 个人博客</title>
+<title>浏览器原理 | CYC's 个人博客</title>
   
 
 
@@ -149,7 +152,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -162,6 +165,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="nav-number">1.</span> <span class="nav-text">浏览器本地存储</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">1.1.</span> <span class="nav-text">Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LocalStorage"><span class="nav-number">1.2.</span> <span class="nav-text">LocalStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SessionStorage"><span class="nav-number">1.3.</span> <span class="nav-text">SessionStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IndexedDB"><span class="nav-number">1.4.</span> <span class="nav-text">IndexedDB</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -493,53 +497,241 @@ if(canvas.getContext){
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">图床
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ychch.top/archives/f1e02d11.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bird-in-snow.webp">
+      <meta itemprop="name" content="ych-ch">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CYC's 个人博客">
+      <meta itemprop="description" content="个人博客">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="浏览器原理 | CYC's 个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浏览器原理
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+
+      <time title="创建时间：2022-12-09 14:09:10 / 修改时间：22:58:13" itemprop="dateCreated datePublished" datetime="2022-12-09T14:09:10+08:00">2022-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">-[前端]</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/archives/f1e02d11.html#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/archives/f1e02d11.html" data-xid="/archives/f1e02d11.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img data-src="https://s2.loli.net/2022/12/09/hn6szuTWENfaHPZ.png"></p>
+<span id="more"></span>
+
+<h1 id="浏览器本地存储"><a href="#浏览器本地存储" class="headerlink" title="浏览器本地存储"></a>浏览器本地存储</h1><p>浏览器本地存储方式主要5种，点击随便一个网页，F12，应用程序下的存储就可以看到了。</p>
+<p>下面的学习对应着一个真实的网页会快很多</p>
+<p><img data-src="https://s2.loli.net/2022/12/09/t4JQZ1aPoNdcBuw.png"></p>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>Cookie是最早被提出来的本地存储方式，在此之前，服务端是无法判断网络中的两个请求是否是同一用户发起的，为解决这个问题，Cookie就出现了。Cookie的大小只有4kb，它是一种纯文本文件，每次发起HTTP请求都会携带Cookie</p>
+<p><strong>Cookie的特性：</strong></p>
+<ul>
+<li>Cookie一旦创建成功，名称就无法修改</li>
+<li>Cookie是无法跨域名的</li>
+<li>每个Cookie的大小不能超过4kb</li>
+<li>Cookie在请求一个新的页面的时候都会被发送过去</li>
+</ul>
+<p>如果需要域名之间跨域共享Cookie，有两种方法：</p>
+<ol>
+<li>使用Nginx反向代理</li>
+<li>在一个站点登陆之后，往其他网站写Cookie。服务端的Session存储到一个节点，Cookie存储sessionId</li>
+</ol>
+<p><strong>Cookie的使用场景：</strong></p>
+<ul>
+<li>最常见的使用场景就是Cookie和session结合使用，我们将sessionId存储到Cookie中，每次发请求都会携带这个sessionId，这样服务端就知道是谁发起的请求，从而响应相应的信息。</li>
+<li>可以用来统计页面的点击次数</li>
+</ul>
+<p><strong>Cookie字段组成：</strong></p>
+<ul>
+<li><p><strong>Name</strong>：cookie的名称</p>
+</li>
+<li><p><strong>Value</strong>：cookie的值，对于认证cookie，value值包括web服务器所提供的访问令牌；</p>
+</li>
+<li><p><strong>Size</strong>： cookie的大小</p>
+</li>
+<li><p><strong>Domain</strong>：可以访问该cookie的域名，Cookie 机制并未遵循严格的同源策略，允许一个子域可以设置或获取其父域的 Cookie。</p>
+<p>当需要实现单点登录方案时，Cookie 的上述特性非常有用，然而也增加了 Cookie受攻击的危险，比如攻击者可以借此发动会话定置攻击。因而，浏览器禁止在 Domain 属性中设置.org、.com 等通用顶级域名、以及在国家及地区顶级域下注册的二级域名，以减小攻击发生的范围。</p>
+</li>
+<li><p><strong>Path</strong>：可以访问此cookie的页面路径。 比如domain是ychch.com，path是<code>/about</code>，那么只有<code>/about</code>路径下的页面可以读取此cookie</p>
+</li>
+<li><p><strong>Secure</strong>： 指定是否使用HTTPS安全协议发送Cookie。使用HTTPS安全协议，可以保护Cookie在浏览器和Web服务器间的传输过程中不被窃取和篡改。该方法也可用于Web站点的身份鉴别，即在HTTPS的连接建立阶段，浏览器会检查Web网站的SSL证书的有效性。</p>
+<p>但是基于兼容性的原因（比如有些网站使用自签署的证书）在检测到SSL证书无效时，浏览器并不会立即终止用户的连接请求，而是显示安全风险信息，用户仍可以选择继续访问该站点。</p>
+</li>
+<li><p><strong>HTTP</strong>： 该字段包含<code>HTTPOnly</code> 属性 ，该属性用来设置cookie能否通过脚本来访问，默认为空，即可以通过脚本访问。在客户端是不能通过js代码去设置一个httpOnly类型的cookie的，这种类型的cookie只能通过服务端来设置。该属性用于防止客户端脚本通过<code>document.cookie</code>属性访问Cookie，有助于保护Cookie不被跨站脚本攻击窃取或篡改。但是，HTTPOnly的应用仍存在局限性，一些浏览器可以阻止客户端脚本对Cookie的读操作，但允许写操作；此外大多数浏览器仍允许通过XMLHTTP对象读取HTTP响应中的Set-Cookie头。</p>
+</li>
+<li><p><strong>Expires/Max-size</strong> ： 此cookie的超时时间。若设置其值为一个时间，那么当到达此时间后，此cookie失效。不设置的话默认值是Session，意思是cookie会和session一起失效。当浏览器关闭(不是浏览器标签页，而是整个浏览器) 后，此cookie失效。</p>
+</li>
+</ul>
+<h2 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h2><p>LocalStorage是HTML5新引入的特性。</p>
+<p><strong>LocalStorage的优点：</strong></p>
+<ul>
+<li>在大小方面，LocalStorage的大小一般为5MB，有时候我们存储的信息较大，Cookie就不能满足我们的需求，LocalStorage可以储存更多的信息</li>
+<li>LocalStorage是持久储存，并不会随着页面的关闭而消失，除非主动清理，不然会永久存在</li>
+<li>仅储存在本地，不像Cookie那样每次HTTP请求都会被携带</li>
+</ul>
+<p><strong>LocalStorage的缺点：</strong></p>
+<ul>
+<li>浏览器兼容问题，IE8以下不支持</li>
+<li>隐私模式，无法读取LocalStorage</li>
+<li>LocalStorage受到同源策略的限制，即端口、协议、主机地址有任何一个不相同，都不会访问</li>
+</ul>
+<p><strong>LocalStorage的常用API：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保存数据到 localStorage</span></span><br><span class="line"><span class="built_in">localStorage</span>.setItem(<span class="string">&#x27;key&#x27;</span>, <span class="string">&#x27;value&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从 localStorage 获取数据</span></span><br><span class="line"><span class="keyword">let</span> data = <span class="built_in">localStorage</span>.getItem(<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从 localStorage 删除保存的数据</span></span><br><span class="line"><span class="built_in">localStorage</span>.removeItem(<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从 localStorage 删除所有保存的数据</span></span><br><span class="line"><span class="built_in">localStorage</span>.clear();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取某个索引的Key</span></span><br><span class="line"><span class="built_in">localStorage</span>.key(index)</span><br></pre></td></tr></table></figure>
+
+<p><strong>LocalStorage的</strong>使用场景：</p>
+<ul>
+<li>有些网站有换肤的功能，这时候就可以将换肤的信息存储在本地的LocalStorage中，当需要换肤的时候，直接操作LocalStorage即可</li>
+<li>在网站中的用户浏览信息和一些不常变动的个人信息等可以存储在本地的LocalStorage中</li>
+</ul>
+<h2 id="SessionStorage"><a href="#SessionStorage" class="headerlink" title="SessionStorage"></a>SessionStorage</h2><p>SessionStorage和LocalStorage都是在HTML5才提出来的存储方案，SessionStorage 主要用于临时保存同一窗口(或标签页)的数据，刷新页面时不会删除，关闭窗口或标签页之后将会删除这些数据。</p>
+<p><strong>SessionStorage与LocalStorage对比：</strong></p>
+<ul>
+<li>都在<strong>本地进行数据存储</strong>；</li>
+<li><strong>都不能被爬虫爬取</strong>；</li>
+<li>SessionStorage也有同源策略的限制，但是更严格，SessionStorage只有在<strong>同一浏览器的同一窗口下</strong>才能够共享；</li>
+</ul>
+<p><strong>SessionStorage的使用场景</strong></p>
+<ul>
+<li>由于SessionStorage具有时效性，可以用来存储游客登录的信息和临时的浏览记录。当关闭网站之后，这些信息也就随之消除了。</li>
+</ul>
+<h2 id="IndexedDB"><a href="#IndexedDB" class="headerlink" title="IndexedDB"></a>IndexedDB</h2><p>cookies、localStorage、sessionStorage都是存储少量数据的存储方式，当需要在本地存储大量数据时，使用浏览器的 indexDB 。</p>
+<p>这是浏览器提供的一种本地的数据库存储机制。它不是关系型数据库，更接近 NoSQL 数据库。它内部⽤键值对进⾏存储数据，可以进⾏快速读取操作，⾮常适合web场景，同时⽤JavaScript进⾏操作会⾮常方便。</p>
+<p>IndexedDB 具有以下特点</p>
+<ul>
+<li><p><strong>键值对储存</strong>：IndexedDB 内部采用对象仓库（object store）存放数据，所有类型的数据都可以直接存入。</p>
+<p>对象仓库中，数据以”键值对”的形式保存，每一个数据记录都有对应的主键，主键是独一无二的，不能有重复，否则会抛出一个错误。</p>
+</li>
+<li><p><strong>异步</strong>：IndexedDB 操作时不会锁死浏览器，用户依然可以进行其他操作，这与 LocalStorage 形成对比，后者的操作是同步的。</p>
+<p>异步设计是为了防止大量数据的读写，拖慢网页的表现。</p>
+</li>
+<li><p><strong>支持事务</strong>：IndexedDB 支持事务（transaction），系列操作中，只要有一步失败，整个事务就都取消，数据库回滚到事务发生之前的状态，不存在只改写一部分数据的情况。</p>
+</li>
+<li><p><strong>同源限制：</strong>IndexedDB 受到同源限制，每一个数据库对应创建它的域名。网页只能访问自身域名下的数据库，而不能访问跨域的数据库。</p>
+</li>
+<li><p><strong>储存空间大</strong>：IndexedDB 的储存空间比 LocalStorage 大得多，一般来说不少于 250MB，甚至没有上限。</p>
+</li>
+<li><p><strong>支持二进制储存</strong>：IndexedDB 不仅可以储存字符串，还可以储存二进制数据（ArrayBuffer 对象和 Blob 对象）。</p>
+</li>
+</ul>
+
     </div>
 
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
+    
+    
+    
 
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2022-02-06T12:15:19+08:00"
-              content="2022-02-06">
-          02-06
-        </time>
-      </div>
+    <footer class="post-footer">
+          
 
-      <h2 class="my-post-title">
-          <a class="my-post-title-link" href="/archives/3eece56f.html" itemprop="url">
-            
-              <span itemprop="name">Picx图床推荐</span>
-            
-          </a>
-      </h2>
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>ych-ch
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ychch.top/archives/f1e02d11.html" title="浏览器原理">https://ychch.top/archives/f1e02d11.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-    </header>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/archives/28e7cd21.html" rel="prev" title="初识股票">
+                  <i class="fa fa-chevron-left"></i> 初识股票
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
 
+
+
+
+
+    <div class="comments" id="waline-comments"></div>
 </div>
   </main>
 
@@ -616,7 +808,7 @@ if(canvas.getContext){
 
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.ychch.top/","placeholder":"雁过留痕,欢迎交流评论(●'◡'●)","avatar":"mm","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"meta":["nick","mail","link"],"libUrl":"//cdn.jsdelivr.net/npm/@waline/client","el":"#waline-comments","path":"/tags/%E5%9B%BE%E5%BA%8A/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.ychch.top/","placeholder":"雁过留痕,欢迎交流评论(●'◡'●)","avatar":"mm","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"meta":["nick","mail","link"],"libUrl":"//cdn.jsdelivr.net/npm/@waline/client","el":"#waline-comments","path":"/archives/f1e02d11.html"}</script>
 <script>
 document.addEventListener('page:loaded', () => {
   NexT.utils.loadComments(CONFIG.waline.el).then(() => 
