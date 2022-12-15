@@ -35,9 +35,11 @@
 <meta property="og:site_name" content="CYC&#39;s 个人博客">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/12/09/hn6szuTWENfaHPZ.png">
+<meta property="og:image" content="https://s2.loli.net/2022/12/13/pQGk9N2UHnjZeg3.png">
 <meta property="og:image" content="https://s2.loli.net/2022/12/09/t4JQZ1aPoNdcBuw.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/jpeg/1500604/1605256274960-50bd9e69-dde9-4782-b2c0-6afc8188fca2.jpeg">
 <meta property="article:published_time" content="2022-12-09T06:09:10.000Z">
-<meta property="article:modified_time" content="2022-12-09T14:58:13.248Z">
+<meta property="article:modified_time" content="2022-12-14T14:36:23.907Z">
 <meta property="article:author" content="ych-ch">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
@@ -165,7 +167,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="nav-number">1.</span> <span class="nav-text">浏览器本地存储</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">1.1.</span> <span class="nav-text">Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LocalStorage"><span class="nav-number">1.2.</span> <span class="nav-text">LocalStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SessionStorage"><span class="nav-number">1.3.</span> <span class="nav-text">SessionStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IndexedDB"><span class="nav-number">1.4.</span> <span class="nav-text">IndexedDB</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BB%84%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">浏览器组成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.1.</span> <span class="nav-text">对浏览器的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.2.</span> <span class="nav-text">对浏览器内核的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8"><span class="nav-number">1.3.</span> <span class="nav-text">常见浏览器内核</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%BB%E8%A6%81%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-number">1.3.1.</span> <span class="nav-text">浏览器的主要组成部分</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">浏览器渲染机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM-tree"><span class="nav-number">2.1.</span> <span class="nav-text">DOM tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSSom"><span class="nav-number">2.2.</span> <span class="nav-text">CSSom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E6%A0%91"><span class="nav-number">2.3.</span> <span class="nav-text">渲染树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98"><span class="nav-number">2.4.</span> <span class="nav-text">回流与重绘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E6%B5%81reflow"><span class="nav-number">2.4.1.</span> <span class="nav-text">回流reflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E7%BB%98repaint"><span class="nav-number">2.4.2.</span> <span class="nav-text">重绘repaint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-number">2.4.3.</span> <span class="nav-text">优化策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0JS%E6%96%87%E4%BB%B6%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86"><span class="nav-number">2.5.</span> <span class="nav-text">渲染过程中遇到JS文件如何处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#async%E3%80%81defer%E5%92%8Cwindow-onload%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.6.</span> <span class="nav-text">async、defer和window.onload的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E5%A6%82%E4%BD%95%E9%98%BB%E5%A1%9E%E6%96%87%E6%A1%A3%E8%A7%A3%E6%9E%90"><span class="nav-number">2.7.</span> <span class="nav-text">CSS如何阻塞文档解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96"><span class="nav-number">2.8.</span> <span class="nav-text">浏览器渲染优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E5%85%B3%E9%94%AE%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84%EF%BC%9F"><span class="nav-number">2.9.</span> <span class="nav-text">如何优化关键渲染路径？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%AE%9A%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%97%B6%E9%97%B4%E7%BA%BF"><span class="nav-number">2.10.</span> <span class="nav-text">一定要掌握的时间线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="nav-number">3.</span> <span class="nav-text">浏览器本地存储</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">3.1.</span> <span class="nav-text">Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LocalStorage"><span class="nav-number">3.2.</span> <span class="nav-text">LocalStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SessionStorage"><span class="nav-number">3.3.</span> <span class="nav-text">SessionStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IndexedDB"><span class="nav-number">3.4.</span> <span class="nav-text">IndexedDB</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5"><span class="nav-number">4.</span> <span class="nav-text">浏览器同源策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5"><span class="nav-number">4.1.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="nav-number">4.2.</span> <span class="nav-text">如何解决跨域问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CORS"><span class="nav-number">4.2.1.</span> <span class="nav-text">CORS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-number">4.3.</span> <span class="nav-text">正向代理和反向代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%85%B6%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">4.4.</span> <span class="nav-text">Nginx的概念及其工作原理</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -536,9 +538,15 @@ if(canvas.getContext){
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-12-09 14:09:10 / 修改时间：22:58:13" itemprop="dateCreated datePublished" datetime="2022-12-09T14:09:10+08:00">2022-12-09</time>
+      <time title="创建时间：2022-12-09 14:09:10" itemprop="dateCreated datePublished" datetime="2022-12-09T14:09:10+08:00">2022-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-12-14 22:36:23" itemprop="dateModified" datetime="2022-12-14T22:36:23+08:00">2022-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -571,14 +579,14 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.3k</span>
+      <span>8.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>7 分钟</span>
     </span>
 </div>
 
@@ -592,6 +600,154 @@ if(canvas.getContext){
         <p><img data-src="https://s2.loli.net/2022/12/09/hn6szuTWENfaHPZ.png"></p>
 <span id="more"></span>
 
+<h1 id="浏览器组成"><a href="#浏览器组成" class="headerlink" title="浏览器组成"></a>浏览器组成</h1><h2 id="对浏览器的理解"><a href="#对浏览器的理解" class="headerlink" title="对浏览器的理解"></a>对浏览器的理解</h2><p>浏览器可以分为两部分，shell 和 内核。其中 shell 的种类相对比较多，内核则比较少。</p>
+<ul>
+<li>shell 是指浏览器的外壳：例如菜单，工具栏等。主要是提供给用户界面操作，参数设置等等。它是调用内核来实现各种功能的。</li>
+<li>内核是浏览器的核心。内核是基于标记语言显示内容的程序或模块。</li>
+</ul>
+<h2 id="对浏览器内核的理解"><a href="#对浏览器内核的理解" class="headerlink" title="对浏览器内核的理解"></a>对浏览器内核的理解</h2><p>浏览器内核主要分成两部分：</p>
+<ul>
+<li>渲染引擎就是渲染，即在浏览器窗口中显示所请求的内容。默认情况下，渲染引擎可以显示 html、xml 文档及图片，它也可以借助插件显示其他类型数据，例如PDF 格式。</li>
+<li>JS 引擎：解析和执行 javascript 来实现网页的动态效果。</li>
+</ul>
+<p>最开始渲染引擎和 JS 引擎并没有区分的很明确，后来 JS 引擎越来越独立，内核就倾向于只指渲染引擎。</p>
+<h2 id="常见浏览器内核"><a href="#常见浏览器内核" class="headerlink" title="常见浏览器内核"></a>常见浏览器内核</h2><table>
+<thead>
+<tr>
+<th>5大主流浏览器</th>
+<th>内核</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IE</td>
+<td>trident</td>
+</tr>
+<tr>
+<td>chrome</td>
+<td>webkit  -&gt;  blink</td>
+</tr>
+<tr>
+<td>safari</td>
+<td>webkit</td>
+</tr>
+<tr>
+<td>firefox</td>
+<td>gocko</td>
+</tr>
+<tr>
+<td>opera</td>
+<td>presto  -&gt; blink</td>
+</tr>
+</tbody></table>
+<h3 id="浏览器的主要组成部分"><a href="#浏览器的主要组成部分" class="headerlink" title="浏览器的主要组成部分"></a>浏览器的主要组成部分</h3><ul>
+<li><strong>⽤户界⾯</strong> - 包括地址栏、前进/后退按钮、书签菜单等。除了浏览器主窗⼝显示的您请求的⻚⾯外，其他显示的各个部分都属于⽤户界⾯。 </li>
+<li><strong>浏览器引擎</strong> - 在⽤户界⾯和呈现引擎之间传送指令。 </li>
+<li><strong>渲染引擎</strong> - 负责显示请求的内容。如果请求的内容是 HTML，它就负责解析 HTML 和 CSS 内容，并将解析后的内容显示在屏幕上。 </li>
+<li><strong>⽹络</strong> - ⽤于⽹络调⽤，⽐如 HTTP 请求。其接⼝与平台⽆关，并为所有平台提供底层实现。 </li>
+<li><strong>JavaScript</strong> <strong>解释器</strong>。⽤于解析和执⾏ JavaScript 代码。 </li>
+<li><strong>数据存储</strong> - 这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“⽹络数据库”，这是⼀个完整（但是轻便）的浏览器内数据库。 </li>
+</ul>
+<p> 浏览器的每个标签⻚都分别对应⼀个呈现引擎实例。<strong>每个标签⻚都是⼀个独⽴的进程</strong></p>
+<h1 id="浏览器渲染机制"><a href="#浏览器渲染机制" class="headerlink" title="浏览器渲染机制"></a>浏览器渲染机制</h1><h2 id="DOM-tree"><a href="#DOM-tree" class="headerlink" title="DOM tree"></a>DOM tree</h2><p>解析是根据收到的HTML文件生成DOM树；加载是加载内部资源，比如img等；</p>
+<p>解析和加载异步完成，解析完毕并不说明页面加载完毕</p>
+<p>加载，当前节点若解析完成（并不是页面解析完成），就开始加载资源</p>
+<p>解析过程中：</p>
+<ol>
+<li>解析过程是将节点挂载到DOM树上，遵循<strong>深度优先解析</strong>原则</li>
+<li>遇到link的外部css，遇到css的代码会进行css的加载，并行操作</li>
+<li>遇见script标签时，会先执行js代码，然后继续构建DOM树，<strong>这就是在底部加入JavaScript代码的原因</strong>。</li>
+</ol>
+<h2 id="CSSom"><a href="#CSSom" class="headerlink" title="CSSom"></a>CSSom</h2><p>CSSom类似于DOM tree的生成过程。</p>
+<h2 id="渲染树"><a href="#渲染树" class="headerlink" title="渲染树"></a>渲染树</h2><p>render tree = DOM tree + CSS tree，渲染树构建完毕后，浏览器的渲染引擎根据它绘制页面。</p>
+<ul>
+<li>渲染树不包含隐藏节点，display:none head类等不需要绘制的节点；visibility: hidden 绘制了只是看不见</li>
+<li>渲染树的每个节点都有自己的样式，被当成一个盒子box，具有内容填充、边距、边框、位置、大小等其他样式</li>
+</ul>
+<h2 id="回流与重绘"><a href="#回流与重绘" class="headerlink" title="回流与重绘"></a>回流与重绘</h2><p>当浏览器渲染引擎对页面的节点操作时，就会产生回流或者重绘。<strong>回流一定重绘，重绘不一定回流</strong></p>
+<h3 id="回流reflow"><a href="#回流reflow" class="headerlink" title="回流reflow"></a><strong>回流reflow</strong></h3><p>当浏览器生成渲染树以后，就会根据渲染树来进行布局。这一阶段浏览器要弄清楚各个节点在页面中的<strong>确切位置和大小，所有相对测量值都将转换为屏幕上的绝对像素</strong>。这一过程被称为 回流，也被称为“自动重排”。</p>
+<p>当<strong>元素属性发生改变且影响布局时</strong>（宽度、高度、内外边距等），产生回流，相当于 刷新页面。</p>
+<ul>
+<li>回流是相当消耗性能的，开发中应该减少回流次数</li>
+<li>回流会引起 渲染树中的一部分或全部重新构建</li>
+<li>引起回流的因素：<ul>
+<li>页面初始化，即（至少有一次回流）</li>
+<li>DOM节点增加 删除、位置变化</li>
+<li>元素的尺寸、边距、填充、边框、显示(display:none block)改变</li>
+<li>浏览器窗口尺寸变化，resize</li>
+<li>向浏览器请求某些样式信息 offset client scroll width </li>
+</ul>
+</li>
+</ul>
+<h3 id="重绘repaint"><a href="#重绘repaint" class="headerlink" title="重绘repaint"></a><strong>重绘repaint</strong></h3><p>当元素<strong>属性发生改变且不影响布局</strong>时（背景颜色、透明度、字体样式等），产生重绘，相当于 不刷新页面，动态更新内容。</p>
+<ul>
+<li>若发生回流，浏览器根据新的渲染树重新绘制，这个过程称为 重绘</li>
+</ul>
+<h3 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略"></a><strong>优化策略</strong></h3><ul>
+<li>浏览器<strong>队列处理机制</strong></li>
+<li>增添样式 放在 class中，批量处理，减少回流次数  或者 this.style.cssText 做动态值变化</li>
+<li>使用 visibility 替换 display: none ，因为前者只会引起重绘，后者会引发回流</li>
+<li>documentFragment</li>
+<li>动画一定要做绝对定位，相对定位每次变化都会引起父级的回流重绘</li>
+<li>……</li>
+</ul>
+<p><strong>浏览器的渲染队列机制：</strong>浏览器会将所有的回流、重绘的操作放在一个队列中，当队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会对队列进行批处理。这样就会让多次的回流、重绘变成一次回流重绘。         </p>
+<h2 id="渲染过程中遇到JS文件如何处理"><a href="#渲染过程中遇到JS文件如何处理" class="headerlink" title="渲染过程中遇到JS文件如何处理"></a>渲染过程中遇到JS文件如何处理</h2><p>JavaScript文件的加载、解析与执行会阻塞DOM的构建，JS文件也会导致CSSOM阻塞DOM的构建</p>
+<h2 id="async、defer和window-onload的区别"><a href="#async、defer和window-onload的区别" class="headerlink" title="async、defer和window.onload的区别"></a>async、defer和window.onload的区别</h2><p><img data-src="https://s2.loli.net/2022/12/13/pQGk9N2UHnjZeg3.png" alt="img"></p>
+<p>async属性的script脚本：HTML解析与script加载并行发生，但在script执行时，HTML解析被阻塞，script执行结束后，继续HTML解析。多个带async属性的标签，不能保证加载的顺序</p>
+<p>defer属性的script脚本：HTML解析与script加载并行发生，但script的执行要等到所有的HTML解析完成后才会发生。多个带defer属性的标签，按照顺序执行</p>
+<p>1.defer和async在网络加载过程是一致的，都是异步执行的； </p>
+<p>2.两者的区别在于脚本加载完成之后何时执行</p>
+<p><strong>window.onload()</strong> 方法用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行某个方法。</p>
+<h2 id="CSS如何阻塞文档解析"><a href="#CSS如何阻塞文档解析" class="headerlink" title="CSS如何阻塞文档解析"></a>CSS如何阻塞文档解析</h2><p>理论上，样式表不改变DOM树，也就没有必要停下文档解析等待它们。但是，JavaScript脚本执行时可能会请求样式信息，如果样式还没有加载解析，脚本会得到错误的值。 </p>
+<p>为了避免这种错误，浏览器会先下载和构建 CSSOM，然后再执行 JavaScript，最后再继续文档的解析。至此，CSS可以阻塞文档解析</p>
+<h2 id="浏览器渲染优化"><a href="#浏览器渲染优化" class="headerlink" title="浏览器渲染优化"></a>浏览器渲染优化</h2><p><strong>针对JavaScript：</strong></p>
+<p>（1）尽量将JavaScript文件放在body的最后，用async和defer属性来异步引入</p>
+<p>（2） body中间尽量不要写<code>&lt;script&gt;</code>标签</p>
+<p><strong>针对CSS：</strong></p>
+<p>（1）在开发过程中，导入外部样式使用link，而不用@import。</p>
+<p>（2）如果css少，尽可能采用内嵌样式，直接写在style标签中</p>
+<p>使用CSS有三种方式：使用<strong>link、@import、内联样式</strong>，其中link和@import都是导入外部样式。区别：</p>
+<ul>
+<li><strong>link</strong>：浏览器会派发一个新线程(HTTP线程)去加载资源文件，与此同时GUI渲染线程会继续向下渲染代码</li>
+<li><strong>@import</strong>：GUI渲染线程会暂时停止渲染，去服务器加载资源文件，资源文件没有返回之前不会继续渲染(阻碍浏览器渲染)</li>
+<li><strong>style</strong>：GUI直接渲染</li>
+</ul>
+<p>外部样式如果长时间没有加载完毕，浏览器为了用户体验，会使用浏览器会默认样式，确保首次渲染的速度。所以CSS一般写在head中，让浏览器尽快发送请求去获取css样式。</p>
+<p><strong>针对DOM树、CSSOM树</strong></p>
+<p>（1）HTML代码层级尽量不要太深，减少CSSD代码的层级</p>
+<p>（2）使用语义化的标签，避免不标准语义化的特殊处理</p>
+<p><strong>减少回流与重绘</strong></p>
+<h2 id="如何优化关键渲染路径？"><a href="#如何优化关键渲染路径？" class="headerlink" title="如何优化关键渲染路径？"></a>如何优化关键渲染路径？</h2><p><strong>关键渲染路径</strong>是浏览器将 HTML，CSS 和 JavaScript 转换为屏幕上的像素所经历的步骤序列。</p>
+<ol>
+<li>通过异步、延迟加载或者消除非关键资源来减少关键资源的请求数量</li>
+<li>优化必须的请求数量和每个请求的文件体积</li>
+<li>通过区分关键资源的优先级来优化被加载关键资源的顺序，来缩短关键路径长度。</li>
+</ol>
+<h2 id="一定要掌握的时间线"><a href="#一定要掌握的时间线" class="headerlink" title="一定要掌握的时间线"></a>一定要掌握的时间线</h2><p>在浏览器加载页面开始到页面加载完成，按顺序发生的每一件事情</p>
+<ol>
+<li><p>生成document对象，以供DOM操作</p>
+</li>
+<li><p>解析文档，构建DOM树</p>
+<p>document.readyState = ‘loading’</p>
+</li>
+<li><p>遇到link开始异步加载css外部文件的新线程，遇到style开始异步构建CSSOM的新线程</p>
+</li>
+<li><p>没有设置异步加载的script，阻塞文档解析，等到JS脚本加载并执行完成后，继续解析文档</p>
+</li>
+<li><p>异步加载script，异步加载JS脚本，不阻塞解析文档（不能使用documen.write)</p>
+</li>
+<li><p>解析文档遇到img，先解析节点。创建加载线程，异步加载图片资源，不阻塞解析文档</p>
+</li>
+<li><p>文档解析完成，document.readyState = ‘interactive’</p>
+</li>
+<li><p>defer script，JS脚本按照顺序执行</p>
+</li>
+<li><p>DOMContentLoaded事件，</p>
+</li>
+<li><p>async script加载并执行完毕，img等资源加载完毕，window对象中的onload事件才开始触发，document.readyState = ‘complete’</p>
+</li>
+</ol>
+<p>window.onload 和 DOMContentLoaded的区别：window.onload是页面全部加载完毕才触发，DOMContentLoaded是文档解析完成和异步脚本加载完成后就触发</p>
 <h1 id="浏览器本地存储"><a href="#浏览器本地存储" class="headerlink" title="浏览器本地存储"></a>浏览器本地存储</h1><p>浏览器本地存储方式主要5种，点击随便一个网页，F12，应用程序下的存储就可以看到了。</p>
 <p>下面的学习对应着一个真实的网页会快很多</p>
 <p><img data-src="https://s2.loli.net/2022/12/09/t4JQZ1aPoNdcBuw.png"></p>
@@ -685,6 +841,33 @@ if(canvas.getContext){
 <li><p><strong>支持二进制储存</strong>：IndexedDB 不仅可以储存字符串，还可以储存二进制数据（ArrayBuffer 对象和 Blob 对象）。</p>
 </li>
 </ul>
+<h1 id="浏览器同源策略"><a href="#浏览器同源策略" class="headerlink" title="浏览器同源策略"></a>浏览器同源策略</h1><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说 Web 是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。</p>
+<p>它认为自任何站点装载的信赖内容是不安全的。当被浏览器半信半疑的脚本运行在沙箱时，它们应该只被允许访问来自同一站点的资源，而不是那些来自其它站点可能怀有恶意的资源。</p>
+<p>同源指的是：protocol<strong>协议</strong>、domain<strong>域名</strong>、port<strong>端口号</strong>必须一致。</p>
+<p><strong>同源政策主要限制了三个方面：</strong></p>
+<ul>
+<li>当前域下的 js 脚本不能够访问其他域下的 cookie、localStorage 和 indexDB。</li>
+<li>当前域下的 js 脚本不能够操作访问操作其他域下的 DOM。</li>
+<li>当前域下 ajax 无法发送跨域请求。</li>
+</ul>
+<h2 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h2><p>有了跨域限制，才使我们能安全的上网。但是在实际中，有时候我们需要突破这样的限制，下面将介绍几种跨域的解决方法。</p>
+<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><h2 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a>正向代理和反向代理</h2><ul>
+<li><strong>正向代理：</strong>隐藏客户端</li>
+</ul>
+<p>客户端想获得一个服务器的数据，但是因为种种原因无法直接获取。于是客户端设置了一个代理服务器，并且指定目标服务器，之后代理服务器向目标服务器转交请求并将获得的内容发送给客户端。这样本质上起到了对真实服务器隐藏真实客户端的目的。实现正向代理需要修改客户端，比如修改浏览器配置。</p>
+<ul>
+<li><strong>反向代理：</strong>隐藏服务器</li>
+</ul>
+<p>服务器为了能够将工作负载分不到多个服务器来提高网站性能 (负载均衡)等目的，当其受到请求后，会首先根据转发规则来确定请求应该被转发到哪个服务器上，然后将请求转发到对应的真实服务器上。这样本质上起到了对客户端隐藏真实服务器的作用。</p>
+<p>一般使用反向代理后，需要通过修改 DNS 让域名解析到代理服务器 IP，这时浏览器无法察觉到真正服务器的存在，当然也就不需要修改配置了。</p>
+<ul>
+<li><strong>两者异同</strong></li>
+</ul>
+<p>正向代理和反向代理的结构是一样的，都是 client-proxy-server 的结构，它们主要的区别就在于中间这个 proxy 是哪一方设置的。在正向代理中，proxy 是 client 设置的，用来隐藏 client；而在反向代理中，proxy 是 server 设置的，用来隐藏 server。</p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2020/jpeg/1500604/1605256274960-50bd9e69-dde9-4782-b2c0-6afc8188fca2.jpeg" alt="正向代理和反向代理"></p>
+<h2 id="Nginx的概念及其工作原理"><a href="#Nginx的概念及其工作原理" class="headerlink" title="Nginx的概念及其工作原理"></a>Nginx的概念及其工作原理</h2><p>Nginx 是一款轻量级的 Web 服务器，也可以用于反向代理、负载平衡和 HTTP 缓存等。Nginx 使用异步事件驱动的方法来处理请求，是一款面向性能设计的 HTTP 服务器。</p>
+<p>传统的 Web 服务器如 Apache 是 process-based 模型的，而 Nginx 是基于event-driven模型的。正是这个主要的区别带给了 Nginx 在性能上的优势。</p>
+<p>Nginx 架构的最顶层是一个 master process，这个 master process 用于产生其他的 worker process，这一点和Apache 非常像，但是 Nginx 的 worker process 可以同时处理大量的HTTP请求，而每个 Apache process 只能处理一个。</p>
 
     </div>
 
@@ -752,13 +935,13 @@ if(canvas.getContext){
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">165k</span>
+    <span title="站点总字数">179k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:30</span>
+    <span title="站点阅读时长">2:43</span>
   </span>
 </div>
 <div class="busuanzi-count">

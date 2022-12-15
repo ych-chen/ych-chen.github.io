@@ -2130,7 +2130,7 @@
 </tr>
 <tr>
 <td>chrome</td>
-<td>webkit blink</td>
+<td>webkit  -&gt;  blink</td>
 </tr>
 <tr>
 <td>safari</td>
@@ -2142,7 +2142,7 @@
 </tr>
 <tr>
 <td>opera</td>
-<td>presto</td>
+<td>presto  -&gt; blink</td>
 </tr>
 </tbody></table>
 <p>浏览器由渲染引擎和 JS引擎组成。</p>
@@ -2674,16 +2674,34 @@
 
 
 
+<h3 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h3><p><code>eval()</code> 函数计算或执行参数，如果参数是表达式，则 <code>eval()</code> 计算表达式。如果参数是一个或多个 JavaScript 语句，则 <code>eval()</code> 执行这些语句</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> y = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">eval</span>(<span class="string">&quot;x * y&quot;</span>) + <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">eval</span>(<span class="string">&quot;2 + 2&quot;</span>) + <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="built_in">eval</span>(<span class="string">&quot;x + 17&quot;</span>) + <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> res = a + b + c;  <span class="comment">// return 200 4 27</span></span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="疑难点"><a href="#疑难点" class="headerlink" title="疑难点"></a>疑难点</h2><h3 id="如何认识new"><a href="#如何认识new" class="headerlink" title="如何认识new"></a>如何认识new</h3><p>new 申请内存, 创建对象,当调用new时，后台会隐式执行new Object()创建对象。所以，通过new创建的字符串、数字是引用类型，而是非值类型。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> value = <span class="string">&#x27;25&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Number</span>(value);</span><br><span class="line">conosole.log(<span class="keyword">typeof</span> obj)  <span class="comment">// return object</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="检查数据类型的三种方法"><a href="#检查数据类型的三种方法" class="headerlink" title="检查数据类型的三种方法"></a>检查数据类型的三种方法</h3><p>A instanceof  B，A对象的原型链上到底有无B原型；第三种是最实用的</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = []</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> a.construtor</span><br><span class="line"><span class="number">2.</span> a <span class="keyword">instanceof</span> <span class="built_in">Array</span></span><br><span class="line"><span class="number">3.</span> <span class="built_in">Object</span>.prototype.toString.call(a);  <span class="keyword">return</span> [object <span class="built_in">Array</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="检查数据类型的方法"><a href="#检查数据类型的方法" class="headerlink" title="检查数据类型的方法"></a>检查数据类型的方法</h3><h4 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h4><p><code>typeof()</code> 可以反映出的类型有：number、string、boolean、undefined、object(null历史遗留问题、object、array、date、RegExp )、 function</p>
+<h4 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h4><p><code>instanceof</code>可以正确判断对象的类型，其内部运行机制是<strong>判断在其原型链中能否找到该类型的原型</strong></p>
+<p><code>instanceof</code><strong>只能正确判断引用数据类型</strong>，而不能判断基本数据类型。因为基本数据类型没有原型链</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;) <span class="keyword">instanceof</span> <span class="built_in">Function</span>  <span class="comment">// true</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;) <span class="keyword">instanceof</span> <span class="built_in">Object</span>    <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span> <span class="keyword">instanceof</span> <span class="built_in">Number</span>);      <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span> <span class="keyword">instanceof</span> <span class="built_in">Boolean</span>);  <span class="comment">// false </span></span><br></pre></td></tr></table></figure>
+
+<h4 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h4><p><code>constructor</code>有两个作用，一是判断数据的类型，二是对象实例通过 <code>constrcutor</code> 对象访问它的构造函数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log((<span class="number">2</span>).constructor === <span class="built_in">Number</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="literal">true</span>).constructor === <span class="built_in">Boolean</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="string">&#x27;str&#x27;</span>).constructor === <span class="built_in">String</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(([]).constructor === <span class="built_in">Array</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;).constructor === <span class="built_in">Function</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log((&#123;&#125;).constructor === <span class="built_in">Object</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意，如果创建一个对象来改变它的原型，<code>constructor</code>就不能用来判断数据类型了：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"> </span><br><span class="line">Fn.prototype = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> Fn();</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(f.constructor===Fn);    <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(f.constructor===<span class="built_in">Array</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Object-prototype-toString-call"><a href="#Object-prototype-toString-call" class="headerlink" title="Object.prototype.toString.call()"></a>Object.prototype.toString.call()</h4><p>使用 Object 对象的原型方法 toString 来判断数据类型(Object上原型toString方法（返回对象的具体类型）):</p>
+<p>A instanceof  B，A对象的原型链上到底有无B原型；第三种是最实用的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = []</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(a);  <span class="keyword">return</span> [object <span class="built_in">Array</span>]</span><br></pre></td></tr></table></figure>
 
 
 
+<p>同样是检测对象obj调用toString方法，obj.toString()的结果和Object.prototype.toString.call(obj)的结果不一样，这是为什么？</p>
+<p>这是因为toString是Object的原型方法，而Array、function等<strong>类型作为Object的实例，都重写了toString方法</strong>。不同的对象类型调用toString方法时，根据原型链的知识，调用的是对应的重写之后的toString方法（function类型返回内容为函数体的字符串，Array类型返回元素组成的字符串…），而不会去调用Object上原型toString方法（返回对象的具体类型）</p>
+<p>采用obj.toString()不能得到其对象类型，只能将obj转换为字符串类型；因此，在想要得到对象的具体类型时，应该调用Object原型上的toString方法。</p>
 <h2 id="技巧用法"><a href="#技巧用法" class="headerlink" title="技巧用法"></a>技巧用法</h2><h3 id="插件的写法"><a href="#插件的写法" class="headerlink" title="插件的写法"></a>插件的写法</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">ES5的写法</span><br><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    Test.prototype = &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.Test = Test</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">ES6的写法</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">name</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//构造方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">methods</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//原型方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">init</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//初始化函数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="链式操作"><a href="#链式操作" class="headerlink" title="链式操作"></a>链式操作</h3><p>方法里每次最后都return this，可以达到连续调用的效果</p>
@@ -2693,12 +2711,10 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//企业级写法！不会污染全局变量  Origin被继承 Target欲继承 </span></span><br><span class="line"><span class="keyword">var</span> inherit = (<span class="function"><span class="keyword">function</span>(<span class="params">Target,Origin</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Buffer</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">Target,Origin</span>)</span>&#123;</span><br><span class="line">        Buffer.prototype = Origin.prototype;</span><br><span class="line">        Target.prototype = <span class="keyword">new</span> Buffer();</span><br><span class="line">        <span class="comment">//还原构造器</span></span><br><span class="line">        Target.prototype.constructor = Target;</span><br><span class="line">        <span class="comment">//说明继承源</span></span><br><span class="line">        Target.prototype.super_class = Origin;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 
 <h3 id="克隆-浅拷贝-深拷贝"><a href="#克隆-浅拷贝-深拷贝" class="headerlink" title="克隆/浅拷贝/深拷贝"></a>克隆/浅拷贝/深拷贝</h3><ul>
-<li><p>克隆，只拷贝的地址，var a = b =</p>
+<li><p>克隆，只拷贝的地址，var a = b </p>
 </li>
 <li><p>浅拷贝，只拷贝第一层属性信息，深层信息如一个变，其他跟着变</p>
-<ul>
-<li>对于引用值，浅复制仅仅复制引用值的存放地址，而不复制实际的存放对象。</li>
-</ul>
+<p>对于引用值，浅复制仅仅复制引用值的存放地址，而不复制实际的存放对象。</p>
 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">origin, target</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> tar = target || &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> origin)&#123;</span><br><span class="line">        <span class="keyword">if</span> (origin.hasOwnProperty(key))&#123;</span><br><span class="line">            tar[key] = origin[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -2708,68 +2724,47 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">origin, target</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> target = target || &#123;&#125;,</span><br><span class="line">    	toStr = <span class="built_in">Object</span>.prototype.toString,</span><br><span class="line">        arrType = <span class="string">&#x27;[object Array]&#x27;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> origin)&#123;</span><br><span class="line">        <span class="keyword">if</span> (origin.hasOwnProperty(key))&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="function"><span class="title">typeof</span>(<span class="params">origin[key] === <span class="string">&#x27;object&#x27;</span> &amp;&amp; origin[key] !== <span class="literal">null</span></span>)</span>&#123;</span><br><span class="line">              	toStr.call(origin[key]) === arrType ? target[key] = [] : target[key] = &#123;&#125;;</span><br><span class="line">            	deepClone(origin[key], target[key]);</span><br><span class="line">               &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                target[key] = origin[key];</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h3><p>一般原则：谁调用this的宿主，this就指向谁</p>
-<p><strong>全局this</strong></p>
+<h3 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h3><p>this 是JavaScript关键字，是当前环境执行期上下文对象的一个属性，在不同环境下表现不同。一般原则：谁调用this的宿主，this就指向谁</p>
+<h4 id="全局this"><a href="#全局this" class="headerlink" title="全局this"></a><strong>全局this</strong></h4><p>全局作用域下的this 和window的关系是相同的，不同环境下的全局对象获取方式并不相同</p>
 <ul>
-<li>this 是JavaScript关键字，是当前环境执行期上下文对象的一个属性，在不同环境下表现不同</li>
-<li>全局作用域下的this 和window的关系是相同的</li>
-<li>不同环境下的全局对象获取方式并不相同<ul>
 <li>web：window、self、frames、this</li>
-<li>node：global</li>
-<li>web workers：self</li>
+<li>node：global ； web workers：self</li>
 <li>通用获取方式：globalThis (Web Worker为 JavaScript 创造多线程环境，允许主线程创建 Worker 线程)</li>
 </ul>
-</li>
-<li>严格模式下，谁调用函数，函数内部的执行默认就是谁</li>
-</ul>
+<p>严格模式下，谁调用函数，函数内部的执行默认就是谁</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span> === <span class="built_in">window</span> ) <span class="comment">// return true</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>class this</strong></p>
-<p><strong>类中的this都是指向的这个类，也可以说是指向的通过类实例化的对象</strong></p>
-<p><strong>call、apply、bind</strong></p>
+<p><strong>apply 、 call 和 bind 调用模式</strong></p>
 <p>call、apply是立即执行、bind是返回一个新的函数</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// test.bind 只会生效一次，下式等同于  t = test.bind(obj)</span></span><br><span class="line">t = test.bind(obj).bind(obj2)</span><br></pre></td></tr></table></figure>
 
-<p><strong>箭头函数</strong></p>
-<ul>
-<li>箭头函数严格模式下this也指向window</li>
-<li>箭头函数 忽略任何形式(call、apply、bind)的this指向改变，静态this指向</li>
-<li>箭头函数 不是个 构造器，不能new</li>
-<li>箭头函数中的this找上层非箭头函数的作用域，不是谁绑定就指向谁</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> test = <span class="function">() =&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)  <span class="comment">// return window</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>) <span class="comment">// return undefined</span></span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line">test1();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>:<span class="number">3</span>,</span><br><span class="line">    <span class="attr">b</span>:<span class="number">4</span>,</span><br><span class="line">    <span class="attr">test1</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)  <span class="comment">// return 3</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">test2</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)  <span class="comment">// return undefined</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a><strong>箭头函数</strong></h4><p>箭头函数 不是构造器，不能new。 箭头函数是<strong>静态this指向</strong>，忽略任何形式(call、apply、bind)的this指向改变</p>
+<p>箭头函数中 this 找上层函数(非箭头）的作用域，不是谁绑定就指向谁</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> test = <span class="function">() =&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>) </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>) </span><br><span class="line">&#125;   </span><br><span class="line">test();   <span class="comment">// return window  箭头函数严格模式下this也指向window</span></span><br><span class="line">test1();  <span class="comment">// return undefined  一般函数严格模式下this指向undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>:<span class="number">3</span>,</span><br><span class="line">    <span class="attr">b</span>:<span class="number">4</span>,</span><br><span class="line">    <span class="attr">test1</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)  <span class="comment">// return 3，但是会被call等方法改变this指向</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">test2</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)  <span class="comment">// return undefined test2没有上层非箭头函数，所以指向全局window</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">test3</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> s = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">        <span class="keyword">return</span> s  <span class="comment">// 永远return 3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>对象</strong></p>
-<ul>
-<li>对象方法内部的this 指向 <strong>最近一层引用</strong></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">test</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);  <span class="comment">// return 1</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">// t函数 最近的引用并不是 obj，不属于任何容器</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);  <span class="comment">// return undefined</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="对象-1"><a href="#对象-1" class="headerlink" title="对象"></a><strong>对象</strong></h4><p>对象方法内部的this 指向 <strong>最近一层引用</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">test</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);  <span class="comment">// return 1</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">// t函数 最近的引用并不是 obj，不属于任何容器</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);  <span class="comment">// return undefined</span></span><br><span class="line">        &#125;</span><br><span class="line">        t()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>defineProperty</strong></p>
-<p>this指向调用对象</p>
-<p><strong>函数 和 构造函数</strong></p>
-<p>构造函数里 默认隐式返回this，如果手动返回了一个新对象，this指向的对象就被忽略了（不生效）</p>
+<h4 id="defineProperty"><a href="#defineProperty" class="headerlink" title="defineProperty"></a>defineProperty</h4><p>this指向调用对象</p>
+<h4 id="函数-和-构造函数"><a href="#函数-和-构造函数" class="headerlink" title="函数 和 构造函数"></a><strong>函数 和 构造函数</strong></h4><p>构造函数里 默认隐式返回this，如果手动返回了一个新对象，this指向的对象就被忽略了（不生效）</p>
+<p>如果一个函数用 new 调用时，函数执行前会新创建一个对象，this 指向这个新创建的对象</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">&#125;</span><br><span class="line">Test() <span class="comment">// return window</span></span><br><span class="line"><span class="keyword">new</span> Test() <span class="comment">// return Test&#123;&#125;</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>事件处理函数</strong></p>
-<p>事件处理函数内部的this总是指向被绑定的DOM元素，比如 谁调用onclick，函数就绑定哪个元素</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">doc</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> oBtn = doc.getElementById(<span class="string">&#x27;..&#x27;</span>);</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Plus</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.a = a;</span><br><span class="line">        <span class="built_in">this</span>.b = b;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">this</span>.init();</span><br><span class="line">    &#125;</span><br><span class="line">    Plus.prototype.init =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.bindEvent();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 第1种情况，会出问题</span></span><br><span class="line">    Plus.prototype.bindEvent =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        oBtn.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="built_in">this</span>.handleBtnClick,<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Plus.prototype.handleBtnClick =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>) <span class="comment">// return &lt;button....&gt;</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a,<span class="built_in">this</span>.b);  <span class="comment">// return undefined undefined</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 第2种情况，正确</span></span><br><span class="line">    Plus.prototype.bindEvent =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//把plus实例绑入handleBtnClick中</span></span><br><span class="line">        oBtn.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="built_in">this</span>.handleBtnClick.bind(<span class="built_in">this</span>),<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Plus.prototype.handleBtnClick =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a,<span class="built_in">this</span>.b);  <span class="comment">// return 3 4</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 第2种情况，正确</span></span><br><span class="line">    Plus.prototype.bindEvent =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> _self = <span class="built_in">this</span>;</span><br><span class="line">        <span class="comment">//把plus实例绑入handleBtnClick中</span></span><br><span class="line">        oBtn.addEventListener(<span class="string">&#x27;click&#x27;</span>,_self.handleBtnClick(),<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Plus.prototype.handleBtnClick =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a,<span class="built_in">this</span>.b);  <span class="comment">// return 3 4</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">window</span>.Plus = Plus;</span><br><span class="line">    </span><br><span class="line">&#125;)(<span class="built_in">document</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Plus(<span class="number">3</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="事件处理函数"><a href="#事件处理函数" class="headerlink" title="事件处理函数"></a><strong>事件处理函数</strong></h4><p>事件处理函数内部的this总是指向被绑定的DOM元素，比如 谁调用onclick，函数就绑定哪个元素</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">doc</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> oBtn = doc.getElementById(<span class="string">&#x27;..&#x27;</span>);</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Plus</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.a = a;</span><br><span class="line">        <span class="built_in">this</span>.b = b;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">this</span>.init();</span><br><span class="line">    &#125;</span><br><span class="line">    Plus.prototype.init =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.bindEvent();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 第1种情况，会出问题</span></span><br><span class="line">    Plus.prototype.bindEvent =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        oBtn.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="built_in">this</span>.handleBtnClick,<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Plus.prototype.handleBtnClick =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>) <span class="comment">// return &lt;button....&gt;</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a,<span class="built_in">this</span>.b);  <span class="comment">// return undefined undefined</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 第2种情况，正确</span></span><br><span class="line">    Plus.prototype.bindEvent =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//把plus实例绑入handleBtnClick中</span></span><br><span class="line">        oBtn.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="built_in">this</span>.handleBtnClick.bind(<span class="built_in">this</span>),<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Plus.prototype.handleBtnClick =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a,<span class="built_in">this</span>.b);  <span class="comment">// return 3 4</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 第3种情况，正确</span></span><br><span class="line">    Plus.prototype.bindEvent =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> _self = <span class="built_in">this</span>;</span><br><span class="line">        <span class="comment">//把plus实例绑入handleBtnClick中</span></span><br><span class="line">        oBtn.addEventListener(<span class="string">&#x27;click&#x27;</span>,_self.handleBtnClick(),<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Plus.prototype.handleBtnClick =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.a,<span class="built_in">this</span>.b);  <span class="comment">// return 3 4</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">window</span>.Plus = Plus;</span><br><span class="line">    </span><br><span class="line">&#125;)(<span class="built_in">document</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Plus(<span class="number">3</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="重要实例"><a href="#重要实例" class="headerlink" title="重要实例"></a><strong>重要实例</strong></h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">&quot;123&quot;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> foo = <span class="string">&quot;456&quot;</span></span><br><span class="line">	<span class="built_in">this</span>.foo = <span class="string">&quot;789&quot;</span><span class="comment">//此时并没有对象调用函数print(),所以这里更改的的windoe的GO里面的foo值</span></span><br><span class="line">	<span class="built_in">console</span>.log(foo)<span class="comment">// 456 此时打印的是自己AO里面的foo值！</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo)<span class="comment">// 123</span></span><br><span class="line">print()</span><br><span class="line"><span class="built_in">console</span>.log(foo)<span class="comment">// 789</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;222&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">    <span class="attr">name</span> : <span class="string">&#x27;111&#x27;</span>,</span><br><span class="line">    <span class="attr">say</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fun = a.say; <span class="comment">// var fun = function()&#123; console.log(this.name);&#125;</span></span><br><span class="line">fun();  <span class="comment">// 222</span></span><br><span class="line">a.say(); <span class="comment">// 111</span></span><br><span class="line"><span class="keyword">var</span> b = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;333&#x27;</span>,</span><br><span class="line">    <span class="attr">say</span>: <span class="function"><span class="keyword">function</span>(<span class="params">fun</span>)</span>&#123;</span><br><span class="line">        fun();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">b.say(a.say); <span class="comment">// 222 这个地方要多注意！  将a.say，也就是函数作为实参传入到对象b内的say()函数，fun()在函数内部也是自己调用，没有对象调用，此时this仍然指向window</span></span><br><span class="line">b.say = a.say; </span><br><span class="line">b.say()  <span class="comment">// 333</span></span><br></pre></td></tr></table></figure>
 
-
-
-
-<p><strong>几个实例</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;222&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">    <span class="attr">name</span> : <span class="string">&#x27;111&#x27;</span>,</span><br><span class="line">    <span class="attr">say</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fun = a.say; <span class="comment">// var fun = function()&#123; console.log(this.name);&#125;</span></span><br><span class="line">fun();  <span class="comment">// 222</span></span><br><span class="line">a.say(); <span class="comment">// 111</span></span><br><span class="line"><span class="keyword">var</span> b = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;333&#x27;</span>,</span><br><span class="line">    <span class="attr">say</span>: <span class="function"><span class="keyword">function</span>(<span class="params">fun</span>)</span>&#123;</span><br><span class="line">        fun();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">b.say(a.say); <span class="comment">// 222 这个地方要多注意！</span></span><br><span class="line">b.say = a.say; <span class="comment">// 333</span></span><br><span class="line">b.say()</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">&#125;</span><br><span class="line">Foo.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Foo.getName(); <span class="comment">// 2 Foo.getName()理解为Foo对象的一个属性，并不涉及Foo内部</span></span><br><span class="line">getName(); <span class="comment">// 4 undefined -&gt; console.log(5); -&gt; console.log(4);</span></span><br><span class="line">Foo().getName(); <span class="comment">// 1  Foo()执行后,内部的getName被提升至全局，全局的console.log(4) -&gt; console.log(1)</span></span><br><span class="line">getName(); <span class="comment">// 1  Foo()执行后，内部的getName被提升至全局，全局的console.log(4) -&gt; console.log(1)</span></span><br><span class="line"><span class="keyword">new</span> Foo.getName(); <span class="comment">// 2  Foo.getName()理解为Foo对象的一个属性，并不涉及Foo内部</span></span><br><span class="line"><span class="keyword">new</span> Foo().getName(); <span class="comment">// 3  实例化Foo()后，找Foo内部的this.getName，但是找不到，因为getName是window的，只能去原型里找，故返回3</span></span><br><span class="line"><span class="keyword">new</span> <span class="keyword">new</span> Foo().getName(); <span class="comment">// 3 原因同上</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty"></a>hasOwnProperty</h4><p>找对象自身的属性，排除原型上的所有属性，返回布尔值</p>
-<h4 id="defineProperty"><a href="#defineProperty" class="headerlink" title="defineProperty"></a>defineProperty</h4><p><strong>Object.defineProperty()</strong> 方法直接在一个对象上定义一个新属性，或者修改一个已经存在的属性， 并返回这个对象。</p>
+<h3 id="defineProperty-1"><a href="#defineProperty-1" class="headerlink" title="defineProperty"></a>defineProperty</h3><p><strong>Object.defineProperty()</strong> 方法直接在一个对象上定义一个新属性，或者修改一个已经存在的属性， 并返回这个对象。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(obj, prop, descriptor)</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -2786,7 +2781,7 @@
 <li><code>get</code>: 一个给属性提供 getter 的方法，如果没有 getter 则为 <code>undefined</code>。该方法返回值被用作属性值。<code>undefined</code></li>
 <li><code>set</code>: 一个给属性提供 setter 的方法，如果没有 setter 则为 <code>undefined</code>。该方法将接受唯一参数，并将该参数的新值分配给该属性。默认为<code>undefined</code>。</li>
 </ul>
-<h4 id="callee-和-caller"><a href="#callee-和-caller" class="headerlink" title="callee 和 caller"></a>callee 和 caller</h4><p>caller 直接翻译为调用者，callee 翻译为被召者</p>
+<h3 id="callee-和-caller"><a href="#callee-和-caller" class="headerlink" title="callee 和 caller"></a>callee 和 caller</h3><p>caller 直接翻译为调用者，callee 翻译为被召者</p>
 <ul>
 <li><p>arguments.callee返回当前正执行的函数</p>
 <ul>
@@ -2799,30 +2794,19 @@
 
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myq</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (myq.caller == <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;该函数在全局作用域内被调用!&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="built_in">console</span>.log(<span class="string">&quot;调用我的是函数是&quot;</span> + myq.caller);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callQ</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  myq();</span><br><span class="line">&#125;</span><br><span class="line">callQ();</span><br><span class="line"><span class="comment">/* return</span></span><br><span class="line"><span class="comment">调用我的是函数是function callQ() &#123; </span></span><br><span class="line"><span class="comment">  myq()</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h4><p><code>eval()</code> 函数计算或执行参数，如果参数是表达式，则 <code>eval()</code> 计算表达式。如果参数是一个或多个 JavaScript 语句，则 <code>eval()</code> 执行这些语句</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> y = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">eval</span>(<span class="string">&quot;x * y&quot;</span>) + <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">eval</span>(<span class="string">&quot;2 + 2&quot;</span>) + <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="built_in">eval</span>(<span class="string">&quot;x + 17&quot;</span>) + <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> res = a + b + c;  <span class="comment">// return 200 4 27</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><p><img data-src="https://s2.loli.net/2022/10/11/pBTkYMvF1jgHerz.png"></p>
+<h2 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM 文档对象模型"></a>DOM 文档对象模型</h2><p>DOM：document object model 文档对象模型，通过浏览器提供的这一套方法去表示和操作HTML和XML，XML(标签自定义) –&gt; XHTML –&gt; HTML(标签由浏览器定义)</p>
+<p><strong>js本身无法直接操作CSS样式的</strong>，但是可以通过设置元素的style内联样式，达到覆盖原样式生成新样式的效果</p>
+<p><img data-src="https://s2.loli.net/2022/10/11/pBTkYMvF1jgHerz.png"></p>
+<h3 id="document方法"><a href="#document方法" class="headerlink" title="document方法"></a>document方法</h3><p>document 是整个html文档的父级节点，html文档没有父级元素；document 的父级元素规定为null，document 实质上是一个对象</p>
 <ul>
-<li>DOM：document object model 文档对象模型，通过浏览器提供的这一套方法去表示和操作HTML和XML，XML(标签自定义) –&gt; XHTML –&gt; HTML(标签由浏览器定义)</li>
-<li><strong>js本身无法直接操作CSS样式的</strong>，但是可以通过设置元素的style内联样式，达到覆盖原样式生成新样式的效果</li>
-</ul>
-<h3 id="document方法"><a href="#document方法" class="headerlink" title="document方法"></a>document方法</h3><ul>
-<li>document 是整个html文档的父级节点，html文档没有父级元素；document 的父级元素规定为null，document 实质上是一个对象<ul>
 <li>document下属get方法一般获取的是 <strong>类数组</strong></li>
 <li>在IE8及以下，document下属方法参数不区分大小写，要注意兼容性！</li>
 <li>id属性一般对接后端使用，能不用就不用</li>
 </ul>
-</li>
-<li>document.getElementsByTagName </li>
-<li>document.getElementsByClassName，不兼容IE8及以下</li>
-<li>querySelector、querySelectorAll，兼容IE7及以上<ul>
-<li>这两个方法的参数使用 和 css 选择器一样；querySelector()，返回第一个符合的；querySelectorAll()，返回满足条件的类数组</li>
-<li><strong>一般不使用</strong>，因为性能不好，和不实时性</li>
-</ul>
-</li>
+<p>常用的几个方法：</p>
+<ul>
+<li>document.getElementsByTagName ； document.getElementsByClassName，不兼容IE8及以下  ；querySelector、querySelectorAll，兼容IE7及以上</li>
+<li>querySelector()，返回第一个符合的；querySelectorAll()，返回满足条件的类数组。<strong>一般不使用</strong>，因为性能不好，和不实时性</li>
 </ul>
 <h3 id="DOM结构树"><a href="#DOM结构树" class="headerlink" title="DOM结构树"></a>DOM结构树</h3><ul>
 <li>Document下属HTMLDocument和XMLDocument，Element同理</li>
@@ -2833,39 +2817,34 @@
 <li><p>元素节点 —&gt; 1 ； 属性节点 —&gt; 2  ； 文本节点 —&gt; 3，换行也算文本节点</p>
 <p>注释节点 —&gt; 8 ； document —&gt; 9  ；DocumentFragment —&gt; 11</p>
 </li>
-<li><p> nodeName，只读不可改 ； nodeValue，可读可改 ； nodeType，1 2 3 8 9 11；  attributes、getAttributeNode、可读可改</p>
+<li><p>nodeName，只读不可改 ； nodeValue，可读可改 ； nodeType，1 2 3 8 9 11；  attributes、getAttributeNode、可读可改</p>
 </li>
 </ul>
-<h4 id="遍历节点树的方法"><a href="#遍历节点树的方法" class="headerlink" title="遍历节点树的方法"></a>遍历节点树的方法</h4><ul>
-<li>parentNodes、childNodes</li>
-<li>firstChild、lastChild</li>
-<li>nextSibling、previousSibling</li>
-</ul>
-<h4 id="遍历元素节点的方法"><a href="#遍历元素节点的方法" class="headerlink" title="遍历元素节点的方法"></a>遍历元素节点的方法</h4><ul>
-<li><p>parentElement IE9及以下不支持</p>
-</li>
-<li><p>children  IE7及以下不支持</p>
-</li>
-<li><p>ChildElementCount = children.length   IE9及以下不支持</p>
-<p>firstElementChild、lastElementChild  IE9及以下不支持</p>
-<p>nextElementSibling、previousElementSibling  IE9及以下不支持</p>
-</li>
-</ul>
-<h4 id="以上方法注意点"><a href="#以上方法注意点" class="headerlink" title="以上方法注意点"></a>以上方法注意点</h4><ul>
-<li>var div = document.getElementById(‘div’)[0]，经历了两个过程，选元素，再实例化 </li>
+<h4 id="获取元素和节点的方法"><a href="#获取元素和节点的方法" class="headerlink" title="获取元素和节点的方法"></a>获取元素和节点的方法</h4><p>获取父级</p>
+<p>parentNode、parentElement IE9及以下不支持</p>
+<p>parentNode 获取包括元素的父级节点，parentElement 只获取父级元素</p>
+<p>parentNode  w3c规范；parentElement  ie规范，在firefox浏览器不能使用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.documentElement.parentElement  <span class="comment">// return null</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.parentNode  <span class="comment">// return #document</span></span><br></pre></td></tr></table></figure>
+
+<p>获取子级</p>
+<p>childNodes、children  IE7及以下不支持</p>
+<p>childNodes 获取子级节点，children  获取子级元素</p>
+<p>其他获取方式</p>
+<p>firstChild、lastChild；firstElementChild、lastElementChild  IE9及以下不支持</p>
+<p>nextSibling、previousSibling ； nextElementSibling、previousElementSibling  IE9及以下不支持  其中区别与上面同理</p>
+<h4 id="以上方法注意点"><a href="#以上方法注意点" class="headerlink" title="以上方法注意点"></a>以上方法注意点</h4><ol>
 <li>getElementById()、getElementByName这两个方法，<strong>只有Dodument有</strong>，元素节点使用该方法会报错</li>
 <li>getElementByTagName、getElementByClassName、querySelector、querySelectorAll 这四个方法Document和Element原型里都有</li>
-<li>body和head的两种获取方式<ul>
-<li>var body = document.getElementsByTagName(‘body’)[0]</li>
-<li>特殊的常用方式：var body = document.head; </li>
-</ul>
-</li>
-<li>document.title 获取的是 title值，不是title元素</li>
 <li>document.documentElement 获取 HTML元素</li>
+<li>var div = document.getElementById(‘div’)[0]，经历了两个过程，选元素，再实例化 </li>
+<li>document.title 获取的是 title值，不是title元素</li>
+</ol>
+<p>body和head的两种获取方式</p>
+<ul>
+<li>var body = document.getElementsByTagName(‘body’)[0]</li>
+<li>特殊的常用方式：var body = document.body ; </li>
 </ul>
-<h4 id="创建节点"><a href="#创建节点" class="headerlink" title="创建节点"></a>创建节点</h4><ul>
-<li>appendChild 这是个节点 node方法，在父级元素的最下边添加，类似于push，appendChild 不是复制节点，而是剪切节点</li>
-</ul>
+<h3 id="有关节点增删改"><a href="#有关节点增删改" class="headerlink" title="有关节点增删改"></a>有关节点增删改</h3><h4 id="创建节点"><a href="#创建节点" class="headerlink" title="创建节点"></a>创建节点</h4><p>appendChild 这是个节点 node方法，在父级元素的最下边添加，类似于push，appendChild 不是复制节点，而是剪切节点</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>); <span class="comment">//在堆内存里创建一个div对象，</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div)  <span class="comment">// 在节点树中添加该元素</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="插入节点"><a href="#插入节点" class="headerlink" title="插入节点"></a>插入节点</h4><p>c.insertBefore(a, b)，在父级c节点下的子节点b之前插入a节点</p>
@@ -2886,35 +2865,24 @@
 <p><img data-src="https://s2.loli.net/2022/10/13/wNyUSfsWchTlEAq.png"></p>
 <h4 id="创建文档片段"><a href="#创建文档片段" class="headerlink" title="创建文档片段"></a>创建文档片段</h4><p>DOM树节点每次有变动时，会引起页面回流，即重新计算几何数据再渲染。当频繁对DOM树进行操作时，极大占用了资源开销，此时就需要用到DocumentFragment</p>
 <p>DocumentFragment不在节点树里，可将需要添加的元素节点放到DocumentFragment中，最后统一加到节点树中</p>
-<h3 id="浏览器相关设置"><a href="#浏览器相关设置" class="headerlink" title="浏览器相关设置"></a>浏览器相关设置</h3><h4 id="浏览器的怪异模式和标准模式"><a href="#浏览器的怪异模式和标准模式" class="headerlink" title="浏览器的怪异模式和标准模式"></a>浏览器的怪异模式和标准模式</h4><ul>
-<li><p>document.compatMode </p>
-</li>
-<li><p>怪异模式，浏览器厂商开发，向后兼容规范，BackCompat</p>
-</li>
-<li><p>标准模式，w3c指定兼容规范，CSS1Compat </p>
+<h2 id="浏览器相关的DOM操作"><a href="#浏览器相关的DOM操作" class="headerlink" title="浏览器相关的DOM操作"></a>浏览器相关的DOM操作</h2><h3 id="浏览器的怪异模式和标准模式"><a href="#浏览器的怪异模式和标准模式" class="headerlink" title="浏览器的怪异模式和标准模式"></a>浏览器的怪异模式和标准模式</h3><p>document.compatMode方法  判断浏览器的模式</p>
 <ul>
-<li>&lt;!DOCTYPE html&gt;  html 文件第一行代码如果是这个，即标准模式</li>
+<li>BackCompat    怪异模式，浏览器厂商开发，向后兼容规范，</li>
+<li>CSS1Compat    标准模式，w3c指定兼容规范，； &lt;!DOCTYPE html&gt;  html 文件第一行代码如果是这个，即标准模式</li>
 </ul>
-</li>
-</ul>
-<h4 id="查看滚动条的距离"><a href="#查看滚动条的距离" class="headerlink" title="查看滚动条的距离"></a>查看滚动条的距离</h4><p><img data-src="https://s2.loli.net/2022/10/15/ABKXWv6kljexZNn.png" alt="image-20221015162934492"></p>
+<h3 id="查看滚动条的距离"><a href="#查看滚动条的距离" class="headerlink" title="查看滚动条的距离"></a>查看滚动条的距离</h3><p><img data-src="https://s2.loli.net/2022/10/15/ABKXWv6kljexZNn.png" alt="image-20221015162934492"></p>
 <p>多平台兼容性写法：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getScrollOffset</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.pageXOffset)&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="attr">left</span>: <span class="built_in">window</span>.pageXOffset,</span><br><span class="line">            <span class="attr">top</span>: <span class="built_in">window</span>.pageYOffset</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="attr">left</span>: <span class="built_in">document</span>.body.scrollLeft + <span class="built_in">document</span>.documentElement.scrollLeft,</span><br><span class="line">            <span class="attr">top</span>: <span class="built_in">document</span>.body.scrollTop + <span class="built_in">document</span>.documentElement.scrollTop</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="浏览器可视区域"><a href="#浏览器可视区域" class="headerlink" title="浏览器可视区域"></a>浏览器可视区域</h4><p>常规：window.innerWidth/ innerHeight</p>
-<p>IE9及以下：</p>
-<p>标准模式：document.documentElement.clientWidth/clientHeight</p>
-<p>怪异模式：document.body.clientWidth/clientHeight</p>
+<h3 id="浏览器可视区域"><a href="#浏览器可视区域" class="headerlink" title="浏览器可视区域"></a>浏览器可视区域</h3><p>常规：window.innerWidth/ innerHeight</p>
+<p>IE9及以下：标准模式：document.documentElement.innerWidth/innerHeight；  怪异模式：document.body.clientWidth/clientHeight</p>
 <p>多平台兼容性写法：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getViewportSize</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.innerWidth)&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            <span class="attr">width</span>: <span class="built_in">window</span>.innerWidth,</span><br><span class="line">            <span class="attr">height</span>: <span class="built_in">window</span>.innerHeight</span><br><span class="line">        &#125; </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">document</span>.compatMode === <span class="string">&#x27;BackCompat&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span>&#123;</span><br><span class="line">                <span class="attr">width</span>: <span class="built_in">document</span>.body.clientWidth,</span><br><span class="line">            	<span class="attr">height</span>: <span class="built_in">document</span>.body.clientHeight</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span>&#123;</span><br><span class="line">                <span class="attr">width</span>: <span class="built_in">document</span>.documentElement.clientWidth,</span><br><span class="line">            	<span class="attr">height</span>: <span class="built_in">document</span>.body.clientHeight</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="整个页面的宽高"><a href="#整个页面的宽高" class="headerlink" title="整个页面的宽高"></a>整个页面的宽高</h4><ul>
-<li>整个页面的宽高 = document.body.scrollHeight/scrollWidth OR  document.documentElement.scrollHeight/scrollWidth = window.innerWidth + window.pageXOffset</li>
-</ul>
-<p>多平台兼容性写法：</p>
+<h3 id="整个页面的宽高"><a href="#整个页面的宽高" class="headerlink" title="整个页面的宽高"></a>整个页面的宽高</h3><p>多平台兼容性写法：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getScrollSize</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">document</span>.body.scrollHeight)&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="attr">width</span>: <span class="built_in">document</span>.body.scrollWidth,</span><br><span class="line">            <span class="attr">height</span>: <span class="built_in">document</span>.body.scrollHeight</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="attr">width</span>: <span class="built_in">document</span>.documentElement.scrollWidth,</span><br><span class="line">            <span class="attr">height</span>: <span class="built_in">document</span>.documentElement.scrollHeight</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h4><ul>
+<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><ul>
 <li><p>offsetLeft，offsetTop 找上一个父级定位元素的距离</p>
 </li>
 <li><p>offsetParent，返回上一个父级定位元素</p>
@@ -2922,50 +2890,9 @@
 <li><p>返回元素到左上角的距离（不管是否有定位元素）</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementDocPosition</span>(<span class="params">el</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> parent = el.offsetParent,</span><br><span class="line">        offsetLeft = el.offsetLeft,</span><br><span class="line">        offsetTop = el.offsetTop;</span><br><span class="line">    <span class="keyword">while</span>(parent)&#123;</span><br><span class="line">        offsetLeft += parent.offsetLeft;</span><br><span class="line">        offsetTop += parent.offsetTop;</span><br><span class="line">        parent = parent.offsetParent;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attr">left</span>: offsetLeft,</span><br><span class="line">        <span class="attr">top</span>: offsetTop</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="操作滚动条"><a href="#操作滚动条" class="headerlink" title="操作滚动条"></a>操作滚动条</h4><ul>
+<h3 id="操作滚动条"><a href="#操作滚动条" class="headerlink" title="操作滚动条"></a>操作滚动条</h3><ul>
 <li>window.scroll(x, y) 和window.scrollTo(x, y) 等效，滚动到绝对位置</li>
 <li>window.scrollBy(x, y) 滚动相对距离</li>
-</ul>
-<h3 id="DOM-CSS-渲染树"><a href="#DOM-CSS-渲染树" class="headerlink" title="DOM/CSS/渲染树"></a>DOM/CSS/渲染树</h3><h4 id="DOM-tree"><a href="#DOM-tree" class="headerlink" title="DOM tree"></a>DOM tree</h4><p>解析是生成DOM树，加载是加载内部资源，比如img等，解析和加载异步完成</p>
-<p>DOM树解析过程是将节点挂载到DOM树上，遵循深度优先解析原则</p>
-<p>加载，当前节点若解析完成（并不是页面解析完成），就开始加载资源</p>
-<h4 id="CSS-tree"><a href="#CSS-tree" class="headerlink" title="CSS tree"></a>CSS tree</h4><p>类似于DOM tree的生成过程</p>
-<h4 id="render-tree"><a href="#render-tree" class="headerlink" title="render tree"></a>render tree</h4><p>render tree = DOM tree + CSS tree，渲染树构建完毕后，浏览器根据它绘制页面。</p>
-<ul>
-<li>渲染树每个节点都有自己的样式</li>
-<li>渲染树不包含隐藏节点，display:none head类等不需要绘制的节点<ul>
-<li>display:none 不进行绘制；visibility: hidden 绘制了只是看不见</li>
-</ul>
-</li>
-<li>渲染树的每个节点都会被当成一个盒子box，具有内容填充、边距、边框、位置、大小等其他样式</li>
-</ul>
-<h3 id="回流与重绘"><a href="#回流与重绘" class="headerlink" title="回流与重绘"></a>回流与重绘</h3><p>当JS对页面的节点操作时，就会产生回流或者重绘。回流一定重绘，重绘不一定回流</p>
-<p><strong>回流，reflow：</strong></p>
-<ul>
-<li>回流是相当消耗性能的，开发中应该减少回流次数</li>
-<li>回流会引起 渲染树中的一部分或全部重新构建</li>
-<li>引起回流的因素：<ul>
-<li>DOM节点增加 删除</li>
-<li>DOM节点位置变化</li>
-<li>元素的尺寸、边距、填充、边框、显示(display:none block)改变</li>
-<li>页面初始化，即（至少有一次回流）</li>
-<li>浏览器窗口尺寸变化，resize</li>
-<li>向浏览器请求某些样式信息 offset client scroll width </li>
-</ul>
-</li>
-</ul>
-<p><strong>重绘，repaint：</strong></p>
-<ul>
-<li>不会改变节点的尺寸、布局、显示，就只重绘</li>
-<li>若发生回流，浏览器根据新的渲染树重新绘制，这个过程称为 重绘</li>
-</ul>
-<p><strong>优化策略：</strong></p>
-<ul>
-<li>浏览器<strong>队列处理机制</strong></li>
-<li>增添样式 放在 class中，批量处理，减少回流次数</li>
-<li>或者 this.style.cssText 做动态值变化</li>
-<li>documentFragment</li>
-<li>动画一定要做绝对定位，相对定位每次变化都会引起父级的回流重绘</li>
 </ul>
 <h3 id="DOM控制CSS样式"><a href="#DOM控制CSS样式" class="headerlink" title="DOM控制CSS样式"></a>DOM控制CSS样式</h3><ul>
 <li><p>css样式表里的信息，控制台是无法访问到的</p>
@@ -2985,31 +2912,6 @@
 <li><p>操作伪元素的最好方法就是 加一个类</p>
 </li>
 </ul>
-<h3 id="时间线"><a href="#时间线" class="headerlink" title="时间线"></a>时间线</h3><p>在浏览器加载页面开始到页面加载完成，按顺序发生的每一件事情</p>
-<ol>
-<li><p>生成document对象，以供DOM操作</p>
-</li>
-<li><p>解析文档，构建DOM树</p>
-<p>document.readyState = ‘loading’</p>
-</li>
-<li><p>遇到link开始异步加载css外部文件的新线程，遇到style开始异步构建CSSOM的新线程</p>
-</li>
-<li><p>没有设置异步加载的script，阻塞文档解析，等到JS脚本加载并执行完成后，继续解析文档</p>
-</li>
-<li><p>异步加载script，异步加载JS脚本，不阻塞解析文档（不能使用documen.write)</p>
-</li>
-<li><p>解析文档遇到img，先解析节点。创建加载线程，异步加载图片资源，不阻塞解析文档</p>
-</li>
-<li><p>文档解析完成，document.readyState = ‘interactive’</p>
-</li>
-<li><p>defer script，JS脚本按照顺序执行</p>
-</li>
-<li><p>DOMContentLoaded事件，</p>
-</li>
-<li><p>async script加载并执行完毕，img等资源加载完毕，window对象中的onload事件才开始触发，document.readyState = ‘complete’</p>
-</li>
-</ol>
-<p>window.onload 和 DOMContentLoaded的区别：window.onload是页面全部加载完毕才触发，DOMContentLoaded是文档解析完成和异步脚本加载完成后就触发</p>
 <h2 id="事件代理"><a href="#事件代理" class="headerlink" title="事件代理"></a>事件代理</h2><ul>
 <li><p>事件是不需要绑定的，绑定的是事件处理函数</p>
 </li>
@@ -4009,10 +3911,125 @@
   <entry>
     <title>网络基础知识</title>
     <url>/archives/2fa9840e.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>网络应该是我比较熟悉的部分了，本科就是因为了解网络的一些特性之后才开始尝试做的博客。为了知识的完整性，跟着课程再深入的查漏补缺一遍。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><img data-src="https://s2.loli.net/2022/12/14/Op8ZBRauxcdk7qw.png"></p>
 <span id="more"></span>
 
-<h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h2 id="常见的HTTP请求方法"><a href="#常见的HTTP请求方法" class="headerlink" title="常见的HTTP请求方法"></a>常见的HTTP请求方法</h2><ul>
+<h1 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h1><p><img data-src="https://s2.loli.net/2022/12/14/ml2YRGZ3D7WHLEx.png" alt="计算机网络结构"></p>
+<ul>
+<li><code>OSI体系结构</code>: 概念清楚，理论也比较完整，但复杂不实用。</li>
+<li><code>TCP/IP体系结构</code>:TCP/IP是一个四层体系结构，得到了广泛的运用。</li>
+<li><code>五层体系结构</code>:  折中<code>OSI体系结构</code>和<code>TCP/IP体系结构</code>，综合二者的优点，这样既简洁，又能将概念讲清楚。</li>
+</ul>
+<h2 id="五层网络体系结构"><a href="#五层网络体系结构" class="headerlink" title="五层网络体系结构"></a><strong>五层网络体系结构</strong></h2><p><code>应用层</code>：应用层是网络协议的最高层，主要任务<strong>通过进程间的交互完成特定网络应用</strong>。应用层协议定义的是<code>应用程序（进程）间通信和交互的规则</code>。如 DNS、HTTP、SMTP…</p>
+<p><code>运输层</code>：有时也译为传输层，它负责为两台主机中的进程提供通信服务。该层主要有以下两种协议：</p>
+<ul>
+<li>传输控制协议 (Transmission Control Protocol，TCP)：提供<strong>面向连接的</strong>、可靠的数据传输服务，数据传输的基本单位是报文段（segment）；</li>
+<li>用户数据报协议 (User Datagram Protocol，UDP)：提供无连接的、尽最大努力的数据传输服务，但不保证数据传输的可靠性，数据传输的基本单位是用户数据报。</li>
+</ul>
+<p><code>网络层</code>：网络层负责为分组网络中的不同主机提供通信服务，并通过选择合适的路由将数据传递到目标主机。在发送数据时，网络层把运输层产生的报文段或用户数据封装成<code>分组</code>或 <code>包</code>进行传送。</p>
+<p><code>数据链路层</code>：简称为<code>链路层</code>。在两个相邻节点传输数据时，将网络层交下来的IP数据报<code>组装成帧</code>，在两个相邻节点之间的链路上传送<code>帧</code>。</p>
+<p><code>物理层</code>：保证数据可以在各种物理媒介上进行传输</p>
+<p><img data-src="https://s2.loli.net/2022/12/14/6xzDZsWJcOkyj12.webp" alt="三层模型对比"></p>
+<h1 id="TCP与UDP"><a href="#TCP与UDP" class="headerlink" title="TCP与UDP"></a>TCP与UDP</h1><p>TCP 和 UDP都是传输层协议，他们都属于TCP/IP协议族。</p>
+<h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p>TCP，<strong>transmission control protocol 传输控制协议</strong>，</p>
+<p>一种面向连接的，可靠的，基于字节流的传输层通信协议，数据传输单位是 报文段，建立连接的过程就是三次握手。</p>
+<ol>
+<li>面向连接。三次握手 建立可靠连接</li>
+<li>仅支持单播传输。只能1对1</li>
+<li>面向字节流</li>
+<li>可靠传输。TCP给每个包一个序号，也保证了按序接收。接收端实体对已成功收到的字节发回一个相应的确认(ACK)；在合理的往返时延(RTT)内未收到确认，那么对应的数据将会被重传</li>
+<li>提供拥塞控制。当网络出现拥塞的时候，TCP能够减小向网络注入数据的速率和数量，缓解拥塞。</li>
+</ol>
+<p><strong>TCP应用场景：</strong> 效率要求相对低，但对准确性要求相对高的场景。文件传输、接受邮件、远程登录。</p>
+<p><img data-src="https://s2.loli.net/2022/10/14/kGpiKSqWLAdHolu.png" alt="image-20221014142705409"></p>
+<h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><p><strong>user data protocol 用户数据报协议</strong>，喇叭喊人，数据传输单位是 用户数据报。UDP有不提供数据包分组、组装和不能对数据包进行排序的缺点，也就是说，当报文发送之后，是无法得知其是否安全完整到达的。</p>
+<ol>
+<li><strong>面向无连接</strong>。不需要三次握手建立连接，想发数据随时发，不会对数据报文进行拆分和拼接操作</li>
+<li><strong>有单播，多播，广播的功能</strong>。</li>
+<li><strong>面向报文</strong>。UDP对应用层交下来的报文，既不合并，也不拆分。因此，应用程序必须选择合适大小的报文</li>
+<li><strong>不可靠性</strong>。不会备份数据，不关心对方是否已经正确接收</li>
+<li><strong>头部开销小，传输数据报文时是很高效</strong>。UDP 的头部开销小，只有8字节，相比 TCP 的至少20字节要少得多。在传输数据报文时是很高效的。</li>
+</ol>
+<p><strong>UDP应用场景：</strong> 效率要求相对高，对准确性要求相对低的场景。例如：QQ聊天、在线视频、网络语音电话、广播通信（广播、多播）。</p>
+<h2 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>UDP</th>
+<th>TCP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>是否连接</td>
+<td>无连接</td>
+<td>面向连接</td>
+</tr>
+<tr>
+<td>是否可靠</td>
+<td>不可靠传输，不使用流量控制和拥塞控制</td>
+<td>可靠传输（数据顺序和正确性），使用流量控制和拥塞控制</td>
+</tr>
+<tr>
+<td>连接对象个数</td>
+<td>支持一对一，一对多，多对一和多对多交互通信</td>
+<td>只能是一对一通信</td>
+</tr>
+<tr>
+<td>传输方式</td>
+<td>面向报文</td>
+<td>面向字节流</td>
+</tr>
+<tr>
+<td>首部开销</td>
+<td>首部开销小，仅8字节</td>
+<td>首部最小20字节，最大60字节</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>适用于实时应用，例如视频会议、直播</td>
+<td>适用于要求可靠传输的应用，例如文件传输</td>
+</tr>
+</tbody></table>
+<p>字节就是散乱的数据 报文就是添加了标记，封装后的数据</p>
+<h2 id="UDP协议为什么不可靠"><a href="#UDP协议为什么不可靠" class="headerlink" title="UDP协议为什么不可靠"></a>UDP协议为什么不可靠</h2><ol>
+<li>不保证消息交付</li>
+<li>不保证交付顺序</li>
+<li>不跟踪连接状态</li>
+<li>不进行拥塞控制</li>
+</ol>
+<h2 id="TCP的三次握手和四次挥手"><a href="#TCP的三次握手和四次挥手" class="headerlink" title="TCP的三次握手和四次挥手"></a>TCP的三次握手和四次挥手</h2><h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><p><img data-src="https://cdn.nlark.com/yuque/0/2020/png/1500604/1604023663256-5eb6dcdf-fdb6-4b67-a3da-da15c1d396fb.png" alt="三次握手"></p>
+<p>三次握手，指建立一个TCP连接时，需要客户端和服务器总共发送3个包。主要作用就是为了<strong>确认双方的接收能力和发送能力是否正常</strong>、同步连接双方的序列号和确认号，交换TCP窗口大小信息  为后面的可靠性传送做准备。</p>
+<ul>
+<li>第一次握手：客户端给服务端发一个 SYN 报文，并指明客户端的初始化序列号 seq = x ，此时客户端处于 SYN_SEND 状态。</li>
+<li>第二次握手：服务器收到客户端的 SYN 报文之后，会以自己的 SYN 报文作为应答，并且也是指定了自己的初始化序列号 seq = y。同时会把客户端的 seq  + 1 即 x + 1作为ACK 的值，表示已经收到了客户端的 SYN，此时服务器处于 SYN_REVD 的状态。</li>
+<li>第三次握手：客户端收到 SYN 报文之后，会发送一个 ACK 报文，当然，也是一样把服务器的 seq  + 1 即 y + 1 作为 ACK 的值，表示已经收到了服务端的 SYN 报文，此时客户端处于 ESTABLISHED 状态。服务器收到 ACK 报文之后，也处于 ESTABLISHED 状态，此时，双方已建立起了连接。</li>
+</ul>
+<p><strong>那为什么要三次握手呢？两次不行吗？</strong></p>
+<ul>
+<li>为了确认双方的接收能力和发送能力都正常</li>
+<li>如果是用两次握手，则会出现下面这种情况：</li>
+</ul>
+<p><strong>为了防止已失效的连接请求报文段突然又传送到了服务端，造成双方的不一致，导致资源的浪费</strong></p>
+<p>客户端发出一个SYN报文段，由于阻塞或者其他原因在网络中滞留，以至于客户端认为丢包了（其实并没有丢），于是重新发出一个SYN报文段，假设这一次顺利完成了，那么双方建立连接。</p>
+<p>这看起来似乎没什么问题，但网络中有一个隐患，就是那个还在网络中传输的SYN报文段，如果这个SYN在连接期间被服务端收到了，那服务端只会无视它，这样就万事大吉了，<strong>但如果是在连接释放之后被收到呢？</strong>此时服务端认为有人向他发出连接请求，于是响应一个SYNACK回去，如果采用两次握手的话，那么服务器认为此时连接已经建立好了。但是当客户端收到这个SYNACK时，如果他并没有发起连接，那么他不会理睬这个SYNACK，就当没事发生过（如果客户端此时正好发起连接，那其实他也不会理睬这个SYNACK，因为确认号不对啊。）。那问题就大了，这时候服务器以为连接好了，向客户端发送数据，而客户端处于CLOSED状态，会丢弃这些包，这样就很浪费了。并且还有一个尴尬的问题，就是这个时候当客户端打算发起连接时，服务端又不理睬了，在这里尬这，他们就别想互发数据了。当然这些问题似乎不是不可解决的，当客户端发现服务端老是向自己发数据，而自己总是丢弃，可能会向服务端发一个RST（报文段的RST标记号为1），强制服务端关闭连接。但资源总归是浪费了一会了。而用三次握手就不会出现这样的问题。</p>
+<h3 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h3><p><img data-src="https://cdn.nlark.com/yuque/0/2020/png/1500604/1604023663279-0ea063ba-a06b-4f57-9aa9-0e2d1c8d373c.png" alt="四次挥手"></p>
+<p>男：“我觉得我们可能不太合适，我们分手吧，我不会再主动联系你。”（发出关闭连接的请求）<br>女：“你要分手，可以，但是我还没做好心理准备，可以让我再跟你说多几句话吗？”（发出ACK报文段）<br>（此后男生不会再主动联系女生，而女生还会联系男生）<br>女：“好，我该说的话都说完了，我们好聚好散吧。”（发送关闭连接的报文段）<br>男：“再见。”（发出ACK报文段，让女生知道我已经收到了）<br>（女生收到后，放下了男生，即释放了资源）<br>（男生在等待一段时间后，女生没有再回信，男生就默认女生已经收到最后的告别信了，于是放下女生，即释放了资源，从此不相往来（除非复合，即重新建立连接））</p>
+<p>不开玩笑：</p>
+<ul>
+<li><strong>第一次挥手</strong>：若客户端认为数据发送完成，则它需要向服务端发送连接释放请求。</li>
+<li><strong>第二次挥手</strong>：服务端收到连接释放请求后，会告诉应用层要释放 TCP 链接。然后会发送 ACK 包，并进入 CLOSE_WAIT 状态，此时表明<strong>客户端到服务端的连接已经释放</strong>，不再接收客户端发的数据了。但是因为 TCP 连接是双向的，<strong>但是服务端仍旧可以发送数据给客户端</strong>。</li>
+<li><strong>第三次挥手</strong>：服务端如果此时还有没发完的数据会继续发送，完毕后会<strong>向客户端发送连接释放请求</strong>，然后服务端便进入 LAST-ACK 状态。</li>
+<li><strong>第四次挥手</strong>：客户端收到释放请求后，向服务端发送确认应答，此时客户端进入 TIME-WAIT 状态。该状态会持续 2MSL（最大段生存期，指报文段在网络中生存的时间，超时会被抛弃） 时间，若该时间段内没有服务端的重发请求的话，就进入 CLOSED 状态。当服务端收到确认应答后，也便进入 CLOSED 状态。</li>
+</ul>
+<p>最后一次挥手中，客户端会等待一段时间再关闭的原因，是为了防止发送给服务器的确认报文段丢失或者出错，从而导致服务器 端不能正常关闭。</p>
+<h4 id="那为什么需要四次挥手呢？"><a href="#那为什么需要四次挥手呢？" class="headerlink" title="那为什么需要四次挥手呢？"></a>那为什么需要四次挥手呢？</h4><p>TCP 使用四次挥手的原因是因为 TCP 的连接是全双工的，所以需要双方分别释放到对方的连接，单独一方的连接释放，只代 表不能再向对方发送数据，连接处于的是半释放的状态。</p>
+<h2 id="TCP的重传机制"><a href="#TCP的重传机制" class="headerlink" title="TCP的重传机制"></a>TCP的重传机制</h2><p>TCP在发送一个数据之后，就开启一个定时器，若是在这个时间内没有收到发送数据的ACK确认报文，则对该报文进行重传，在达到一定次数还没有成功时放弃并发送一个复位信号。</p>
+<h2 id="TCP的拥塞控制机制"><a href="#TCP的拥塞控制机制" class="headerlink" title="TCP的拥塞控制机制"></a>TCP的拥塞控制机制</h2><p>TCP的拥塞控制机制主要是以下四种机制：慢启动、拥塞避免、快速重传、快速恢复</p>
+<h3 id="慢启动"><a href="#慢启动" class="headerlink" title="慢启动"></a>慢启动</h3><p>开始的时候不要发送大量数据，而是先测试一下网络的拥塞程度，由小到大增加拥塞窗口的大小</p>
+<h3 id="拥塞避免"><a href="#拥塞避免" class="headerlink" title="拥塞避免"></a>拥塞避免</h3><h3 id="快速重传"><a href="#快速重传" class="headerlink" title="快速重传"></a>快速重传</h3><p>接收方在收到一个失序的报文段后就立即发出重复确认(为的是使发送方及早知道有报文段没有到达对方)。发送方只要<strong>连续收到三个重复确认</strong>就立即重传对方尚未收到的报文段，而不必继续等待设置的重传计时器时间到期。</p>
+<p>由于不需要等待设置的重传计时器到期，能尽早重传，能提高整个网络的吞吐量</p>
+<h3 id="快速恢复"><a href="#快速恢复" class="headerlink" title="快速恢复"></a>快速恢复</h3><h2 id="TCP的流量控制机制"><a href="#TCP的流量控制机制" class="headerlink" title="TCP的流量控制机制"></a>TCP的流量控制机制</h2><p>流量控制就是为了让发送方发送数据的速度不要太快，要让接收方来得及接收。TCP采用大小可变的<strong>滑动窗口</strong>进行流量控制，窗口大小的单位是字节。这里说的窗口大小其实就是每次传输的数据大小。</p>
+<h2 id="TCP的可靠传输机制"><a href="#TCP的可靠传输机制" class="headerlink" title="TCP的可靠传输机制"></a>TCP的可靠传输机制</h2><h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h2 id="常见的HTTP请求方法"><a href="#常见的HTTP请求方法" class="headerlink" title="常见的HTTP请求方法"></a>常见的HTTP请求方法</h2><ul>
 <li>GET: 向服务器获取数据；</li>
 <li>POST：将实体提交到指定的资源，通常会造成服务器资源的修改；</li>
 <li>PUT：上传文件，更新数据；</li>
@@ -4039,18 +4056,26 @@
 <li>POST请求是向服务器端发送数据，该请求会改变数据的种类等资源，它会创建新的内容。（可以理解为是<strong>创建数据</strong>）</li>
 </ul>
 <h2 id="HTTP-1-0-、1-1-和-2-0"><a href="#HTTP-1-0-、1-1-和-2-0" class="headerlink" title="HTTP 1.0 、1.1 和  2.0"></a>HTTP 1.0 、1.1 和  2.0</h2><h3 id="HTTP-1-0和-HTTP-1-1-有以下区别"><a href="#HTTP-1-0和-HTTP-1-1-有以下区别" class="headerlink" title="HTTP 1.0和 HTTP 1.1 有以下区别"></a><strong>HTTP 1.0和 HTTP 1.1</strong> <strong>有以下区别</strong></h3><ul>
-<li><strong>连接方面</strong>，http1.0 使用非持久连接， http1.1 使用持久连接。http1.1 通过使用持久连接来使多个 http 请求复用同一个 TCP 连接，以此避免非持久连接时每次需要建立连接的时延。</li>
-<li><strong>资源请求方面</strong>。http1.0 中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却<strong>传输整个对象</strong>，<strong>不支持断点续传</strong>功能；http1.1 则在请求头引入了 range 头域，它允许只请求资源的某个部分，即返回码是 206（Partial Content）</li>
-<li><strong>缓存方面</strong>，http1.0 缓存头 If-Modified-Since、Expires ，http1.1 则引入了更多的缓存头来控制缓存策略，例如 Etag、If-Unmodified-Since、If-Match、If-None-Match 等</li>
-<li>http1.1 中<strong>新增了 host 字段</strong>，用来指定服务器的域名。http1.0 中认为每台服务器都绑定一个唯一的 IP 地址，因此，请求消息中的 URL 并没有传递主机名（hostname）。但随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机，并且它们共享一个IP地址。因此有了 host 字段，这样就可以将请求发往到同一台服务器上的不同网站。</li>
+<li><strong>连接方面</strong>，http1.0 使用非持久连接， http1.1 使用持久连接，多个 http 请求复用同一个 TCP 连接。</li>
+<li><strong>资源请求方面</strong>。http1.0 中，服务器<strong>传输整个对象</strong>，<strong>不支持断点续传</strong>功能，<strong>不支持传输部分</strong>，浪费带宽；http1.1 在请求头引入了 range 头域，<strong>它允许只请求资源的某个部分</strong>，即返回码是 206（Partial Content）</li>
+<li><strong>缓存方面</strong>，http1.0 缓存头 If-Modified-Since、Expires ，http1.1 则引入了<strong>更多的缓存头来控制缓存策略</strong>，例如 Etag、If-Unmodified-Since、If-Match、If-None-Match 等</li>
+<li>http1.1 中<strong>新增了 host 字段指定服务器的域名</strong>。随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机，并且它们共享一个IP地址。因此可以将请求发往到同一台服务器上的不同网站。</li>
 <li>http1.1 新增了很多<strong>请求方法</strong>，如 PUT、HEAD、OPTIONS 等。</li>
 </ul>
+<p><strong>管道网络传输和队头堵塞</strong></p>
+<p>HTTP/1.1 采用了长连接使得管道（pipeline）网络传输成为可能。</p>
+<p>在同一个 TCP 连接里面，客户端可以发起多个请求，只要第一个请求发出去了，不必等其回来，就可以发第二个请求出去，可以减少整体的响应时间。但还是得按顺序，如果前面的回应特别慢，后面就会堵。这称为队头堵塞。</p>
+<p><strong>队头堵塞的解决方案：</strong></p>
+<p>（1）并发连接：对于一个域名允许分配多个长连接，那么相当于增加了任务队列，不至于一个队伍的任务阻塞其它所有任务。</p>
+<p>（2）域名分片：将域名分出很多二级域名，它们都指向同样的一台服务器，能够并发的长连接数变多，解决了队头阻塞的问题。</p>
+<img data-src="https://cdn.nlark.com/yuque/0/2020/png/1500604/1604065902281-b98a486c-5442-4d0b-b58d-00aab296ce1a.png" style="zoom:67%;" />
+
 <h3 id="HTTP-1-1-和-HTTP-2-0-的区别"><a href="#HTTP-1-1-和-HTTP-2-0-的区别" class="headerlink" title="HTTP 1.1 和 HTTP 2.0 的区别"></a>HTTP 1.1 和 HTTP 2.0 的区别</h3><ul>
-<li><p><strong>二进制协议</strong>：在 HTTP/1.1 版中，报文的头信息必须是文本（ASCII 编码），数据体可以是文本，也可以是二进制。HTTP/2 则是一个彻底的二进制协议，头信息和数据体都是二进制，并且统称为”帧”，可以分为头信息帧和数据帧。</p>
+<li><p><strong>二进制协议</strong>：在 HTTP/1.1 版中，报文的头信息必须是文本（ASCII 编码），数据体可以是文本，也可以是二进制。HTTP/2 则是一个<strong>彻底的二进制协议</strong>，头信息和数据体都是二进制，并且统称为”帧”，可以分为头信息帧和数据帧。</p>
 </li>
 <li><p><strong>多路复用：</strong>HTTP/2 仍然复用 TCP 连接，但是实现了多路复用。在一个连接里，客户端和服务器都可以<strong>不用按照顺序同时发送多个</strong>请求或回应，这样就避免了”队头堵塞”的问题。</p>
 </li>
-<li><p><strong>数据流：</strong> HTTP/2 的数据包是不按顺序发送的，同一个连接里面连续的数据包，可能属于不同的请求。因此，必须要对数据包做标记，指出它属于哪个请求。</p>
+<li><p><strong>标记数据包：</strong> HTTP/2 的数据包是不按顺序发送的，必须要对数据包做标记，指出它属于哪个请求。</p>
 <p>HTTP/2 将每个请求或回应的所有数据包，称为一个数据流。每个数据流都有一个独一无二的编号。</p>
 </li>
 <li><p><strong>头信息压缩：</strong>HTTP/2 实现了头信息压缩，由于 HTTP 1.1 协议不带状态，每次请求都必须附上所有信息，浪费带宽，影响速度。HTTP/2 引入了头信息压缩机制。一方面，头信息使用 gzip 或 compress 压缩后再发送；另一方面，客户端和服务器同时维护一张头信息表，所有字段都会存入这个表，生成一个索引号，以后就不发送同样字段了，只发送索引号，这样就能提高速度了。</p>
@@ -4059,12 +4084,34 @@
 <p>HTTP/2  下服务器主动推送的是静态资源，和 WebSocket 以及使用 SSE 等方式向客户端发送即时数据的推送是不同的。</p>
 </li>
 </ul>
-<p><strong>队头堵塞：</strong></p>
-<blockquote>
-<p>队头阻塞是由 HTTP 基本的“请求 - 应答”模型所导致的。HTTP 规定报文必须是“一发一收”，这就形成了一个先进先出的“串行”队列。队列里的请求是没有优先级的，只有入队的先后顺序，排在最前面的请求会被最优先处理。如果队首的请求因为处理的太慢耽误了时间，那么队列里后面的所有请求也不得不跟着一起等待，结果就是其他的请求承担了不应有的时间成本，造成了队头堵塞的现象。</p>
-</blockquote>
+<h3 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h3><p>HTTP1.0 中默认是在每次请求/应答完成后立即断开连接，这就是<strong>短连接</strong>。</p>
+<p>当使用Keep-Alive模式时，Keep-Alive功能使客户端到服务器端的连接持续有效，这就是<strong>长连接</strong>。</p>
+<ul>
+<li>HTTP1.0版本是默认没有Keep-alive，想要保持连接，必须手动配置发送<code>Connection: keep-alive</code>，想要断开，发送<code>Connection:close</code></li>
+<li>HTTP1.1 规定了默认保持长连接</li>
+</ul>
+<h4 id="如何建立Keep-Alive"><a href="#如何建立Keep-Alive" class="headerlink" title="如何建立Keep-Alive"></a>如何建立Keep-Alive</h4><ul>
+<li>客户端向服务器在发送请求报文同时在首部添加发送<code>Connection: keep-alive</code>字段</li>
+<li>服务器收到请求并处理 Connection字段，并回送<code>Connection:Keep-Alive</code>字段给客户端</li>
+<li>客户端接收到Connection字段，Keep-Alive连接建立成功</li>
+</ul>
+<p>断开也是同理，字段换成<code>Connection:close</code></p>
+<p><strong>Keep-Alive可以减少延迟，降低拥塞等优点</strong>，但值得住的是，长时间的Tcp连接容易导致系统资源无效占用，<strong>浪费系统资源</strong></p>
+<h3 id="HTTP如何加载页面的多张图片？"><a href="#HTTP如何加载页面的多张图片？" class="headerlink" title="HTTP如何加载页面的多张图片？"></a>HTTP如何加载页面的多张图片？</h3><ul>
+<li>在<code>HTTP 1</code>下，浏览器对一个域名下最大TCP连接数为6，所以会请求多次。可以用<strong>多域名部署</strong>解决。这样可以提高同时请求的数目，加快页面图片的获取速度。</li>
+<li>在<code>HTTP 2</code>下，可以一瞬间加载出来很多资源，因为，HTTP2支持多路复用，可以在一个TCP连接中发送多个HTTP请求。</li>
+</ul>
+<h2 id="HTTP2的头部压缩算法HPACK"><a href="#HTTP2的头部压缩算法HPACK" class="headerlink" title="HTTP2的头部压缩算法HPACK"></a>HTTP2的头部压缩算法HPACK</h2><p>HPACK算法：在客户端和服务器两端建立“字典”，用索引号表示重复的字符串，采用哈夫曼编码来压缩整数和字符串，可以达到50%~90%的高压缩率。</p>
+<ul>
+<li>静态字典：由 header 字段的预定义静态列表组成。</li>
+<li>动态字典：以<strong>先进先出</strong>的顺序维护的 header 字段列表</li>
+<li>压缩算法：<code>Huffman哈夫曼</code> 编码</li>
+</ul>
+<p>例如下图中的两个请求， 请求一发送了所有的头部字段，第二个请求则只需要发送差异数据，这样可以减少冗余数据，降低开销。</p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2020/png/1500604/1604070508591-32d79893-7e98-40c8-b779-ffb6da42cd1b.png" alt="头部压缩算法"></p>
 <h2 id="HTTP请求报文"><a href="#HTTP请求报文" class="headerlink" title="HTTP请求报文"></a>HTTP请求报文</h2><p>HTTP请求报文由4部分组成: 请求⾏ 、请求头部 、空⾏、请求体 </p>
-<p><img data-src="https://s2.loli.net/2022/12/08/Rg5AaQuisDjmebS.png" alt="HTTP请求报文组成"></p>
+<img data-src="https://s2.loli.net/2022/12/08/Rg5AaQuisDjmebS.png" alt="HTTP请求报文组成" style="zoom:50%;" />
+
 <p>（1）请求⾏包括：请求⽅法字段、URL字段、HTTP协议版本字段。它们⽤空格分隔。例如，GET /index.html HTTP/1.1。 </p>
 <p>（2）请求头部:请求头部由关键字/值对组成，每⾏⼀对，关键字和值⽤英⽂冒号“:”分隔  </p>
 <ul>
@@ -4074,34 +4121,13 @@
 </ul>
 <p>（3）请求体: post put等请求携带的数据 </p>
 <h2 id="HTTP响应报文"><a href="#HTTP响应报文" class="headerlink" title="HTTP响应报文"></a>HTTP响应报文</h2><p>响应报⽂由4部分组成: 响应⾏、 响应头、 空⾏、 响应体 </p>
+<img data-src="https://cdn.nlark.com/yuque/0/2021/png/1500604/1615907658281-b3a51c98-db27-45be-9b0c-fb2c7665b015.png" alt="HTTP响应报文" style="zoom: 50%;" />
+
 <ul>
-<li>响应⾏：由网络协议版本，状态码和状态码的原因短语组成，例如 HTTP/1.1 200 OK 。 </li>
+<li>响应⾏：由<strong>网络协议版本，状态码和状态码的原因短语</strong>组成，例如 HTTP/1.1 200 OK 。 </li>
 <li>响应头：响应部⾸组成 </li>
 <li>响应体：服务器响应的数据 </li>
 </ul>
-<h2 id="页面有多张图片，HTTP是怎样的加载表现？"><a href="#页面有多张图片，HTTP是怎样的加载表现？" class="headerlink" title="页面有多张图片，HTTP是怎样的加载表现？"></a>页面有多张图片，HTTP是怎样的加载表现？</h2><ul>
-<li>在<code>HTTP 1</code>下，浏览器对一个域名下最大TCP连接数为6，所以会请求多次。可以用<strong>多域名部署</strong>解决。这样可以提高同时请求的数目，加快页面图片的获取速度。</li>
-<li>在<code>HTTP 2</code>下，可以一瞬间加载出来很多资源，因为，HTTP2支持多路复用，可以在一个TCP连接中发送多个HTTP请求。</li>
-</ul>
-<h2 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h2><p>Keep-Alive功能使客户端到服务器端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive功能避免了建立或者重新建立连接，这就是<strong>长连接</strong></p>
-<p>有无 Keep-Alive 也是HTTP1.0 和HTTP1.1的主要区别</p>
-<h3 id="Keep-Alive的建立过程"><a href="#Keep-Alive的建立过程" class="headerlink" title="Keep-Alive的建立过程"></a>Keep-Alive的建立过程</h3><ul>
-<li>客户端向服务器在发送请求报文同时在首部添加发送<code>Connection: keep-alive</code>字段</li>
-<li>服务器收到请求并处理 Connection字段，并回送<code>Connection:Keep-Alive</code>字段给客户端</li>
-<li>客户端接收到Connection字段，Keep-Alive连接建立成功</li>
-</ul>
-<h3 id="客户端请求断开连接过程"><a href="#客户端请求断开连接过程" class="headerlink" title="客户端请求断开连接过程"></a><strong>客户端请求断开连接过程</strong></h3><ul>
-<li>客户端向服务器发送<code>Connection:close</code>字段</li>
-<li>服务器收到请求并处理connection字段，回送响应资源并断开连接</li>
-<li>客户端接收资源并断开连接</li>
-</ul>
-<h3 id="Keep-Alive的优点"><a href="#Keep-Alive的优点" class="headerlink" title="Keep-Alive的优点"></a>Keep-Alive的优点</h3><ul>
-<li>较少的CPU和内存的使⽤（由于同时打开的连接的减少了）；</li>
-<li>允许请求和应答的HTTP管线化； </li>
-<li>降低拥塞 （TCP连接减少了）； </li>
-<li>减少延迟（⽆需再进⾏握⼿）； </li>
-</ul>
-<h3 id="Keep-Alive的缺点："><a href="#Keep-Alive的缺点：" class="headerlink" title="Keep-Alive的缺点："></a>Keep-Alive的缺点：</h3><p>长时间的Tcp连接容易导致系统资源无效占用，<strong>浪费系统资源</strong></p>
 <h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><p>状态码的类别：</p>
 <table>
 <thead>
@@ -4204,70 +4230,134 @@
 <h4 id="504-Gateway-Timeout"><a href="#504-Gateway-Timeout" class="headerlink" title="504 Gateway Timeout"></a>504 Gateway Timeout</h4><p>该状态码表示网关或者代理的服务器无法在规定的时间内获得想要的响应。他是HTTP 1.1中新加入的</p>
 <p>使用场景：代码执行时间超时，或者发生了死循环</p>
 <h2 id="HTTP协议的优缺点"><a href="#HTTP协议的优缺点" class="headerlink" title="HTTP协议的优缺点"></a>HTTP协议的优缺点</h2><p>HTTP 是超文本传输协议，它定义了客户端和服务器之间交换报文的格式和方式，默认使用 80 端口。它使用 TCP 作为传输层协议，保证了数据传输的可靠性</p>
+<p>http的优缺点不是绝对的，在某些特定情况下显示出来的优缺点，有时优点可以是缺点，有时缺点可以是优点。</p>
+<p>优点：</p>
+<ol>
+<li>灵活可扩展，可以传输各种数据，传输类型由 Content-Type 加以标记</li>
+<li>可靠，http基于tcp/ip，是一个可靠的连接</li>
+<li>无状态，每次的请求和答复都是独立的，没有任何联系，可以减轻服务器的负担，对服务器无要求，因此可以组成集群。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li><strong>无状态：</strong>HTTP 是一个无状态的协议，如果后续处理需要前面的信息，则它必须重传。cookie技术为了解决这一问题</li>
+<li><strong>明文传输：</strong>协议中的报文使用的是文本形式，这就直接暴露给外界，不安全。</li>
+</ol>
 <h2 id="HTTP和HTTPS协议的区别"><a href="#HTTP和HTTPS协议的区别" class="headerlink" title="HTTP和HTTPS协议的区别"></a>HTTP和HTTPS协议的区别</h2><p>HTTP和HTTPS协议的主要区别如下：</p>
 <ul>
-<li>HTTPS协议需要CA证书，费用较高；而HTTP协议不需要；</li>
-<li>HTTP协议是超文本传输协议，信息是明文传输的，HTTPS则是具有安全性的SSL加密传输协议；</li>
-<li>使用不同的连接方式，端口也不同，HTTP协议端口是80，HTTPS协议端口是443；</li>
+<li><strong>安全性</strong>：HTTP协议是超文本传输协议，信息是明文传输的，HTTPS则是具有安全性的SSL加密传输协议；</li>
+<li><strong>端口</strong>：HTTP协议端口是80，HTTPS协议端口是443；</li>
 <li>HTTP协议连接很简单，是无状态的；HTTPS协议是有SSL和HTTP协议构建的可进行加密传输、身份认证的网络协议，比HTTP更加安全。</li>
 </ul>
+<h1 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h1><p>超文本传输安全协议（Hypertext Transfer Protocol Secure，HTTPS）是一种通过计算机网络进行安全通信的传输协议。HTTPS经由HTTP进行通信，利用SSL/TLS来加密数据包。HTTPS的主要目的是提供对网站服务器的身份认证，保护交换数据的隐私与完整性。</p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2020/png/1500604/1603965685749-8cc21a1b-4277-42b1-aeed-18978c1cdb95.png?x-oss-process=image/resize,w_1500" alt="http与https的区别"></p>
+<p>HTTP协议采用<strong>明文传输</strong>信息，存在<strong>信息窃听</strong>、<strong>信息篡改</strong>和<strong>信息劫持</strong>的风险，而协议TLS/SSL具有<strong>身份验证</strong>、<strong>信息加密</strong>和<strong>完整性校验</strong>的功能，可以避免此类问题发生。</p>
+<h2 id="TLS-SSL的工作原理"><a href="#TLS-SSL的工作原理" class="headerlink" title="TLS/SSL的工作原理"></a>TLS/SSL的工作原理</h2><p><strong>TLS/SSL</strong>全称<strong>安全传输层协议</strong>（Transport Layer Security）, 是介于TCP和HTTP之间的一层安全协议，不影响原有的TCP协议和HTTP协议，所以使用HTTPS基本上不需要对HTTP页面进行太多的改造。</p>
+<p>TLS/SSL的功能实现主要依赖三类基本算法：<strong>散列函数hash</strong>、<strong>对称加密</strong>、<strong>非对称加密</strong>。这三类算法的作用如下：</p>
+<ul>
+<li>散列函数：防止信息篡改，验证数据的完整性</li>
+<li>对称加密算法：采用协商的秘钥对数据加密</li>
+<li>非对称加密：实现身份认证和秘钥协商</li>
+</ul>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2020/png/1500604/1603965685769-63a91dae-936d-42d3-8571-577cefa11e33.png" alt="TLS/SSL"></p>
+<p>综合上述算法特点，TLS/SSL的工作方式就是<strong>客户端使用非对称加密与服务器进行通信</strong>，<strong>使用对称加密实现身份的验证</strong>。</p>
+<h3 id="散列函数"><a href="#散列函数" class="headerlink" title="散列函数"></a>散列函数</h3><p>常见的散列函数有MD5、SHA1、SHA256。该函数的特点是单向不可逆，对输入数据非常敏感，输出的长度固定，任何数据的修改都会改变散列函数的结果。</p>
+<p>用于防止信息篡改并验证数据的完整性。</p>
+<h3 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h3><p>常见的对称加密算法有AES-CBC、DES、3DES、AES-GCM等。密码的安全是保证信息安全的基础，服务器和N个客户端通信，需要维持N个密码记录且不能修改密码。</p>
+<p>双方使用同一个秘钥对数据进行加密和解密，但有一个问题，如何保证秘钥传输的安全性，因为秘钥还是会通过网络传输的，一旦秘钥被其他人获取到，那么整个加密过程就毫无作用了。 这就要用到非对称加密的方法。</p>
+<h3 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h3><p>常见的非对称加密算法有RSA、ECC、DH等。秘钥成对出现，一般称为公钥（公开）和私钥（保密）。</p>
+<p>用公钥加密的数据，只有对应的私钥才能解密。我们可以将公钥公布出去，任何想和我们通信的客户， 都可以使用我们提供的公钥对数据进行加密，这样我们就可以使用私钥进行解密，这样就能保证数据的安全了。</p>
+<p>掌握公钥的不同客户端之间不能相互解密信息，只能和服务器进行加密通信，服务器可以实现一对多的的通信，客户端也可以用来验证掌握私钥的服务器的身份。</p>
+<h2 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h2><p>现在的方法也不一定是安全的，因为没有办法确定得到的公钥就一定是安全的公钥。可能存在一个中间人，截取了对方发给我们的公钥，然后将他自己的公钥发送给我们，当我们使用他的公钥加密后发送的信息，就可以被他用自己的私钥解密。然后他伪装成我们以同样的方法向对方发送信息，这样我们的信息就被窃取了，然而自己还不知道。为了解决这样的问题，可以使用数字证书。</p>
 <h1 id="浏览器请求网页的流程"><a href="#浏览器请求网页的流程" class="headerlink" title="浏览器请求网页的流程"></a>浏览器请求网页的流程</h1><ol>
 <li>DNS解析，域名转IP地址</li>
 <li>TCP/IP三次握手，建立TCP连接，发起HTTP请求</li>
 <li>浏览器得到HTML代码，请求下载HTML的静态资源渲染页面</li>
 <li>四次挥手，中断连接</li>
 </ol>
-<h1 id="TCP-IP-协议"><a href="#TCP-IP-协议" class="headerlink" title="TCP/IP 协议"></a>TCP/IP 协议</h1><ul>
-<li>应用层：规定应用进程间通信和交互的规则，如FTP、HTTP、SMTP、DNS等</li>
-<li>运输层： 传输控制协议 ；UDP 用户数据报协议</li>
-</ul>
-<p>TCP，<strong>transmission control protocol 传输控制协议</strong>，TCP是面向连接的，必须有可靠的连接才能进行通讯，数据传输单位是 报文段，建立连接的过程就是三次握手</p>
-<p><img data-src="https://s2.loli.net/2022/10/14/kGpiKSqWLAdHolu.png" alt="image-20221014142705409"></p>
-<p>UDP，<strong>user data protocol 用户数据报协议</strong>，喇叭喊人，数据传输单位是 用户数据报</p>
-<p><img data-src="https://s2.loli.net/2022/10/14/4EgcxiWdDFpns5T.png" alt="image-20221014143113888"></p>
 <h1 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h1><p>URL代表资源的路径地址，而URI代表资源的名称。</p>
 <p>URL类似于住址，它告诉你一种寻找目标的方式(在这个例子中，是通过街道地址找到一个人)。要知道，上述定义同时也是一个URI。  </p>
 <p><strong>URL是URI的一个子集</strong>，告诉我们访问网络位置的方式</p>
 <p><img data-src="https://s2.loli.net/2022/10/13/uwXdpFOnlC4D5rt.png"></p>
-<h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><p>域名，Domain Name</p>
-<p>解析域名：将域名和服务器IP映射的过程，由DNS服务器完成。IP可以对应多个域名，可以通过多个域名访问同一个IP</p>
-<p>域名解析中常困扰的内容：（这里直接截图的腾讯云介绍，十分详细）</p>
-<p>主机记录：</p>
-<p><img data-src="https://s2.loli.net/2022/12/05/yT9ds8Rpb2mN6cL.png" alt="主机记录"></p>
-<p>记录类型：</p>
-<img data-src="https://s2.loli.net/2022/12/05/Kd3qCfVzD6E9QbA.png" alt="记录类型" style="zoom: 67%;" />
-
 <h2 id="域名摸索之路"><a href="#域名摸索之路" class="headerlink" title="域名摸索之路"></a>域名摸索之路</h2><p>这里介绍一下我域名摸索之路：</p>
 <p>我的ychch.top域名是在腾讯云买的，DNS服务器一开始就是用的 adonis.dnspod.net  hermosa.dnspod.net 这两个，我的博客是在github.io上写的，起初通过 www CNAME ychch.github.io 解析到github主页上，但是这么做国内用户不能直接访问，所以我就换到 vercel，vercel提供免费的网站托管，国内外都可以流畅访问，我就把 ychch.top 的DNS服务器改成了vercel中的ns1.vercel-dns.com，ns2.vercel-dns.com，这一步仍然需要在 腾讯云中域名管理系统中改。</p>
 <p>改完之后的任何解析操作（增加二级域名…) 就到 <a href="https://vercel.com/dashboard/domains">vercel 控制台</a> 中去增改就好。</p>
 <p><img data-src="https://s2.loli.net/2022/10/13/6inOkuYDK5FRg2P.png" alt="image-20221013222106500"></p>
 <p><img data-src="https://s2.loli.net/2022/10/13/pC9ZO4gBdYjhIqR.png" alt="image-20221013222708371"></p>
-<h1 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h1><p>DNS，domain name server，域名服务器。</p>
-<p>DNS保存了域名与对应IP地址的表，一个域名对应一个ip，一个ip对应多个域名</p>
-<p>gTLD，generic Top-Level NDS Server 顶级域名服务器</p>
-<p>为所有com net…后缀做域名解析的服务器</p>
-<img data-src="https://s2.loli.net/2022/10/14/mKP5bBoA7pOuryT.png" alt="image-20221014141317588" style="zoom:80%;" />
-
-<h3 id="IP，Internet-protocol-address"><a href="#IP，Internet-protocol-address" class="headerlink" title="IP，Internet protocol address"></a>IP，Internet protocol address</h3><ul>
-<li>互联网协议地址，分配给用户上网使用的互联网协议</li>
-</ul>
-<p>端口：HTTP 默认端口80， HTTPS默认端口443 ，ftp默认端口 20 21</p>
-<h3 id="HTTP-amp-HTTPS"><a href="#HTTP-amp-HTTPS" class="headerlink" title="HTTP &amp; HTTPS"></a>HTTP &amp; HTTPS</h3><ul>
-<li>html是超文本标记语言，HTTP是超文本传输协议，即https是专门用来传输html的</li>
-<li>HTTP &amp; HTTPS 两者的请求都是建立在TCP连接后</li>
-</ul>
-<p><img data-src="https://s2.loli.net/2022/10/14/ezjmsNkGqXVDvio.png" alt="image-20221014143354691"></p>
-<p>两者的区别：</p>
+<h1 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h1><p>DNS，domain name server，域名服务器，提供一种主机名到 IP 地址的转换服务。它是一个由分层的 DNS 服务器组成的分布式数据库，是定义了主机如何查询这个分布式数据库的方式的应用层协议。</p>
+<p><strong>域名系统被设计成一个联机分布式的数据库系统，并采用客户/服务器模型</strong>.每个域名服务器不但能够进行一些域名到IP地址的解析，而且还必须具有连向其他域名服务器的信息。当自己不能进行域名到IP地址的转换时，能够知道到什么地方去找其他域名服务器。</p>
+<h2 id="DNS同时使用TCP和UDP协议"><a href="#DNS同时使用TCP和UDP协议" class="headerlink" title="DNS同时使用TCP和UDP协议"></a>DNS同时使用TCP和UDP协议</h2><p><strong>DNS占用53号端口，同时使用TCP和UDP协议。</strong></p>
+<p>（1）在区域传输的时候使用TCP协议</p>
 <ul>
-<li>http是不安全的明文请求，https是基于SSL/TLS加了两层安全保护措施</li>
+<li>辅域名服务器会定时（一般3小时）向主域名服务器进行查询以便了解数据是否有变动。如有变动，会执行一次区域传送，进行数据同步。区域传送使用TCP而不是UDP，因为数据同步传送的数据量比一个请求应答的数据量要多得多。</li>
+<li>TCP是一种可靠连接，保证了数据的准确性。</li>
 </ul>
-<p><img data-src="https://s2.loli.net/2022/10/14/aCht1eopksQXVE5.png" alt="image-20221014144357858"></p>
-<h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><ul>
-<li>发出的确认包 是 收到的发送报 +1</li>
+<p>（2）在域名解析的时候使用UDP协议</p>
+<ul>
+<li>客户端向DNS服务器查询域名，一般返回的内容都不超过512字节，用UDP传输即可。不用经过三次握手，这样DNS服务器<strong>负载更低，响应更快</strong>。理论上说，客户端也可以指定向DNS服务器查询时用TCP，但事实上，很多DNS服务器进行配置的时候，仅支持UDP查询包。</li>
 </ul>
-<p><img data-src="https://s2.loli.net/2022/10/14/TXiDBMS1852ftQV.png" alt="image-20221014152241729"></p>
-<p><img data-src="https://s2.loli.net/2022/10/14/1UlpbcEAQf7I9Od.png" alt="image-20221014150347668"></p>
-<h3 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h3>]]></content>
+<ul>
+<li><code>根域名服务器</code>用来<code>管辖顶级域(如.com)</code>， 通常它并<strong>不直接</strong>把待查询的域名直接转换成IP地址，而是<code>告诉本地域名服务器</code>下一步应当找哪个<code>顶级域名服务器</code>进行查询。</li>
+<li>顶级域名服务器：管理在该顶级域名服务器注册的所有二级域名。收到DNS查询请求时,就给出相应的回答，给不出来就找下一级的权限服务器</li>
+<li><code>授权域名服务器</code>总能将其管辖的<code>主机名</code>转换为该主机的<code>IP地址</code>。</li>
+<li>本地域名服务器对域名系统非常重要，一个大学，一个电线联通站点等等。主机发出的DNS查询发给本地域名服务器，再由本地域名服务器代为询问。</li>
+</ul>
+<p>在Windows系统中配置<code>“本地连接”</code>时，就需要填写DNS地址，这个地址就是<code>本地DNS (域名服务器)的地址</code></p>
+<p><img data-src="https://s2.loli.net/2022/12/15/teDAv2bXn1LhSWc.png" alt="服务器"></p>
+<h2 id="DNS完整的查询过程"><a href="#DNS完整的查询过程" class="headerlink" title="DNS完整的查询过程"></a>DNS完整的查询过程</h2><ol>
+<li>在<strong>浏览器的缓存</strong>中查找对应的IP地址，如果查找到直接返回，若找不到继续下一步</li>
+<li>将请求发送给<strong>本地DNS服务器（校园网，路由器等）</strong>，在本地域名服务器缓存中查询，如果找到返回结果，若找不到继续下一步</li>
+<li>本地DNS服务器向<strong>根域名服务器(互联网的主目录）</strong>发送请求，根域名服务器会返回一个所查询域的顶级域名服务器地址</li>
+<li>本地DNS服务器向<strong>顶级域名服务器（.top顶级域名）</strong>发送请求，接受请求的服务器查询自己的缓存，如果有记录，就返回查询结果，如果没有就返回相关的下一级的权威域名服务器的地址</li>
+<li>本地DNS服务器向**权限域名服务器（ychch.top)**发送请求，域名服务器返回对应的结果</li>
+<li>本地DNS服务器将返回结果返回给浏览器，并保存缓存便于下次使用</li>
+</ol>
+<h2 id="迭代查询与递归查询"><a href="#迭代查询与递归查询" class="headerlink" title="迭代查询与递归查询"></a>迭代查询与递归查询</h2><p>实际上，DNS解析是一个包含迭代查询和递归查询的过程。</p>
+<ul>
+<li><strong>递归查询</strong>指的是查询请求发出后，域名服务器代为向下一级域名服务器发出请求，最后向用户返回查询的最终结果。使用递归 查询，用户只需要发出一次查询请求。</li>
+<li><strong>迭代查询</strong>指的是查询请求后，域名服务器返回单次查询的结果。下一级的查询由用户自己请求。使用迭代查询，用户需要发出 多次的查询请求。</li>
+</ul>
+<p><strong><code>主机</code>向<code>本地域名服务器</code>的查询采用的是<code>递归</code>查询</strong>，**<code>本地域名服务器</code>向<code>根域名服务器</code>的查询采用<code>迭代</code>查询**</p>
+<h2 id="DNS-记录和报文"><a href="#DNS-记录和报文" class="headerlink" title="DNS 记录和报文"></a>DNS 记录和报文</h2><p>DNS 服务器中以资源记录的形式存储信息，每一个 DNS 响应报文一般包含多条资源记录。一条资源记录的具体的格式为（Name，Value，Type，TTL）</p>
+<p>四种 Type 的值，分别是 A、NS、CNAME 和 MX ：</p>
+<ul>
+<li>如果 Type = A，则 Name 是主机名，Value 是主机名对应的 IP 地址。因此一条记录为 A 的资源记录，提供了标 准的主机名到 IP 地址的映射。</li>
+<li>如果 Type = NS，则 Name 是个域名，Value 是负责该域名的 DNS 服务器的主机名。这个记录主要用于 DNS 链式 查询时，返回下一级需要查询的 DNS 服务器的信息。</li>
+<li>如果 Type = CNAME，则 Name 为别名，Value 为该主机的规范主机名。该条记录用于向查询的主机返回一个主机名 对应的规范主机名，从而告诉查询主机去查询这个主机名的 IP 地址。主机别名主要是为了通过给一些复杂的主机名提供 一个便于记忆的简单的别名。</li>
+<li>如果 Type = MX，则 Name 为一个邮件服务器的别名，Value 为邮件服务器的规范主机名。它的作用和 CNAME 是一 样的，都是为了解决规范主机名不利于记忆的缺点。</li>
+</ul>
+<p>主机记录：</p>
+<p><img data-src="https://s2.loli.net/2022/12/05/yT9ds8Rpb2mN6cL.png" alt="主机记录"></p>
+<p>记录类型：</p>
+<img data-src="https://s2.loli.net/2022/12/05/Kd3qCfVzD6E9QbA.png" alt="记录类型" style="zoom: 67%;" />
+
+<h1 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h1><p>WebSocket是HTML5提供的一种浏览器与服务器进行<strong>全双工通讯</strong>的网络技术，属于应用层协议。它基于TCP传输协议，并复用HTTP的握手通道。浏览器和服务器只需要完成一次握手，两者之间就直接可以创建持久性的连接， 并进行双向数据传输。</p>
+<p>WebSocket 的出现就解决了半双工通信的弊端。它最大的特点是：<strong>服务器可以向客户端主动推动消息，客户端也可以主动向服务器推送消息。</strong></p>
+<p><strong>WebSocket 特点的如下：</strong></p>
+<ul>
+<li>支持双向通信，实时性更强</li>
+<li>可以发送文本，也可以发送二进制数据‘’</li>
+<li>建立在TCP协议之上，服务端的实现比较容易</li>
+<li>数据格式比较轻量，性能开销小，通信高效</li>
+<li>没有同源限制，客户端可以与任意服务器通信</li>
+<li>协议标识符是ws（如果加密，则为wss），服务器网址就是 URL</li>
+<li>与 HTTP 协议有着良好的兼容性。默认端口也是80和443，并且握手阶段采用 HTTP 协议，因此握手时不容易屏蔽，能通过各种 HTTP 代理服务器。</li>
+</ul>
+<h2 id="即时通讯的实现：短轮询、长轮询、SSE-和-WebSocket-间的区别？"><a href="#即时通讯的实现：短轮询、长轮询、SSE-和-WebSocket-间的区别？" class="headerlink" title="即时通讯的实现：短轮询、长轮询、SSE 和 WebSocket 间的区别？"></a>即时通讯的实现：短轮询、长轮询、SSE 和 WebSocket 间的区别？</h2><h3 id="短轮询的基本思路："><a href="#短轮询的基本思路：" class="headerlink" title="短轮询的基本思路："></a><strong>短轮询的基本思路：</strong></h3><p>浏览器每隔一段时间向浏览器发送 http 请求，服务器端在收到请求后，不论是否有数据更新，都直接进行响应。这种方式<strong>本质上还是浏览器发送请求</strong>，服务器接受请求的一个过程，通过让客户端不断的进行请求，使得客户端能够模拟实时地收到服务器端的数据的变化。</p>
+<p>这种方式的优点是<strong>比较简单，易于理解</strong>。缺点是这种方式由于需要不断的建立 http 连接，<strong>严重浪费了服务器端和客户端的资源</strong>。当用户增加时，服务器端的压力就会变大，这是很不合理的。</p>
+<h3 id="长轮询的基本思路："><a href="#长轮询的基本思路：" class="headerlink" title="长轮询的基本思路："></a><strong>长轮询的基本思路：</strong></h3><p>首先由客户端向服务器发起请求，当服务器收到客户端发来的请求后，服务器端不会直接进行响应，而是先将这个请求挂起，然后判断服务器端数据是否有更新。<strong>如果有更新，则进行响应，如果一直没有数据，则到达一定的时间限制才返回。</strong>客户端 JavaScript 响应处理函数会在处理完服务器返回的信息后，再次发出请求，重新建立连接。</p>
+<p>长轮询和短轮询比起来，它的优点是明显减少了很多不必要的 http 请求次数，<strong>相比之下节约了资源</strong>。</p>
+<p>长轮询的缺点在于，<strong>连接挂起也会导致资源的浪费</strong>。</p>
+<h3 id="SSE-的基本思想："><a href="#SSE-的基本思想：" class="headerlink" title="SSE 的基本思想："></a><strong>SSE 的基本思想：</strong></h3><p><strong>服务器使用流信息向服务器推送信息</strong>。严格地说，http 协议无法做到服务器主动推送信息。但是，有一种变通方法，就是服务器向客户端声明发送的是流信息。也就是说，发送的不是一次性的数据包，而是一个<strong>连续不断的数据流</strong>。这时，<strong>客户端不会关闭连接，会一直等着服务器发过来的新的数据流</strong>，视频播放就是这样的例子。</p>
+<p>SSE 的方式是单向通信的，只能由服务器端向客户端推送信息</p>
+<p>SSE 就是利用这种机制，使用流信息向浏览器推送信息。它基于 http 协议，目前除了 IE/Edge，其他浏览器都支持。它相对于前面两种方式来说，<strong>不需要建立过多的 http 请求，相比之下节约了资源</strong>。</p>
+<h3 id="WebSocket-1"><a href="#WebSocket-1" class="headerlink" title="WebSocket"></a><strong>WebSocket</strong></h3><p>是 HTML5 定义的一个新协议，与传统的 http 协议不同，该协议允许由服务器主动的向客户端推送信息。<strong>WebSocket 是一个全双工的协议，也就是通信双方是平等的，可以相互发送消息</strong>。</p>
+<p>使用 WebSocket 协议的缺点是在服务器端的<strong>配置比较复杂</strong>。</p>
+<p>对于这四种即使通信协议，从性能的角度来看：</p>
+<p><strong>WebSocket &gt; 长连接（SEE） &gt; 长轮询 &gt; 短轮询</strong></p>
+<p>但是，我们如果考虑浏览器的兼容性问题，顺序就恰恰相反了：</p>
+<p><strong>短轮询 &gt; 长轮询 &gt; 长连接（SEE） &gt; WebSocket</strong></p>
+<p>所以，还是要根据具体的使用场景来判断使用哪种方式。</p>
+]]></content>
       <categories>
         <category>查漏补缺</category>
       </categories>
@@ -4305,6 +4395,154 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><img data-src="https://s2.loli.net/2022/12/09/hn6szuTWENfaHPZ.png"></p>
 <span id="more"></span>
 
+<h1 id="浏览器组成"><a href="#浏览器组成" class="headerlink" title="浏览器组成"></a>浏览器组成</h1><h2 id="对浏览器的理解"><a href="#对浏览器的理解" class="headerlink" title="对浏览器的理解"></a>对浏览器的理解</h2><p>浏览器可以分为两部分，shell 和 内核。其中 shell 的种类相对比较多，内核则比较少。</p>
+<ul>
+<li>shell 是指浏览器的外壳：例如菜单，工具栏等。主要是提供给用户界面操作，参数设置等等。它是调用内核来实现各种功能的。</li>
+<li>内核是浏览器的核心。内核是基于标记语言显示内容的程序或模块。</li>
+</ul>
+<h2 id="对浏览器内核的理解"><a href="#对浏览器内核的理解" class="headerlink" title="对浏览器内核的理解"></a>对浏览器内核的理解</h2><p>浏览器内核主要分成两部分：</p>
+<ul>
+<li>渲染引擎就是渲染，即在浏览器窗口中显示所请求的内容。默认情况下，渲染引擎可以显示 html、xml 文档及图片，它也可以借助插件显示其他类型数据，例如PDF 格式。</li>
+<li>JS 引擎：解析和执行 javascript 来实现网页的动态效果。</li>
+</ul>
+<p>最开始渲染引擎和 JS 引擎并没有区分的很明确，后来 JS 引擎越来越独立，内核就倾向于只指渲染引擎。</p>
+<h2 id="常见浏览器内核"><a href="#常见浏览器内核" class="headerlink" title="常见浏览器内核"></a>常见浏览器内核</h2><table>
+<thead>
+<tr>
+<th>5大主流浏览器</th>
+<th>内核</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IE</td>
+<td>trident</td>
+</tr>
+<tr>
+<td>chrome</td>
+<td>webkit  -&gt;  blink</td>
+</tr>
+<tr>
+<td>safari</td>
+<td>webkit</td>
+</tr>
+<tr>
+<td>firefox</td>
+<td>gocko</td>
+</tr>
+<tr>
+<td>opera</td>
+<td>presto  -&gt; blink</td>
+</tr>
+</tbody></table>
+<h3 id="浏览器的主要组成部分"><a href="#浏览器的主要组成部分" class="headerlink" title="浏览器的主要组成部分"></a>浏览器的主要组成部分</h3><ul>
+<li><strong>⽤户界⾯</strong> - 包括地址栏、前进/后退按钮、书签菜单等。除了浏览器主窗⼝显示的您请求的⻚⾯外，其他显示的各个部分都属于⽤户界⾯。 </li>
+<li><strong>浏览器引擎</strong> - 在⽤户界⾯和呈现引擎之间传送指令。 </li>
+<li><strong>渲染引擎</strong> - 负责显示请求的内容。如果请求的内容是 HTML，它就负责解析 HTML 和 CSS 内容，并将解析后的内容显示在屏幕上。 </li>
+<li><strong>⽹络</strong> - ⽤于⽹络调⽤，⽐如 HTTP 请求。其接⼝与平台⽆关，并为所有平台提供底层实现。 </li>
+<li><strong>JavaScript</strong> <strong>解释器</strong>。⽤于解析和执⾏ JavaScript 代码。 </li>
+<li><strong>数据存储</strong> - 这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“⽹络数据库”，这是⼀个完整（但是轻便）的浏览器内数据库。 </li>
+</ul>
+<p> 浏览器的每个标签⻚都分别对应⼀个呈现引擎实例。<strong>每个标签⻚都是⼀个独⽴的进程</strong></p>
+<h1 id="浏览器渲染机制"><a href="#浏览器渲染机制" class="headerlink" title="浏览器渲染机制"></a>浏览器渲染机制</h1><h2 id="DOM-tree"><a href="#DOM-tree" class="headerlink" title="DOM tree"></a>DOM tree</h2><p>解析是根据收到的HTML文件生成DOM树；加载是加载内部资源，比如img等；</p>
+<p>解析和加载异步完成，解析完毕并不说明页面加载完毕</p>
+<p>加载，当前节点若解析完成（并不是页面解析完成），就开始加载资源</p>
+<p>解析过程中：</p>
+<ol>
+<li>解析过程是将节点挂载到DOM树上，遵循<strong>深度优先解析</strong>原则</li>
+<li>遇到link的外部css，遇到css的代码会进行css的加载，并行操作</li>
+<li>遇见script标签时，会先执行js代码，然后继续构建DOM树，<strong>这就是在底部加入JavaScript代码的原因</strong>。</li>
+</ol>
+<h2 id="CSSom"><a href="#CSSom" class="headerlink" title="CSSom"></a>CSSom</h2><p>CSSom类似于DOM tree的生成过程。</p>
+<h2 id="渲染树"><a href="#渲染树" class="headerlink" title="渲染树"></a>渲染树</h2><p>render tree = DOM tree + CSS tree，渲染树构建完毕后，浏览器的渲染引擎根据它绘制页面。</p>
+<ul>
+<li>渲染树不包含隐藏节点，display:none head类等不需要绘制的节点；visibility: hidden 绘制了只是看不见</li>
+<li>渲染树的每个节点都有自己的样式，被当成一个盒子box，具有内容填充、边距、边框、位置、大小等其他样式</li>
+</ul>
+<h2 id="回流与重绘"><a href="#回流与重绘" class="headerlink" title="回流与重绘"></a>回流与重绘</h2><p>当浏览器渲染引擎对页面的节点操作时，就会产生回流或者重绘。<strong>回流一定重绘，重绘不一定回流</strong></p>
+<h3 id="回流reflow"><a href="#回流reflow" class="headerlink" title="回流reflow"></a><strong>回流reflow</strong></h3><p>当浏览器生成渲染树以后，就会根据渲染树来进行布局。这一阶段浏览器要弄清楚各个节点在页面中的<strong>确切位置和大小，所有相对测量值都将转换为屏幕上的绝对像素</strong>。这一过程被称为 回流，也被称为“自动重排”。</p>
+<p>当<strong>元素属性发生改变且影响布局时</strong>（宽度、高度、内外边距等），产生回流，相当于 刷新页面。</p>
+<ul>
+<li>回流是相当消耗性能的，开发中应该减少回流次数</li>
+<li>回流会引起 渲染树中的一部分或全部重新构建</li>
+<li>引起回流的因素：<ul>
+<li>页面初始化，即（至少有一次回流）</li>
+<li>DOM节点增加 删除、位置变化</li>
+<li>元素的尺寸、边距、填充、边框、显示(display:none block)改变</li>
+<li>浏览器窗口尺寸变化，resize</li>
+<li>向浏览器请求某些样式信息 offset client scroll width </li>
+</ul>
+</li>
+</ul>
+<h3 id="重绘repaint"><a href="#重绘repaint" class="headerlink" title="重绘repaint"></a><strong>重绘repaint</strong></h3><p>当元素<strong>属性发生改变且不影响布局</strong>时（背景颜色、透明度、字体样式等），产生重绘，相当于 不刷新页面，动态更新内容。</p>
+<ul>
+<li>若发生回流，浏览器根据新的渲染树重新绘制，这个过程称为 重绘</li>
+</ul>
+<h3 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略"></a><strong>优化策略</strong></h3><ul>
+<li>浏览器<strong>队列处理机制</strong></li>
+<li>增添样式 放在 class中，批量处理，减少回流次数  或者 this.style.cssText 做动态值变化</li>
+<li>使用 visibility 替换 display: none ，因为前者只会引起重绘，后者会引发回流</li>
+<li>documentFragment</li>
+<li>动画一定要做绝对定位，相对定位每次变化都会引起父级的回流重绘</li>
+<li>……</li>
+</ul>
+<p><strong>浏览器的渲染队列机制：</strong>浏览器会将所有的回流、重绘的操作放在一个队列中，当队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会对队列进行批处理。这样就会让多次的回流、重绘变成一次回流重绘。         </p>
+<h2 id="渲染过程中遇到JS文件如何处理"><a href="#渲染过程中遇到JS文件如何处理" class="headerlink" title="渲染过程中遇到JS文件如何处理"></a>渲染过程中遇到JS文件如何处理</h2><p>JavaScript文件的加载、解析与执行会阻塞DOM的构建，JS文件也会导致CSSOM阻塞DOM的构建</p>
+<h2 id="async、defer和window-onload的区别"><a href="#async、defer和window-onload的区别" class="headerlink" title="async、defer和window.onload的区别"></a>async、defer和window.onload的区别</h2><p><img data-src="https://s2.loli.net/2022/12/13/pQGk9N2UHnjZeg3.png" alt="img"></p>
+<p>async属性的script脚本：HTML解析与script加载并行发生，但在script执行时，HTML解析被阻塞，script执行结束后，继续HTML解析。多个带async属性的标签，不能保证加载的顺序</p>
+<p>defer属性的script脚本：HTML解析与script加载并行发生，但script的执行要等到所有的HTML解析完成后才会发生。多个带defer属性的标签，按照顺序执行</p>
+<p>1.defer和async在网络加载过程是一致的，都是异步执行的； </p>
+<p>2.两者的区别在于脚本加载完成之后何时执行</p>
+<p><strong>window.onload()</strong> 方法用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行某个方法。</p>
+<h2 id="CSS如何阻塞文档解析"><a href="#CSS如何阻塞文档解析" class="headerlink" title="CSS如何阻塞文档解析"></a>CSS如何阻塞文档解析</h2><p>理论上，样式表不改变DOM树，也就没有必要停下文档解析等待它们。但是，JavaScript脚本执行时可能会请求样式信息，如果样式还没有加载解析，脚本会得到错误的值。 </p>
+<p>为了避免这种错误，浏览器会先下载和构建 CSSOM，然后再执行 JavaScript，最后再继续文档的解析。至此，CSS可以阻塞文档解析</p>
+<h2 id="浏览器渲染优化"><a href="#浏览器渲染优化" class="headerlink" title="浏览器渲染优化"></a>浏览器渲染优化</h2><p><strong>针对JavaScript：</strong></p>
+<p>（1）尽量将JavaScript文件放在body的最后，用async和defer属性来异步引入</p>
+<p>（2） body中间尽量不要写<code>&lt;script&gt;</code>标签</p>
+<p><strong>针对CSS：</strong></p>
+<p>（1）在开发过程中，导入外部样式使用link，而不用@import。</p>
+<p>（2）如果css少，尽可能采用内嵌样式，直接写在style标签中</p>
+<p>使用CSS有三种方式：使用<strong>link、@import、内联样式</strong>，其中link和@import都是导入外部样式。区别：</p>
+<ul>
+<li><strong>link</strong>：浏览器会派发一个新线程(HTTP线程)去加载资源文件，与此同时GUI渲染线程会继续向下渲染代码</li>
+<li><strong>@import</strong>：GUI渲染线程会暂时停止渲染，去服务器加载资源文件，资源文件没有返回之前不会继续渲染(阻碍浏览器渲染)</li>
+<li><strong>style</strong>：GUI直接渲染</li>
+</ul>
+<p>外部样式如果长时间没有加载完毕，浏览器为了用户体验，会使用浏览器会默认样式，确保首次渲染的速度。所以CSS一般写在head中，让浏览器尽快发送请求去获取css样式。</p>
+<p><strong>针对DOM树、CSSOM树</strong></p>
+<p>（1）HTML代码层级尽量不要太深，减少CSSD代码的层级</p>
+<p>（2）使用语义化的标签，避免不标准语义化的特殊处理</p>
+<p><strong>减少回流与重绘</strong></p>
+<h2 id="如何优化关键渲染路径？"><a href="#如何优化关键渲染路径？" class="headerlink" title="如何优化关键渲染路径？"></a>如何优化关键渲染路径？</h2><p><strong>关键渲染路径</strong>是浏览器将 HTML，CSS 和 JavaScript 转换为屏幕上的像素所经历的步骤序列。</p>
+<ol>
+<li>通过异步、延迟加载或者消除非关键资源来减少关键资源的请求数量</li>
+<li>优化必须的请求数量和每个请求的文件体积</li>
+<li>通过区分关键资源的优先级来优化被加载关键资源的顺序，来缩短关键路径长度。</li>
+</ol>
+<h2 id="一定要掌握的时间线"><a href="#一定要掌握的时间线" class="headerlink" title="一定要掌握的时间线"></a>一定要掌握的时间线</h2><p>在浏览器加载页面开始到页面加载完成，按顺序发生的每一件事情</p>
+<ol>
+<li><p>生成document对象，以供DOM操作</p>
+</li>
+<li><p>解析文档，构建DOM树</p>
+<p>document.readyState = ‘loading’</p>
+</li>
+<li><p>遇到link开始异步加载css外部文件的新线程，遇到style开始异步构建CSSOM的新线程</p>
+</li>
+<li><p>没有设置异步加载的script，阻塞文档解析，等到JS脚本加载并执行完成后，继续解析文档</p>
+</li>
+<li><p>异步加载script，异步加载JS脚本，不阻塞解析文档（不能使用documen.write)</p>
+</li>
+<li><p>解析文档遇到img，先解析节点。创建加载线程，异步加载图片资源，不阻塞解析文档</p>
+</li>
+<li><p>文档解析完成，document.readyState = ‘interactive’</p>
+</li>
+<li><p>defer script，JS脚本按照顺序执行</p>
+</li>
+<li><p>DOMContentLoaded事件，</p>
+</li>
+<li><p>async script加载并执行完毕，img等资源加载完毕，window对象中的onload事件才开始触发，document.readyState = ‘complete’</p>
+</li>
+</ol>
+<p>window.onload 和 DOMContentLoaded的区别：window.onload是页面全部加载完毕才触发，DOMContentLoaded是文档解析完成和异步脚本加载完成后就触发</p>
 <h1 id="浏览器本地存储"><a href="#浏览器本地存储" class="headerlink" title="浏览器本地存储"></a>浏览器本地存储</h1><p>浏览器本地存储方式主要5种，点击随便一个网页，F12，应用程序下的存储就可以看到了。</p>
 <p>下面的学习对应着一个真实的网页会快很多</p>
 <p><img data-src="https://s2.loli.net/2022/12/09/t4JQZ1aPoNdcBuw.png"></p>
@@ -4398,6 +4636,33 @@
 <li><p><strong>支持二进制储存</strong>：IndexedDB 不仅可以储存字符串，还可以储存二进制数据（ArrayBuffer 对象和 Blob 对象）。</p>
 </li>
 </ul>
+<h1 id="浏览器同源策略"><a href="#浏览器同源策略" class="headerlink" title="浏览器同源策略"></a>浏览器同源策略</h1><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说 Web 是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。</p>
+<p>它认为自任何站点装载的信赖内容是不安全的。当被浏览器半信半疑的脚本运行在沙箱时，它们应该只被允许访问来自同一站点的资源，而不是那些来自其它站点可能怀有恶意的资源。</p>
+<p>同源指的是：protocol<strong>协议</strong>、domain<strong>域名</strong>、port<strong>端口号</strong>必须一致。</p>
+<p><strong>同源政策主要限制了三个方面：</strong></p>
+<ul>
+<li>当前域下的 js 脚本不能够访问其他域下的 cookie、localStorage 和 indexDB。</li>
+<li>当前域下的 js 脚本不能够操作访问操作其他域下的 DOM。</li>
+<li>当前域下 ajax 无法发送跨域请求。</li>
+</ul>
+<h2 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h2><p>有了跨域限制，才使我们能安全的上网。但是在实际中，有时候我们需要突破这样的限制，下面将介绍几种跨域的解决方法。</p>
+<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><h2 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a>正向代理和反向代理</h2><ul>
+<li><strong>正向代理：</strong>隐藏客户端</li>
+</ul>
+<p>客户端想获得一个服务器的数据，但是因为种种原因无法直接获取。于是客户端设置了一个代理服务器，并且指定目标服务器，之后代理服务器向目标服务器转交请求并将获得的内容发送给客户端。这样本质上起到了对真实服务器隐藏真实客户端的目的。实现正向代理需要修改客户端，比如修改浏览器配置。</p>
+<ul>
+<li><strong>反向代理：</strong>隐藏服务器</li>
+</ul>
+<p>服务器为了能够将工作负载分不到多个服务器来提高网站性能 (负载均衡)等目的，当其受到请求后，会首先根据转发规则来确定请求应该被转发到哪个服务器上，然后将请求转发到对应的真实服务器上。这样本质上起到了对客户端隐藏真实服务器的作用。</p>
+<p>一般使用反向代理后，需要通过修改 DNS 让域名解析到代理服务器 IP，这时浏览器无法察觉到真正服务器的存在，当然也就不需要修改配置了。</p>
+<ul>
+<li><strong>两者异同</strong></li>
+</ul>
+<p>正向代理和反向代理的结构是一样的，都是 client-proxy-server 的结构，它们主要的区别就在于中间这个 proxy 是哪一方设置的。在正向代理中，proxy 是 client 设置的，用来隐藏 client；而在反向代理中，proxy 是 server 设置的，用来隐藏 server。</p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2020/jpeg/1500604/1605256274960-50bd9e69-dde9-4782-b2c0-6afc8188fca2.jpeg" alt="正向代理和反向代理"></p>
+<h2 id="Nginx的概念及其工作原理"><a href="#Nginx的概念及其工作原理" class="headerlink" title="Nginx的概念及其工作原理"></a>Nginx的概念及其工作原理</h2><p>Nginx 是一款轻量级的 Web 服务器，也可以用于反向代理、负载平衡和 HTTP 缓存等。Nginx 使用异步事件驱动的方法来处理请求，是一款面向性能设计的 HTTP 服务器。</p>
+<p>传统的 Web 服务器如 Apache 是 process-based 模型的，而 Nginx 是基于event-driven模型的。正是这个主要的区别带给了 Nginx 在性能上的优势。</p>
+<p>Nginx 架构的最顶层是一个 master process，这个 master process 用于产生其他的 worker process，这一点和Apache 非常像，但是 Nginx 的 worker process 可以同时处理大量的HTTP请求，而每个 Apache process 只能处理一个。</p>
 ]]></content>
       <categories>
         <category>-[前端]</category>
