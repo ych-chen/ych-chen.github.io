@@ -35,13 +35,13 @@
 <meta property="og:site_name" content="CYC&#39;s 个人博客">
 <meta property="og:description" content="Git 是一个开源的分布式版本控制系统，与 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/02/git-command.jpg">
+<meta property="og:image" content="https://s2.loli.net/2023/01/14/FC7qaExcLmTQKeU.webp">
 <meta property="article:published_time" content="2022-08-14T17:57:51.000Z">
-<meta property="article:modified_time" content="2022-12-29T03:57:25.378Z">
+<meta property="article:modified_time" content="2023-01-15T07:43:11.963Z">
 <meta property="article:author" content="ych-ch">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.runoob.com/wp-content/uploads/2015/02/git-command.jpg">
+<meta name="twitter:image" content="https://s2.loli.net/2023/01/14/FC7qaExcLmTQKeU.webp">
 
 
 <link rel="canonical" href="https://ychch.top/archives/78356650.html">
@@ -101,9 +101,9 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>我 & 友链</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">47</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">46</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">15</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">52</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">55</span></a></li>
         <li class="menu-item menu-item-pictures"><a href="/gallery/" rel="section"><i class="fa fa-images fa-fw"></i>影像馆</a></li>
         <li class="menu-item menu-item-movies"><a href="/movies/" rel="section"><i class="fa fa-video fa-fw"></i>光影岁月</a></li>
         <li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>好书推荐</a></li>
@@ -152,7 +152,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -165,6 +165,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA"><span class="nav-number">1.1.</span> <span class="nav-text">工作区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E7%89%88%E6%9C%AC%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">本地版本库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9A%82%E5%AD%98%E5%BA%93"><span class="nav-number">1.3.</span> <span class="nav-text">暂存库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E7%89%88%E6%9C%AC%E5%BA%93"><span class="nav-number">1.4.</span> <span class="nav-text">远程版本库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-clone"><span class="nav-number">2.1.</span> <span class="nav-text">git clone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-branch"><span class="nav-number">2.2.</span> <span class="nav-text">git  branch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-checkout"><span class="nav-number">2.3.</span> <span class="nav-text">git checkout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-status"><span class="nav-number">2.4.</span> <span class="nav-text">git status</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-add"><span class="nav-number">2.5.</span> <span class="nav-text">git add</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-commit"><span class="nav-number">2.6.</span> <span class="nav-text">git commit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-push"><span class="nav-number">2.7.</span> <span class="nav-text">git push</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-pull"><span class="nav-number">2.8.</span> <span class="nav-text">git pull</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-log"><span class="nav-number">2.9.</span> <span class="nav-text">git log</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-tag"><span class="nav-number">2.10.</span> <span class="nav-text">git tag</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -179,7 +180,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -190,7 +191,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -543,7 +544,7 @@ if(canvas.getContext){
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-12-29 11:57:25" itemprop="dateModified" datetime="2022-12-29T11:57:25+08:00">2022-12-29</time>
+      <time title="修改时间：2023-01-15 15:43:11" itemprop="dateModified" datetime="2023-01-15T15:43:11+08:00">2023-01-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -576,7 +577,7 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>126</span>
+      <span>1.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -595,12 +596,36 @@ if(canvas.getContext){
     
     <div class="post-body" itemprop="articleBody">
         <p>Git 是一个开源的分布式版本控制系统，与 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。</p>
-<p><img data-src="https://www.runoob.com/wp-content/uploads/2015/02/git-command.jpg"></p>
+<p><img data-src="https://s2.loli.net/2023/01/14/FC7qaExcLmTQKeU.webp" alt="image-20230114162459301"></p>
 <span id="more"></span>
 
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">&lt;repo</span>&gt; <span class="tag">&lt;directory&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>repo:Git 仓库。<br>directory:本地目录</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="工作区"><a href="#工作区" class="headerlink" title="工作区"></a>工作区</h4><p>在电脑里能看到的目录</p>
+<h4 id="本地版本库"><a href="#本地版本库" class="headerlink" title="本地版本库"></a>本地版本库</h4><p>工作区有一个隐藏目录 <code>.git</code>，这个不算工作区，而是 <code>Git</code> 的版本库</p>
+<h4 id="暂存库"><a href="#暂存库" class="headerlink" title="暂存库"></a>暂存库</h4><p>本地版本库里存了很多东西，其中最重要的就是称为 <code>stage</code>（或者叫index）的暂存区，还有 <code>Git</code> 为我们自动创建的第一个分支 <code>main</code>，以及指向 <code>main</code> 的一个指针叫 <code>HEAD</code>。</p>
+<h4 id="远程版本库"><a href="#远程版本库" class="headerlink" title="远程版本库"></a>远程版本库</h4><p>一般指的是 <code>Git</code> 服务器上所对应的仓库，常用的<code>github</code>仓库就是一个远程版本库</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h4><p>从服务器中拉取代码</p>
+<h4 id="git-branch"><a href="#git-branch" class="headerlink" title="git  branch"></a>git  branch</h4><p>创建、重命名、查看、删除项目分支，通过 <code>Git</code> 做项目开发时，一般都是在开发分支中进行，开发完成后合并分支到主干。</p>
+<p>git  branch  不带参数的branch命令可以查看当前项目分支列表</p>
+<p>git branch -m  branch/0.0.1 创建一个名为branch/0.0.1的开支</p>
+<p>git branch -d  branch/0.0.1 删除一个名为branch/0.0.1的开支</p>
+<h4 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h4><p>切换分支</p>
+<p>git checkout  branch/0.0.1   切换到branch/0.0.1的开支</p>
+<h4 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h4><p>查看文件变动状态</p>
+<h4 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h4><p>添加文件变动到暂存区</p>
+<p>git add README.md 通过指定文件名 <code>README.md</code> 可以将该文件添加到暂存区;</p>
+<p>添加所有文件可用 <code>git add .</code></p>
+<h4 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h4><p>提交文件变动到版本库 git commit -m ‘这里写提交原因’</p>
+<h4 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h4><p>将本地代码改动推送到服务器</p>
+<p>git push origin branch/0.0.1  <code>origin</code> 指代的是当前的git服务器地址，这行命令的意思是把 <code>branch/0.0.1</code> 分支推送到服务器</p>
+<h4 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h4><p>将服务器最新代码拉取到本地</p>
+<p>git pull origin branch/0.0.1 </p>
+<p><em>如果线上代码做了变动，而你本地的代码也有变动，拉取的代码就有可能会跟你本地的改动冲突，一般情况下 <code>Git</code> 会自动处理这种冲突合并，但如果改动的是同一行，那就需要手动来合并代码，编辑文件，保存最新的改动，再通过 <code>git add .</code>和 <code>git commit -m &#39;xxx&#39;</code> 来提交合并。</em></p>
+<p><strong>git</strong> fetch   是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。 而 <strong>git</strong> <strong>pull</strong> 则是将远程主机的最新内容拉下来后直接合并，即： <strong>git</strong> <strong>pull</strong> = git fetch + git merge ，这样可能会产生冲突，需要手动解决。</p>
+<h4 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h4><p>查看版本提交记录，提交记录可能会非常多，按 <code>J</code> 键往下翻，按 <code>K</code> 键往上翻，按 <code>Q</code> 键退出查看</p>
+<h4 id="git-tag"><a href="#git-tag" class="headerlink" title="git tag"></a>git tag</h4><p>为项目标记里程碑。当我们完成某个功能需求准备发布上线时，应该将此次完整的项目代码做个标记，并将这个标记好的版本发布到线上，这里我们以 <code>publish/0.0.1</code> 为标记名并发布，当看到命令行返回如下内容则表示发布成功了</p>
+<p>git tag publish/0.0.1<br>git push origin publish/0.0.1</p>
+<p>Total 0 (delta 0), reused 0 (delta 0)<br>To <a target="_blank" rel="noopener" href="https://github.com/gafish/gafish.github.com.git">https://github.com/gafish/gafish.github.com.git</a><br> * [<strong>new</strong> tag]     publish/0.0.1 -&gt; publish/0.0.1</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Q_O0ey4C9tryPZaZeJocbA">保姆级Git入门教程，万字详解 (qq.com)</a></p>
 
     </div>
 
@@ -674,13 +699,13 @@ if(canvas.getContext){
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">194k</span>
+    <span title="站点总字数">204k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:56</span>
+    <span title="站点阅读时长">3:05</span>
   </span>
 </div>
 <div class="busuanzi-count">
