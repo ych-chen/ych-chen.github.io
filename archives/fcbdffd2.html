@@ -30,7 +30,7 @@
 
     <meta name="description" content="这篇文章主要介绍性能优化相关的知识点，包括CDN、懒加载、回流重绘、节流防抖等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="性能优化之CDN、懒加载、回流重绘、节流防抖等">
+<meta property="og:title" content="如何考虑性能优化">
 <meta property="og:url" content="https://ychch.top/archives/fcbdffd2.html">
 <meta property="og:site_name" content="CYC&#39;s 个人博客">
 <meta property="og:description" content="这篇文章主要介绍性能优化相关的知识点，包括CDN、懒加载、回流重绘、节流防抖等。">
@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://s2.loli.net/2022/03/18/RZMnhbHLmjX9JKz.png">
 <meta property="og:image" content="https://s2.loli.net/2022/12/30/67nrFjWZp3LwJD2.png">
 <meta property="article:published_time" content="2022-03-02T18:33:26.000Z">
-<meta property="article:modified_time" content="2023-01-22T02:26:25.000Z">
+<meta property="article:modified_time" content="2023-02-16T03:27:32.928Z">
 <meta property="article:author" content="ych-ch">
 <meta property="article:tag" content="CDN">
 <meta property="article:tag" content="性能优化">
@@ -51,10 +51,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ychch.top/archives/fcbdffd2.html","path":"archives/fcbdffd2.html","title":"性能优化之CDN、懒加载、回流重绘、节流防抖等"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ychch.top/archives/fcbdffd2.html","path":"archives/fcbdffd2.html","title":"如何考虑性能优化"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>性能优化之CDN、懒加载、回流重绘、节流防抖等 | CYC's 个人博客</title>
+<title>如何考虑性能优化 | CYC's 个人博客</title>
   
 
 
@@ -167,7 +167,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CDN"><span class="nav-number">1.</span> <span class="nav-text">CDN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">CDN的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN%E7%BB%84%E6%88%90"><span class="nav-number">1.2.</span> <span class="nav-text">CDN组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">CDN工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-number">1.4.</span> <span class="nav-text">CDN的好处</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="nav-number">2.</span> <span class="nav-text">懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-number">2.1.</span> <span class="nav-text">懒加载的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%87%92%E5%8A%A0%E8%BD%BD%E4%B8%8E%E9%A2%84%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.2.</span> <span class="nav-text">懒加载与预加载的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">2.3.</span> <span class="nav-text">懒加载的实现原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8A%82%E6%B5%81%E4%B8%8E%E9%98%B2%E6%8A%96"><span class="nav-number">3.</span> <span class="nav-text">节流与防抖</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.2.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E6%B5%81"><span class="nav-number">3.2.1.</span> <span class="nav-text">节流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%B2%E6%8A%96"><span class="nav-number">3.2.2.</span> <span class="nav-text">防抖</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E4%BC%98%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">图片优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">4.1.</span> <span class="nav-text">常见的图片格式及使用场景</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%80%83%E8%99%91%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">如何考虑性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0Vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">如何实现Vue项目中的性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E9%98%B6%E6%AE%B5"><span class="nav-number">1.1.1.</span> <span class="nav-text">编码阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SEO%E4%BC%98%E5%8C%96"><span class="nav-number">1.1.2.</span> <span class="nav-text">SEO优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96"><span class="nav-number">1.1.3.</span> <span class="nav-text">打包优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%AB%AF"><span class="nav-number">1.1.4.</span> <span class="nav-text">用户端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SPA%E5%BA%94%E7%94%A8%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E9%A6%96%E5%B1%8F%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6"><span class="nav-number">1.2.</span> <span class="nav-text">SPA应用如何优化首屏加载速度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CDN"><span class="nav-number">2.</span> <span class="nav-text">CDN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">2.1.</span> <span class="nav-text">CDN的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN%E7%BB%84%E6%88%90"><span class="nav-number">2.2.</span> <span class="nav-text">CDN组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">2.3.</span> <span class="nav-text">CDN工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-number">2.4.</span> <span class="nav-text">CDN的好处</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-number">3.1.</span> <span class="nav-text">懒加载的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%87%92%E5%8A%A0%E8%BD%BD%E4%B8%8E%E9%A2%84%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.2.</span> <span class="nav-text">懒加载与预加载的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">3.3.</span> <span class="nav-text">懒加载的实现原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8A%82%E6%B5%81%E4%B8%8E%E9%98%B2%E6%8A%96"><span class="nav-number">4.</span> <span class="nav-text">节流与防抖</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">4.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.2.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E6%B5%81"><span class="nav-number">4.2.1.</span> <span class="nav-text">节流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%B2%E6%8A%96"><span class="nav-number">4.2.2.</span> <span class="nav-text">防抖</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E4%BC%98%E5%8C%96"><span class="nav-number">5.</span> <span class="nav-text">图片优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">5.1.</span> <span class="nav-text">常见的图片格式及使用场景</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -523,12 +523,12 @@ if(canvas.getContext){
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="性能优化之CDN、懒加载、回流重绘、节流防抖等 | CYC's 个人博客">
+      <meta itemprop="name" content="如何考虑性能优化 | CYC's 个人博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          性能优化之CDN、懒加载、回流重绘、节流防抖等
+          如何考虑性能优化
         </h1>
 
         <div class="post-meta-container">
@@ -546,7 +546,7 @@ if(canvas.getContext){
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-22 10:26:25" itemprop="dateModified" datetime="2023-01-22T10:26:25+08:00">2023-01-22</time>
+      <time title="修改时间：2023-02-16 11:27:32" itemprop="dateModified" datetime="2023-02-16T11:27:32+08:00">2023-02-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -583,14 +583,14 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.7k</span>
+      <span>5.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -605,6 +605,63 @@ if(canvas.getContext){
 <p><img data-src="C:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230120105821728.png" alt="image-20230120105821728"></p>
 <span id="more"></span>
 
+<h1 id="如何考虑性能优化"><a href="#如何考虑性能优化" class="headerlink" title="如何考虑性能优化"></a>如何考虑性能优化</h1><h2 id="如何实现Vue项目中的性能优化"><a href="#如何实现Vue项目中的性能优化" class="headerlink" title="如何实现Vue项目中的性能优化"></a>如何实现Vue项目中的性能优化</h2><h3 id="编码阶段"><a href="#编码阶段" class="headerlink" title="编码阶段"></a>编码阶段</h3><ul>
+<li>采用 keep-alive 缓存组件</li>
+<li>使用路由懒加载、异步组件</li>
+<li>第三方模块按需导入</li>
+<li>图片懒加载</li>
+<li>防抖、节流</li>
+</ul>
+<h3 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h3><ul>
+<li>预渲染</li>
+<li>服务端渲染 <em>SSR</em></li>
+</ul>
+<p>预渲染 是一种构建阶段生成匹配预渲染路径的HTML文件方式，来提高网站在搜索引擎中的自然排名的方法。 好处是可以改善网页的SEO，而不需要服务器端渲染，缺点是为每个预渲染的路由生成一个HTML文件，可能会增减构建时间和文件大小。</p>
+<p>两者的区别：</p>
+<ul>
+<li>预渲染是在构建阶段生成静态 HTML 文件，而 SSR 是在服务器端动态编译 HTML。</li>
+<li>预渲染适合改善少数营销页面的 SEO，而 SSR 适合改善动态数据的 SEO。</li>
+<li>预渲染的优点是简单易用，不需要服务器端资源，而 SSR 的优点是可以实现更快的首屏渲染，更好的用户体验和更高的转化率。</li>
+<li>预渲染的缺点是需要为每个路由生成一个 HTML 文件，可能增加构建时间和文件大小，而 SSR 的缺点是需要更多的服务器端资源，可能增加服务器端压力和复杂度。</li>
+</ul>
+<h3 id="打包优化"><a href="#打包优化" class="headerlink" title="打包优化"></a>打包优化</h3><ul>
+<li> 压缩代码</li>
+<li> <code>Tree Shaking/Scope Hoisting</code></li>
+<li>Tree Shaking是一种消除未使用代码的过程，确定哪些代码被引用，哪些代码没有被引用。减少最终打包的文件大小，使其更快地下载和解析。</li>
+<li>Scope Hoisting是一种将多个JavaScript模块合并到一个作用域的过程，可以通过将跨模块的引用变成静态而不是动态的属性查找，提高运行时的性能</li>
+<li>使用 <em>cdn</em> 加载第三方模块</li>
+</ul>
+<h3 id="用户端"><a href="#用户端" class="headerlink" title="用户端"></a>用户端</h3><ul>
+<li><p>骨架屏</p>
+<p>是一种在网页内容加载之前，显示网页的基本结构和样式的技术，它可以让用户感觉网页加载更快，减少用户的等待感和焦虑感。</p>
+</li>
+<li><p>PWA</p>
+<p>是一种使用网页技术，但可以安装和运行在所有设备上，提供类似于原生应用的体验的技术，它可以让网页更适应不同的设备和网络环境，更方便用户的访问和使用。</p>
+</li>
+</ul>
+<h2 id="SPA应用如何优化首屏加载速度"><a href="#SPA应用如何优化首屏加载速度" class="headerlink" title="SPA应用如何优化首屏加载速度"></a>SPA应用如何优化首屏加载速度</h2><ul>
+<li><p>请求优化， 将第三方的类库放到 CDN 上，能够大幅度减少生产环境中的项目体积。CDN可以实时根据流量、节点连接、负载状况以及到用户的距离、响应时间等综合因素 将请求重新导向最合适的服务节点中。</p>
+</li>
+<li><p>缓存：将长时间不会改变的第三方类库或者静态资源设置为强缓存，将 max-age 设置为一个非常长的时间，再将访问路径加上哈希达到哈希值变了以后保证获取到最新资源，好的缓存策略有助于减轻服务器的压力，并且显著的提升用户的体验</p>
+</li>
+<li><p>gzip：开启 gzip 压缩，通常开启 gzip 压缩能够有效的缩小传输资源的大小</p>
+</li>
+<li><p>http2</p>
+<p>如果系统首屏同一时间需要加载的静态资源非常多，但是浏览器对同域名的 tcp 连接数量是有限制的(chrome 为 6 个)超过规定数量的 tcp 连接，则必须要等到之前的请求收到响应后才能继续发送，而 http2 则可以在多个 tcp 连接中并发多个请求没有限制，在一些网络较差的环境开启 http2 性能提升尤为明显。</p>
+</li>
+<li><p>使用路由懒加载， import 动态加载页面组件</p>
+</li>
+<li><p>预渲染</p>
+</li>
+<li><p>按需加载第三方库</p>
+</li>
+<li><p>图片懒加载</p>
+</li>
+<li><p>使用 svg 图标</p>
+</li>
+<li><p>选用合适的图片格式，做图片压缩，在不影响使用的情况下压缩图片质量</p>
+</li>
+</ul>
 <h1 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h1><h2 id="CDN的概念"><a href="#CDN的概念" class="headerlink" title="CDN的概念"></a>CDN的概念</h2><p>CDN, content delivery network，内容分发网络，又称内容传送网络。</p>
 <p>当我们在开发网站的时候，经常会有很多的图片、视频、动态效果需要部署，这些样式的引入通常有两种方式，</p>
 <p>一是直接放在项目内部，再部署到公网上，这样通常会严重影响网站访问速度，<a href="https://ychch.top/archives/6ec3525c.html">见我上篇文章–如何提升网站加载速度</a></p>
@@ -743,7 +800,7 @@ if(canvas.getContext){
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://ychch.top/archives/fcbdffd2.html" title="性能优化之CDN、懒加载、回流重绘、节流防抖等">https://ychch.top/archives/fcbdffd2.html</a>
+      <a href="https://ychch.top/archives/fcbdffd2.html" title="如何考虑性能优化">https://ychch.top/archives/fcbdffd2.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -800,13 +857,13 @@ if(canvas.getContext){
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">214k</span>
+    <span title="站点总字数">218k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:15</span>
+    <span title="站点阅读时长">3:18</span>
   </span>
 </div>
 <div class="busuanzi-count">

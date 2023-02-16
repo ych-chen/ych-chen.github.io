@@ -157,18 +157,16 @@
 <h1 id="变量声明let、const"><a href="#变量声明let、const" class="headerlink" title="变量声明let、const"></a>变量声明let、const</h1><p>代码块内如果存在 let 或者 const，代码块会对这些命令声明的变量从块的开始就形成一个封闭作用域。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 代码块内，在声明变量 PI 之前使用它会报错。</span></span><br><span class="line"><span class="keyword">var</span> PI = <span class="string">&quot;a&quot;</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(PI);  <span class="comment">// Cannot access &#x27;PI&#x27; before initialization</span></span><br><span class="line">  <span class="keyword">const</span> PI = <span class="string">&quot;3.1415926&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> PI = <span class="string">&quot;a&quot;</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(PI);  <span class="comment">// a</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><ul>
-<li>let 声明的变量<strong>只在 let 命令所在的代码块内有效</strong></li>
-<li><strong>只能声明一次</strong>，<strong>可以重新赋值</strong>，重复声明会报错</li>
-<li>for 循环计数器很适合用 let，使用var就需要立即执行函数，let不需要</li>
-<li>不存在变量提升，在声明变量前调用，会报错！</li>
-</ul>
+<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>let 声明的变量<strong>只在 let 命令所在的代码块内有效</strong>，<strong>只能声明一次</strong>，<strong>可以重新赋值</strong>，重复声明会报错；<strong>不存在变量提升</strong>，在声明变量前调用，会报错！</p>
+<p>for 循环计数器很适合用 let，使用var就需要立即执行函数，let不需要</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">//ReferenceError: a is not defined</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="string">&quot;apple&quot;</span>;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(b);  <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="string">&quot;banana&quot;</span>;</span><br></pre></td></tr></table></figure>
 
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><ul>
-<li>const 声明一个只读的常量，一旦声明，常量的值就不能改变。</li>
-<li>声明必须初始化，否则会报错</li>
-</ul>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><p>const 声明一个只读的常量，一旦声明，常量的值就不能改变。声明必须初始化，否则会报错</p>
+<p>const 保证的不是该变量值不得改动，而是变量指向的内存地址所保存的数据不得改动。</p>
+<p>对于简单类型的数据，值就保存在变量指向的那个内存地址，因此等同于常量；</p>
+<p>对于复杂类型的数据，变量指向的内存地址，保存的只是一个指向实际数据的指针，<code>const</code>只能保证这个指针是固定的，并不能确保改变量的结构不变</p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>6点区别：</p>
+<p>变量提升、暂时性死区、块级作用域、重复声明、修改声明变量、使用</p>
 <h1 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h1><p>解构赋值是对赋值运算符的扩展。解构的源，解构赋值表达式的右边部分。解构的目标，解构赋值表达式的左边部分。</p>
 <h2 id="数组结构的解构赋值"><a href="#数组结构的解构赋值" class="headerlink" title="数组结构的解构赋值"></a>数组结构的解构赋值</h2>  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span> 可嵌套</span><br><span class="line"><span class="keyword">let</span> [a, [[b], c]] = [<span class="number">1</span>, [[<span class="number">2</span>], <span class="number">3</span>]];</span><br><span class="line"><span class="comment">// a = 1   b = 2   c = 3</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 可忽略</span><br><span class="line"><span class="keyword">let</span> [a, , b] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="comment">// a = 1   b = 3</span></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 不完全解构</span><br><span class="line"><span class="keyword">let</span> [a = <span class="number">1</span>, b] = []; </span><br><span class="line"><span class="comment">// a = 1, b = undefined</span></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> 剩余运算符</span><br><span class="line"><span class="keyword">let</span> [a, ...b] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="comment">//a = 1   b = [2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="number">5.</span> 字符串等（解构的目标若为可遍历对象，皆可进行解构赋值）</span><br><span class="line"><span class="keyword">let</span> [a, b, c, d, e] = <span class="string">&#x27;hello1231&#x27;</span>;</span><br><span class="line"><span class="comment">// a = &#x27;h&#x27;</span></span><br><span class="line"><span class="comment">// b = &#x27;e&#x27;</span></span><br><span class="line"><span class="comment">// c = &#x27;l&#x27;</span></span><br><span class="line"><span class="comment">// d = &#x27;l&#x27;</span></span><br><span class="line"><span class="comment">// e = &#x27;o&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="number">6.</span> 解构默认值</span><br><span class="line">当解构模式有匹配结果，且匹配结果是 <span class="literal">undefined</span> 时，会触发默认值作为返回结果。</span><br><span class="line"><span class="keyword">let</span> [a = <span class="number">2</span>] = [<span class="literal">undefined</span>]; <span class="comment">// a = 2</span></span><br><span class="line"><span class="keyword">let</span> [a = <span class="number">3</span>, b = a] = [];     <span class="comment">// a = 3, b = 3</span></span><br><span class="line"><span class="keyword">let</span> [a = <span class="number">3</span>, b = a] = [<span class="number">1</span>];    <span class="comment">// a = 1, b = 1</span></span><br><span class="line"><span class="keyword">let</span> [a = <span class="number">3</span>, b = a] = [<span class="number">1</span>, <span class="number">2</span>]; <span class="comment">// a = 1, b = 2</span></span><br></pre></td></tr></table></figure>
 
@@ -366,6 +364,14 @@
 <p><code>Array.from</code>方法用于将两类对象转为真正的数组：类似数组的对象（array-like object）和可遍历（iterable）的对象</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Array.of()  将参数中所有值作为元素形成数组。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)); <span class="comment">// [1, 2, 3, 4]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.of(<span class="number">1</span>, <span class="string">&#x27;2&#x27;</span>, <span class="literal">true</span>)); <span class="comment">// [1, &#x27;2&#x27;, true]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.of()); <span class="comment">// []</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.from(arrayLike[, mapFn[, thisArg]])，将类数组对象或可迭代对象转化为数组</span></span><br><span class="line"><span class="comment">// mapFn 可选函数参数，用于对每个元素进行处理，放入数组的是处理后的元素</span></span><br><span class="line"><span class="comment">// thisArg  用于指定 map 函数执行时的 this 对象</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.from([<span class="number">1</span>, , <span class="number">3</span>])); <span class="comment">// [1, undefined, 3]</span></span><br><span class="line"><span class="keyword">let</span> map = &#123;</span><br><span class="line">    <span class="attr">do</span>: <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> n * <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arrayLike = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.from(arrayLike, <span class="function"><span class="keyword">function</span> (<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.do(n);</span><br><span class="line">&#125;, map)); <span class="comment">// [2, 4, 6]</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="新增方法"><a href="#新增方法" class="headerlink" title="新增方法"></a>新增方法</h2><ul>
+<li>copyWithin()</li>
+<li>find()、findIndex()</li>
+<li>fill()，使用给定值，填充一个数组，第二、三个参数，指定填充的起始、结束位置</li>
+<li>entries()，keys()，values()，遍历键值对，键 为  index，值为 value</li>
+<li>includes()</li>
+<li>flat()，flatMap()，将数组扁平化处理，返回一个新数组，对原数据没有影响</li>
+</ul>
 <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>增加了默认参数，只有在未传递参数或undefined时，才使用默认参数，null被认为是有效的参数值</p>
 <p>不定参数，用来表示不确定参数个数，形如，…变量名</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">...values</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(values.length);</span><br><span class="line">&#125;</span><br><span class="line">f(<span class="number">1</span>,<span class="number">2</span>);      <span class="comment">//2</span></span><br><span class="line">f(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);  <span class="comment">//4</span></span><br></pre></td></tr></table></figure>
@@ -3307,7 +3313,7 @@
 
 <h3 id="原型与原型链"><a href="#原型与原型链" class="headerlink" title="原型与原型链"></a>原型与原型链</h3><p>constructor —&gt; 构造函数；prototype —&gt; 原型；_<em>proto</em>_  —&gt; 原型容器</p>
 <p>prototype <strong>是属于每个实例化对象</strong>，并不属于构造函数；_<em>proto</em>_ 是每个实例化对象的原型的容器</p>
-<p>prototype 定义构造函数是构造出的每个对象的公共祖先，每个实例化对象都可以继承原型上的属性和方法</p>
+<p>JavaScript原型链是一种用于实现面向对象编程的设计，它让JavaScript对象可以继承其他对象的属性和方法。JavaScript原型链是一种指针链，每个对象都有一个内置的属性，叫做原型（prototype），它指向该对象的父对象（即创建该对象的对象）。原型也是一个对象，所以它也有自己的原型，这样就形成了一个原型链。原型链的终点是一个叫做Object.prototype的对象，它是所有对象的默认原型。Object.prototype的原型是null，表示原型链的结束</p>
 <ul>
 <li><p><strong>原型链的问题</strong>：原型中包含的引用值会在所有实例中共享，所以将写死的值和方法 写到 prototype，需要传参的 写到构造函数里，传参值的优先级高于prototype</p>
 </li>
@@ -3333,8 +3339,9 @@
 <h3 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h3><p><code>eval()</code> 函数计算或执行参数，如果参数是表达式，则 <code>eval()</code> 计算表达式。如果参数是一个或多个 JavaScript 语句，则 <code>eval()</code> 执行这些语句</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> y = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">eval</span>(<span class="string">&quot;x * y&quot;</span>) + <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">eval</span>(<span class="string">&quot;2 + 2&quot;</span>) + <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="built_in">eval</span>(<span class="string">&quot;x + 17&quot;</span>) + <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> res = a + b + c;  <span class="comment">// return 200 4 27</span></span><br></pre></td></tr></table></figure>
 
-
-
+<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><p>JavaScript垃圾回收 是一种自动内存管理机制，可以监控内存分配。垃圾回收的目的是防止内存溢出，提高程序的性能和稳定性。</p>
+<p>垃圾回收是一个周期性的过程，在一定的时间间隔内执行。</p>
+<p>基本原理是从全局对象开始，找出所有引用的对象，再找这些对象的引用对象，以此类推，形成一个可达对象的集合。 标记所有不可达对象，释放内存空间。这种算法被称为 标记-清除。</p>
 <h2 id="疑难点"><a href="#疑难点" class="headerlink" title="疑难点"></a>疑难点</h2><h3 id="如何认识new"><a href="#如何认识new" class="headerlink" title="如何认识new"></a>如何认识new</h3><p>new 申请内存, 创建对象,当调用new时，后台会隐式执行new Object()创建对象。所以，通过new创建的字符串、数字是引用类型，而是非值类型。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> value = <span class="string">&#x27;25&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Number</span>(value);</span><br><span class="line">conosole.log(<span class="keyword">typeof</span> obj)  <span class="comment">// return object</span></span><br></pre></td></tr></table></figure>
 
@@ -4548,144 +4555,6 @@
       </tags>
   </entry>
   <entry>
-    <title>性能优化之CDN、懒加载、回流重绘、节流防抖等</title>
-    <url>/archives/fcbdffd2.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这篇文章主要介绍性能优化相关的知识点，包括CDN、懒加载、回流重绘、节流防抖等。</p>
-<p><img data-src="C:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230120105821728.png" alt="image-20230120105821728"></p>
-<span id="more"></span>
-
-<h1 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h1><h2 id="CDN的概念"><a href="#CDN的概念" class="headerlink" title="CDN的概念"></a>CDN的概念</h2><p>CDN, content delivery network，内容分发网络，又称内容传送网络。</p>
-<p>当我们在开发网站的时候，经常会有很多的图片、视频、动态效果需要部署，这些样式的引入通常有两种方式，</p>
-<p>一是直接放在项目内部，再部署到公网上，这样通常会严重影响网站访问速度，<a href="https://ychch.top/archives/6ec3525c.html">见我上篇文章–如何提升网站加载速度</a></p>
-<p>第二种做法就是 使用CDN来加速网站里特别消耗资源的文件。那CDN到底是什么呢？</p>
-<p>有个很形象的网上购物比喻可以帮助理解：</p>
-<p>访问没有使用CDN的网站，就相当于在<strong>淘宝</strong>下单了一件货源在深圳的商品，不管你是从哪里下单的，河南、湖北、甘肃 or 西藏，商家都会从深圳统一发货，那么到货的时间长短不一了，一般来说时间都要三四五天的样子</p>
-<p>访问使用了CDN的网站，就相当于在<strong>京东自营</strong>下单了一件商品。</p>
-<p>我们都知道，京东自营的物流是很牛的，淘宝是将物流外包给了很多小公司，所以货物的中转次数很多，很复杂，但是<strong>京东搭建了属于自己的一整套物流体系</strong>，它会根据你的收货地址去找离收货地址最近的物流仓库，然后直接<strong>就近发货</strong>。比如你在甘肃下的单，西安的仓库里有你需要的货物，京东就直接从西安给你发过来了。</p>
-<p><strong>CDN就相当于网络资源世界里的京东仓储系统</strong></p>
-<p>CDN的全称是, content delivery network，内容分发网络。顾名思义，就是专门分发资源的网络。</p>
-<p>CDN系统能够实时根<strong>据网络流量和各节点的连接、负载情况、到用户的距离和响应时间等综合信息</strong>将用户的资源请求<strong>重新导向</strong>离用户最近的服务节点上，其目的就是让用户就近取得所需内容，解决网络拥挤的问题，提高用户的访问速度。</p>
-<p>下图就很好的说明了有无CDN时的访问情况</p>
-<img data-src="https://s2.loli.net/2022/03/18/RZMnhbHLmjX9JKz.png" style="zoom:80%;" />
-
-<h2 id="CDN组成"><a href="#CDN组成" class="headerlink" title="CDN组成"></a>CDN组成</h2><p>了解了CDN的作用之后，再往下继续延伸</p>
-<p>CDN作为内容分发的服务器，就自然有两点问题，一是内容从何处来，二是它能分发给多少用户</p>
-<p>典型的CDN系统由下面三个部分组成：</p>
-<ul>
-<li><strong>分发服务系统：</strong>最基本的工作单元就是Cache设备，cache负责最终用户的访问请求，<strong>把缓存在本地的内容快速地提供给用户</strong>。同时还负责<strong>与源站点进行内容同步</strong>，把更新的内容以及本地没有的内容从源站点获取并保存在本地。Cache设备的数量、规模、总服务能力是衡量一个CDN系统服务能力的最基本的指标。</li>
-<li><strong>负载均衡系统：</strong>主要功能是负责对所有发起服务请求的用户进行访问调度，确定提供给用户的最终实际访问地址。两级调度体系分为全局负载均衡（GSLB）和本地负载均衡（SLB）。<strong>全局负载均衡</strong>主要根据用户就近性原则，通过对每个服务节点进行“最优”判断，确定向用户提供服务的cache的物理位置。<strong>本地负载均衡</strong>主要负责节点内部的设备负载均衡</li>
-<li><strong>运营管理系统：</strong>运营管理系统分为运营管理和网络管理子系统，负责处理业务层面的与外界系统交互所必须的收集、整理、交付工作，包含客户管理、产品管理、计费管理、统计分析等功能。</li>
-</ul>
-<h2 id="CDN工作原理"><a href="#CDN工作原理" class="headerlink" title="CDN工作原理"></a>CDN工作原理</h2><p>用户未使用CDN缓存资源的过程：</p>
-<ol>
-<li>浏览器通过DNS对域名进行解析（DNS解析过程），依次得到此域名对应的IP地址</li>
-<li>浏览器根据得到的IP地址，向域名的服务主机发送数据请求</li>
-<li>服务器向浏览器返回响应数据</li>
-</ol>
-<p>用户使用CDN缓存资源的过程：</p>
-<ol>
-<li>对于点击的URL，经过本地DNS系统的解析，发现该URL对应的是一个CDN专用的DNS服务器，DNS系统就会将域名解析权交给CNAME指向的CDN专用的DNS服务器。</li>
-<li>CND专用DNS服务器将CND的全局负载均衡设备IP地址返回给用户，用户向CDN的全局负载均衡设备发起数据请求</li>
-<li>CDN的全局负载均衡设备根据用户的IP地址，以及用户请求的内容URL，选择一台用户所属区域的区域负载均衡设备，告诉用户向这台设备发起请求</li>
-<li>区域负载均衡设备选择一台合适的缓存服务器来提供服务，将该缓存服务器的IP地址返回给全局负载均衡设备</li>
-<li>全局负载均衡设备把服务器的IP地址返回给用户，用户向该缓存服务器发起请求，缓存服务器响应用户的请求，将用户所需内容发送至用户终端。</li>
-</ol>
-<p><img data-src="https://s2.loli.net/2022/12/30/67nrFjWZp3LwJD2.png" alt="用户使用CDN缓存资源的过程"></p>
-<h2 id="CDN的好处"><a href="#CDN的好处" class="headerlink" title="CDN的好处"></a>CDN的好处</h2><p>除了加速的网站访问速度，CDN还有什么好处呢</p>
-<ol>
-<li>有利于搜索排名。换位想想，你愿意去访问一个加载特别慢的网站吗，你如果不愿意，那么这些搜索引擎自然就不会把你放在结果排名的前面</li>
-<li>减少托管成本。</li>
-</ol>
-<p>（1）在性能方面，引入CDN的作用在于：</p>
-<ul>
-<li>用户收到的内容来自最近的数据中心，延迟更低，内容加载更快</li>
-<li>部分资源请求分配给了CDN，减少了服务器的负载</li>
-</ul>
-<p>（2）在安全方面，CDN有助于防御DDoS、MITM等网络攻击：</p>
-<ul>
-<li>针对DDoS：通过监控分析异常流量，限制其请求频率</li>
-<li>针对MITM：从源服务器到 CDN 节点到 ISP（Internet Service Provider），全链路 HTTPS 通信</li>
-</ul>
-<p>除此之外，CDN作为一种基础的云服务，同样具有资源托管、按需扩展（能够应对流量高峰）等方面的优势。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://cloud.tencent.com/developer/article/1496434">资料1</a></li>
-</ul>
-<h1 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h1><p>懒加载也叫做延迟加载、按需加载，指的是在长网页中延迟加载图片数据，是一种较好的网页性能优化的方式。</p>
-<p>在比较长的网页或应用中，如果图片很多，所有的图片都被加载出来，而用户只能看到可视窗口的那一部分图片数据，这样就浪费了性能。</p>
-<h2 id="懒加载的好处"><a href="#懒加载的好处" class="headerlink" title="懒加载的好处"></a>懒加载的好处</h2><ul>
-<li><strong>减少无用资源的加载</strong>：使用懒加载明显减少了服务器的压力和流量，同时也减小了浏览器的负担。</li>
-<li><strong>提升用户体验</strong>: 如果同时加载较多图片，可能需要等待的时间较长，这样影响了用户体验，而使用懒加载就能大大的提高用户体验。</li>
-<li><strong>防止加载过多图片而影响其他资源文件的加载</strong> ：会影响网站应用的正常使用</li>
-</ul>
-<h2 id="懒加载与预加载的区别"><a href="#懒加载与预加载的区别" class="headerlink" title="懒加载与预加载的区别"></a>懒加载与预加载的区别</h2><p>这两种方式都是提高网页性能的方式。懒加载对服务器前端有一定的缓解压力作用，预加载则会增加服务器前端压力。</p>
-<ul>
-<li><strong>懒加载也叫延迟加载，指的是在长网页中延迟加载图片的时机，当用户需要访问时，再去加载</strong>，这样可以提高网站的首屏加载速度，提升用户的体验，并且可以减少服务器的压力。它适用于图片很多，页面很长的电商网站的场景。</li>
-<li><strong>预加载指的是将所需的资源提前请求加载到本地，这样后面在需要用到时就直接从缓存取资源。</strong>通过预加载能够减少用户的等待时间，提高用户的体验。预加载的最常用的方式是使用 js 中的 image 对象，通过为 image 对象来设置 scr 属性，来实现图片的预加载。</li>
-</ul>
-<h2 id="懒加载的实现原理"><a href="#懒加载的实现原理" class="headerlink" title="懒加载的实现原理"></a>懒加载的实现原理</h2><p>图片的加载是由<code>src</code>引起的，当对<code>src</code>赋值时，浏览器就会请求图片资源。根据这个原理，我们使用HTML5 的<code>data-xxx</code>属性来储存图片的路径，在需要加载图片的时候，将<code>data-xxx</code>中图片的路径赋值给<code>src</code>，这样就实现了图片的按需加载，即懒加载。</p>
-<p>懒加载的实现重点在于确定用户需要加载哪张图片，在浏览器中，可视区域内的资源就是用户需要的资源。所以当图片出现在可视区域时，获取图片的真实地址并赋值给图片即可。</p>
-<h1 id="节流与防抖"><a href="#节流与防抖" class="headerlink" title="节流与防抖"></a>节流与防抖</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>浏览器的 <code>resize</code>、<code>scroll</code>、<code>keypress</code>、<code>mousemove</code> 等事件在触发时，会不断地调用绑定在事件上的回调函数，极大地浪费资源，降低前端性能</p>
-<p>为了优化体验，限制调用次数，可以采用 <strong>防抖（debounce）</strong> 和 <strong>节流（throttle）</strong> 的方式来减少调用频率</p>
-<p>节流: n 秒内只运行一次，若在 n 秒内重复触发，只有一次生效</p>
-<p><strong>适⽤场景：</strong> </p>
-<ul>
-<li>拖拽场景：固定时间内只执⾏⼀次，防⽌超⾼频次触发位置变动 </li>
-<li>缩放场景：监控浏览器resize </li>
-<li>动画场景：避免短时间内多次触发动画引起性能问题 </li>
-</ul>
-<p>防抖: n 秒后在执行该事件，若在 n 秒内被重复触发，则重新计时</p>
-<p><strong>适⽤场景：</strong> </p>
-<ul>
-<li>按钮提交场景：防⽌多次提交按钮，只执⾏最后提交的⼀次 </li>
-<li>服务端验证场景：表单验证需要服务端配合，只执⾏⼀段连续的输⼊事件的最后⼀次</li>
-</ul>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, delay=<span class="number">500</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> preTime = <span class="built_in">Date</span>.now();</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> newTime = <span class="built_in">Date</span>.now();</span><br><span class="line">        <span class="keyword">if</span> (newTime - preTime &gt;= delay)&#123;</span><br><span class="line">            fn.apply(<span class="literal">null</span>,<span class="built_in">arguments</span>)</span><br><span class="line">            preTime = <span class="built_in">Date</span>.now();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle2</span>(<span class="params">fn,delay=<span class="number">500</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!timer)&#123;</span><br><span class="line">            timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                fn.apply(<span class="built_in">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">                timer = <span class="literal">null</span></span><br><span class="line">            &#125;,delay);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fun, delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (timer) <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">        <span class="keyword">let</span> args = <span class="built_in">arguments</span></span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span>&#123;</span><br><span class="line">            fun.apply(<span class="built_in">this</span>,args)</span><br><span class="line">        &#125;,delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="图片优化"><a href="#图片优化" class="headerlink" title="图片优化"></a>图片优化</h1><p>小图用base64格式；</p>
-<p>选择正确的图片格式：</p>
-<ul>
-<li><p>对于能够显示 WebP 格式的浏览器尽量使用 WebP 格式。因为 WebP 格式具有更好的图像数据压缩算法，能带来更小的图片体积，而且拥有肉眼识别无差异的图像质量，缺点就是兼容性并不好</p>
-</li>
-<li><p>小图使用 PNG，其实对于大部分图标这类图片，完全可以使用 SVG 代替</p>
-</li>
-<li><p>照片使用 JPEG</p>
-</li>
-</ul>
-<h2 id="常见的图片格式及使用场景"><a href="#常见的图片格式及使用场景" class="headerlink" title="常见的图片格式及使用场景"></a>常见的图片格式及使用场景</h2><ol>
-<li><p><strong>BMP</strong>，是无损的、既支持索引色也支持直接色的点阵图。这种图片格式几乎没有对数据进行压缩，所以BMP格式的图片通常是较大的文件。</p>
-</li>
-<li><p><strong>GIF</strong>是无损的、采用索引色的点阵图。采用LZW压缩算法进行编码。<strong>文件小，支持动画以及透明</strong>的优点。但是GIF格式仅支持8bit的索引色，所以GIF格式适用于对色彩要求不高同时需要文件体积较小的场景。</p>
-</li>
-<li><p><strong>JPEG</strong>是有损的、采用直接色的点阵图。优点是采用了直接色，更丰富的色彩适合用来存储照片，不适合用来存储企业Logo、线框类的图。因为有损压缩会导致图片模糊，而直接色的选用，又会导致图片文件较GIF更大。</p>
-</li>
-<li><p><strong>PNG-8</strong>是无损的、使用索引色的点阵图。PNG是一种比较新的图片格式，PNG-8是非常好的GIF格式替代者，在可能的情况下，应该尽可能的使用PNG-8而不是GIF，因为在相同的图片效果下，PNG-8具有更小的文件体积。除此之外，PNG-8还支持透明度的调节，而GIF并不支持。除非需要动画的支持，否则没有理由使用GIF而不是PNG-8。</p>
-</li>
-<li><p><strong>PNG-24</strong>是无损的、使用直接色的点阵图。PNG-24的优点在于它压缩了图片的数据，使得同样效果的图片，PNG-24格式的文件大小要比BMP小得多。当然，PNG24的图片还是要比JPEG、GIF、PNG-8大得多。</p>
-</li>
-<li><p><strong>SVG</strong>是无损的矢量图。SVG是矢量图意味着SVG图片由直线和曲线以及绘制它们的方法组成。SVG图片在放大时，不会失真，非常适合用来绘制Logo、Icon等</p>
-</li>
-<li><p><strong>WebP</strong>支持有损和无损压缩的、使用直接色的点阵图。从名字就可以看出来它是为Web而生的。相同质量的图片，WebP具有更小的文件体积。目前只有Chrome浏览器和Opera浏览器支持WebP格式，兼容性不太好。</p>
-<ul>
-<li>在无损压缩的情况下，相同质量的WebP图片，文件大小要比PNG小26%；</li>
-<li>在有损压缩的情况下，具有相同图片精度的WebP图片，文件大小要比JPEG小25%~34%；</li>
-<li>WebP图片格式支持图片透明度，一个无损压缩的WebP图片，如果要支持透明度只需要22%的格外文件大小。</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>前端</category>
-        <category>查漏补缺</category>
-      </categories>
-      <tags>
-        <tag>CDN</tag>
-        <tag>性能优化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>挖坑填坑-系列文章</title>
     <url>/archives/54a0864a.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>只有不断的挖坑，才会有持续创作的能力~</p>
@@ -4987,7 +4856,7 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><img data-src="https://s2.loli.net/2022/12/09/hn6szuTWENfaHPZ.png"></p>
 <span id="more"></span>
 
-<h1 id="浏览器安全"><a href="#浏览器安全" class="headerlink" title="浏览器安全"></a>浏览器安全</h1><h2 id="XSS攻击"><a href="#XSS攻击" class="headerlink" title="XSS攻击"></a>XSS攻击</h2><p>XSS攻击指的是跨站脚本攻击(Cross-Site Scripting)，是一种代码注入攻击。攻击者通过在网站注入恶意脚本，使之在用户的浏览器上运行，从而盗取用户的信息如 cookie 等。</p>
+<h1 id="浏览器安全"><a href="#浏览器安全" class="headerlink" title="浏览器安全"></a>浏览器安全</h1><h2 id="XSS攻击"><a href="#XSS攻击" class="headerlink" title="XSS攻击"></a>XSS攻击</h2><p>XSS攻击指的是跨站脚本攻击(Cross-Site Scripting)，是<strong>一种代码注入攻击</strong>。攻击者通过在网站注入恶意脚本，使之在用户的浏览器上运行，从而盗取用户的信息如 cookie 等。</p>
 <p>XSS 的本质是因为网站没有对恶意代码进行过滤，与正常的代码混合在一起了，浏览器没有办法分辨哪些脚本是可信的，从而导致了恶意代码的执行。</p>
 <p>攻击者可以通过XSS攻击进行以下操作：</p>
 <ul>
@@ -4996,7 +4865,7 @@
 <li>破坏页面结构；</li>
 <li>流量劫持（将链接指向某网站）</li>
 </ul>
-<h3 id="攻击类型"><a href="#攻击类型" class="headerlink" title="攻击类型"></a>攻击类型</h3><p>XSS 可以分为存储型、反射型和 DOM 型：</p>
+<h3 id="攻击类型"><a href="#攻击类型" class="headerlink" title="攻击类型"></a>攻击类型</h3><p>XSS 可以<strong>分为存储型、反射型和 DOM 型</strong>：</p>
 <ul>
 <li>存储型指的是恶意脚本会存储在目标服务器上，当浏览器请求数据时，脚本从服务器传回并执行。</li>
 <li>反射型指的是攻击者诱导用户访问一个带有恶意代码的 URL 后，服务器端接收数据后处理，然后把带有恶意代码的数据发送到浏览器端，浏览器端解析这段带有 XSS 代码的数据后当做脚本执行，最终完成 XSS 攻击。 </li>
@@ -5006,7 +4875,7 @@
 <p>反射型 XSS 漏洞常⻅于通过 URL 传递参数的功能，如⽹站搜索、跳转等。 由于需要⽤户主动打开恶意的 URL 才能⽣效，攻击者往往会结合多种⼿段诱导⽤户点击。  </p>
 <p>DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执⾏恶意代码由浏览器端完成，属于前端JavaScript ⾃身的安全漏洞，⽽其他两种 XSS 都属于服务端的安全漏洞。 </p>
 <h2 id="如何抵御XSS"><a href="#如何抵御XSS" class="headerlink" title="如何抵御XSS"></a>如何抵御XSS</h2><ul>
-<li>可以从浏览器的执行来进行预防，一种是使用纯前端的方式，不用服务器端拼接后返回（不使用服务端渲染）。另一种是对需要插入到 HTML 中的代码做好充分的转义。对于 DOM 型的攻击，主要是前端脚本的不可靠而造成的，对于数据获取渲染和字符串拼接的时候应该对可能出现的恶意代码情况进行判断。</li>
+<li>抵御XSS攻击的一般方法是对用户输入的数据进行转义或者过滤，防止恶意的脚本代码被执行</li>
 <li>使用 CSP ，CSP 的本质是建立一个白名单，告诉浏览器哪些外部资源可以加载和执行，从而防止恶意代码的注入攻击。</li>
 </ul>
 <blockquote>
@@ -5018,6 +4887,29 @@
 <ul>
 <li>对一些敏感信息进行保护，比如 cookie 使用 http-only，使得脚本无法获取。也可以使用验证码，避免脚本伪装成用户执行一些操作。</li>
 </ul>
+<h2 id="CSRF攻击"><a href="#CSRF攻击" class="headerlink" title="CSRF攻击"></a>CSRF攻击</h2><p>CSRF 攻击指的是<strong>跨站请求伪造攻击</strong>。</p>
+<p>CSRF攻击的过程是，用户在浏览器上登录了网站A，并且网站A返回了Cookie信息给浏览器，用户没有退出网站A；然后用户在同一浏览器上访问了网站B，网站B上有一些隐藏的链接或者表单，指向网站A的一些敏感操作；当用户点击这些链接或者表单时，浏览器会自动带上网站A的Cookie信息，发送请求到网站A，网站A认为这是用户的合法请求，从而执行了攻击者想要的操作</p>
+<p>CSRF 攻击的<strong>本质是利用 cookie 会在同源请求中携带发送给服务器的特点，以此来实现用户的冒充</strong>。</p>
+<h2 id="如何抵御CSRF"><a href="#如何抵御CSRF" class="headerlink" title="如何抵御CSRF"></a>如何抵御CSRF</h2><ul>
+<li>使用验证码。验证码是一种让用户进行二次身份验证的方式，可以阻止攻击者伪造用户的请求。但是验证码会影响用户的体验，不适合频繁使用。</li>
+<li>使用Token。Token是一种服务器生成的随机字符串，可以放在表单的隐藏字段或者URL的参数中，每次用户发送请求时，都要带上Token。服务器会验证Token的有效性，如果Token不匹配或者过期，就拒绝请求。Token可以有效防止CSRF攻击，但是需要服务器保存和管理Token。</li>
+<li>使用Referer。Referer是HTTP请求头中的一个字段，表示请求的来源网站。服务器可以检查Referer是否来自合法的网站，如果不是，就拒绝请求。Referer可以简单地防止CSRF攻击，但是也有一些缺点，比如Referer可能被篡改或者禁用。</li>
+<li>使用SameSite。SameSite是Cookie的一个属性，表示Cookie是否可以跨站发送1。如果设置为Strict或者Lax，就可以阻止Cookie在跨站请求中被发送，从而防止CSRF攻击。SameSite是一种比较新的防御方式，但是也有一些兼容性和局限性的问题。</li>
+</ul>
+<h2 id="有哪些可能引起前端安全"><a href="#有哪些可能引起前端安全" class="headerlink" title="有哪些可能引起前端安全"></a>有哪些可能引起前端安全</h2><ul>
+<li>跨站脚本 (Cross-Site Scripting, XSS): ⼀种代码注⼊⽅式, 为了与 CSS 区分所以被称作 XSS。早期常⻅于⽹络论坛, 起因是⽹站没有对⽤户的输⼊进⾏严格的限制, 使得攻击者可以将脚本上传到帖⼦让其他⼈浏览到有恶意脚本的⻚⾯, 其注⼊⽅式很简单包括但不限于 JavaScript / CSS / Flash 等； </li>
+<li>iframe的滥⽤: iframe中的内容是由第三⽅来提供的，默认情况下他们不受控制，他们可以在iframe中运⾏JavaScirpt脚本、Flash插件、弹出对话框等等，这可能会破坏前端⽤户体验；</li>
+<li>跨站点请求伪造（Cross-Site Request Forgeries，CSRF）: 指攻击者通过设置好的陷阱，强制对已完成认证的⽤户进⾏⾮预期的个⼈信息或设定信息等某些状态更新，属于被动攻击 </li>
+<li>恶意第三⽅库: ⽆论是后端服务器应⽤还是前端应⽤开发，绝⼤多数时候都是在借助开发框架和各种类库进⾏快速开发，⼀旦第三⽅库被植⼊恶意代码很容易引起安全问题。</li>
+</ul>
+<h2 id="网络劫持有哪几种，如何防范？"><a href="#网络劫持有哪几种，如何防范？" class="headerlink" title="网络劫持有哪几种，如何防范？"></a>网络劫持有哪几种，如何防范？</h2><p>⽹络劫持分为两种: </p>
+<p>（1）<strong>DNS</strong>劫持: (输⼊京东被强制跳转到淘宝这就属于dns劫持) </p>
+<ul>
+<li>DNS强制解析: 通过修改运营商的本地DNS记录，来引导⽤户流量到缓存服务器</li>
+<li>302跳转的⽅式: 通过监控⽹络出⼝的流量，分析判断哪些内容是可以进⾏劫持处理的,再对劫持的内存发起302跳转的回复，引导⽤户获取内容 </li>
+</ul>
+<p>（2）<strong>HTTP</strong>劫持: (访问⾕歌但是⼀直有贪玩蓝⽉的⼴告),由于http明⽂传输,运营商会修改你的http响应内容(即加⼴告) </p>
+<p>DNS劫持由于涉嫌违法，已经被监管起来，现在很少会有DNS劫持，⽽http劫持依然⾮常盛⾏，最有效的办法就是全站HTTPS，将HTTP加密，这使得运营商⽆法获取明⽂，就⽆法劫持你的响应内容。 </p>
 <h1 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h1><p>进程是资源分配的最小单位，线程是CPU调度的最小单位。</p>
 <p>进程放在应用上来说就代表了一个程序；线程是进程中的更小单位，描述了执行一段指令所需的时间。</p>
 <p>进程和线程之间的关系：</p>
@@ -5027,7 +4919,8 @@
 <li>当进程关闭，操作系统会回收进程所占用的内存</li>
 <li>进程之间的内容相互隔离</li>
 </ol>
-<h2 id="浏览器的进程"><a href="#浏览器的进程" class="headerlink" title="浏览器的进程"></a>浏览器的进程</h2><p><img data-src="https://cdn.nlark.com/yuque/0/2020/png/1500604/1603803289911-191cabf3-e7e2-4354-a83d-858668cc116f.png" alt="浏览器的进程"></p>
+<h2 id="浏览器的进程"><a href="#浏览器的进程" class="headerlink" title="浏览器的进程"></a>浏览器的进程</h2><img data-src="https://cdn.nlark.com/yuque/0/2020/png/1500604/1603803289911-191cabf3-e7e2-4354-a83d-858668cc116f.png" alt="浏览器的进程" style="zoom:80%;" />
+
 <ul>
 <li><strong>浏览器进程</strong>：主要负责界面显示、用户交互、子进程管理，同时提供存储等功能</li>
 <li><strong>渲染进程</strong>：核心任务是将 HTML、CSS 和 JavaScript 转换为用户可以与之交互的网页，排版引擎 Blink 和 JavaScript 引擎 V8 都是运行在该进程中，默认情况下，Chrome 会为每个 Tab 标签创建一个渲染进程。出于安全考虑，渲染进程都是运行在沙箱模式下。</li>
@@ -5041,6 +4934,22 @@
 <li><strong>更高的资源占用</strong>：因为每个进程都会包含公共基础结构的副本（如 JavaScript 运行环境），这就意味着浏览器会消耗更多的内存资源。</li>
 <li><strong>更复杂的体系架构</strong>：浏览器各模块之间耦合性高、扩展性差等问题，会导致现在的架构已经很难适应新的需求了。</li>
 </ul>
+<h2 id="渲染进程的线程有哪些"><a href="#渲染进程的线程有哪些" class="headerlink" title="渲染进程的线程有哪些"></a>渲染进程的线程有哪些</h2><ol>
+<li><p>GUI渲染线程，渲染浏览器页面</p>
+</li>
+<li><p>JS引擎线程，负责处理Javascript脚本程序，一个Tab页中无论什么时候都只有一个JS引擎线程在运行JS程序；</p>
+</li>
+<li><p>时间触发线程，用来控制事件循环；</p>
+</li>
+<li><p><strong>定时器触发进程</strong>即setInterval与setTimeout所在线程；</p>
+</li>
+<li><p>异步http请求线程，XMLHttpRequest连接后通过浏览器新开一个线程请求；</p>
+<p>检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将回调函数放入事件队列中，等待JS引擎空闲后执行；</p>
+</li>
+</ol>
+<p><strong>GUI渲染线程和JS引擎线程是互斥的</strong>，当JS引擎执行时GUI线程会被挂起，GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行</p>
+<h2 id="进程之间的通信方式"><a href="#进程之间的通信方式" class="headerlink" title="进程之间的通信方式"></a>进程之间的通信方式</h2><p><strong>管道通信</strong></p>
+<p>管道就是操作系统在内核中开辟的一段缓冲区，进程1可以将需要交互的数据拷贝到这段缓冲区，进程2就可以读取了。</p>
 <h2 id="僵尸进程和孤儿进程是什么？"><a href="#僵尸进程和孤儿进程是什么？" class="headerlink" title="僵尸进程和孤儿进程是什么？"></a>僵尸进程和孤儿进程是什么？</h2><ul>
 <li><strong>孤儿进程</strong>：父进程退出了，而它的一个或多个进程还在运行，那这些子进程都会成为孤儿进程。孤儿进程将被init进程(进程号为1)所收养，并由init进程对它们完成状态收集工作。</li>
 <li><strong>僵尸进程</strong>：子进程比父进程先结束，而父进程又没有释放子进程占用的资源，那么子进程的进程描述符仍然保存在系统中，这种进程称之为僵死进程。</li>
@@ -6145,6 +6054,201 @@
       </categories>
       <tags>
         <tag>axios</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何考虑性能优化</title>
+    <url>/archives/fcbdffd2.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这篇文章主要介绍性能优化相关的知识点，包括CDN、懒加载、回流重绘、节流防抖等。</p>
+<p><img data-src="C:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20230120105821728.png" alt="image-20230120105821728"></p>
+<span id="more"></span>
+
+<h1 id="如何考虑性能优化"><a href="#如何考虑性能优化" class="headerlink" title="如何考虑性能优化"></a>如何考虑性能优化</h1><h2 id="如何实现Vue项目中的性能优化"><a href="#如何实现Vue项目中的性能优化" class="headerlink" title="如何实现Vue项目中的性能优化"></a>如何实现Vue项目中的性能优化</h2><h3 id="编码阶段"><a href="#编码阶段" class="headerlink" title="编码阶段"></a>编码阶段</h3><ul>
+<li>采用 keep-alive 缓存组件</li>
+<li>使用路由懒加载、异步组件</li>
+<li>第三方模块按需导入</li>
+<li>图片懒加载</li>
+<li>防抖、节流</li>
+</ul>
+<h3 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h3><ul>
+<li>预渲染</li>
+<li>服务端渲染 <em>SSR</em></li>
+</ul>
+<p>预渲染 是一种构建阶段生成匹配预渲染路径的HTML文件方式，来提高网站在搜索引擎中的自然排名的方法。 好处是可以改善网页的SEO，而不需要服务器端渲染，缺点是为每个预渲染的路由生成一个HTML文件，可能会增减构建时间和文件大小。</p>
+<p>两者的区别：</p>
+<ul>
+<li>预渲染是在构建阶段生成静态 HTML 文件，而 SSR 是在服务器端动态编译 HTML。</li>
+<li>预渲染适合改善少数营销页面的 SEO，而 SSR 适合改善动态数据的 SEO。</li>
+<li>预渲染的优点是简单易用，不需要服务器端资源，而 SSR 的优点是可以实现更快的首屏渲染，更好的用户体验和更高的转化率。</li>
+<li>预渲染的缺点是需要为每个路由生成一个 HTML 文件，可能增加构建时间和文件大小，而 SSR 的缺点是需要更多的服务器端资源，可能增加服务器端压力和复杂度。</li>
+</ul>
+<h3 id="打包优化"><a href="#打包优化" class="headerlink" title="打包优化"></a>打包优化</h3><ul>
+<li> 压缩代码</li>
+<li> <code>Tree Shaking/Scope Hoisting</code></li>
+<li>Tree Shaking是一种消除未使用代码的过程，确定哪些代码被引用，哪些代码没有被引用。减少最终打包的文件大小，使其更快地下载和解析。</li>
+<li>Scope Hoisting是一种将多个JavaScript模块合并到一个作用域的过程，可以通过将跨模块的引用变成静态而不是动态的属性查找，提高运行时的性能</li>
+<li>使用 <em>cdn</em> 加载第三方模块</li>
+</ul>
+<h3 id="用户端"><a href="#用户端" class="headerlink" title="用户端"></a>用户端</h3><ul>
+<li><p>骨架屏</p>
+<p>是一种在网页内容加载之前，显示网页的基本结构和样式的技术，它可以让用户感觉网页加载更快，减少用户的等待感和焦虑感。</p>
+</li>
+<li><p>PWA</p>
+<p>是一种使用网页技术，但可以安装和运行在所有设备上，提供类似于原生应用的体验的技术，它可以让网页更适应不同的设备和网络环境，更方便用户的访问和使用。</p>
+</li>
+</ul>
+<h2 id="SPA应用如何优化首屏加载速度"><a href="#SPA应用如何优化首屏加载速度" class="headerlink" title="SPA应用如何优化首屏加载速度"></a>SPA应用如何优化首屏加载速度</h2><ul>
+<li><p>请求优化， 将第三方的类库放到 CDN 上，能够大幅度减少生产环境中的项目体积。CDN可以实时根据流量、节点连接、负载状况以及到用户的距离、响应时间等综合因素 将请求重新导向最合适的服务节点中。</p>
+</li>
+<li><p>缓存：将长时间不会改变的第三方类库或者静态资源设置为强缓存，将 max-age 设置为一个非常长的时间，再将访问路径加上哈希达到哈希值变了以后保证获取到最新资源，好的缓存策略有助于减轻服务器的压力，并且显著的提升用户的体验</p>
+</li>
+<li><p>gzip：开启 gzip 压缩，通常开启 gzip 压缩能够有效的缩小传输资源的大小</p>
+</li>
+<li><p>http2</p>
+<p>如果系统首屏同一时间需要加载的静态资源非常多，但是浏览器对同域名的 tcp 连接数量是有限制的(chrome 为 6 个)超过规定数量的 tcp 连接，则必须要等到之前的请求收到响应后才能继续发送，而 http2 则可以在多个 tcp 连接中并发多个请求没有限制，在一些网络较差的环境开启 http2 性能提升尤为明显。</p>
+</li>
+<li><p>使用路由懒加载， import 动态加载页面组件</p>
+</li>
+<li><p>预渲染</p>
+</li>
+<li><p>按需加载第三方库</p>
+</li>
+<li><p>图片懒加载</p>
+</li>
+<li><p>使用 svg 图标</p>
+</li>
+<li><p>选用合适的图片格式，做图片压缩，在不影响使用的情况下压缩图片质量</p>
+</li>
+</ul>
+<h1 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h1><h2 id="CDN的概念"><a href="#CDN的概念" class="headerlink" title="CDN的概念"></a>CDN的概念</h2><p>CDN, content delivery network，内容分发网络，又称内容传送网络。</p>
+<p>当我们在开发网站的时候，经常会有很多的图片、视频、动态效果需要部署，这些样式的引入通常有两种方式，</p>
+<p>一是直接放在项目内部，再部署到公网上，这样通常会严重影响网站访问速度，<a href="https://ychch.top/archives/6ec3525c.html">见我上篇文章–如何提升网站加载速度</a></p>
+<p>第二种做法就是 使用CDN来加速网站里特别消耗资源的文件。那CDN到底是什么呢？</p>
+<p>有个很形象的网上购物比喻可以帮助理解：</p>
+<p>访问没有使用CDN的网站，就相当于在<strong>淘宝</strong>下单了一件货源在深圳的商品，不管你是从哪里下单的，河南、湖北、甘肃 or 西藏，商家都会从深圳统一发货，那么到货的时间长短不一了，一般来说时间都要三四五天的样子</p>
+<p>访问使用了CDN的网站，就相当于在<strong>京东自营</strong>下单了一件商品。</p>
+<p>我们都知道，京东自营的物流是很牛的，淘宝是将物流外包给了很多小公司，所以货物的中转次数很多，很复杂，但是<strong>京东搭建了属于自己的一整套物流体系</strong>，它会根据你的收货地址去找离收货地址最近的物流仓库，然后直接<strong>就近发货</strong>。比如你在甘肃下的单，西安的仓库里有你需要的货物，京东就直接从西安给你发过来了。</p>
+<p><strong>CDN就相当于网络资源世界里的京东仓储系统</strong></p>
+<p>CDN的全称是, content delivery network，内容分发网络。顾名思义，就是专门分发资源的网络。</p>
+<p>CDN系统能够实时根<strong>据网络流量和各节点的连接、负载情况、到用户的距离和响应时间等综合信息</strong>将用户的资源请求<strong>重新导向</strong>离用户最近的服务节点上，其目的就是让用户就近取得所需内容，解决网络拥挤的问题，提高用户的访问速度。</p>
+<p>下图就很好的说明了有无CDN时的访问情况</p>
+<img data-src="https://s2.loli.net/2022/03/18/RZMnhbHLmjX9JKz.png" style="zoom:80%;" />
+
+<h2 id="CDN组成"><a href="#CDN组成" class="headerlink" title="CDN组成"></a>CDN组成</h2><p>了解了CDN的作用之后，再往下继续延伸</p>
+<p>CDN作为内容分发的服务器，就自然有两点问题，一是内容从何处来，二是它能分发给多少用户</p>
+<p>典型的CDN系统由下面三个部分组成：</p>
+<ul>
+<li><strong>分发服务系统：</strong>最基本的工作单元就是Cache设备，cache负责最终用户的访问请求，<strong>把缓存在本地的内容快速地提供给用户</strong>。同时还负责<strong>与源站点进行内容同步</strong>，把更新的内容以及本地没有的内容从源站点获取并保存在本地。Cache设备的数量、规模、总服务能力是衡量一个CDN系统服务能力的最基本的指标。</li>
+<li><strong>负载均衡系统：</strong>主要功能是负责对所有发起服务请求的用户进行访问调度，确定提供给用户的最终实际访问地址。两级调度体系分为全局负载均衡（GSLB）和本地负载均衡（SLB）。<strong>全局负载均衡</strong>主要根据用户就近性原则，通过对每个服务节点进行“最优”判断，确定向用户提供服务的cache的物理位置。<strong>本地负载均衡</strong>主要负责节点内部的设备负载均衡</li>
+<li><strong>运营管理系统：</strong>运营管理系统分为运营管理和网络管理子系统，负责处理业务层面的与外界系统交互所必须的收集、整理、交付工作，包含客户管理、产品管理、计费管理、统计分析等功能。</li>
+</ul>
+<h2 id="CDN工作原理"><a href="#CDN工作原理" class="headerlink" title="CDN工作原理"></a>CDN工作原理</h2><p>用户未使用CDN缓存资源的过程：</p>
+<ol>
+<li>浏览器通过DNS对域名进行解析（DNS解析过程），依次得到此域名对应的IP地址</li>
+<li>浏览器根据得到的IP地址，向域名的服务主机发送数据请求</li>
+<li>服务器向浏览器返回响应数据</li>
+</ol>
+<p>用户使用CDN缓存资源的过程：</p>
+<ol>
+<li>对于点击的URL，经过本地DNS系统的解析，发现该URL对应的是一个CDN专用的DNS服务器，DNS系统就会将域名解析权交给CNAME指向的CDN专用的DNS服务器。</li>
+<li>CND专用DNS服务器将CND的全局负载均衡设备IP地址返回给用户，用户向CDN的全局负载均衡设备发起数据请求</li>
+<li>CDN的全局负载均衡设备根据用户的IP地址，以及用户请求的内容URL，选择一台用户所属区域的区域负载均衡设备，告诉用户向这台设备发起请求</li>
+<li>区域负载均衡设备选择一台合适的缓存服务器来提供服务，将该缓存服务器的IP地址返回给全局负载均衡设备</li>
+<li>全局负载均衡设备把服务器的IP地址返回给用户，用户向该缓存服务器发起请求，缓存服务器响应用户的请求，将用户所需内容发送至用户终端。</li>
+</ol>
+<p><img data-src="https://s2.loli.net/2022/12/30/67nrFjWZp3LwJD2.png" alt="用户使用CDN缓存资源的过程"></p>
+<h2 id="CDN的好处"><a href="#CDN的好处" class="headerlink" title="CDN的好处"></a>CDN的好处</h2><p>除了加速的网站访问速度，CDN还有什么好处呢</p>
+<ol>
+<li>有利于搜索排名。换位想想，你愿意去访问一个加载特别慢的网站吗，你如果不愿意，那么这些搜索引擎自然就不会把你放在结果排名的前面</li>
+<li>减少托管成本。</li>
+</ol>
+<p>（1）在性能方面，引入CDN的作用在于：</p>
+<ul>
+<li>用户收到的内容来自最近的数据中心，延迟更低，内容加载更快</li>
+<li>部分资源请求分配给了CDN，减少了服务器的负载</li>
+</ul>
+<p>（2）在安全方面，CDN有助于防御DDoS、MITM等网络攻击：</p>
+<ul>
+<li>针对DDoS：通过监控分析异常流量，限制其请求频率</li>
+<li>针对MITM：从源服务器到 CDN 节点到 ISP（Internet Service Provider），全链路 HTTPS 通信</li>
+</ul>
+<p>除此之外，CDN作为一种基础的云服务，同样具有资源托管、按需扩展（能够应对流量高峰）等方面的优势。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://cloud.tencent.com/developer/article/1496434">资料1</a></li>
+</ul>
+<h1 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h1><p>懒加载也叫做延迟加载、按需加载，指的是在长网页中延迟加载图片数据，是一种较好的网页性能优化的方式。</p>
+<p>在比较长的网页或应用中，如果图片很多，所有的图片都被加载出来，而用户只能看到可视窗口的那一部分图片数据，这样就浪费了性能。</p>
+<h2 id="懒加载的好处"><a href="#懒加载的好处" class="headerlink" title="懒加载的好处"></a>懒加载的好处</h2><ul>
+<li><strong>减少无用资源的加载</strong>：使用懒加载明显减少了服务器的压力和流量，同时也减小了浏览器的负担。</li>
+<li><strong>提升用户体验</strong>: 如果同时加载较多图片，可能需要等待的时间较长，这样影响了用户体验，而使用懒加载就能大大的提高用户体验。</li>
+<li><strong>防止加载过多图片而影响其他资源文件的加载</strong> ：会影响网站应用的正常使用</li>
+</ul>
+<h2 id="懒加载与预加载的区别"><a href="#懒加载与预加载的区别" class="headerlink" title="懒加载与预加载的区别"></a>懒加载与预加载的区别</h2><p>这两种方式都是提高网页性能的方式。懒加载对服务器前端有一定的缓解压力作用，预加载则会增加服务器前端压力。</p>
+<ul>
+<li><strong>懒加载也叫延迟加载，指的是在长网页中延迟加载图片的时机，当用户需要访问时，再去加载</strong>，这样可以提高网站的首屏加载速度，提升用户的体验，并且可以减少服务器的压力。它适用于图片很多，页面很长的电商网站的场景。</li>
+<li><strong>预加载指的是将所需的资源提前请求加载到本地，这样后面在需要用到时就直接从缓存取资源。</strong>通过预加载能够减少用户的等待时间，提高用户的体验。预加载的最常用的方式是使用 js 中的 image 对象，通过为 image 对象来设置 scr 属性，来实现图片的预加载。</li>
+</ul>
+<h2 id="懒加载的实现原理"><a href="#懒加载的实现原理" class="headerlink" title="懒加载的实现原理"></a>懒加载的实现原理</h2><p>图片的加载是由<code>src</code>引起的，当对<code>src</code>赋值时，浏览器就会请求图片资源。根据这个原理，我们使用HTML5 的<code>data-xxx</code>属性来储存图片的路径，在需要加载图片的时候，将<code>data-xxx</code>中图片的路径赋值给<code>src</code>，这样就实现了图片的按需加载，即懒加载。</p>
+<p>懒加载的实现重点在于确定用户需要加载哪张图片，在浏览器中，可视区域内的资源就是用户需要的资源。所以当图片出现在可视区域时，获取图片的真实地址并赋值给图片即可。</p>
+<h1 id="节流与防抖"><a href="#节流与防抖" class="headerlink" title="节流与防抖"></a>节流与防抖</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>浏览器的 <code>resize</code>、<code>scroll</code>、<code>keypress</code>、<code>mousemove</code> 等事件在触发时，会不断地调用绑定在事件上的回调函数，极大地浪费资源，降低前端性能</p>
+<p>为了优化体验，限制调用次数，可以采用 <strong>防抖（debounce）</strong> 和 <strong>节流（throttle）</strong> 的方式来减少调用频率</p>
+<p>节流: n 秒内只运行一次，若在 n 秒内重复触发，只有一次生效</p>
+<p><strong>适⽤场景：</strong> </p>
+<ul>
+<li>拖拽场景：固定时间内只执⾏⼀次，防⽌超⾼频次触发位置变动 </li>
+<li>缩放场景：监控浏览器resize </li>
+<li>动画场景：避免短时间内多次触发动画引起性能问题 </li>
+</ul>
+<p>防抖: n 秒后在执行该事件，若在 n 秒内被重复触发，则重新计时</p>
+<p><strong>适⽤场景：</strong> </p>
+<ul>
+<li>按钮提交场景：防⽌多次提交按钮，只执⾏最后提交的⼀次 </li>
+<li>服务端验证场景：表单验证需要服务端配合，只执⾏⼀段连续的输⼊事件的最后⼀次</li>
+</ul>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, delay=<span class="number">500</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> preTime = <span class="built_in">Date</span>.now();</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> newTime = <span class="built_in">Date</span>.now();</span><br><span class="line">        <span class="keyword">if</span> (newTime - preTime &gt;= delay)&#123;</span><br><span class="line">            fn.apply(<span class="literal">null</span>,<span class="built_in">arguments</span>)</span><br><span class="line">            preTime = <span class="built_in">Date</span>.now();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle2</span>(<span class="params">fn,delay=<span class="number">500</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!timer)&#123;</span><br><span class="line">            timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                fn.apply(<span class="built_in">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">                timer = <span class="literal">null</span></span><br><span class="line">            &#125;,delay);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fun, delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (timer) <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">        <span class="keyword">let</span> args = <span class="built_in">arguments</span></span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span>&#123;</span><br><span class="line">            fun.apply(<span class="built_in">this</span>,args)</span><br><span class="line">        &#125;,delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="图片优化"><a href="#图片优化" class="headerlink" title="图片优化"></a>图片优化</h1><p>小图用base64格式；</p>
+<p>选择正确的图片格式：</p>
+<ul>
+<li><p>对于能够显示 WebP 格式的浏览器尽量使用 WebP 格式。因为 WebP 格式具有更好的图像数据压缩算法，能带来更小的图片体积，而且拥有肉眼识别无差异的图像质量，缺点就是兼容性并不好</p>
+</li>
+<li><p>小图使用 PNG，其实对于大部分图标这类图片，完全可以使用 SVG 代替</p>
+</li>
+<li><p>照片使用 JPEG</p>
+</li>
+</ul>
+<h2 id="常见的图片格式及使用场景"><a href="#常见的图片格式及使用场景" class="headerlink" title="常见的图片格式及使用场景"></a>常见的图片格式及使用场景</h2><ol>
+<li><p><strong>BMP</strong>，是无损的、既支持索引色也支持直接色的点阵图。这种图片格式几乎没有对数据进行压缩，所以BMP格式的图片通常是较大的文件。</p>
+</li>
+<li><p><strong>GIF</strong>是无损的、采用索引色的点阵图。采用LZW压缩算法进行编码。<strong>文件小，支持动画以及透明</strong>的优点。但是GIF格式仅支持8bit的索引色，所以GIF格式适用于对色彩要求不高同时需要文件体积较小的场景。</p>
+</li>
+<li><p><strong>JPEG</strong>是有损的、采用直接色的点阵图。优点是采用了直接色，更丰富的色彩适合用来存储照片，不适合用来存储企业Logo、线框类的图。因为有损压缩会导致图片模糊，而直接色的选用，又会导致图片文件较GIF更大。</p>
+</li>
+<li><p><strong>PNG-8</strong>是无损的、使用索引色的点阵图。PNG是一种比较新的图片格式，PNG-8是非常好的GIF格式替代者，在可能的情况下，应该尽可能的使用PNG-8而不是GIF，因为在相同的图片效果下，PNG-8具有更小的文件体积。除此之外，PNG-8还支持透明度的调节，而GIF并不支持。除非需要动画的支持，否则没有理由使用GIF而不是PNG-8。</p>
+</li>
+<li><p><strong>PNG-24</strong>是无损的、使用直接色的点阵图。PNG-24的优点在于它压缩了图片的数据，使得同样效果的图片，PNG-24格式的文件大小要比BMP小得多。当然，PNG24的图片还是要比JPEG、GIF、PNG-8大得多。</p>
+</li>
+<li><p><strong>SVG</strong>是无损的矢量图。SVG是矢量图意味着SVG图片由直线和曲线以及绘制它们的方法组成。SVG图片在放大时，不会失真，非常适合用来绘制Logo、Icon等</p>
+</li>
+<li><p><strong>WebP</strong>支持有损和无损压缩的、使用直接色的点阵图。从名字就可以看出来它是为Web而生的。相同质量的图片，WebP具有更小的文件体积。目前只有Chrome浏览器和Opera浏览器支持WebP格式，兼容性不太好。</p>
+<ul>
+<li>在无损压缩的情况下，相同质量的WebP图片，文件大小要比PNG小26%；</li>
+<li>在有损压缩的情况下，具有相同图片精度的WebP图片，文件大小要比JPEG小25%~34%；</li>
+<li>WebP图片格式支持图片透明度，一个无损压缩的WebP图片，如果要支持透明度只需要22%的格外文件大小。</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>查漏补缺</category>
+      </categories>
+      <tags>
+        <tag>CDN</tag>
+        <tag>性能优化</tag>
       </tags>
   </entry>
 </search>
