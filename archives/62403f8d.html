@@ -36,7 +36,7 @@
 <meta property="og:description" content="如何理解宏任务、微任务？">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-12T01:29:08.000Z">
-<meta property="article:modified_time" content="2023-02-14T14:12:02.446Z">
+<meta property="article:modified_time" content="2023-02-16T05:06:52.716Z">
 <meta property="article:author" content="ych-ch">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
@@ -101,7 +101,7 @@
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>我 & 友链</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">46</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">15</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">57</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">58</span></a></li>
         <li class="menu-item menu-item-pictures"><a href="/gallery/" rel="section"><i class="fa fa-images fa-fw"></i>影像馆</a></li>
         <li class="menu-item menu-item-movies"><a href="/movies/" rel="section"><i class="fa fa-video fa-fw"></i>光影岁月</a></li>
         <li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>好书推荐</a></li>
@@ -162,7 +162,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%AE%8F%E4%BB%BB%E5%8A%A1%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">如何理解宏任务、微任务？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="nav-number">1.1.</span> <span class="nav-text">运行机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E5%AE%8F%E4%BB%BB%E5%8A%A1%EF%BC%8C%E5%93%AA%E4%BA%9B%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.2.</span> <span class="nav-text">有哪些宏任务，哪些微任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.2.1.</span> <span class="nav-text">宏任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.2.2.</span> <span class="nav-text">微任务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B"><span class="nav-number">1.3.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E4%B8%80%E9%81%8D%E8%AF%B4-bind%E3%80%81call%E3%80%81apply"><span class="nav-number">1.4.</span> <span class="nav-text">最后一遍说 bind、call、apply</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">异步处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%AE%8F%E4%BB%BB%E5%8A%A1%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">如何理解宏任务、微任务？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="nav-number">1.1.1.</span> <span class="nav-text">运行机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.2.</span> <span class="nav-text">宏任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.3.</span> <span class="nav-text">微任务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript%E5%BC%82%E6%AD%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">JavaScript异步解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%B0%84"><span class="nav-number">2.1.</span> <span class="nav-text">代理和反射</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E4%B8%80%E9%81%8D%E8%AF%B4-bind%E3%80%81call%E3%80%81apply"><span class="nav-number">3.</span> <span class="nav-text">最后一遍说 bind、call、apply</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -177,7 +177,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -541,7 +541,7 @@ if(canvas.getContext){
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-02-14 22:12:02" itemprop="dateModified" datetime="2023-02-14T22:12:02+08:00">2023-02-14</time>
+      <time title="修改时间：2023-02-16 13:06:52" itemprop="dateModified" datetime="2023-02-16T13:06:52+08:00">2023-02-16</time>
     </span>
 
   
@@ -565,7 +565,7 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.1k</span>
+      <span>2.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -586,7 +586,8 @@ if(canvas.getContext){
         <p>如何理解宏任务、微任务？</p>
 <span id="more"></span>
 
-<h1 id="如何理解宏任务、微任务？"><a href="#如何理解宏任务、微任务？" class="headerlink" title="如何理解宏任务、微任务？"></a>如何理解宏任务、微任务？</h1><p>JavaScript代码执行顺序：</p>
+<h1 id="异步处理"><a href="#异步处理" class="headerlink" title="异步处理"></a>异步处理</h1><p> JS 引擎对事件队列的取出执行方式，以及与宿主环境的配合，称之为事件循环。</p>
+<h2 id="如何理解宏任务、微任务？"><a href="#如何理解宏任务、微任务？" class="headerlink" title="如何理解宏任务、微任务？"></a>如何理解宏任务、微任务？</h2><p>JavaScript代码执行顺序：</p>
 <ol>
 <li>先执行同步代码</li>
 <li>遇到异步宏任务则将放入宏任务队列中，遇到异步微任务则将放入微任务队列中</li>
@@ -596,7 +597,7 @@ if(canvas.getContext){
 <li>循环往复…</li>
 </ol>
 <p>结论：在异步任务中：微任务先于宏任务</p>
-<h2 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h2><p>在事件循环中，每进行一次循环操作称为 tick，关键步骤如下：</p>
+<h3 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h3><p>在事件循环中，每进行一次循环操作称为 tick，关键步骤如下：</p>
 <ul>
 <li>执行一个宏任务（栈中没有就从事件队列中获取）</li>
 <li>执行过程中如果遇到微任务，就将它添加到微任务的任务队列中</li>
@@ -604,11 +605,11 @@ if(canvas.getContext){
 <li>当前宏任务执行完毕，开始检查渲染，然后GUI线程接管渲染</li>
 <li>渲染完毕后，JS线程继续接管，开始下一个宏任务（从事件队列中获取）</li>
 </ul>
-<h2 id="有哪些宏任务，哪些微任务"><a href="#有哪些宏任务，哪些微任务" class="headerlink" title="有哪些宏任务，哪些微任务"></a>有哪些宏任务，哪些微任务</h2><h3 id="宏任务"><a href="#宏任务" class="headerlink" title="宏任务"></a>宏任务</h3><p>(macro)task，可以理解是每次执行栈执行的代码就是一个宏任务（包括每次从事件队列中获取一个事件回调并放到执行栈中执行）</p>
+<h3 id="宏任务"><a href="#宏任务" class="headerlink" title="宏任务"></a>宏任务</h3><p>(macro)task，可以理解是每次执行栈执行的代码就是一个宏任务（包括每次从事件队列中获取一个事件回调并放到执行栈中执行）</p>
 <p>浏览器为了能够使得JS内部(macro)task与DOM任务能够有序的执行，会在一个(macro)task执行结束后，在下一个(macro)task 执行开始前，对页面进行重新渲染，流程如下：</p>
 <p>(<strong>macro</strong>)task-&gt;渲染-&gt;(<strong>macro</strong>)task-&gt;…</p>
 <p>宏任务具体包括：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">script</span><span class="params">(整体代码)</span></span></span><br><span class="line">setTimeout</span><br><span class="line">setInterval</span><br><span class="line">I/O</span><br><span class="line">UI交互事件</span><br><span class="line">postMessage</span><br><span class="line">MessageChannel</span><br><span class="line"><span class="function"><span class="title">setImmediate</span><span class="params">(Node.js 环境)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">script</span><span class="params">(整体代码)</span></span></span><br><span class="line">计时器结束的回调，setTimeout、setInterval</span><br><span class="line">事件回调、http 回调等绝大部分异步函数进入宏队列</span><br><span class="line">I/O</span><br><span class="line">UI交互事件</span><br><span class="line">postMessage</span><br><span class="line">MessageChannel</span><br><span class="line"><span class="function"><span class="title">setImmediate</span><span class="params">(Node.js 环境)</span></span></span><br></pre></td></tr></table></figure>
 
 <p><strong>new Promise在实例化的过程中所执行的代码都是同步进行的，而then中注册的回调才是异步执行的</strong></p>
 <h3 id="微任务"><a href="#微任务" class="headerlink" title="微任务"></a>微任务</h3><p>在当前 task 执行结束后立即执行的任务。在当前task任务后，下一个task之前，在渲染之前。</p>
@@ -616,7 +617,8 @@ if(canvas.getContext){
 <p>具体包括：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.then</span><br><span class="line"><span class="built_in">Object</span>.observe</span><br><span class="line">MutationObserver</span><br><span class="line">process.nextTick(Node.js 环境)</span><br></pre></td></tr></table></figure>
 
-<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="params">_</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">  resolve()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">_</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="params">_</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">  resolve()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">_</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 
 <ol>
 <li>整体script作为第一个宏任务进入主线程，遇到setTimeout入栈处理，发现是异步函数（宏任务），出栈，移交给Web API处理，0秒等待后，将回调函数加到宏任务队列尾部；</li>
@@ -629,7 +631,13 @@ if(canvas.getContext){
 <li>从宏任务队列中取出第一个宏任务，入栈处理，发现是同步任务，直接console输出4；</li>
 </ol>
 <p>所以，最终输出结果为：1 &gt; 2 &gt; 3 &gt; 4</p>
-<h2 id="最后一遍说-bind、call、apply"><a href="#最后一遍说-bind、call、apply" class="headerlink" title="最后一遍说 bind、call、apply"></a>最后一遍说 bind、call、apply</h2><p>区别一：call、apply是立即执行、bind是返回一个新的函数</p>
+<h1 id="JavaScript异步解决方案"><a href="#JavaScript异步解决方案" class="headerlink" title="JavaScript异步解决方案"></a>JavaScript异步解决方案</h1><ol>
+<li>回调函数，解决同步问题，但是带来回调地狱</li>
+<li>promise，解决回调地狱，但是无法取消promise，错误需要用回调函数来捕获</li>
+<li>generator，控制函数的执行</li>
+<li>async/await，代码清晰，不用写一堆then链</li>
+</ol>
+<h2 id="代理和反射"><a href="#代理和反射" class="headerlink" title="代理和反射"></a>代理和反射</h2><h1 id="最后一遍说-bind、call、apply"><a href="#最后一遍说-bind、call、apply" class="headerlink" title="最后一遍说 bind、call、apply"></a>最后一遍说 bind、call、apply</h1><p>区别一：call、apply是立即执行、bind是返回一个新的函数</p>
 <p><strong>bind 返回的是一个新的函数，你必须调用它才会被执行</strong></p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">obj</span><span class="selector-class">.myFun</span><span class="selector-class">.call</span>(db)；　　　　<span class="comment">// 德玛年龄 99</span></span><br><span class="line"><span class="selector-tag">obj</span><span class="selector-class">.myFun</span><span class="selector-class">.apply</span>(db);　　　 <span class="comment">// 德玛年龄 99</span></span><br><span class="line"><span class="selector-tag">obj</span><span class="selector-class">.myFun</span><span class="selector-class">.bind</span>(db)();　　　<span class="comment">// 德玛年龄 99</span></span><br></pre></td></tr></table></figure>
 
@@ -682,6 +690,9 @@ if(canvas.getContext){
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/archives/a1cc9d5d.html" rel="next" title="23-2-16 总结">
+                  23-2-16 总结 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -714,13 +725,13 @@ if(canvas.getContext){
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">218k</span>
+    <span title="站点总字数">219k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:18</span>
+    <span title="站点阅读时长">3:19</span>
   </span>
 </div>
 <div class="busuanzi-count">
