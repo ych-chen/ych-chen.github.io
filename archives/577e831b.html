@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="baidu-site-verification" content="code-oy2gTeqH9v" />
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/blogIcon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/blogIcon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/blogIcon.png">
+  <link rel="mask-icon" href="/images/blogIcon.png" color="#222">
+  <link rel="manifest" href="/images/blogIcon.png">
+  <meta name="google-site-verification" content="5O1JD7i07BBNtPS8GeMREfy3KlJKyIHRvUbt0Ulnc4k">
+  <meta name="msvalidate.01" content="defbadb89c5687f86ead63be53a1b83c">
+  <meta name="baidu-site-verification" content="kBCDbEEWrIWKXwYW">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/pace-js/themes/blue/pace-theme-minimal.css">
+  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ychch.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="今天上了工程案例课程的第一节课，请到了丰图科技陈总工程师为我们做了一次有关地图数据工程化的技术讲座，收获颇多，下面就讲座内容做一下总结分析。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工程案例1—地图数据算法工程化">
+<meta property="og:url" content="https://ychch.top/archives/577e831b.html">
+<meta property="og:site_name" content="CYC&#39;s 个人博客">
+<meta property="og:description" content="今天上了工程案例课程的第一节课，请到了丰图科技陈总工程师为我们做了一次有关地图数据工程化的技术讲座，收获颇多，下面就讲座内容做一下总结分析。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli1.6rkmo0kk7kk0.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli1-4.2av6hgy6g268.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli1-1.7pvqlepg8mw.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli1-2.10g1rlb3r4r4.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli1-3.yi50yc4f4dc.webp">
+<meta property="article:published_time" content="2022-03-05T00:40:55.000Z">
+<meta property="article:modified_time" content="2024-08-20T01:44:56.569Z">
+<meta property="article:author" content="ych-ch">
+<meta property="article:tag" content="互联网">
+<meta property="article:tag" content="地图算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli1.6rkmo0kk7kk0.webp">
+
+
+<link rel="canonical" href="https://ychch.top/archives/577e831b.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ychch.top/archives/577e831b.html","path":"archives/577e831b.html","title":"工程案例1—地图数据算法工程化"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>工程案例1—地图数据算法工程化 | CYC's 个人博客</title>
+  
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.ychch.top/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="CYC's 个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">CYC's 个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">当我与世界初相见</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>我 & 友链</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">58</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">60</span></a></li>
+        <li class="menu-item menu-item-pictures"><a href="/gallery/" rel="section"><i class="fa fa-images fa-fw"></i>影像馆</a></li>
+        <li class="menu-item menu-item-movies"><a href="/movies/" rel="section"><i class="fa fa-video fa-fw"></i>光影岁月</a></li>
+        <li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>好书推荐</a></li>
+        <li class="menu-item menu-item-shuoshuo"><a href="/shuoshuo/" rel="section"><i class="fa fa-comment fa-fw"></i>只言片语</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E7%A8%8B%E6%A1%88%E4%BE%8B%E8%AF%BE%E7%A8%8B%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">工程案例课程设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%B0%E5%9B%BE%E7%A7%91%E6%8A%80"><span class="nav-number">2.</span> <span class="nav-text">丰图科技</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%B0%E5%9B%BE%E6%95%B0%E6%8D%AE%E7%AE%97%E6%B3%95%E5%B7%A5%E7%A8%8B%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">地图数据算法工程化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E4%BF%A1%E6%81%AF%E6%8C%96%E6%8E%98%E6%8F%90%E5%8F%96"><span class="nav-number">3.1.</span> <span class="nav-text">地址信息挖掘提取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">3.1.1.</span> <span class="nav-text">地址是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E6%80%8E%E4%B9%88%E5%81%9A"><span class="nav-number">3.1.2.</span> <span class="nav-text">地址怎么做</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE"><span class="nav-number">3.1.2.3.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A5%E7%A8%8B%E5%8C%96"><span class="nav-number">3.1.2.4.</span> <span class="nav-text">工程化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%BD%91%E5%92%8C%E4%B8%89%E7%BB%B4"><span class="nav-number">3.2.</span> <span class="nav-text">路网和三维</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93%E4%B8%8E%E6%80%9D%E8%80%83"><span class="nav-number">3.3.</span> <span class="nav-text">个人总结与思考</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ych-ch"
+      src="/images/bird-in-snow.webp">
+  <p class="site-author-name" itemprop="name">ych-ch</p>
+  <div class="site-description" itemprop="description">个人博客</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ych-chen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ych-chen" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2021206190014@whu.edu.cn" title="E-Mail → mailto:2021206190014@whu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+
++     <div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>     
+ 
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ychch.top/archives/577e831b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bird-in-snow.webp">
+      <meta itemprop="name" content="ych-ch">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CYC's 个人博客">
+      <meta itemprop="description" content="个人博客">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="工程案例1—地图数据算法工程化 | CYC's 个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          工程案例1—地图数据算法工程化
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-05 08:40:55" itemprop="dateCreated datePublished" datetime="2022-03-05T08:40:55+08:00">2022-03-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-20 09:44:56" itemprop="dateModified" datetime="2024-08-20T09:44:56+08:00">2024-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E7%A8%8B%E6%A1%88%E4%BE%8B/" itemprop="url" rel="index"><span itemprop="name">工程案例</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/archives/577e831b.html#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/archives/577e831b.html" data-xid="/archives/577e831b.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>今天上了工程案例课程的第一节课，请到了丰图科技陈总工程师为我们做了一次有关地图数据工程化的技术讲座，收获颇多，下面就讲座内容做一下总结分析。</p>
+<img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli1.6rkmo0kk7kk0.webp" style="zoom: 67%;" />
+
+<span id="more"></span>
+
+<h1 id="工程案例课程设置"><a href="#工程案例课程设置" class="headerlink" title="工程案例课程设置"></a>工程案例课程设置</h1><p>一开始，吴老师说了一些关于课程设置方面的思考。</p>
+<p>在以往的工程案例分享课程中，请来的行业大佬们主要就创业创新、公司发展历程等较宏观问题作了很多精彩生活的经验分享，但是研究生这个阶段里对于创新创业等感悟吸收往往还没有那么深刻。</p>
+<p>所以这学期做了调整，请的都是行业内的技术人员，他们讲的内容可以聚焦于行业内具体的需求和技术，对于学生们更好了解行业和今后的实习、求职会更有帮助。我十分认可吴老师的这番话。</p>
+<p>陈工的讲座主要分为两部分，一是丰图公司的简短介绍，二是他们公司是如何做地图数据算法工程化这件事的。</p>
+<h1 id="丰图科技"><a href="#丰图科技" class="headerlink" title="丰图科技"></a>丰图科技</h1><p>丰图科技（深圳）有限公司成立于2018年6月，前身为顺丰科技地理信息研发中心，是顺丰集团内部孵化的一家专注于地图领域的科技公司。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli1-4.2av6hgy6g268.webp"></p>
+<p>截至目前公司员工近500人，核心成员多来自行业内知名图商、GIS行业公司，具有丰富的互联网高精地图开发及GIS行业信息化项目经验。</p>
+<p>丰图科技以时空大数据底板，即工业级地图为依托，打造物流数字孪生平台和城市数字孪生平台两大指挥中枢，聚焦交通、社区、产业经济三大场景，去孵化更多的具体业务应用。</p>
+<p>相较于高德、百度这种老牌图商，他们的核心竞争力主要体现在 <strong>鲜活、精准、稀缺和独特的数据资源</strong>。每天上千万频次的送货到门的物流订单是他们最主要的优势数据，将测绘地图数据和业务数据结合起来就可以打造一个包含AOI、POI、房屋地址、语义地址、实景图片、企业经营地址、实时路况等众源数据的高精度、高更新频次数据库。</p>
+<h1 id="地图数据算法工程化"><a href="#地图数据算法工程化" class="headerlink" title="地图数据算法工程化"></a>地图数据算法工程化</h1><p>陈工将地图数据算法工程化分为三块内容做了进一步阐述</p>
+<ul>
+<li>地址信息挖掘提取（优势）</li>
+<li>路网信息挖掘提取（与高德、百度的差别）</li>
+<li>城市三维建模（未来）</li>
+</ul>
+<h2 id="地址信息挖掘提取"><a href="#地址信息挖掘提取" class="headerlink" title="地址信息挖掘提取"></a>地址信息挖掘提取</h2><h3 id="地址是什么"><a href="#地址是什么" class="headerlink" title="地址是什么"></a>地址是什么</h3><p>地址信息的挖掘提取是丰图科技<strong>最关键最核心</strong>的技术。</p>
+<p>首先，地址是什么，和与之相关的一系列延伸概念。</p>
+<p>地址的概念很简单普遍，即你在哪，通常我们不会以经纬度去判断位置信息，更多的是通过文本信息去找位置，例如我们互相告知位置时，不会说经纬度，而是说我在武汉大学信息学部某某栋楼的几层几零几，这就是地址。</p>
+<p>地址可以延伸一系列的新功能，如</p>
+<p><strong>地址的处理</strong>：地址拆分治理、地址名称标准化</p>
+<p><strong>地址的深度</strong>：地址上图、地址调度、专业市场、地址类型、地址上楼、地址可达、地址真假、地址活跃度</p>
+<p><strong>地址聚合分析：</strong>楼盘表、停电地址聚合通知、地址画像、选址</p>
+<p>以上每一个新概念都代表一种研究方向or业务方向，都可以往下延伸…</p>
+<h3 id="地址怎么做"><a href="#地址怎么做" class="headerlink" title="地址怎么做"></a>地址怎么做</h3><img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli1-1.7pvqlepg8mw.webp" alt="anli1-1" style="zoom: 50%;" />
+
+<p>如上图所示</p>
+<p>如何做好地址具体分为模型、算法、数据和工程化应用四个步骤</p>
+<h4 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h4><p>模型就是如何去定义地址这个类，地址可不只是一串文本，它是个下属很多功能细节的标准类，举例说明 地址模型可能包含的属性：</p>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th align="center">省/市/街道/社区</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td align="center">标准名称</td>
+</tr>
+<tr>
+<td>semantics</td>
+<td align="center">别名 or 标签</td>
+</tr>
+<tr>
+<td>geometry</td>
+<td align="center">id  OR point  OR 2D OR 3D</td>
+</tr>
+<tr>
+<td>relation</td>
+<td align="center">拓扑空间关系</td>
+</tr>
+</tbody></table>
+<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><p>众源数据包括影像、轨迹、视频等等，不同的数据有各自的优劣所在，针对不同的数据又有不同的算法</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli1-2.10g1rlb3r4r4.webp"></p>
+<p>目前做地址判别这块 比较好的 还是用规则+人工，机器学习并不理想。</p>
+<p>以下面这个例子说明，这机器学习咋学特征，</p>
+<p>目前来说工业界的地址生成 还是靠规则+人工更靠谱一点</p>
+<p>当然，这不是说研究那些算法就没意义了 ，知识是可以迁移的，像挖掘人群活动、用户画像，预测分析等等还是需要大量的算法做支撑。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/ych-chen/image_hosting@main/content/anli1-3.yi50yc4f4dc.webp"></p>
+<h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><p>这一部分主要回答两个问题，工业界是如何对数据做定义的，工业界是如何来生成数据的。</p>
+<p><strong>数据是什么？</strong></p>
+<p>按要素分类：行政区划、AOI 、BLD、ROOM…</p>
+<p>按功能分级：有无数据、数据是否重合、从数据中挖掘的个体与群体的关系..</p>
+<p><strong>如何生成数据？</strong></p>
+<p>按流程分阶段：工艺 —&gt; 平台 —&gt; 生产运营；先初始化 —&gt; 再不断更新</p>
+<p>按手段渐进：自动为主、人工补充，再不断精进自动</p>
+<p><strong>检验质量的三大指标：成本、质量和周期</strong></p>
+<h4 id="工程化"><a href="#工程化" class="headerlink" title="工程化"></a>工程化</h4><p>一个东西一旦工程化就要思考这三个问题</p>
+<ol>
+<li>如何从功能到体系</li>
+<li>如何从项目到能力</li>
+<li>如何去打造这个工程</li>
+</ol>
+<p>用户在输入端输入一串地址文本，要经过哪些流程才可以正确地生成一个快递单号。中间要走的逻辑层有哪些，平台背后有哪些部门在相互配合</p>
+<p>逻辑层：输入 —&gt; GEO —&gt; 定制匹配 —&gt; 审补服务 —&gt;人工审补 —&gt; 输出</p>
+<p>平台支撑：运营 + 算法 + 数据生成</p>
+<h2 id="路网和三维"><a href="#路网和三维" class="headerlink" title="路网和三维"></a>路网和三维</h2><p>路网和三维的内容就比较常规了，不再过多阐述</p>
+<h2 id="个人总结与思考"><a href="#个人总结与思考" class="headerlink" title="个人总结与思考"></a>个人总结与思考</h2><p>本次讲座还是学到了很多东西，从业界去看待问题会以<strong>经济实用可靠</strong>作为首要考虑因素。有以下思考：</p>
+<ol>
+<li>相较于高德百度这种高精度道路图商，丰图做的更多是社区级识别探测、关注城市内部各因素的变化，地址是他们的优势服务领域</li>
+<li>丰图快递行业的及时无误性 要求他们的地址精度要做的很高</li>
+<li>美团其实和快递很像，甚至美团每天的外卖单据数量还要多余快递（我觉得），丰图目前的优势感觉美团也可以做的很好，而且美团涉及的人们生活更为深入（外卖、自行单车、电单车、无人配送..)，这样相比，丰图较之美团的优势在哪里呢？</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>ych-ch
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ychch.top/archives/577e831b.html" title="工程案例1—地图数据算法工程化">https://ychch.top/archives/577e831b.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" rel="tag"># 互联网</a>
+              <a href="/tags/%E5%9C%B0%E5%9B%BE%E7%AE%97%E6%B3%95/" rel="tag"># 地图算法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/archives/f0135a41.html" rel="prev" title="数学之美-阅读精摘">
+                  <i class="fa fa-chevron-left"></i> 数学之美-阅读精摘
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/archives/e682c69c.html" rel="next" title="工程案例2—文化遗产数字化保护思考">
+                  工程案例2—文化遗产数字化保护思考 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-crow"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ych-ch</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">232k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:31</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        你是本站第<span id="busuanzi_value_site_uv"></span>位访客
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        本站已被浏览<span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="/lib/medium-zoom/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="/lib/lozad/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="/lib/pangu/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.ychch.top/","placeholder":"雁过留痕,欢迎交流评论(●'◡'●)","avatar":"mm","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"meta":["nick","mail","link"],"libUrl":"//cdn.jsdelivr.net/npm/@waline/client","el":"#waline-comments","path":"/archives/577e831b.html"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() => 
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => {
+    new Waline(CONFIG.waline);
+  });
+});
+</script>
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":80},"mobile":{"show":true,"scale":0.5},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</html>

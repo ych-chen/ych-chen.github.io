@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="baidu-site-verification" content="code-oy2gTeqH9v" />
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/blogIcon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/blogIcon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/blogIcon.png">
+  <link rel="mask-icon" href="/images/blogIcon.png" color="#222">
+  <link rel="manifest" href="/images/blogIcon.png">
+  <meta name="google-site-verification" content="5O1JD7i07BBNtPS8GeMREfy3KlJKyIHRvUbt0Ulnc4k">
+  <meta name="msvalidate.01" content="defbadb89c5687f86ead63be53a1b83c">
+  <meta name="baidu-site-verification" content="kBCDbEEWrIWKXwYW">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/pace-js/themes/blue/pace-theme-minimal.css">
+  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ychch.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="此时不学 更待何时，不想毕业就失业的我  (っ °Д °;)っ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nodejs基础知识">
+<meta property="og:url" content="https://ychch.top/archives/af7d4850.html">
+<meta property="og:site_name" content="CYC&#39;s 个人博客">
+<meta property="og:description" content="此时不学 更待何时，不想毕业就失业的我  (っ °Д °;)っ">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/08/12/PApQMktRXrFI2mo.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/12/C7i2gXVr3TRHLMD.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/13/IgWb5iHSBjnOuTG.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/13/KqLMraTUfHFypId.png">
+<meta property="article:published_time" content="2022-08-10T23:27:57.000Z">
+<meta property="article:modified_time" content="2024-08-20T01:49:35.092Z">
+<meta property="article:author" content="ych-ch">
+<meta property="article:tag" content="nodejs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/08/12/PApQMktRXrFI2mo.png">
+
+
+<link rel="canonical" href="https://ychch.top/archives/af7d4850.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ychch.top/archives/af7d4850.html","path":"archives/af7d4850.html","title":"Nodejs基础知识"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Nodejs基础知识 | CYC's 个人博客</title>
+  
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.ychch.top/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="CYC's 个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">CYC's 个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">当我与世界初相见</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>我 & 友链</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">58</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">60</span></a></li>
+        <li class="menu-item menu-item-pictures"><a href="/gallery/" rel="section"><i class="fa fa-images fa-fw"></i>影像馆</a></li>
+        <li class="menu-item menu-item-movies"><a href="/movies/" rel="section"><i class="fa fa-video fa-fw"></i>光影岁月</a></li>
+        <li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>好书推荐</a></li>
+        <li class="menu-item menu-item-shuoshuo"><a href="/shuoshuo/" rel="section"><i class="fa fa-comment fa-fw"></i>只言片语</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nodejs%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">Nodejs基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%97"><span class="nav-number">1.1.</span> <span class="nav-text">fs文件系统模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.1.</span> <span class="nav-text">读取文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">1.1.2.</span> <span class="nav-text">写入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E5%BC%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="nav-number">1.1.3.</span> <span class="nav-text">流式文件读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E5%8A%A8%E6%80%81%E6%8B%BC%E6%8E%A5%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.4.</span> <span class="nav-text">路径动态拼接问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#path%E8%B7%AF%E5%BE%84%E6%A8%A1%E5%9D%97"><span class="nav-number">1.2.</span> <span class="nav-text">path路径模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E6%8B%BC%E6%8E%A5-path-join"><span class="nav-number">1.2.1.</span> <span class="nav-text">路径拼接 path.join()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E6%96%87%E4%BB%B6%E5%90%8D-path-basename"><span class="nav-number">1.2.2.</span> <span class="nav-text">获取路径文件名 path.basename()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E6%96%87%E4%BB%B6%E6%89%A9%E5%B1%95%E5%90%8Dpath-extname"><span class="nav-number">1.2.3.</span> <span class="nav-text">获取路径文件扩展名path.extname()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http%E6%A8%A1%E5%9D%97"><span class="nav-number">1.3.</span> <span class="nav-text">http模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.3.1.</span> <span class="nav-text">创建最基本的web服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="nav-number">1.4.</span> <span class="nav-text">模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E6%A6%82%E5%BF%B5"><span class="nav-number">1.4.1.</span> <span class="nav-text">模块化概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js-%E4%B8%AD%E6%A8%A1%E5%9D%97%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">1.4.2.</span> <span class="nav-text">Node.js 中模块的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js-%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.4.3.</span> <span class="nav-text">Node.js 中的模块作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#module%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.4.4.</span> <span class="nav-text">module对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#module%E4%B8%AD%E7%9A%84exports"><span class="nav-number">1.4.5.</span> <span class="nav-text">module中的exports</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="nav-number">1.4.6.</span> <span class="nav-text">模块加载机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm%E4%B8%8E%E5%8C%85"><span class="nav-number">1.5.</span> <span class="nav-text">npm与包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Express"><span class="nav-number">2.</span> <span class="nav-text">Express</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Express-%E5%88%9D%E4%BD%93%E9%AA%8C"><span class="nav-number">2.1.</span> <span class="nav-text">Express 初体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%98%E7%AE%A1%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90"><span class="nav-number">2.2.</span> <span class="nav-text">托管静态资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nodemon-%E7%9B%91%E5%90%AC%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7"><span class="nav-number">2.3.</span> <span class="nav-text">nodemon 监听调试工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Express%E8%B7%AF%E7%94%B1"><span class="nav-number">2.4.</span> <span class="nav-text">Express路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Express-%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">2.5.</span> <span class="nav-text">Express 中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">2.5.1.</span> <span class="nav-text">全局中间件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">2.5.2.</span> <span class="nav-text">局部中间件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%88%86%E7%B1%BB"><span class="nav-number">2.5.3.</span> <span class="nav-text">中间件分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS-%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB"><span class="nav-number">2.6.</span> <span class="nav-text">CORS 跨域资源共享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CORS-%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">2.6.1.</span> <span class="nav-text">CORS 中间件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CORS-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="nav-number">2.6.2.</span> <span class="nav-text">CORS 如何使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CORS-%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E5%A4%B4"><span class="nav-number">2.6.3.</span> <span class="nav-text">CORS 常见响应头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CORS-%E8%AF%B7%E6%B1%82%E5%88%86%E7%B1%BB"><span class="nav-number">2.6.4.</span> <span class="nav-text">CORS 请求分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82"><span class="nav-number">2.6.4.1.</span> <span class="nav-text">简单请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%84%E6%A3%80%E8%AF%B7%E6%B1%82"><span class="nav-number">2.6.4.2.</span> <span class="nav-text">预检请求</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81"><span class="nav-number">3.</span> <span class="nav-text">数据库与身份认证</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#web%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">web开发模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81"><span class="nav-number">3.2.</span> <span class="nav-text">身份认证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Session-%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6"><span class="nav-number">3.2.1.</span> <span class="nav-text">Session 认证机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%97%A0%E7%8A%B6%E6%80%81%E6%80%A7"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">HTTP协议的无状态性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie-%EF%BC%8C%E7%AA%81%E7%A0%B4%E8%BF%99%E7%A7%8D%E6%97%A0%E7%8A%B6%E6%80%81%E6%80%A7"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">Cookie ，突破这种无状态性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session%EF%BC%8C%E6%8F%90%E9%AB%98%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">Session，提高身份认证的安全性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Session-%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">Session 认证机制</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ych-ch"
+      src="/images/bird-in-snow.webp">
+  <p class="site-author-name" itemprop="name">ych-ch</p>
+  <div class="site-description" itemprop="description">个人博客</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ych-chen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ych-chen" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2021206190014@whu.edu.cn" title="E-Mail → mailto:2021206190014@whu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+
++     <div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>     
+ 
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ychch.top/archives/af7d4850.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bird-in-snow.webp">
+      <meta itemprop="name" content="ych-ch">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CYC's 个人博客">
+      <meta itemprop="description" content="个人博客">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Nodejs基础知识 | CYC's 个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Nodejs基础知识
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-11 07:27:57" itemprop="dateCreated datePublished" datetime="2022-08-11T07:27:57+08:00">2022-08-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-20 09:49:35" itemprop="dateModified" datetime="2024-08-20T09:49:35+08:00">2024-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/archives/af7d4850.html#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/archives/af7d4850.html" data-xid="/archives/af7d4850.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>11k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>10 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>此时不学 更待何时，不想毕业就失业的我  (っ °Д °;)っ</p>
+<span id="more"></span>
+
+<h1 id="Nodejs基础"><a href="#Nodejs基础" class="headerlink" title="Nodejs基础"></a>Nodejs基础</h1><blockquote>
+<p>浏览器是JavaScript的前端运行环境</p>
+<p>Node.js 是JavaScript的后端运行环境、无法调用DOM和BOM等浏览器内置API</p>
+<p>Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/en/">nodejs 官网传送门</a></p>
+<ul>
+<li>基于 <a target="_blank" rel="noopener" href="http://www.expressjs.com.cn/">Express 框架 </a>，可以快速构建 Web 应用</li>
+<li>基于 <a target="_blank" rel="noopener" href="https://electronjs.org/">Electron 框架</a>，可以构建跨平台的桌面应用</li>
+<li>基于 <a target="_blank" rel="noopener" href="http://restify.com/">restify 框架</a>，可以快速构建 API 接口项目</li>
+<li>读写和操作数据库、创建实用的命令行工具辅助前端开发、etc…</li>
+</ul>
+<p>nodejs学习路径：</p>
+<p>JavaScript 基础语法 + Node.js内置API模块（fs、path、http等）+ 第三方API模块（express + mysql等）</p>
+<h2 id="fs文件系统模块"><a href="#fs文件系统模块" class="headerlink" title="fs文件系统模块"></a>fs文件系统模块</h2><h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><p>语法格式：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>path<span class="token punctuation">[</span><span class="token punctuation">,</span> options<span class="token punctuation">]</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><p><code>path</code>：文件路径</p>
+</li>
+<li><p><code>options：配置选项，若是字符串则指定编码格式</code></p>
+<ul>
+<li><code>encoding</code>：编码格式</li>
+<li><code>flag</code>：打开方式</li>
+</ul>
+</li>
+<li><p><code>callback：回调函数</code></p>
+<ul>
+<li><code>err</code>：如果读取成功，err == null</li>
+<li><code>data</code>：如果读取成功，读取的数据，如果未指定编码格式则返回一个 Buffer；如果读取失败，data = undefined</li>
+</ul>
+</li>
+</ul>
+<h3 id="写入数据"><a href="#写入数据" class="headerlink" title="写入数据"></a>写入数据</h3><p>语法格式：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token punctuation">,</span> options<span class="token punctuation">]</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><code>file</code>：文件路径</li>
+<li><code>data</code>：写入内容</li>
+<li><code>options</code>：配置选项，包含 <code>encoding, mode, flag</code>；若是字符串则指定编码格式</li>
+<li><code>callback</code>：回调函数</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 示例：</span>
+fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">"C:/Users/笔记.mp3"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// 将data写入到文件中</span>
+		fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">"C:/Users/hello.jpg"</span><span class="token punctuation">,</span> data<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>err<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+				console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"文件写入成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="流式文件读取"><a href="#流式文件读取" class="headerlink" title="流式文件读取"></a>流式文件读取</h3><ul>
+<li>简单文件读取的方式会一次性读取文件内容到内存中，若文件较大，会占用过多内存影响系统性能，且读取速度慢</li>
+<li>大文件适合用流式文件读取，它会分多次将文件读取到内存中</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> rs <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token string">'C:/Users/lilichao/Desktop/笔记.mp3'</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> ws <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span><span class="token string">'b.mp3'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// pipe()可以将可读流中的内容，直接输出到可写流中</span>
+rs<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>ws<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="路径动态拼接问题"><a href="#路径动态拼接问题" class="headerlink" title="路径动态拼接问题"></a>路径动态拼接问题</h3><ul>
+<li><p>在使用 fs 模块操作文件时，如果提供的操作路径是以 <code>./</code> 或 <code>../</code> 开头的相对路径时，容易出现路径动态拼接错误的问题</p>
+</li>
+<li><p>原因：代码在运行的时候，会以执行 node 命令时所处的目录，动态拼接出被操作文件的完整路径</p>
+</li>
+<li><p>解决方案：在使用 fs 模块操作文件时，直接提供完整的路径，从而防止路径动态拼接的问题</p>
+</li>
+<li><p>直接用绝对路径 ，移植性会很差，不利于维护</p>
+</li>
+<li><p><code>__dirname</code>  获取文件所处的绝对路径</p>
+</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span> __dirname <span class="token operator">+</span> <span class="token string">'/files/1.txt'</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="path路径模块"><a href="#path路径模块" class="headerlink" title="path路径模块"></a>path路径模块</h2><p>path 模块是 Node.js 官方提供的、用来处理路径的模块。它提供了一系列的方法和属性，用来满足用户对路径的处理需求。</p>
+<h3 id="路径拼接-path-join"><a href="#路径拼接-path-join" class="headerlink" title="路径拼接 path.join()"></a>路径拼接 <code>path.join()</code></h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 注意 ../ 会抵消前面的路径</span>
+<span class="token comment">// ./ 会被忽略</span>
+<span class="token keyword">const</span> pathStr <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'/a'</span><span class="token punctuation">,</span> <span class="token string">'/b/c'</span><span class="token punctuation">,</span> <span class="token string">'../../'</span><span class="token punctuation">,</span> <span class="token string">'./d'</span><span class="token punctuation">,</span> <span class="token string">'e'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>pathStr<span class="token punctuation">)</span>    <span class="token comment">//reslut: \a\d\e</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="获取路径文件名-path-basename"><a href="#获取路径文件名-path-basename" class="headerlink" title="获取路径文件名 path.basename()"></a>获取路径文件名 <code>path.basename()</code></h3><p>使用 <code>path.basename()</code> 方法，可以获取路径中的最后一部分，常通过该方法获取路径中的文件名</p>
+<ul>
+<li>path: 文件路径</li>
+<li>ext: 文件扩展名</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 定义文件的存放路径</span>
+<span class="token keyword">const</span> fpath <span class="token operator">=</span> <span class="token string">'/a/b/c/index.html'</span>
+
+<span class="token keyword">const</span> fullName <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>fpath<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fullName<span class="token punctuation">)</span>   <span class="token comment">// index.html</span>
+
+<span class="token keyword">const</span> nameWithoutExt <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>fpath<span class="token punctuation">,</span> <span class="token string">'.html'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>nameWithoutExt<span class="token punctuation">)</span>   <span class="token comment">// index</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="获取路径文件扩展名path-extname"><a href="#获取路径文件扩展名path-extname" class="headerlink" title="获取路径文件扩展名path.extname()"></a>获取路径文件扩展名<code>path.extname()</code></h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> fpath <span class="token operator">=</span> <span class="token string">'/a/b/c/index.html'</span>
+
+<span class="token keyword">const</span> fext <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">extname</span><span class="token punctuation">(</span>fpath<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fext<span class="token punctuation">)</span>    <span class="token comment">//result：  .html</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="http模块"><a href="#http模块" class="headerlink" title="http模块"></a>http模块</h2><p>http 模块是 Node.js 官方提供的、用来创建 web 服务器的模块。</p>
+<p>了解即可，后面主要用封装更好的express</p>
+<p>Node.js中 不需要使用IIS、Apache这些服务器软件，仅通过几行代码，就可以对外提供web服务。</p>
+<blockquote>
+<p>域名服务器就是提供IP地址和域名之间的转换服务的服务器，在实际应用中，URL的80端口可以被省略</p>
+</blockquote>
+<h3 id="创建最基本的web服务器"><a href="#创建最基本的web服务器" class="headerlink" title="创建最基本的web服务器"></a>创建最基本的web服务器</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//1. 导入http模块</span>
+<span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span>
+
+<span class="token comment">//2. 创建web服务器实例</span>
+<span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">//3. 为服务器实例绑定request事件，监听客户端请求</span>
+<span class="token comment">// req 请求对象 、res 响应对象</span>
+server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"request"</span>，<span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span>res</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    
+    <span class="token comment">// req.url是客户端请求的URL地址</span>
+    <span class="token keyword">const</span> url <span class="token operator">=</span> req<span class="token punctuation">.</span>url
+    <span class="token comment">// req.method 是客户端请求的method类型 eg GET、POST</span>
+    <span class="token keyword">const</span> method <span class="token operator">=</span> req<span class="token punctuation">.</span>method
+    <span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Your request url is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>url<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, and request method is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>method<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span>
+    
+    <span class="token comment">// 设置 Content-Type 响应头，解决中文乱码的问题</span>
+ 	res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span> <span class="token string">'text/html; charset=utf-8'</span><span class="token punctuation">)</span>
+   	<span class="token comment">//res.end 向客户端发送指定的内容，并结束这次请求的过程</span>
+    res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token comment">// 4. 启动服务器</span>
+server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">8080</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'server running at http://127.0.0.1'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>不同的header标头传输不同的数据类型，具体可上网搜索！</p>
+<blockquote>
+<p>查漏补缺：js 语法， 等于 ===，常量 const，变量 let</p>
+</blockquote>
+<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><h3 id="模块化概念"><a href="#模块化概念" class="headerlink" title="模块化概念"></a>模块化概念</h3><ul>
+<li>模块化是指解决一个复杂问题时，自顶向下逐层把系统划分为若干模块的过程，模块是可组合、分解和更换的单元。</li>
+<li>好处：提高代码的复用性和可维护性，实现按需加载</li>
+</ul>
+<h3 id="Node-js-中模块的分类"><a href="#Node-js-中模块的分类" class="headerlink" title="Node.js 中模块的分类"></a>Node.js 中模块的分类</h3><ul>
+<li>内置模块（fs, path, http等）</li>
+<li>自定义模块（用户自定义模块）</li>
+<li>第三方模块（第三方开发，使用前需要先下载）</li>
+</ul>
+<h3 id="Node-js-中的模块作用域"><a href="#Node-js-中的模块作用域" class="headerlink" title="Node.js 中的模块作用域"></a>Node.js 中的模块作用域</h3><ul>
+<li>和函数作用域类似，在自定义模块中定义的变量、方法等成员，只能在当前模块内被访问，这种模块级别的访问限制，叫做模块作用域</li>
+<li>防止全局变量污染</li>
+</ul>
+<h3 id="module对象"><a href="#module对象" class="headerlink" title="module对象"></a>module对象</h3><ul>
+<li>每个自定义模块中都有一个module对象，里面存储了和当前模块有关的信息。</li>
+<li>在自定义模块中，可以使用 <code>module.exports</code> 对象，将模块内的成员共享出去，供外界使用。</li>
+<li>导入自定义模块时，得到的就是 <code>module.exports</code> 指向的对象。</li>
+</ul>
+<h3 id="module中的exports"><a href="#module中的exports" class="headerlink" title="module中的exports"></a>module中的exports</h3><p>exports 和 module.exports  指的是同一个对象。</p>
+<p>最终共享的结果，以 <code>module.exports</code> 指向的对象为准。</p>
+<h3 id="模块加载机制"><a href="#模块加载机制" class="headerlink" title="模块加载机制"></a>模块加载机制</h3><p>模块第一次加载后会被缓存，即多次调用 <code>require()</code> 不会导致模块的代码被执行多次，提供模块加载效率。</p>
+<h2 id="npm与包"><a href="#npm与包" class="headerlink" title="npm与包"></a>npm与包</h2><ol>
+<li><p>包的版本号是以“点分十进制”形式进行定义的，总共有三位数字，例如2.24.1</p>
+<ul>
+<li><p>第一位数字：大版本</p>
+</li>
+<li><p>第二位数字：功能版本</p>
+</li>
+<li><p>第三为数字：Bug修复版本</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>node_modules 用来存放已安装的包</p>
+<p>package-lock.json 配置文件记录每一个包的详细信息</p>
+</li>
+<li><p>在项目根目录中，package.json 配置文件，用来记录项目中安装了哪些包，从而方便剔除 node_modules，缩小上传体积</p>
+<p>在项目开发中，需要把node_modules文件夹，添加到.gitignore忽略文件中</p>
+</li>
+<li><p>dependencies节点，<strong>开发和上线</strong>都需要用到，记录安装了哪些包；devDependencies节点，<strong>项目上线后不会用到</strong>，记录只在项目开发中用到的包，安装命令 npm - i 包名 –save-dev OR  npm - i 包名 -D</p>
+</li>
+<li><p>当拿到一个提出了 node_modules 的项目后，需要先把所需的包下载到项目中，才能成功运行</p>
+<p>使用 npm install 可以一次性安装所有依赖包</p>
+</li>
+<li><p>几个关于包下载的命令</p>
+</li>
+</ol>
+<blockquote>
+<p>npm config get registry 查看当前下载包源</p>
+<p>npm config set registry=<a target="_blank" rel="noopener" href="https://registry.npmmirror.com/">https://registry.npmmirror.com/</a> 将官方源切换为淘宝镜像源</p>
+</blockquote>
+<p>为了更方便切换下载镜像源，可以安装 nrm，利用nrm快速查看和切换下载镜像源</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"># 全局可用的下载nrm
+npm i nrm <span class="token operator">-</span>g
+
+# 查看所有可用镜像源
+nrm ls 
+
+# 切换镜像源
+nrm use taobao<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img data-src="https://s2.loli.net/2022/08/12/PApQMktRXrFI2mo.png"></p>
+<ol start="7">
+<li><p>在发布自己的开发包之前，需要把下载包源切换为npm官方服务器，而不是镜像源</p>
+<p>npm unpublish –force 只可以删除72小时内发布的包</p>
+<p>发布包的时候要慎重，不要发布没意义的包</p>
+</li>
+</ol>
+<h1 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h1><p><a target="_blank" rel="noopener" href="https://www.expressjs.com.cn/">官网传送门</a></p>
+<blockquote>
+<p> 基于 Node.js 平台，快速、开放、极简的 Web 开发框架</p>
+</blockquote>
+<p>Express 是用于快速创建服务器的第三方模块，Express 是基于内置的http模块进一步封装出来的。</p>
+<h2 id="Express-初体验"><a href="#Express-初体验" class="headerlink" title="Express 初体验"></a>Express 初体验</h2><p>创建服务器，监听客户端请求，并返回内容：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span>
+<span class="token comment">// 创建 web 服务器</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 监听客户端的 GET 和 POST 请求，并向客户端响应具体的内容</span>
+app<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'请求成功'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 通过 req.query 可以获取到客户端发送过来的查询参数</span>
+  <span class="token comment">// http://127.0.0.1/?name=cyc&amp;age=20</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>query<span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>query<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 这里的 :id 是一个动态的参数</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/user/:ids/:username'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// req.params 是动态匹配到的 URL 参数，默认是一个空对象</span>
+  <span class="token comment">// http://127.0.0.1/user/1/cyc</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>params<span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>params<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'express server running at http://127.0.0.1'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>POST和GET 区别：</p>
+<p>GET把参数包含在URL中，POST通过request body传递参数</p>
+<p>GET 获取参数、 POST 传递参数</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/logsharing/p/8448446.html">GET和POST两种基本请求方法的区别 - 在途中# - 博客园 (cnblogs.com)</a></p>
+</blockquote>
+<h2 id="托管静态资源"><a href="#托管静态资源" class="headerlink" title="托管静态资源"></a>托管静态资源</h2><ul>
+<li>通过 <code>express.static()</code> 方法可创建静态资源服务器，向外开放访问静态资源。</li>
+<li>Express 在指定的静态目录中查找文件，并对外提供资源的访问路径，存放静态文件的<strong>目录名不会出现</strong>在 URL 中</li>
+<li>如果托管多个静态资源目录，多次调用 <code>express.static()</code>函数</li>
+<li>访问静态资源时，会根据<strong>托管顺序</strong>查找文件</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>express<span class="token punctuation">.</span><span class="token function">static</span><span class="token punctuation">(</span><span class="token string">'public'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>express<span class="token punctuation">.</span><span class="token function">static</span><span class="token punctuation">(</span><span class="token string">'files'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/bruce'</span><span class="token punctuation">,</span> express<span class="token punctuation">.</span><span class="token function">static</span><span class="token punctuation">(</span><span class="token string">'bruce'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">/*
+可直接访问 public, files 目录下的静态资源
+http://localhost:3000/images/bg.jpg
+http://localhost:3000/css/style.css
+http://localhost:3000/js/login.js
+
+通过带有 /bruce 前缀的地址访问 bruce 目录下的文件
+http://localhost:8080/bruce/images/logo.png
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="nodemon-监听调试工具"><a href="#nodemon-监听调试工具" class="headerlink" title="nodemon 监听调试工具"></a>nodemon 监听调试工具</h2><p>在编写nodejs代码时，如果修改代码，需要频繁的手动重启，非常繁琐</p>
+<p>nodemon可以监听项目文件的变动，当代码被修改时，自动重启项目，方便开发调试</p>
+<p>使用方法：</p>
+<p><img data-src="https://s2.loli.net/2022/08/12/C7i2gXVr3TRHLMD.png"></p>
+<h2 id="Express路由"><a href="#Express路由" class="headerlink" title="Express路由"></a>Express路由</h2><p>路由 就是一种映射关系</p>
+<p>路由 由三部分组成，<strong>请求的类型、请求的URL地址、处理函数</strong></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 这就是两个最简单的路由</span>
+<span class="token comment">// 监听客户端的 GET 和 POST 请求，并向客户端响应具体的内容</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'zs'</span><span class="token punctuation">,</span> <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token literal-property property">gender</span><span class="token operator">:</span> <span class="token string">'男'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'请求成功'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>实际使用中，不能将路由直接挂载到 express 中，需要 模块化路由</p>
+<p>how to do it ?</p>
+<ol>
+<li>创建路由模块：</li>
+</ol>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// router.js</span>
+
+<span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span>
+<span class="token comment">// 2. 创建路由对象</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 3. 挂载具体路由</span>
+router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/user/list'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'Get user list.'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/user/add'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'Add new user.'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 4. 向外导出路由对象</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注册路由模块：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span>
+<span class="token number">5.</span> 导入路由模块
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./router'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 6. 使用app.use注册路由模块 (添加访问前缀,可有可无)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/api'</span><span class="token punctuation">,</span> router<span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'http://127.0.0.1'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>app.use() 函数的使用，就是用来注册 全局中间件</p>
+</blockquote>
+<h2 id="Express-中间件"><a href="#Express-中间件" class="headerlink" title="Express 中间件"></a>Express 中间件</h2><ul>
+<li>中间件是指流程的中间处理环节，有输入，有输出</li>
+<li>Express 中间件 本质就是一个function处理函数，包含 <code>req, res, next</code> 三个参数，<code>next()</code> 参数把流转关系交给下一个中间件或路由</li>
+<li>next函数 就是多个中间件连续调用的关键，表示将流转关系转交给<strong>下一个中间价或路由</strong></li>
+</ul>
+<p>中间件注意事项；</p>
+<ul>
+<li><strong>在注册路由之前注册中间件</strong>（错误级别中间件除外）</li>
+<li>中间件可连续调用多个</li>
+<li>别忘记调用 <code>next()</code> 函数</li>
+<li><code>next()</code> 函数后别写代码</li>
+<li>多个中间件共享 <code>req</code>、 <code>res</code>对象，在上游的中间件中为req和res添加自定义属性和方法，可供下游中间件或路由使用</li>
+</ul>
+<h3 id="全局中间件"><a href="#全局中间件" class="headerlink" title="全局中间件"></a>全局中间件</h3><p>客户端发起的任何请求，都会触发的中间件，即全局中间件，通过app.use来调用</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 定义第一个全局中间件</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'调用了第1个全局中间件'</span><span class="token punctuation">)</span>
+  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token comment">// 定义第二个全局中间件</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'调用了第2个全局中间件'</span><span class="token punctuation">)</span>
+  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'http://127.0.0.1'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="局部中间件"><a href="#局部中间件" class="headerlink" title="局部中间件"></a>局部中间件</h3><p>不适用 app.use()  定义的中间件，叫做局部生效的中间件</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 定义中间件函数</span>
+<span class="token keyword">const</span> <span class="token function-variable function">mw1</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'调用了第一个局部生效的中间件'</span><span class="token punctuation">)</span>
+  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">mw2</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'调用了第二个局部生效的中间件'</span><span class="token punctuation">)</span>
+  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 两种定义局部中间件的方式</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/hello'</span><span class="token punctuation">,</span> mw2<span class="token punctuation">,</span> mw1<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'hello page.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/about'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>mw1<span class="token punctuation">,</span> mw2<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'about page.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'User page.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Express server running at http://127.0.0.1'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="中间件分类"><a href="#中间件分类" class="headerlink" title="中间件分类"></a>中间件分类</h3><ol>
+<li><p>应用级别的中间件</p>
+<p>通过 <code>app.use()</code> 或 <code>app.get()</code> 或 <code>app.post()</code> ，绑定到 <code>app</code> 实例上的中间件</p>
+</li>
+<li><p>路由级别的中间件</p>
+<p>绑定到 <code>express.Router()</code> 实例上的中间件，叫做路由级别的中间件。用法和应用级别中间件没有区别。应用级别中间件是绑定到 <code>app</code> 实例上，路由级别中间件绑定到 <code>router</code> 实例上。</p>
+</li>
+</ol>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+router<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> router<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="3">
+<li>错误级别的中间件<ul>
+<li>用来捕获整个项目中发生的异常错误，从而防止项目异常崩溃的问题</li>
+<li>错误级别中间件的处理函数中，必须有 4 个形参，形参顺序从前到后分别是 <code>(err, req, res, next)</code> 。</li>
+<li>错误级别的中间件必须注册在所有路由之后</li>
+</ul>
+</li>
+</ol>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'服务器内部发生了错误！'</span><span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'Home page.'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 定义错误级别的中间件，捕获整个项目的异常错误，从而防止程序的崩溃</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'发生了错误！'</span> <span class="token operator">+</span> err<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'Error：'</span> <span class="token operator">+</span> err<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Express server running at http://127.0.0.1'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="4">
+<li><p>Express 内置中间件</p>
+<p>自 Express 4.16.0 版本开始，Express 内置了 3 个常用的中间件，极大的提高了 Express 项目的开发效率和体验：</p>
+<ul>
+<li><code>express.static</code> 快速托管静态资源的内置中间件，例如： HTML 文件、图片、CSS 样式等（无兼容性）</li>
+<li><code>express.json</code> 解析 JSON 格式的请求体数据（有兼容性，仅在 4.16.0+ 版本中可用）</li>
+<li><code>express.urlencoded</code> 解析 URL-encoded 格式的请求体数据（有兼容性，仅在 4.16.0+ 版本中可用）</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>express<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>express<span class="token punctuation">.</span><span class="token function">urlencoded</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">extended</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>第三方中间件</p>
+</li>
+</ol>
+<h2 id="CORS-跨域资源共享"><a href="#CORS-跨域资源共享" class="headerlink" title="CORS 跨域资源共享"></a>CORS 跨域资源共享</h2><h3 id="CORS-中间件"><a href="#CORS-中间件" class="headerlink" title="CORS 中间件"></a>CORS 中间件</h3><ul>
+<li><p>CORS（Cross-Origin Resource Sharing，跨域资源共享）解决跨域，是通过 HTTP 响应头决定浏览器是否阻止前端 JS 代码跨域获取资源</p>
+</li>
+<li><p>浏览器的同源安全策略默认会阻止网页“跨域”获取资源。但如果接口服务器配置了 CORS 相关的 HTTP 响应头，就可解除浏览器端的跨域访问限制</p>
+</li>
+<li><p>CORS 主要在服务器端进行配置。客户端浏览器无须做任何额外的配置，即可请求开启了 CORS 的接口。</p>
+</li>
+<li><p>CORS 在浏览器中有兼容性。只有支持 XMLHttpRequest Level2 的浏览器，才能正常访问开启了 CORS 的服务端接口（例如：IE10+、Chrome4+、FireFox3.5+）。</p>
+</li>
+</ul>
+<p><img data-src="https://s2.loli.net/2022/08/13/IgWb5iHSBjnOuTG.png"></p>
+<h3 id="CORS-如何使用"><a href="#CORS-如何使用" class="headerlink" title="CORS 如何使用"></a>CORS 如何使用</h3><ul>
+<li>安装中间件：<code>npm install cors</code></li>
+<li>导入中间件：<code>const cors = require(&#39;cors&#39;)</code></li>
+<li>配置中间件：<code>app.use(cors())</code></li>
+</ul>
+<h3 id="CORS-常见响应头"><a href="#CORS-常见响应头" class="headerlink" title="CORS 常见响应头"></a>CORS 常见响应头</h3><ul>
+<li><p><code>Access-Control-Allow-Origin</code>：制定了允许访问资源的外域 URL</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Access-Control-Allow-Origin'</span><span class="token punctuation">,</span> <span class="token string">'http://bruceblog.io'</span><span class="token punctuation">)</span>
+res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Access-Control-Allow-Origin'</span><span class="token punctuation">,</span> <span class="token string">'*'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p><code>Access-Control-Allow-Headers</code></p>
+<p>默认情况下，CORS 仅支持客户端向服务器发送如下的 9 个请求头：<code>Accept、Accept-Language、Content-Language、DPR、Downlink、Save-Data、Viewport-Width、Width 、Content-Type （值仅限于 text/plain、multipart/form-data、application/x-www-form-urlencoded 三者之一）</code></p>
+<p>如果客户端向服务器发送了额外的请求头信息，则需要在服务器端，通过 A<code>ccess-Control-Allow-Headers</code> 对额外的请求头进行声明，否则这次请求会失败！</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Access-Control-Allow-Headers'</span><span class="token punctuation">,</span> <span class="token string">'Content-Type, X-Custom-Header'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p><code>Access-Control-Allow-Methods</code></p>
+<p>默认情况下，CORS 仅支持客户端发起 GET、POST、HEAD 请求。如果客户端希望通过 PUT、DELETE 等方式请求服务器的资源，则需要在服务器端，通过 <code>Access-Control-Alow-Methods</code> 来指明实际请求所允许使用的 HTTP 方法</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Access-Control-Allow-Methods'</span><span class="token punctuation">,</span> <span class="token string">'POST, GET, DELETE, HEAD'</span><span class="token punctuation">)</span>
+res<span class="token punctuation">.</span><span class="token function">setHEader</span><span class="token punctuation">(</span><span class="token string">'Access-Control-Allow-Methods'</span><span class="token punctuation">,</span> <span class="token string">'*'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="CORS-请求分类"><a href="#CORS-请求分类" class="headerlink" title="CORS 请求分类"></a>CORS 请求分类</h3><h4 id="简单请求"><a href="#简单请求" class="headerlink" title="简单请求"></a>简单请求</h4><ul>
+<li>请求方式：GET、POST、HEAD 三者之一</li>
+<li>HTTP 头部信息不超过以下几种字段：无自定义头部字段、Accept、Accept-Language、Content-Language、DPR、Downlink、Save-Data、Viewport-Width、Width 、Content-Type（只有三个值 application/x-www-formurlencoded、multipart/form-data、text/plain）</li>
+</ul>
+<h4 id="预检请求"><a href="#预检请求" class="headerlink" title="预检请求"></a>预检请求</h4><ul>
+<li>请求方式为 GET、POST、HEAD 之外的请求 Method 类型</li>
+<li>请求头中包含自定义头部字段</li>
+<li>向服务器发送了 application/json 格式的数据</li>
+</ul>
+<p>在浏览器与服务器正式通信之前，浏览器会先发送 OPTION 请求进行预检，以获知服务器是否允许该实际请求，所以这一次的 OPTION 请求称为“预检请求”。服务器成功响应预检请求后，才会发送真正的请求，并且携带真实数据</p>
+<h1 id="数据库与身份认证"><a href="#数据库与身份认证" class="headerlink" title="数据库与身份认证"></a>数据库与身份认证</h1><h2 id="web开发模式"><a href="#web开发模式" class="headerlink" title="web开发模式"></a>web开发模式</h2><ol>
+<li><p>基于服务端渲染的传统web开发模式</p>
+<p>概念：服务器发给客户端的HTML页面，是在服务器完全生成的，客户端不需要Ajax这样的技术去额外请求页面的数据</p>
+<p>优点：</p>
+<pre><code>1. 前端耗时少
+2. 有利于SEO
+</code></pre>
+<p>缺点：</p>
+<pre><code> 1. 占用服务器端资源
+ 2. 不理由前后端分离，开发效率低
+</code></pre>
+</li>
+<li><p>基于前后端分离的新型web开发模式</p>
+<p>概念：依赖于Ajax技术的前后端分离开发，后端只提供API借口，前端使用Ajax 调用接口的开发模式</p>
+<p>优点：</p>
+<pre><code>1. 开发体验好
+2. 用户体验好，实现页面局部刷新
+3. 减轻服务端渲染压力
+</code></pre>
+<p>缺点：</p>
+<pre><code> 1. 不利于SEO，爬虫无法爬取页面的有效信息，解决方案：利用react、vue前端框架的SSR技术
+</code></pre>
+</li>
+</ol>
+<p>如何选择：</p>
+<p>不谈业务场景盲选开发模式都是不合理的</p>
+<p>在企业展示网站或个人博客网站里，主要功能是展示而没有复杂交互，就使用服务器端渲染</p>
+<p>在后台管理项目中，交互性强，使用前后端分离开发模式</p>
+<p>在一些项目中，会采用首屏服务端渲染+其他页面前后端分离的组合开发模式</p>
+<h2 id="身份认证"><a href="#身份认证" class="headerlink" title="身份认证"></a>身份认证</h2><h3 id="Session-认证机制"><a href="#Session-认证机制" class="headerlink" title="Session 认证机制"></a>Session 认证机制</h3><p>服务端渲染推荐使用 Session 认证机制</p>
+<h4 id="HTTP协议的无状态性"><a href="#HTTP协议的无状态性" class="headerlink" title="HTTP协议的无状态性"></a>HTTP协议的无状态性</h4><p>HTTP协议的无状态性，指的是客户端的额每次HTTP请求都是独立的，服务器不会主动保留每次HTTP请求的状态</p>
+<h4 id="Cookie-，突破这种无状态性"><a href="#Cookie-，突破这种无状态性" class="headerlink" title="Cookie ，突破这种无状态性"></a>Cookie ，突破这种无状态性</h4><p>Cookie，身份认证的标识，类比于现实生活中的会员卡身份认证</p>
+<p>Cookie是 存储在浏览器中一段不超过4kb的字符串，不同域名下Cookie 各自独立，每当客户端发送请求，会自动将<strong>当前域名下未过期</strong>的Cookie一同发送给服务器</p>
+<p>Cookie 是服务器在第一次接受请求后发送给客户端后，之后客户端将Cookie存在浏览器中，在之后的访问中，浏览器自动将Cookie<strong>以请求头的形式</strong>发送给服务器，已表明身份。</p>
+<p><strong>Cookie 不具有安全性</strong>，不建议将重要的隐私数据通过Cookie的形式发送</p>
+<h4 id="Session，提高身份认证的安全性"><a href="#Session，提高身份认证的安全性" class="headerlink" title="Session，提高身份认证的安全性"></a>Session，提高身份认证的安全性</h4><p><img data-src="https://s2.loli.net/2022/08/13/KqLMraTUfHFypId.png"></p>
+<h3 id="Session-认证机制-1"><a href="#Session-认证机制-1" class="headerlink" title="Session 认证机制"></a>Session 认证机制</h3>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>ych-ch
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ychch.top/archives/af7d4850.html" title="Nodejs基础知识">https://ychch.top/archives/af7d4850.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/nodejs/" rel="tag"># nodejs</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/archives/32592c6d.html" rel="prev" title="工程案例10—实景三维建设与应用">
+                  <i class="fa fa-chevron-left"></i> 工程案例10—实景三维建设与应用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/archives/78356650.html" rel="next" title="how to use git">
+                  how to use git <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-crow"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ych-ch</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">232k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:31</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        你是本站第<span id="busuanzi_value_site_uv"></span>位访客
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        本站已被浏览<span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="/lib/medium-zoom/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="/lib/lozad/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="/lib/pangu/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.ychch.top/","placeholder":"雁过留痕,欢迎交流评论(●'◡'●)","avatar":"mm","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"meta":["nick","mail","link"],"libUrl":"//cdn.jsdelivr.net/npm/@waline/client","el":"#waline-comments","path":"/archives/af7d4850.html"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() => 
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => {
+    new Waline(CONFIG.waline);
+  });
+});
+</script>
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":80},"mobile":{"show":true,"scale":0.5},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</html>

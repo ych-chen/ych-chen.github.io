@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="baidu-site-verification" content="code-oy2gTeqH9v" />
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/blogIcon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/blogIcon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/blogIcon.png">
+  <link rel="mask-icon" href="/images/blogIcon.png" color="#222">
+  <link rel="manifest" href="/images/blogIcon.png">
+  <meta name="google-site-verification" content="5O1JD7i07BBNtPS8GeMREfy3KlJKyIHRvUbt0Ulnc4k">
+  <meta name="msvalidate.01" content="defbadb89c5687f86ead63be53a1b83c">
+  <meta name="baidu-site-verification" content="kBCDbEEWrIWKXwYW">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/pace-js/themes/blue/pace-theme-minimal.css">
+  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ychch.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="webpack 是一个现代 JavaScript 应用程序的静态模块打包器，是前端工程化必不可少的工具之一，以下是我的学习笔记整理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack使用说明">
+<meta property="og:url" content="https://ychch.top/archives/d41a35b4.html">
+<meta property="og:site_name" content="CYC&#39;s 个人博客">
+<meta property="og:description" content="webpack 是一个现代 JavaScript 应用程序的静态模块打包器，是前端工程化必不可少的工具之一，以下是我的学习笔记整理。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/08/25/ukiaUjKWEhSZJNR.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/20/domXCuPViztqI2W.png">
+<meta property="article:published_time" content="2022-08-24T22:51:54.000Z">
+<meta property="article:modified_time" content="2024-08-20T01:49:44.400Z">
+<meta property="article:author" content="ych-ch">
+<meta property="article:tag" content="webpack">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/08/25/ukiaUjKWEhSZJNR.png">
+
+
+<link rel="canonical" href="https://ychch.top/archives/d41a35b4.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ychch.top/archives/d41a35b4.html","path":"archives/d41a35b4.html","title":"webpack使用说明"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>webpack使用说明 | CYC's 个人博客</title>
+  
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.ychch.top/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="CYC's 个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">CYC's 个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">当我与世界初相见</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>我 & 友链</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">58</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">60</span></a></li>
+        <li class="menu-item menu-item-pictures"><a href="/gallery/" rel="section"><i class="fa fa-images fa-fw"></i>影像馆</a></li>
+        <li class="menu-item menu-item-movies"><a href="/movies/" rel="section"><i class="fa fa-video fa-fw"></i>光影岁月</a></li>
+        <li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>好书推荐</a></li>
+        <li class="menu-item menu-item-shuoshuo"><a href="/shuoshuo/" rel="section"><i class="fa fa-comment fa-fw"></i>只言片语</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">前端框架开发基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">前端工程化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8E%9F%E5%88%99"><span class="nav-number">1.1.1.</span> <span class="nav-text">前端工程原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%95%E4%B8%BA%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96"><span class="nav-number">1.1.2.</span> <span class="nav-text">何为前端工程化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.3.</span> <span class="nav-text">前端工程化解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E8%AF%86-webpack"><span class="nav-number">1.2.</span> <span class="nav-text">初识 webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.2.1.</span> <span class="nav-text">webpack是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.2.</span> <span class="nav-text">安装与配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack-config-js-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.3.</span> <span class="nav-text">webpack.config.js 配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack%E9%BB%98%E8%AE%A4%E7%BA%A6%E5%AE%9A"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">webpack默认约定</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-dev-server"><span class="nav-number">1.3.</span> <span class="nav-text">webpack-dev-server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85webpack-dev-server"><span class="nav-number">1.3.1.</span> <span class="nav-text">安装webpack-dev-server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEwebpack-dev-server"><span class="nav-number">1.3.2.</span> <span class="nav-text">配置webpack-dev-server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#devServer-%E8%8A%82%E7%82%B9"><span class="nav-number">1.3.3.</span> <span class="nav-text">devServer 节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html-webpack-plugin"><span class="nav-number">1.4.</span> <span class="nav-text">html-webpack-plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack%E7%9A%84loader"><span class="nav-number">1.5.</span> <span class="nav-text">webpack的loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E5%8F%91%E5%B8%83"><span class="nav-number">1.6.</span> <span class="nav-text">打包发布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BD%95%E9%9C%80%E8%A6%81%E6%89%93%E5%8C%85%E5%8F%91%E5%B8%83"><span class="nav-number">1.6.1.</span> <span class="nav-text">为何需要打包发布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%89%93%E5%8C%85"><span class="nav-number">1.6.2.</span> <span class="nav-text">配置打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%8A-JS-%E6%96%87%E4%BB%B6%E7%BB%9F%E4%B8%80%E7%94%9F%E6%88%90%E5%88%B0-js-%E7%9B%AE%E5%BD%95"><span class="nav-number">1.6.3.</span> <span class="nav-text">把 JS 文件统一生成到 js 目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%8A%E5%9B%BE%E7%89%87%E7%BB%9F%E4%B8%80%E7%94%9F%E6%88%90%E5%88%B0-image-%E7%9B%AE%E5%BD%95"><span class="nav-number">1.6.4.</span> <span class="nav-text">把图片统一生成到 image 目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%B8%85%E7%90%86-dist-%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E6%97%A7%E6%96%87%E4%BB%B6"><span class="nav-number">1.6.5.</span> <span class="nav-text">自动清理 dist 目录下的旧文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%81%E4%B8%9A%E7%BA%A7%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E5%8F%91%E5%B8%83"><span class="nav-number">1.6.6.</span> <span class="nav-text">企业级项目打包发布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SourceMap"><span class="nav-number">1.7.</span> <span class="nav-text">SourceMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E5%A5%BD%E5%A4%84"><span class="nav-number">1.7.1.</span> <span class="nav-text">@的原理与好处</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ych-ch"
+      src="/images/bird-in-snow.webp">
+  <p class="site-author-name" itemprop="name">ych-ch</p>
+  <div class="site-description" itemprop="description">个人博客</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ych-chen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ych-chen" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2021206190014@whu.edu.cn" title="E-Mail → mailto:2021206190014@whu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+
++     <div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>     
+ 
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ychch.top/archives/d41a35b4.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bird-in-snow.webp">
+      <meta itemprop="name" content="ych-ch">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CYC's 个人博客">
+      <meta itemprop="description" content="个人博客">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="webpack使用说明 | CYC's 个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          webpack使用说明
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-25 06:51:54" itemprop="dateCreated datePublished" datetime="2022-08-25T06:51:54+08:00">2022-08-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-20 09:49:44" itemprop="dateModified" datetime="2024-08-20T09:49:44+08:00">2024-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/archives/d41a35b4.html#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/archives/d41a35b4.html" data-xid="/archives/d41a35b4.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a target="_blank" rel="noopener" href="https://www.webpackjs.com/">webpack </a>是一个现代 JavaScript 应用程序的<em>静态模块打包器</em>，是前端工程化必不可少的工具之一，以下是我的学习笔记整理。</p>
+<img data-src="https://s2.loli.net/2022/08/25/ukiaUjKWEhSZJNR.png" style="zoom: 50%;" />
+
+<span id="more"></span>
+
+<h1 id="前端框架开发基础"><a href="#前端框架开发基础" class="headerlink" title="前端框架开发基础"></a>前端框架开发基础</h1><h2 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h2><h3 id="前端工程原则"><a href="#前端工程原则" class="headerlink" title="前端工程原则"></a>前端工程原则</h3><ul>
+<li>模块化（ js 、css 代码的复用）</li>
+<li>组件化（现有的 UI 结构的复用）</li>
+<li>规范化（目录结果划分、编码规范化、接口规范化、文档规范化、git 分支管理）</li>
+<li>自动化（自动化构建、自动部署、自动化测试）</li>
+</ul>
+<h3 id="何为前端工程化"><a href="#何为前端工程化" class="headerlink" title="何为前端工程化"></a>何为前端工程化</h3><p>前端工程化即，在企业级的前端项目开发中，把前端开发所需的工具、技术、流程、经验等进行规范化、标准化。这样有利于前端开发自成体系，有一套<strong>标准的开发方案和流程</strong>。</p>
+<h3 id="前端工程化解决方案"><a href="#前端工程化解决方案" class="headerlink" title="前端工程化解决方案"></a>前端工程化解决方案</h3><p>早期：<del>grunt 、gulp</del></p>
+<p>目前主流： webpack、parcel、vite</p>
+<h2 id="初识-webpack"><a href="#初识-webpack" class="headerlink" title="初识 webpack"></a>初识 webpack</h2><h3 id="webpack是什么"><a href="#webpack是什么" class="headerlink" title="webpack是什么"></a>webpack是什么</h3><ul>
+<li><p>webpack是前端项目工程化的具体解决方案</p>
+<ul>
+<li>提供了友好的<strong>前端模块化开发</strong>(ejs、pug)</li>
+<li><strong>代码压缩混淆</strong></li>
+<li>处理语法兼容性(ES6,ES7,ES8,less,scss)</li>
+<li>性能优化、实时编译等功能</li>
+</ul>
+</li>
+<li><p>提高开发效率和项目可维护性</p>
+</li>
+</ul>
+<h3 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token number">1.</span> 原始三大件
+webpack
+webpack<span class="token operator">-</span>cli
+webpack<span class="token operator">-</span>dev<span class="token operator">-</span>server 自动进行项目打包和构建
+
+<span class="token number">2.</span> 处理<span class="token constant">JS</span> <span class="token constant">ES6</span> <span class="token constant">ES7</span> <span class="token constant">ES8</span> 装饰器六件套
+处理<span class="token constant">ES6</span>
+babel<span class="token operator">-</span>loader@<span class="token number">7</span>
+babel<span class="token operator">-</span>core
+babel<span class="token operator">-</span>preset<span class="token operator">-</span>env
+处理<span class="token constant">ES7</span> <span class="token constant">ES8</span>
+babel<span class="token operator">-</span>plugin<span class="token operator">-</span>transform<span class="token operator">-</span>runtime
+处理装饰器
+babel<span class="token operator">-</span>plugin<span class="token operator">-</span>transform<span class="token operator">-</span>decorators
+babel<span class="token operator">-</span>plugin<span class="token operator">-</span>transform<span class="token operator">-</span>decorators<span class="token operator">-</span>legacy
+
+<span class="token number">3.</span> 处理 sass <span class="token operator">-</span><span class="token operator">></span> css <span class="token operator">-</span><span class="token operator">></span> style 样式四大件
+sass<span class="token operator">-</span>loader
+node<span class="token operator">-</span>sass
+css<span class="token operator">-</span>loader
+style<span class="token operator">-</span>loader
+
+<span class="token number">4.</span> 处理模板
+ejs<span class="token operator">-</span>loader
+
+<span class="token number">5.</span> 代码压缩
+html<span class="token operator">-</span>webpack<span class="token operator">-</span>plugin
+
+npm i <span class="token operator">-</span><span class="token constant">D</span> webpack webpack<span class="token operator">-</span>cli webpack<span class="token operator">-</span>dev<span class="token operator">-</span>server babel<span class="token operator">-</span>loader babel<span class="token operator">-</span>core babel<span class="token operator">-</span>preset<span class="token operator">-</span>env babel<span class="token operator">-</span>plugin<span class="token operator">-</span>transform<span class="token operator">-</span>runtime babel<span class="token operator">-</span>plugin<span class="token operator">-</span>transform<span class="token operator">-</span>decorators babel<span class="token operator">-</span>plugin<span class="token operator">-</span>transform<span class="token operator">-</span>decorators<span class="token operator">-</span>legacy sass<span class="token operator">-</span>loader node<span class="token operator">-</span>sass css<span class="token operator">-</span>loader style<span class="token operator">-</span>loader ejs<span class="token operator">-</span>loader html<span class="token operator">-</span>webpack<span class="token operator">-</span>plugin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><code>-D</code> 是 <code>--save-dev</code> 的缩写，表示开发时依赖，只在项目开发阶段用到。</p>
+<p><code>-S</code> 是 <code>--save</code> 的缩写，表示运行时依赖，即项目打包发布运行时要用到。</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">npm install webpack webpack<span class="token operator">-</span>cli <span class="token operator">-</span><span class="token constant">D</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol>
+<li>在项目根目录中创建 webpack.config.js 配置文件，初始化基本配置：</li>
+</ol>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// mode 用于指定构建模式，可选值有 development 和 production</span>
+  <span class="token comment">// development开发环境，不会对打包生成的文件进行代码压缩和性能优化，打包速度快，适合开发阶段使用</span>
+  <span class="token comment">// production生产环境，与development反之</span>
+  <span class="token literal-property property">mode</span><span class="token operator">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="2">
+<li>在 <code>package.json</code> 文件的 <code>scripts</code> 节点下，新增 <code>dev</code> 脚本：</li>
+</ol>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token string-property property">"scripts"</span> <span class="token operator">:</span><span class="token punctuation">&#123;</span>
+  <span class="token comment">// 配置好后就能通过 npm run dev 命令执行打包过程</span>
+  <span class="token string-property property">"dev"</span><span class="token operator">:</span> <span class="token string">"webpack"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="3">
+<li>在终端中运行 <code>npm run dev</code> 命令，即可启动 webpack 进行项目的打包构建</li>
+</ol>
+<h3 id="webpack-config-js-配置文件"><a href="#webpack-config-js-配置文件" class="headerlink" title="webpack.config.js 配置文件"></a>webpack.config.js 配置文件</h3><p>webpack.config.js 是 webpack 的配置文件。webpack 在真正开始打包构建之前，会先读取这个配置文件，从而基于给定的配置，对项目进行打包。</p>
+<h4 id="webpack默认约定"><a href="#webpack默认约定" class="headerlink" title="webpack默认约定"></a>webpack默认约定</h4><ul>
+<li>默认打包入口文件为 src  -&gt; index.js</li>
+<li>默认输出文件路径为 dist -&gt; main.js</li>
+<li>可以在webpack.config.js 配置文件中，通过entry节点指定打包入口，output节点指定打包出口</li>
+</ul>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">entry</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./src/index.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 输出文件的存放路径</span>
+    <span class="token literal-property property">filename</span><span class="token operator">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span> <span class="token comment">// 输出文件的名称</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a>webpack-dev-server</h2><p>类似于nodejs中的nodemon工具，每当修改源码，webpack会自动进行项目打包和构建</p>
+<p>webpack-dev-server会将打包的js放到<strong>内存</strong>中，方便快速读写更改</p>
+<h3 id="安装webpack-dev-server"><a href="#安装webpack-dev-server" class="headerlink" title="安装webpack-dev-server"></a>安装webpack-dev-server</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js">npm install webpack<span class="token operator">-</span>dev<span class="token operator">-</span>server <span class="token operator">-</span><span class="token constant">D</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="配置webpack-dev-server"><a href="#配置webpack-dev-server" class="headerlink" title="配置webpack-dev-server"></a>配置webpack-dev-server</h3><ol>
+<li>修改 <code>package.json -&gt; scripts</code> 的 <code>dev</code> 命令：</li>
+</ol>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token string-property property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  <span class="token string-property property">"dev"</span><span class="token operator">:</span> <span class="token string">"webpack-dev-server"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ol start="2">
+<li>运行 <code>npm run dev</code> 命令，重新打包项目</li>
+<li>浏览器访问 <code>http://localhost:8080</code> 地址，查看打包效果</li>
+</ol>
+<h3 id="devServer-节点"><a href="#devServer-节点" class="headerlink" title="devServer 节点"></a>devServer 节点</h3><p>通过 webpack.config.js 文件的 <code>devServer</code> 节点对 webpack-dev-server 插件进行更多的配置。</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token literal-property property">devServer</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">open</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 初次打包完成后，自动打开浏览器</span>
+  <span class="token literal-property property">host</span><span class="token operator">:</span> <span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span> <span class="token comment">// 访问地址</span>
+  <span class="token literal-property property">port</span><span class="token operator">:</span> <span class="token number">80</span> <span class="token comment">// 访问端口号</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="html-webpack-plugin"><a href="#html-webpack-plugin" class="headerlink" title="html-webpack-plugin"></a>html-webpack-plugin</h2><ul>
+<li>webpack中的HTML插件，类似于模板引擎插件</li>
+<li>可以通过此插件自定制index.html页面的内容</li>
+</ul>
+<img data-src="https://s2.loli.net/2022/08/20/domXCuPViztqI2W.png" style="zoom:80%;" />
+
+<h2 id="webpack的loader"><a href="#webpack的loader" class="headerlink" title="webpack的loader"></a>webpack的loader</h2><p>实际开发中，webpack只能打包处理js后缀模块，非js后缀结尾的模块，需要调用loader加载器才可以正常打包，比如</p>
+<p> 在webpack.config.js 的module -&gt; rules 数组中，添加相应的规则: </p>
+<ul>
+<li><code>css-loader</code> 处理 css 相关文件</li>
+<li><code>less-loader</code> 处理 less 相关文件</li>
+<li><code>url-loader</code> 处理 图片等相关文件</li>
+<li><code>babel-loader</code> 处理 webpack 无法处理的高级JS语法<ul>
+<li>babel 的使用需要在use后面添加一个 exclude 排除 node_modules目录下的JS文件</li>
+<li>还需要创建一个 babel.config.js 的配置文件</li>
+</ul>
+</li>
+</ul>
+<h2 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h2><h3 id="为何需要打包发布"><a href="#为何需要打包发布" class="headerlink" title="为何需要打包发布"></a>为何需要打包发布</h3><ul>
+<li>开发环境下，打包生成的文件存放于内存中，无法得到最终打包生成的文件</li>
+<li>开发环境下，打包生成的文件不会进行代码压缩和性能优化</li>
+</ul>
+<h3 id="配置打包"><a href="#配置打包" class="headerlink" title="配置打包"></a>配置打包</h3><p>在 package.json 文件的 scripts 节点下，新增build命令如下：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token string-property property">"scripts"</span><span class="token operator">:</span><span class="token punctuation">&#123;</span>
+	<span class="token string-property property">"build"</span> <span class="token operator">:</span> <span class="token string">"webpack --mode production"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="把-JS-文件统一生成到-js-目录"><a href="#把-JS-文件统一生成到-js-目录" class="headerlink" title="把 JS 文件统一生成到 js 目录"></a>把 JS 文件统一生成到 js 目录</h3><p>在 webpack.config.js 配置文件的 <code>output</code> 节点中，进行配置:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token literal-property property">ouput</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">path</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token comment">// 将 bundle.js 文件存放到 dist 目录的 js 子目录中</span>
+  <span class="token literal-property property">filename</span><span class="token operator">:</span> <span class="token string">'js/bundle.js'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="把图片统一生成到-image-目录"><a href="#把图片统一生成到-image-目录" class="headerlink" title="把图片统一生成到 image 目录"></a>把图片统一生成到 image 目录</h3><p>修改 webpack.config.js 中的 <code>url-loader</code> 配置项，新增 <code>outputPath</code> 选项指定图片文件的输出路径：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+  <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.jpg|png|gif$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+  <span class="token literal-property property">use</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">loader</span><span class="token operator">:</span> <span class="token string">'url-loader'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">options</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token literal-property property">limit</span><span class="token operator">:</span> <span class="token number">23333</span><span class="token punctuation">,</span>
+      <span class="token comment">// 指明生成的图片存到 dist 目录下的 image 子目录中</span>
+      <span class="token literal-property property">outputPath</span><span class="token operator">:</span> <span class="token string">'image'</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="自动清理-dist-目录下的旧文件"><a href="#自动清理-dist-目录下的旧文件" class="headerlink" title="自动清理 dist 目录下的旧文件"></a>自动清理 dist 目录下的旧文件</h3><p>安装配置 clean-webpack-plugin </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> clean-webpack-plugin@3.0.0 -D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在 webpack.config.js 文件中进行配置：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> CleanWebpackPlugin <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'clean-webpack-plugin'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// plugins 节点挂载 CleanWebpackPlugin 实例对象</span>
+<span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>htmlPlugin<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">CleanWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="企业级项目打包发布"><a href="#企业级项目打包发布" class="headerlink" title="企业级项目打包发布"></a>企业级项目打包发布</h3><p>企业级项目打包发布的流程更复杂：</p>
+<ul>
+<li>生成打包报告，根据报告分析具体的优化方案</li>
+<li>Tree-Shaking</li>
+<li>为第三方库启用 CDN 加载</li>
+<li>配置组件的按需加载</li>
+<li>开启路由懒加载</li>
+<li>自定制首页内容</li>
+</ul>
+<h2 id="SourceMap"><a href="#SourceMap" class="headerlink" title="SourceMap"></a>SourceMap</h2><p>SourceMap 就是信息文件，存储着压缩混淆代码转换前的位置信息。</p>
+<p>出错的时候，SourceMap 将直接显示出错的原始代码位置，极大方便后期的调试。</p>
+<p>在 webpack.config.js 添加如下配置</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    # 在开发调试的时候，有行号，且暴露代码
+	<span class="token literal-property property">devtools</span><span class="token operator">:</span> <span class="token string">"eval-source-map"</span>
+    # 在实际发布的时候，只有行号，不暴露代码
+	<span class="token literal-property property">devtools</span><span class="token operator">:</span> <span class="token string">"nosources-source-map"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>生产环境时，需要关闭该设置。</p>
+<h3 id="的原理与好处"><a href="#的原理与好处" class="headerlink" title="@的原理与好处"></a>@的原理与好处</h3><p>@ 表示 src 源代码目录，从外往里找， 不要使用 ../</p>
+<p>配置方式： 在 webpack.config.js  中</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token literal-property property">resolve</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">alias</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+         <span class="token string-property property">"@"</span> <span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span> __dirname<span class="token punctuation">,</span><span class="token string">"./src/"</span><span class="token punctuation">)</span> 
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://brucecai55520.gitee.io/bruceblog/notes/webpack/webpack%E5%9F%BA%E7%A1%80.html#%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96">前端工程化与 webpack 基础 | BruceBlog (gitee.io)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zq4y1p7ga?p=1&vd_source=57ac88e7b8d0e5cd1b0c032745042667">黑马程序员Vue全套视频教程，从vue2.0到vue3.0一套全覆盖，前端必会的框架教程_哔哩哔哩_bilibili</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>ych-ch
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ychch.top/archives/d41a35b4.html" title="webpack使用说明">https://ychch.top/archives/d41a35b4.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/webpack/" rel="tag"># webpack</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/archives/a81542e6.html" rel="prev" title="兰大人出躺村有多费劲">
+                  <i class="fa fa-chevron-left"></i> 兰大人出躺村有多费劲
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/archives/b834e058.html" rel="next" title="人际剖析">
+                  人际剖析 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-crow"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ych-ch</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">232k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:31</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        你是本站第<span id="busuanzi_value_site_uv"></span>位访客
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        本站已被浏览<span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="/lib/medium-zoom/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="/lib/lozad/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="/lib/pangu/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.ychch.top/","placeholder":"雁过留痕,欢迎交流评论(●'◡'●)","avatar":"mm","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"meta":["nick","mail","link"],"libUrl":"//cdn.jsdelivr.net/npm/@waline/client","el":"#waline-comments","path":"/archives/d41a35b4.html"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() => 
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => {
+    new Waline(CONFIG.waline);
+  });
+});
+</script>
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":80},"mobile":{"show":true,"scale":0.5},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</html>

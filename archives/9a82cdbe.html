@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="baidu-site-verification" content="code-oy2gTeqH9v" />
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/blogIcon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/blogIcon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/blogIcon.png">
+  <link rel="mask-icon" href="/images/blogIcon.png" color="#222">
+  <link rel="manifest" href="/images/blogIcon.png">
+  <meta name="google-site-verification" content="5O1JD7i07BBNtPS8GeMREfy3KlJKyIHRvUbt0Ulnc4k">
+  <meta name="msvalidate.01" content="defbadb89c5687f86ead63be53a1b83c">
+  <meta name="baidu-site-verification" content="kBCDbEEWrIWKXwYW">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/pace-js/themes/blue/pace-theme-minimal.css">
+  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ychch.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="hexo是一个快速、简洁高效的博客框架，适合想象丰富的博主们自由打造博客空间。 我在配置好基础的框架后，开始根据网络上各位大佬们的博客进行的模仿改造，现将一系列的搭建过程记录下来，希望越来越好。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo搭建之路">
+<meta property="og:url" content="https://ychch.top/archives/9a82cdbe.html">
+<meta property="og:site_name" content="CYC&#39;s 个人博客">
+<meta property="og:description" content="hexo是一个快速、简洁高效的博客框架，适合想象丰富的博主们自由打造博客空间。 我在配置好基础的框架后，开始根据网络上各位大佬们的博客进行的模仿改造，现将一系列的搭建过程记录下来，希望越来越好。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/04/21/imeRxt8quw1KYhk.png">
+<meta property="og:image" content="https://s2.loli.net/2022/04/21/JUa1wvnfp7ZGl5x.png">
+<meta property="og:image" content="https://lxiuaunng.github.io/hexo%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD/hexo%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/18/w7ldAOfNLsgkFmh.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/18/iHb9cGM5qFxaSRQ.png">
+<meta property="og:image" content="https://s2.loli.net/2022/04/20/EqIv8MYmr3a5S19.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/02/ynfrHWdbotcUpa2.png">
+<meta property="article:published_time" content="2022-02-02T01:33:43.000Z">
+<meta property="article:modified_time" content="2023-04-02T13:59:53.000Z">
+<meta property="article:author" content="ych-ch">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/04/21/imeRxt8quw1KYhk.png">
+
+
+<link rel="canonical" href="https://ychch.top/archives/9a82cdbe.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ychch.top/archives/9a82cdbe.html","path":"archives/9a82cdbe.html","title":"hexo搭建之路"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>hexo搭建之路 | CYC's 个人博客</title>
+  
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.ychch.top/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="CYC's 个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">CYC's 个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">当我与世界初相见</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>我 & 友链</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">58</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">60</span></a></li>
+        <li class="menu-item menu-item-pictures"><a href="/gallery/" rel="section"><i class="fa fa-images fa-fw"></i>影像馆</a></li>
+        <li class="menu-item menu-item-movies"><a href="/movies/" rel="section"><i class="fa fa-video fa-fw"></i>光影岁月</a></li>
+        <li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>好书推荐</a></li>
+        <li class="menu-item menu-item-shuoshuo"><a href="/shuoshuo/" rel="section"><i class="fa fa-comment fa-fw"></i>只言片语</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E7%8E%B0%E7%8A%B6"><span class="nav-number">1.</span> <span class="nav-text">博客现状</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E5%A4%B4"><span class="nav-number">2.</span> <span class="nav-text">写在前头</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%BB%BA%E7%AB%99"><span class="nav-number">3.</span> <span class="nav-text">基础建站</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87"><span class="nav-number">4.</span> <span class="nav-text">更换背景图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2"><span class="nav-number">5.</span> <span class="nav-text">本地搜索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E5%BD%B1%E5%83%8F%E9%A6%86%E7%95%8C%E9%9D%A2"><span class="nav-number">6.</span> <span class="nav-text">搭建影像馆界面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AB%99%E7%82%B9%E6%94%B6%E5%BD%95"><span class="nav-number">7.</span> <span class="nav-text">站点收录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-%E5%8F%AA%E8%A8%80%E7%89%87%E8%AF%AD-%E9%A1%B5%E9%9D%A2"><span class="nav-number">8.</span> <span class="nav-text">添加 只言片语 页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1"><span class="nav-number">9.</span> <span class="nav-text">博客访问量统计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%BD%AE%E9%A1%B6%E9%A1%B5%E9%9D%A2"><span class="nav-number">10.</span> <span class="nav-text">博客添加置顶页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E7%82%B9%E5%87%BB%E6%94%BE%E5%A4%A7%E5%9B%BE%E7%89%87"><span class="nav-number">11.</span> <span class="nav-text">通过点击放大图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%BD%91%E7%AB%99%E5%AD%97%E4%BD%93"><span class="nav-number">12.</span> <span class="nav-text">优化网站字体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E7%89%B9%E6%95%88"><span class="nav-number">13.</span> <span class="nav-text">鼠标点击特效</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B2%92%E5%AD%90%E6%97%B6%E9%92%9F"><span class="nav-number">14.</span> <span class="nav-text">粒子时钟</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B6%85%E8%90%8C%E7%9C%8B%E6%9D%BF%E5%A8%98%E4%B8%8A%E7%BA%BF"><span class="nav-number">15.</span> <span class="nav-text">超萌看板娘上线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#waline%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"><span class="nav-number">16.</span> <span class="nav-text">waline评论系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A0%E4%B8%AA%E5%8F%8B%E9%93%BE"><span class="nav-number">17.</span> <span class="nav-text">加个友链</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF"><span class="nav-number">18.</span> <span class="nav-text">添加版权信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BE%8E%E5%8C%96%E5%BD%92%E6%A1%A3-%E6%A0%87%E7%AD%BE-%E5%88%86%E7%B1%BB%E9%A1%B5"><span class="nav-number">19.</span> <span class="nav-text">美化归档&#x2F;标签&#x2F;分类页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%8F%E6%97%B6%E4%B8%8A%E9%94%81%E6%97%A5%E5%BF%97"><span class="nav-number">20.</span> <span class="nav-text">随时上锁日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5"><span class="nav-number">21.</span> <span class="nav-text">自动上传图片链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87"><span class="nav-number">22.</span> <span class="nav-text">疑难杂症</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-d-%E6%8E%A8%E9%80%81%E8%87%B3%E8%BF%9C%E7%A8%8B%E5%BA%93%E6%97%B6%E6%8A%A5%E9%94%99"><span class="nav-number">22.1.</span> <span class="nav-text">hexo d 推送至远程库时报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-douban%E5%BA%93%E7%88%AC%E5%8F%96%E9%94%99%E8%AF%AF"><span class="nav-number">22.2.</span> <span class="nav-text">hexo-douban库爬取错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">22.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ych-ch"
+      src="/images/bird-in-snow.webp">
+  <p class="site-author-name" itemprop="name">ych-ch</p>
+  <div class="site-description" itemprop="description">个人博客</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ych-chen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ych-chen" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2021206190014@whu.edu.cn" title="E-Mail → mailto:2021206190014@whu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+
++     <div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>     
+ 
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ychch.top/archives/9a82cdbe.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bird-in-snow.webp">
+      <meta itemprop="name" content="ych-ch">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CYC's 个人博客">
+      <meta itemprop="description" content="个人博客">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="hexo搭建之路 | CYC's 个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          hexo搭建之路
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-02 09:33:43" itemprop="dateCreated datePublished" datetime="2022-02-02T09:33:43+08:00">2022-02-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-02 21:59:53" itemprop="dateModified" datetime="2023-04-02T21:59:53+08:00">2023-04-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/archives/9a82cdbe.html#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/archives/9a82cdbe.html" data-xid="/archives/9a82cdbe.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>9.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>hexo是一个快速、简洁高效的博客框架，适合想象丰富的博主们自由打造博客空间。</p>
+<p>我在配置好基础的框架后，开始根据网络上各位大佬们的博客进行的模仿改造，现将一系列的搭建过程记录下来，希望越来越好。</p>
+<span id="more"></span>
+
+
+<h1 id="博客现状"><a href="#博客现状" class="headerlink" title="博客现状"></a>博客现状</h1><p><strong>待完成：</strong></p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 优化网站加载速度，会优化搜索排名！</li>
+<li><input disabled="" type="checkbox"> 背景音乐的添加(没考虑好，加了可能比较鸡肋)</li>
+</ul>
+<p><strong>已完成：</strong></p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> hexo基础建站</li>
+<li><input checked="" disabled="" type="checkbox"> 更换背景图片</li>
+<li><input checked="" disabled="" type="checkbox"> 本地搜索</li>
+<li><input checked="" disabled="" type="checkbox"> 搭建 影像馆 页面</li>
+<li><input checked="" disabled="" type="checkbox"> 站点收录，目前还存在一些小问题</li>
+<li><input checked="" disabled="" type="checkbox"> 域名的购买及配置</li>
+<li><input checked="" disabled="" type="checkbox"> 加入豆瓣读书、影评界面</li>
+<li><input checked="" disabled="" type="checkbox"> 网站的站点收录</li>
+<li><input checked="" disabled="" type="checkbox"> 添加 只言片语 页面</li>
+<li><input checked="" disabled="" type="checkbox"> 如何添加置顶</li>
+<li><input checked="" disabled="" type="checkbox"> 如何通过点击放大网站图片</li>
+<li><input checked="" disabled="" type="checkbox"> 优化网站字体</li>
+<li><input checked="" disabled="" type="checkbox"> 博客访问量统计</li>
+<li><input checked="" disabled="" type="checkbox"> 粒子时钟 + 鼠标点击烟火特效</li>
+<li><input checked="" disabled="" type="checkbox"> 背景娘 ，加个简单的背景娘，太花了分散注意力</li>
+<li><input checked="" disabled="" type="checkbox"> 加评论，<del>现在用的是Valine评论，考虑换一个好用点的</del>，现在换成了waline</li>
+<li><input checked="" disabled="" type="checkbox"> 加个友链~~~</li>
+<li><input checked="" disabled="" type="checkbox"> 图片链接 用的是 Typora+Picgo，可以自动上传，且访问稳定</li>
+<li><input checked="" disabled="" type="checkbox"> 文章末尾加版权信息</li>
+<li><input checked="" disabled="" type="checkbox"> 美化归档/标签/分类页</li>
+<li><input checked="" disabled="" type="checkbox"> hexo 多平台同步使用，坚果云同步文件夹</li>
+<li><input checked="" disabled="" type="checkbox"> 随时上锁日志</li>
+</ul>
+<h1 id="写在前头"><a href="#写在前头" class="headerlink" title="写在前头"></a>写在前头</h1><p>hexo是一个快速、简洁且高效的博客框架。写作上支持markdown语法，同时支持非常多<strong>第三方功能插件</strong>，可拓展性很好。</p>
+<p>我的博客基于hexo，选用的是<strong>Next主题</strong>中Gemini风格，是一款简约风格的主题。</p>
+<p>我想让自己专注于内容，尽少的被花哨的功能迷昏了眼，虽然DIY起来确实是很欢乐~~</p>
+<p>有四点需要提前说明：</p>
+<ol>
+<li>以下的绝大多数功能都是已经开发好的功能插件，安装后简单配置一下即可，使用起来很简单，我这里不再多赘述，附上网络上已有的靠谱链接，再写一下使用中需要注意的地方</li>
+<li>其次就是很多功能如访问量、评论、本地搜索等在<strong>Next主题下</strong>的config配置文件下已经被提前写好了，你需要做的就是<strong>找到他们</strong>，把<strong>默认的false改成true即可</strong>。其他的主题可能config配置文件下没有集成那么多功能，需要去安装相对应的插件🙄</li>
+<li>有些功能如看板娘、影像馆等如果自己去加一些代码，也不要畏难。耐心+细心 跟着网上的教程也很快的</li>
+<li>不同版本的next配置文件会发生一些变化，比如swig格式改成njk格式，配置文件的路径也变化，但是万变不离其宗，照搬代码的时候不要太死板！！</li>
+<li>再深度的改造就需要自己有比较好的前端开发能力了，可以在前期的copy过程中多留心，去思考，后面摸清楚之后结合自己的喜爱去设计自己的内容</li>
+</ol>
+<h1 id="基础建站"><a href="#基础建站" class="headerlink" title="基础建站"></a>基础建站</h1><p>具体过程参考下文：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://tding.top/archives/7f189df5.html">Hexo建站教程</a></li>
+</ul>
+<h1 id="更换背景图片"><a href="#更换背景图片" class="headerlink" title="更换背景图片"></a>更换背景图片</h1><p>目前我这里只是简单的换了一个背景图片，没有加什么特效，也木有视频作为背景，后面看情况再做优化</p>
+<p>更换背景图片的做法是，进入<code>themes\next\source\css\main.styl</code>，我在这里选用的是next主题</p>
+<p>在最底下插段代码，参数可以根据参数具体含义和背景图片自行调整 (如果没有找到这个 main.styl 目录，直接去主题文件夹下 sources 找 css 文件，在主要的 styl 下附上这段代码，也是一样的效果)</p>
+<pre class="line-numbers language-stylus" data-language="stylus"><code class="language-stylus"><span class="token selector">body <span class="token punctuation">&#123;</span></span>
+    <span class="token property-declaration"><span class="token property">background</span><span class="token punctuation">:</span><span class="token url">url(/images/your-picture.jpg)</span><span class="token punctuation">;</span> <span class="token comment">//这里把图片直接放在images下</span></span>
+    <span class="token property-declaration"><span class="token property">background-repeat</span><span class="token punctuation">:</span> no-repeat<span class="token punctuation">;</span> </span>
+    <span class="token property-declaration"><span class="token property">background-attachment</span><span class="token punctuation">:</span>fixed<span class="token punctuation">;</span> <span class="token comment">//不重复</span></span>
+    <span class="token property-declaration"><span class="token property">background-size</span><span class="token punctuation">:</span> cover<span class="token punctuation">;</span>      <span class="token comment">//填充</span></span>
+    <span class="token property-declaration"><span class="token property">background-position</span><span class="token punctuation">:</span><span class="token number">50</span><span class="token unit">%</span> <span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">;</span> <span class="token comment">//放在屏幕正中间</span></span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h1><p>修改 <code>Hexo/theme/next/_config.yml</code>文件</p>
+<p>ctrl+f 搜索全局 输入<code>local search</code>，修改配置项，具体如下</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># Local Search
+# Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-generator-searchdb
+local_search:
+  enable: true
+  # If auto, trigger search by changing input.
+  # If manual, trigger search by pressing enter key or search button.
+  trigger: auto
+  # Show top n results per article, show all results by setting to -1
+  top_n_per_article: 1
+  # Unescape html strings to the readable one.
+  unescape: false
+  # Preload the search data when the page loads.
+  preload: false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="搭建影像馆界面"><a href="#搭建影像馆界面" class="headerlink" title="搭建影像馆界面"></a>搭建影像馆界面</h1><p>小丁的博客是我最早期关注的博客之一，我的博客里有很多模仿他的地方，非常感谢</p>
+<p>具体过程参考下文：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://tding.top/archives/607c3b85.html">Hexo-NexT 实现相册</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42529972/article/details/109485019">关于给hexo博客增加相册页面</a></li>
+</ul>
+<h1 id="站点收录"><a href="#站点收录" class="headerlink" title="站点收录"></a>站点收录</h1><p>检查自己的网站是否被收录，在搜索因素输入 <code>site:ychch.top</code> 即可</p>
+<p>如下图，有搜索结果就是被收录了😁：</p>
+<img data-src="https://s2.loli.net/2022/04/21/imeRxt8quw1KYhk.png" style="zoom:80%;" />
+
+<p>这样就是没有被收录😥：</p>
+<img data-src="https://s2.loli.net/2022/04/21/JUa1wvnfp7ZGl5x.png" style="zoom:80%;" />
+
+<p>如果你用的主题更新的很频繁的话，其实这都是在主题配置文件里的功能选项，直接在里面添加就好了</p>
+<p>我用的是最新版的Next主题，主题下的_config.yml都已经留好了功能位置</p>
+<p>在常用的google、bing和百度下填好自己网站的验证码，将enable baidu push从 <strong>false改成true</strong>，如图所示：</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># SEO Settings
+
+index_with_subtitle: true
+
+# Automatically add external URL with Base64 encrypt &amp; decrypt.
+exturl: false
+# If true, an icon will be attached to each external URL
+exturl_icon: true
+
+# Google Webmaster tools verification.
+# See: https:&#x2F;&#x2F;developers.google.com&#x2F;search
+google_site_verification: 自己填
+
+# Bing Webmaster tools verification.
+# See: https:&#x2F;&#x2F;www.bing.com&#x2F;webmasters
+bing_site_verification: 自己填
+
+# Baidu Webmaster tools verification.
+# See: https:&#x2F;&#x2F;ziyuan.baidu.com&#x2F;site
+baidu_site_verification: 自己填<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>传统的收录教程也附上：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Likfees/p/16352073.html#%E9%85%8D%E7%BD%AE-%E7%99%BE%E5%BA%A6%E4%B8%BB%E5%8A%A8%E6%8E%A8%E9%80%81">Hexo-域名设置+收录</a></li>
+</ul>
+<p>再附上三个平台的站点管理链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ziyuan.baidu.com/">百度站点管理</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bing.com/webmasters/">bing站点管理</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/">google站点管理</a></li>
+</ul>
+<h1 id="添加-只言片语-页面"><a href="#添加-只言片语-页面" class="headerlink" title="添加 只言片语 页面"></a>添加 只言片语 页面</h1><p>目前用的是 artitalk.js，其实不太好用，加速速度也挺慢，界面我也不是很喜欢，后面有时间精力再换一个~~</p>
+<p>配置起来倒是很简单，新建一个页面，<code>hexo new page</code> 自己给个名字，我给的是 shuoshuo，直接在新建页面下输入：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 引用 artitalk <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"https://unpkg.com/artitalk"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 存放说说的容器 <span class="token operator">--</span><span class="token operator">></span>
+
+<span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"artitalk_main"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">new</span> <span class="token class-name">Artitalk</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">appId</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span> <span class="token comment">// Your LeanCloud appId</span>
+    <span class="token literal-property property">appKey</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span> <span class="token comment">// Your LeanCloud appKey</span>
+    <span class="token literal-property property">pageSize</span><span class="token operator">:</span> <span class="token number">10</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>appId</code>和<code>appKey</code>需要自己去申请账号等获得，跟着教程去一步步设置即可</p>
+<p>更高级的配置方法可以自己的配置，具体过程参考下文：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://artitalk.js.org/">hexo添加 只言片语 页面</a></li>
+</ul>
+<h1 id="博客访问量统计"><a href="#博客访问量统计" class="headerlink" title="博客访问量统计"></a>博客访问量统计</h1><p>修改 <code>Hexo/theme/next/_config.yml</code>文件， <code>ctrl+f</code> 搜索全局 输入busuanzi_count，修改配置项，具体如下：</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># Show Views &#x2F; Visitors of the website &#x2F; page with busuanzi.
+# Get more information on http:&#x2F;&#x2F;ibruce.info&#x2F;2015&#x2F;04&#x2F;04&#x2F;busuanzi
+busuanzi_count:
+  enable: ture
+  total_visitors: true
+  total_visitors_icon: fa fa-user
+  total_views: true
+  total_views_icon: fa fa-eye
+  post_views: false
+  post_views_icon: fa fa-eye
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当然也有其他的工具也可以做访客统计，但是有些繁琐，我就没有花时间去探索了</p>
+<p><strong>有一点值得注意，hexo s部署在本地预览效果的时候，统计数会不正常，当把博客部署到云端时即可恢复正常</strong></p>
+<blockquote>
+<p>这里需要注意：需要保存好源码，不然容易统计量清零</p>
+</blockquote>
+<h1 id="博客添加置顶页面"><a href="#博客添加置顶页面" class="headerlink" title="博客添加置顶页面"></a>博客添加置顶页面</h1><p>无需下载插件，添加一段代码即可</p>
+<p>修改 <code>Hexo/yourblog</code>文件夹下的<code>node_modules/hexo-generator-index/lib/generator.js</code></p>
+<p>添加如下代码 <em>(其实仔细看看，也很好懂)</em> ：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">posts<span class="token punctuation">.</span>data <span class="token operator">=</span> posts<span class="token punctuation">.</span>data<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>top <span class="token operator">&amp;&amp;</span> b<span class="token punctuation">.</span>top<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>top <span class="token operator">==</span> b<span class="token punctuation">.</span>top<span class="token punctuation">)</span> <span class="token keyword">return</span> b<span class="token punctuation">.</span>date <span class="token operator">-</span> a<span class="token punctuation">.</span>date<span class="token punctuation">;</span>
+          <span class="token keyword">else</span> <span class="token keyword">return</span> b<span class="token punctuation">.</span>top <span class="token operator">-</span> a<span class="token punctuation">.</span>top<span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>top <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>b<span class="token punctuation">.</span>top<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>a<span class="token punctuation">.</span>top <span class="token operator">&amp;&amp;</span> b<span class="token punctuation">.</span>top<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">else</span> <span class="token keyword">return</span> b<span class="token punctuation">.</span>date <span class="token operator">-</span> a<span class="token punctuation">.</span>date<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用时：在需要置顶的文章添加top属性即可，数字越大 置顶越靠前</p>
+<img data-src="https://lxiuaunng.github.io/hexo%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD/hexo%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6.png" style="zoom:67%;" />
+
+<p>具体过程参考下文：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://lxiuaunng.github.io/hexo%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD/">Lxuan‘s blog</a></li>
+</ul>
+<h1 id="通过点击放大图片"><a href="#通过点击放大图片" class="headerlink" title="通过点击放大图片"></a>通过点击放大图片</h1><p>修改 <code>Hexo/theme/next/_config.yml</code>文件</p>
+<p>ctrl+f 搜索全局 输入FancyBox，修改配置项，具体如下</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
+
+fancybox: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="优化网站字体"><a href="#优化网站字体" class="headerlink" title="优化网站字体"></a>优化网站字体</h1><p>具体过程参考下文：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sailist/article/details/104114578#:~:text=Hexoto%E5%AD%97%E4%BD%93,%E6%9C%AF%E8%AE%BE%E8%AE%A1%E6%96%B9%E9%9D%A2%E7%9A%84%E5%AD%97%E4%BD%93">Hexo-Next主题更改字体</a></li>
+</ul>
+<h1 id="鼠标点击特效"><a href="#鼠标点击特效" class="headerlink" title="鼠标点击特效"></a>鼠标点击特效</h1><p><a target="_blank" rel="noopener" href="https://zxiaosi.cn/archives/c776502.html">https://zxiaosi.cn/archives/c776502.html</a></p>
+<h1 id="粒子时钟"><a href="#粒子时钟" class="headerlink" title="粒子时钟"></a>粒子时钟</h1><p><a target="_blank" rel="noopener" href="https://zxiaosi.cn/archives/c776502.html">https://zxiaosi.cn/archives/c776502.html</a></p>
+<h1 id="超萌看板娘上线"><a href="#超萌看板娘上线" class="headerlink" title="超萌看板娘上线"></a>超萌看板娘上线</h1><p>看板娘有的插件可以搞得功能很多，换装、拍照、换人物等，但我个人觉得还挺分散注意力的，所以我的博客里就固定放只小猫咪吧</p>
+<p>流程也很简单：</p>
+<ol>
+<li>安装hexo-helper-live2d</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">npm install --save hexo-helper-live2d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="2">
+<li>下载一个模型</li>
+</ol>
+<p>从中挑选一个模型 <a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">https://huaji8.top/post/live2d-plugin-2.0/</a> ，执行下载</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">npm install live2d-widget-model-tororo //假设你选择的看板娘是白色小猫咪tororo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="3">
+<li>修改根目录下的_config.yml配置文件</li>
+</ol>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">#看板娘  Live2D动画
+live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw&#x2F;
+  pluginJsPath: lib&#x2F;
+  pluginModelPath: assets&#x2F;
+  tagMode: false
+  debug: false
+  model:
+    use: live2d-widget-model-tororo
+  display:
+    position: left
+    width: 150
+    height: 300
+    hOffset: 100
+  mobile:
+    show: true
+  dialog:
+    enable: true
+    hitokoto: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>个人觉得我这个配置还是挺舒服的，如何自定义自己的配置，请看参考资料中的  详细中文文档说明  和  详细参数配置，参考资料：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/350654582">如何开始使用</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md">详细中文文档说明</a></li>
+<li><a target="_blank" rel="noopener" href="https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init">详细参数配置</a></li>
+</ul>
+<h1 id="waline评论系统"><a href="#waline评论系统" class="headerlink" title="waline评论系统"></a>waline评论系统</h1><p>评论系统折腾了很久，之前配置的是valine，配好之后好久之后才发现根本用不了，我又花了好久去折腾，按理说不应该呀，搞了好久，也不知道问题出在了哪，人当时裂开了。</p>
+<p>只能选择换个评论系统试试，又去调研了一番</p>
+<p>综合比较之后选择了waline，这是基于valine开发的一套系统，<strong>最近两年才开始普遍使用起来</strong>，外观也很清爽大方</p>
+<p>关于一些比较问题，这个博客讲得特别好，我基本是跟着他做的，就不赘述了，放上大神博客链接</p>
+<p><a target="_blank" rel="noopener" href="https://finisky.github.io/hexowaline/">Hexo使用Waline评论系统</a></p>
+<p>配置过程分为服务器和客户端两方面，服务器就是  博主使用的评论系统后台，管理评论；客户端就是在博客里配置好，方便游客评论</p>
+<p>根据以下链接做就行，真的很快： <a target="_blank" rel="noopener" href="https://waline.js.org/guide/get-started.html#leancloud-settings-database">waline官网快速上手教程</a></p>
+<p><img data-src="https://s2.loli.net/2022/03/18/w7ldAOfNLsgkFmh.png"></p>
+<p>这里的客户端配置如果用HTML引入，那么每个页面都要加这段代码，那就需要到POST里面去改，挺麻烦的，<a target="_blank" rel="noopener" href="https://waline.js.org/guide/get-started.html#leancloud-settings-database">那么就用第三方插件</a>，安装完后按照要求在config_yml配置后，发现会出问题…..</p>
+<pre class="line-numbers language-none"><code class="language-none">$ hexo s
+INFO  Validating config
+INFO  Start processing
+INFO  Hexo is running at http:&#x2F;&#x2F;localhost:5000 . Press Ctrl+C to stop.
+Unhandled rejection Template render error: (&#x2F;home&#x2F;finisky&#x2F;themes&#x2F;next&#x2F;layout&#x2F;post.swig)
+  Template render error: (&#x2F;home&#x2F;finisky&#x2F;themes&#x2F;next&#x2F;layout&#x2F;post.swig) [Line 41, Column 16]
+  Template render error: (&#x2F;home&#x2F;finisky&#x2F;themes&#x2F;next&#x2F;layout&#x2F;post.swig) [Line 54, Column 17]
+  Template render error: (&#x2F;home&#x2F;finisky&#x2F;themes&#x2F;next&#x2F;layout&#x2F;post.swig)
+  Template render error: (&#x2F;home&#x2F;finisky&#x2F;themes&#x2F;next&#x2F;layout&#x2F;_partials&#x2F;head&#x2F;head-unique.swig) [Line 10, Column 23]
+  Template render error: (&#x2F;home&#x2F;finisky&#x2F;themes&#x2F;next&#x2F;layout&#x2F;post.swig) [Line 3, Column 3]
+  Template render error: (&#x2F;home&#x2F;finisky&#x2F;themes&#x2F;next&#x2F;layout&#x2F;post.swig)
+  Template render error: (&#x2F;home&#x2F;finisky&#x2F;themes&#x2F;next&#x2F;layout&#x2F;_partials&#x2F;header&#x2F;index.swig) ......<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>后面发现了问题，就是next版本问题，裂开，按照官方推荐的解决方式做更新升级：先下载最新版，再做升级</p>
+<p><a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/upgrade.html">如何更新Next版本</a></p>
+<p><a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/installation.html">如何下载最新版next，拒绝直接下载安装包解压的方式</a></p>
+<p>后面单出一篇文章讲hexo升级需要注意的事项吧，也挺折腾的~~~</p>
+<h1 id="加个友链"><a href="#加个友链" class="headerlink" title="加个友链"></a>加个友链</h1><p>友链有助于交朋友和互相推广，next主题 <code>_config.yml</code> 配置文件支持友链添加，如代码所示：</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># Blog rolls
+links_settings:
+  icon: fa fa-globe
+  title: 友链请留言
+  # Available values: block | inline
+  layout: inline
+
+links:
+  #Title: https:&#x2F;&#x2F;example.com
+  ychch&#39;s blog: https:&#x2F;&#x2F;ychch.top<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>效果就是会在边栏下方显示，其实挺简洁的，我个人比较喜欢</p>
+<p><img data-src="https://s2.loli.net/2022/03/18/iHb9cGM5qFxaSRQ.png"></p>
+<p>但是考虑到友链如果一多，边栏就会变得很繁重，不美观，没有专门的友链页面的话，都不知道去哪里留言</p>
+<p>个人又不想专门搞一个页面放友链，所以我就把友链作为放在了 个人页面里的一个模块呈现</p>
+<p>Markdown语法天然支持内嵌html，所以我们直接加一段代码即可</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post-body<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>links<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+         <span class="token selector">.links-content</span><span class="token punctuation">&#123;</span>
+         <span class="token property">margin-top</span><span class="token punctuation">:</span>1rem<span class="token punctuation">;</span>
+         <span class="token punctuation">&#125;</span>
+         <span class="token selector">.link-navigation::after</span> <span class="token punctuation">&#123;</span>
+         <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+         <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+         <span class="token property">clear</span><span class="token punctuation">:</span> both<span class="token punctuation">;</span>
+         <span class="token punctuation">&#125;</span>
+         <span class="token selector">.card</span> <span class="token punctuation">&#123;</span>
+         <span class="token property">width</span><span class="token punctuation">:</span> 45%<span class="token punctuation">;</span>
+         <span class="token property">font-size</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span>
+         <span class="token property">padding</span><span class="token punctuation">:</span> 10px 20px<span class="token punctuation">;</span>
+         <span class="token property">border-radius</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+         <span class="token property">transition-duration</span><span class="token punctuation">:</span> 0.15s<span class="token punctuation">;</span>
+         <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span>
+         <span class="token property">display</span><span class="token punctuation">:</span>flex<span class="token punctuation">;</span>
+         <span class="token punctuation">&#125;</span>
+         <span class="token selector">.card:nth-child(odd)</span> <span class="token punctuation">&#123;</span>
+         <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+         <span class="token punctuation">&#125;</span>
+         <span class="token selector">.card:nth-child(even)</span> <span class="token punctuation">&#123;</span>
+         <span class="token property">float</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span>
+         <span class="token punctuation">&#125;</span>
+         <span class="token selector">.card:hover</span> <span class="token punctuation">&#123;</span>
+         <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>1.1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 2px 6px 0 <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0.12<span class="token punctuation">)</span><span class="token punctuation">,</span> 0 0 6px 0 <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0.04<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">&#125;</span>
+         <span class="token selector">.card a</span> <span class="token punctuation">&#123;</span>
+         <span class="token property">border</span><span class="token punctuation">:</span>none<span class="token punctuation">;</span>
+         <span class="token punctuation">&#125;</span>
+         <span class="token selector">.card .ava</span> <span class="token punctuation">&#123;</span>
+         <span class="token property">width</span><span class="token punctuation">:</span> 3rem<span class="token important">!important</span><span class="token punctuation">;</span>
+         <span class="token property">height</span><span class="token punctuation">:</span> 3rem<span class="token important">!important</span><span class="token punctuation">;</span>
+         <span class="token property">margin</span><span class="token punctuation">:</span>0<span class="token important">!important</span><span class="token punctuation">;</span>
+         <span class="token property">margin-right</span><span class="token punctuation">:</span> 1em<span class="token important">!important</span><span class="token punctuation">;</span>
+         <span class="token property">border-radius</span><span class="token punctuation">:</span>4px<span class="token punctuation">;</span>
+         <span class="token punctuation">&#125;</span>
+         <span class="token selector">.card .card-header</span> <span class="token punctuation">&#123;</span>
+         <span class="token property">font-style</span><span class="token punctuation">:</span> italic<span class="token punctuation">;</span>
+         <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+         <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+         <span class="token punctuation">&#125;</span>
+         <span class="token selector">.card .card-header a</span> <span class="token punctuation">&#123;</span>
+         <span class="token property">font-style</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+         <span class="token property">color</span><span class="token punctuation">:</span> #2bbc8a<span class="token punctuation">;</span>
+         <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+         <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+         <span class="token punctuation">&#125;</span>
+         <span class="token selector">.card .card-header a:hover</span> <span class="token punctuation">&#123;</span>
+         <span class="token property">color</span><span class="token punctuation">:</span> #d480aa<span class="token punctuation">;</span>
+         <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+         <span class="token punctuation">&#125;</span>
+         <span class="token selector">.card .card-header .info</span> <span class="token punctuation">&#123;</span>
+         <span class="token property">font-style</span><span class="token punctuation">:</span>normal<span class="token punctuation">;</span>
+         <span class="token property">color</span><span class="token punctuation">:</span>#a3a3a3<span class="token punctuation">;</span>
+         <span class="token property">font-size</span><span class="token punctuation">:</span>14px<span class="token punctuation">;</span>
+         <span class="token property">min-width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+         <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+         <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
+         <span class="token punctuation">&#125;</span>
+      </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>links-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>link-navigation<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ava<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://finisky.github.io/images/avatar.png<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card-header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+                     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://finisky.github.io/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Finisky Garden<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+                  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+                  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Easy doesn’t enter into grown-up life.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+            ....自由添加 
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以后每加一个友链，在下面复制一段即可：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ava<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://finisky.github.io/images/avatar.png<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card-header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://finisky.github.io/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Finisky Garden<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Easy doesn’t enter into grown-up life.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>效果如链接所示：</p>
+<p><a href="https://ychch.top/about/">https://ychch.top/about/</a></p>
+<h1 id="添加版权信息"><a href="#添加版权信息" class="headerlink" title="添加版权信息"></a>添加版权信息</h1><p>hexo-next主题如何在文章末尾添加版权信息呢？</p>
+<p>修改 <code>Hexo/theme/next/_config.yml</code>文件</p>
+<p>ctrl+f 搜索全局 输入 creative_commons ，把 post 从 false 改为 true 即可，具体如下</p>
+<p><img data-src="https://s2.loli.net/2022/04/20/EqIv8MYmr3a5S19.png"></p>
+<h1 id="美化归档-标签-分类页"><a href="#美化归档-标签-分类页" class="headerlink" title="美化归档/标签/分类页"></a>美化归档/标签/分类页</h1><p>参考这位博主</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://jrbcode.gitee.io/posts/be9758cd.html">https://jrbcode.gitee.io/posts/be9758cd.html</a></li>
+</ul>
+<h1 id="随时上锁日志"><a href="#随时上锁日志" class="headerlink" title="随时上锁日志"></a>随时上锁日志</h1><p>配置参考如下：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://easyhexo.com/3-Plugins-use-and-config/3-4-hexo-blog-encrypt/#%E7%AE%80%E4%BB%8B">hexo-blog-encrypt</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/D0n9X1n/hexo-blog-encrypt/blob/master/ReadMe.zh.md">hexo-blog-encrypt-github</a></li>
+</ul>
+<h1 id="自动上传图片链接"><a href="#自动上传图片链接" class="headerlink" title="自动上传图片链接"></a>自动上传图片链接</h1><p>smms图床，国内外都可以稳定访问，且有足够的免费空间</p>
+<p>PicGo可以安装compress插件，以做压缩图片之用</p>
+<p>配置参考如下：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6961715948755615774">Smms+PicGo实现Typora插入图像时上传到线上</a></li>
+</ul>
+<h1 id="疑难杂症"><a href="#疑难杂症" class="headerlink" title="疑难杂症"></a>疑难杂症</h1><p>hexo在使用过程中陆陆续续有不少的问题，不想在每一次百度之后就抛之脑后，所以在这里记录一下…<br>主要包括有：</p>
+<ul>
+<li>hexo d 推送至远程库时报错</li>
+<li>hexo-douban库爬取错误</li>
+</ul>
+<h2 id="hexo-d-推送至远程库时报错"><a href="#hexo-d-推送至远程库时报错" class="headerlink" title="hexo d 推送至远程库时报错"></a>hexo d 推送至远程库时报错</h2><p>报错信息如下：</p>
+<p><img data-src="https://s2.loli.net/2023/04/02/ynfrHWdbotcUpa2.png"></p>
+<p>对git不是很熟悉，网上针对这个问题有很多不同的解法，试了好几个，都没有成功,其中按照以下步骤成功解决了这个问题<br>步骤如下：</p>
+<ol>
+<li>删除主目录下的.deploy_git文件夹</li>
+<li>运行这个命令：git config –global core.autocrlf false</li>
+<li>hexo clean &amp; hexo g &amp; hexo d</li>
+<li>打开自己的网站，验证是否成功 </li>
+</ol>
+<p>其中git config –global core.autocrlf false的意思是，将core.autocrlf配置成false，即不开启自动转换功能。不懂……</p>
+<h2 id="hexo-douban库爬取错误"><a href="#hexo-douban库爬取错误" class="headerlink" title="hexo-douban库爬取错误"></a>hexo-douban库爬取错误</h2><p>安装了第三方库hexo-douban爬取数据时总是发生错误<br>需要把node.js版本降成12版本，高版本不支持<br>直接卸载当前的node，安装12版本的即可<br>hexo-douban开发者已停止维护了，如果还是要用这个库的话，暂时只有这个解决办法</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/38219432/answer/123443945">出现hexo -d 报错如何解决</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>ych-ch
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ychch.top/archives/9a82cdbe.html" title="hexo搭建之路">https://ychch.top/archives/9a82cdbe.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/archives/2f6e7165.html" rel="prev" title="Java字符串相等陷阱">
+                  <i class="fa fa-chevron-left"></i> Java字符串相等陷阱
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/archives/3eece56f.html" rel="next" title="Picx图床推荐">
+                  Picx图床推荐 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-crow"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ych-ch</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">232k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:31</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        你是本站第<span id="busuanzi_value_site_uv"></span>位访客
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        本站已被浏览<span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="/lib/medium-zoom/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="/lib/lozad/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="/lib/pangu/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.ychch.top/","placeholder":"雁过留痕,欢迎交流评论(●'◡'●)","avatar":"mm","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"meta":["nick","mail","link"],"libUrl":"//cdn.jsdelivr.net/npm/@waline/client","el":"#waline-comments","path":"/archives/9a82cdbe.html"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() => 
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => {
+    new Waline(CONFIG.waline);
+  });
+});
+</script>
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":80},"mobile":{"show":true,"scale":0.5},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</html>

@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="baidu-site-verification" content="code-oy2gTeqH9v" />
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/blogIcon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/blogIcon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/blogIcon.png">
+  <link rel="mask-icon" href="/images/blogIcon.png" color="#222">
+  <link rel="manifest" href="/images/blogIcon.png">
+  <meta name="google-site-verification" content="5O1JD7i07BBNtPS8GeMREfy3KlJKyIHRvUbt0Ulnc4k">
+  <meta name="msvalidate.01" content="defbadb89c5687f86ead63be53a1b83c">
+  <meta name="baidu-site-verification" content="kBCDbEEWrIWKXwYW">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/pace-js/themes/blue/pace-theme-minimal.css">
+  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ychch.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="浏览器原理">
+<meta property="og:url" content="https://ychch.top/archives/f1e02d11.html">
+<meta property="og:site_name" content="CYC&#39;s 个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/12/09/hn6szuTWENfaHPZ.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/png/1500604/1603803289911-191cabf3-e7e2-4354-a83d-858668cc116f.png">
+<meta property="og:image" content="https://s2.loli.net/2022/12/13/pQGk9N2UHnjZeg3.png">
+<meta property="og:image" content="https://s2.loli.net/2022/12/09/t4JQZ1aPoNdcBuw.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/jpeg/1500604/1605256274960-50bd9e69-dde9-4782-b2c0-6afc8188fca2.jpeg">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7fd1a43f0380484288590fff97466d4b~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/05a802dfb84b494ea0bac6281e292a11~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da8164de8a1245fe962673e9c2bfb473~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2cf5dc1cf0b04856809050ed165a0d7a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f28fab4cc224c18952929a738959a98~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp">
+<meta property="article:published_time" content="2022-12-09T06:09:10.000Z">
+<meta property="article:modified_time" content="2024-08-20T01:46:56.174Z">
+<meta property="article:author" content="ych-ch">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/12/09/hn6szuTWENfaHPZ.png">
+
+
+<link rel="canonical" href="https://ychch.top/archives/f1e02d11.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ychch.top/archives/f1e02d11.html","path":"archives/f1e02d11.html","title":"浏览器原理"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>浏览器原理 | CYC's 个人博客</title>
+  
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.ychch.top/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="CYC's 个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">CYC's 个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">当我与世界初相见</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>我 & 友链</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">58</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">60</span></a></li>
+        <li class="menu-item menu-item-pictures"><a href="/gallery/" rel="section"><i class="fa fa-images fa-fw"></i>影像馆</a></li>
+        <li class="menu-item menu-item-movies"><a href="/movies/" rel="section"><i class="fa fa-video fa-fw"></i>光影岁月</a></li>
+        <li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>好书推荐</a></li>
+        <li class="menu-item menu-item-shuoshuo"><a href="/shuoshuo/" rel="section"><i class="fa fa-comment fa-fw"></i>只言片语</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8"><span class="nav-number">1.</span> <span class="nav-text">浏览器安全</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS%E6%94%BB%E5%87%BB"><span class="nav-number">1.1.</span> <span class="nav-text">XSS攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BB%E5%87%BB%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">攻击类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%8A%B5%E5%BE%A1XSS"><span class="nav-number">1.2.</span> <span class="nav-text">如何抵御XSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSRF%E6%94%BB%E5%87%BB"><span class="nav-number">1.3.</span> <span class="nav-text">CSRF攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%8A%B5%E5%BE%A1CSRF"><span class="nav-number">1.4.</span> <span class="nav-text">如何抵御CSRF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%AF%E8%83%BD%E5%BC%95%E8%B5%B7%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8"><span class="nav-number">1.5.</span> <span class="nav-text">有哪些可能引起前端安全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%8A%AB%E6%8C%81%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%EF%BC%8C%E5%A6%82%E4%BD%95%E9%98%B2%E8%8C%83%EF%BC%9F"><span class="nav-number">1.6.</span> <span class="nav-text">网络劫持有哪几种，如何防范？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">进程与线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E8%BF%9B%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">浏览器的进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="nav-number">2.2.</span> <span class="nav-text">渲染进程的线程有哪些</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text">进程之间的通信方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%AD%A4%E5%84%BF%E8%BF%9B%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.4.</span> <span class="nav-text">僵尸进程和孤儿进程是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%EF%BC%9F-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%AD%BB%E9%94%81%EF%BC%9F"><span class="nav-number">2.5.</span> <span class="nav-text">死锁？ 如何解决死锁？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98"><span class="nav-number">3.</span> <span class="nav-text">浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">3.1.</span> <span class="nav-text">对浏览器缓存机制的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B5%84%E6%BA%90%E7%BC%93%E5%AD%98%E4%BD%8D%E7%BD%AE"><span class="nav-number">3.2.</span> <span class="nav-text">浏览器资源缓存位置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Server-Worker"><span class="nav-number">3.2.1.</span> <span class="nav-text">Server Worker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-Cache"><span class="nav-number">3.2.2.</span> <span class="nav-text">Memory Cache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Disk-Cache"><span class="nav-number">3.2.3.</span> <span class="nav-text">Disk Cache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E7%BC%93%E5%AD%98%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">3.2.4.</span> <span class="nav-text">访问缓存优先级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98%E5%92%8C%E5%BC%BA%E7%BC%93%E5%AD%98%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.3.</span> <span class="nav-text">协商缓存和强缓存的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="nav-number">3.3.1.</span> <span class="nav-text">强缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="nav-number">3.3.2.</span> <span class="nav-text">协商缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%EF%BC%9F"><span class="nav-number">3.4.</span> <span class="nav-text">为什么需要浏览器缓存？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%B9%E5%87%BB%E5%88%B7%E6%96%B0%E6%8C%89%E9%92%AE%E6%88%96%E8%80%85%E6%8C%89-F5%E3%80%81%E6%8C%89-Ctrl-F5-%EF%BC%88%E5%BC%BA%E5%88%B6%E5%88%B7%E6%96%B0%EF%BC%89%E3%80%81%E5%9C%B0%E5%9D%80%E6%A0%8F%E5%9B%9E%E8%BD%A6%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">3.5.</span> <span class="nav-text">点击刷新按钮或者按 F5、按 Ctrl+F5 （强制刷新）、地址栏回车有什么区别？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BB%84%E6%88%90"><span class="nav-number">4.</span> <span class="nav-text">浏览器组成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">4.1.</span> <span class="nav-text">对浏览器的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">4.2.</span> <span class="nav-text">对浏览器内核的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8"><span class="nav-number">4.3.</span> <span class="nav-text">常见浏览器内核</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%BB%E8%A6%81%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-number">4.3.1.</span> <span class="nav-text">浏览器的主要组成部分</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6"><span class="nav-number">5.</span> <span class="nav-text">浏览器渲染机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM-tree"><span class="nav-number">5.1.</span> <span class="nav-text">DOM tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSSom"><span class="nav-number">5.2.</span> <span class="nav-text">CSSom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E6%A0%91"><span class="nav-number">5.3.</span> <span class="nav-text">渲染树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98"><span class="nav-number">5.4.</span> <span class="nav-text">回流与重绘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E6%B5%81reflow"><span class="nav-number">5.4.1.</span> <span class="nav-text">回流reflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E7%BB%98repaint"><span class="nav-number">5.4.2.</span> <span class="nav-text">重绘repaint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-number">5.4.3.</span> <span class="nav-text">优化策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0JS%E6%96%87%E4%BB%B6%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86"><span class="nav-number">5.5.</span> <span class="nav-text">渲染过程中遇到JS文件如何处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#async%E3%80%81defer%E5%92%8Cwindow-onload%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">5.6.</span> <span class="nav-text">async、defer和window.onload的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E5%A6%82%E4%BD%95%E9%98%BB%E5%A1%9E%E6%96%87%E6%A1%A3%E8%A7%A3%E6%9E%90"><span class="nav-number">5.7.</span> <span class="nav-text">CSS如何阻塞文档解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96"><span class="nav-number">5.8.</span> <span class="nav-text">浏览器渲染优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E5%85%B3%E9%94%AE%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84%EF%BC%9F"><span class="nav-number">5.9.</span> <span class="nav-text">如何优化关键渲染路径？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%AE%9A%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%97%B6%E9%97%B4%E7%BA%BF"><span class="nav-number">5.10.</span> <span class="nav-text">一定要掌握的时间线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="nav-number">6.</span> <span class="nav-text">浏览器本地存储</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">6.1.</span> <span class="nav-text">Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LocalStorage"><span class="nav-number">6.2.</span> <span class="nav-text">LocalStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SessionStorage"><span class="nav-number">6.3.</span> <span class="nav-text">SessionStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IndexedDB"><span class="nav-number">6.4.</span> <span class="nav-text">IndexedDB</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5"><span class="nav-number">7.</span> <span class="nav-text">浏览器同源策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5"><span class="nav-number">7.1.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="nav-number">7.2.</span> <span class="nav-text">如何解决跨域问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CORS"><span class="nav-number">7.2.1.</span> <span class="nav-text">CORS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82"><span class="nav-number">7.2.1.1.</span> <span class="nav-text">简单请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#withCredentials"><span class="nav-number">7.2.1.2.</span> <span class="nav-text">withCredentials</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%9E%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82"><span class="nav-number">7.2.1.3.</span> <span class="nav-text">非简单请求</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP"><span class="nav-number">7.2.2.</span> <span class="nav-text">JSONP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#postMessage%E8%B7%A8%E5%9F%9F"><span class="nav-number">7.2.3.</span> <span class="nav-text">postMessage跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx%E4%BB%A3%E7%90%86%E8%B7%A8%E5%9F%9F"><span class="nav-number">7.2.4.</span> <span class="nav-text">nginx代理跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nodejs%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BB%A3%E7%90%86%E8%B7%A8%E5%9F%9F"><span class="nav-number">7.2.5.</span> <span class="nav-text">nodejs中间件代理跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#document-domain-iframe%E8%B7%A8%E5%9F%9F"><span class="nav-number">7.2.6.</span> <span class="nav-text">document.domain + iframe跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebSocket%E5%8D%8F%E8%AE%AE%E8%B7%A8%E5%9F%9F"><span class="nav-number">7.2.7.</span> <span class="nav-text">WebSocket协议跨域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-number">7.3.</span> <span class="nav-text">正向代理和反向代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%85%B6%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">7.4.</span> <span class="nav-text">Nginx的概念及其工作原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6"><span class="nav-number">8.</span> <span class="nav-text">浏览器事件机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">8.1.</span> <span class="nav-text">事件是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%98%BB%E6%AD%A2%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1"><span class="nav-number">8.2.</span> <span class="nav-text">如何阻止事件冒泡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98"><span class="nav-number">8.3.</span> <span class="nav-text">事件委托</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="nav-number">9.</span> <span class="nav-text">浏览器垃圾回收机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#V8%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="nav-number">9.1.</span> <span class="nav-text">V8的垃圾回收机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E7%94%9F%E4%BB%A3%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8"><span class="nav-number">9.1.1.</span> <span class="nav-text">新生代垃圾回收器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%80%81%E7%94%9F%E4%BB%A3%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="nav-number">9.1.2.</span> <span class="nav-text">老生代垃圾回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E5%9B%9E%E6%94%B6"><span class="nav-number">9.1.3.</span> <span class="nav-text">并行回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E9%87%8F%E6%A0%87%E8%AE%B0"><span class="nav-number">9.1.4.</span> <span class="nav-text">增量标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%83%B0%E6%80%A7%E6%B8%85%E7%90%86"><span class="nav-number">9.1.5.</span> <span class="nav-text">惰性清理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E5%9B%9E%E6%94%B6"><span class="nav-number">9.1.6.</span> <span class="nav-text">并发回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">9.1.7.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ych-ch"
+      src="/images/bird-in-snow.webp">
+  <p class="site-author-name" itemprop="name">ych-ch</p>
+  <div class="site-description" itemprop="description">个人博客</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ych-chen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ych-chen" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2021206190014@whu.edu.cn" title="E-Mail → mailto:2021206190014@whu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+
++     <div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>     
+ 
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ychch.top/archives/f1e02d11.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bird-in-snow.webp">
+      <meta itemprop="name" content="ych-ch">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CYC's 个人博客">
+      <meta itemprop="description" content="个人博客">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="浏览器原理 | CYC's 个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浏览器原理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-12-09 14:09:10" itemprop="dateCreated datePublished" datetime="2022-12-09T14:09:10+08:00">2022-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-20 09:46:56" itemprop="dateModified" datetime="2024-08-20T09:46:56+08:00">2024-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/archives/f1e02d11.html#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/archives/f1e02d11.html" data-xid="/archives/f1e02d11.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>22k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>20 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img data-src="https://s2.loli.net/2022/12/09/hn6szuTWENfaHPZ.png"></p>
+<span id="more"></span>
+
+<h1 id="浏览器安全"><a href="#浏览器安全" class="headerlink" title="浏览器安全"></a>浏览器安全</h1><h2 id="XSS攻击"><a href="#XSS攻击" class="headerlink" title="XSS攻击"></a>XSS攻击</h2><p>XSS攻击指的是跨站脚本攻击(Cross-Site Scripting)，是<strong>一种代码注入攻击</strong>。攻击者通过在网站注入恶意脚本，使之在用户的浏览器上运行，从而盗取用户的信息如 cookie 等。</p>
+<p>XSS 的本质是因为网站没有对恶意代码进行过滤，与正常的代码混合在一起了，浏览器没有办法分辨哪些脚本是可信的，从而导致了恶意代码的执行。</p>
+<p>攻击者可以通过XSS攻击进行以下操作：</p>
+<ul>
+<li>获取页面的数据，如DOM、cookie、localStorage；</li>
+<li>DOS攻击，发送合理请求，占用服务器资源，从而使用户无法访问服务器；</li>
+<li>破坏页面结构；</li>
+<li>流量劫持（将链接指向某网站）</li>
+</ul>
+<h3 id="攻击类型"><a href="#攻击类型" class="headerlink" title="攻击类型"></a>攻击类型</h3><p>XSS 可以<strong>分为存储型、反射型和 DOM 型</strong>：</p>
+<ul>
+<li>存储型指的是恶意脚本会存储在目标服务器上，当浏览器请求数据时，脚本从服务器传回并执行。</li>
+<li>反射型指的是攻击者诱导用户访问一个带有恶意代码的 URL 后，服务器端接收数据后处理，然后把带有恶意代码的数据发送到浏览器端，浏览器端解析这段带有 XSS 代码的数据后当做脚本执行，最终完成 XSS 攻击。 </li>
+<li>DOM 型指的通过修改页面的 DOM 节点形成的 XSS。</li>
+</ul>
+<p>反射型 XSS 跟存储型 XSS 的区别是：存储型 XSS 的恶意代码存在数据库⾥，反射型 XSS 的恶意代码存在 URL ⾥。 </p>
+<p>反射型 XSS 漏洞常⻅于通过 URL 传递参数的功能，如⽹站搜索、跳转等。 由于需要⽤户主动打开恶意的 URL 才能⽣效，攻击者往往会结合多种⼿段诱导⽤户点击。  </p>
+<p>DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执⾏恶意代码由浏览器端完成，属于前端JavaScript ⾃身的安全漏洞，⽽其他两种 XSS 都属于服务端的安全漏洞。 </p>
+<h2 id="如何抵御XSS"><a href="#如何抵御XSS" class="headerlink" title="如何抵御XSS"></a>如何抵御XSS</h2><ul>
+<li>抵御XSS攻击的一般方法是对用户输入的数据进行转义或者过滤，防止恶意的脚本代码被执行</li>
+<li>使用 CSP ，CSP 的本质是建立一个白名单，告诉浏览器哪些外部资源可以加载和执行，从而防止恶意代码的注入攻击。</li>
+</ul>
+<blockquote>
+<ol>
+<li>CSP 指的是内容安全策略，它的本质是建立一个白名单，告诉浏览器哪些外部资源可以加载和执行。我们只需要配置规则，如何拦截由浏览器自己来实现。</li>
+<li>通常有两种方式来开启 CSP，一种是设置 HTTP 首部中的 Content-Security-Policy，一种是设置 meta 标签的方式 <meta http-equiv="Content-Security-Policy"></li>
+</ol>
+</blockquote>
+<ul>
+<li>对一些敏感信息进行保护，比如 cookie 使用 http-only，使得脚本无法获取。也可以使用验证码，避免脚本伪装成用户执行一些操作。</li>
+</ul>
+<h2 id="CSRF攻击"><a href="#CSRF攻击" class="headerlink" title="CSRF攻击"></a>CSRF攻击</h2><p>CSRF 攻击指的是<strong>跨站请求伪造攻击</strong>。</p>
+<p>CSRF攻击的过程是，用户在浏览器上登录了网站A，并且网站A返回了Cookie信息给浏览器，用户没有退出网站A；然后用户在同一浏览器上访问了网站B，网站B上有一些隐藏的链接或者表单，指向网站A的一些敏感操作；当用户点击这些链接或者表单时，浏览器会自动带上网站A的Cookie信息，发送请求到网站A，网站A认为这是用户的合法请求，从而执行了攻击者想要的操作</p>
+<p>CSRF 攻击的<strong>本质是利用 cookie 会在同源请求中携带发送给服务器的特点，以此来实现用户的冒充</strong>。</p>
+<h2 id="如何抵御CSRF"><a href="#如何抵御CSRF" class="headerlink" title="如何抵御CSRF"></a>如何抵御CSRF</h2><ul>
+<li>使用验证码。验证码是一种让用户进行二次身份验证的方式，可以阻止攻击者伪造用户的请求。但是验证码会影响用户的体验，不适合频繁使用。</li>
+<li>使用Token。Token是一种服务器生成的随机字符串，可以放在表单的隐藏字段或者URL的参数中，每次用户发送请求时，都要带上Token。服务器会验证Token的有效性，如果Token不匹配或者过期，就拒绝请求。Token可以有效防止CSRF攻击，但是需要服务器保存和管理Token。</li>
+<li>使用Referer。Referer是HTTP请求头中的一个字段，表示请求的来源网站。服务器可以检查Referer是否来自合法的网站，如果不是，就拒绝请求。Referer可以简单地防止CSRF攻击，但是也有一些缺点，比如Referer可能被篡改或者禁用。</li>
+<li>使用SameSite。SameSite是Cookie的一个属性，表示Cookie是否可以跨站发送1。如果设置为Strict或者Lax，就可以阻止Cookie在跨站请求中被发送，从而防止CSRF攻击。SameSite是一种比较新的防御方式，但是也有一些兼容性和局限性的问题。</li>
+</ul>
+<h2 id="有哪些可能引起前端安全"><a href="#有哪些可能引起前端安全" class="headerlink" title="有哪些可能引起前端安全"></a>有哪些可能引起前端安全</h2><ul>
+<li>跨站脚本 (Cross-Site Scripting, XSS): ⼀种代码注⼊⽅式, 为了与 CSS 区分所以被称作 XSS。早期常⻅于⽹络论坛, 起因是⽹站没有对⽤户的输⼊进⾏严格的限制, 使得攻击者可以将脚本上传到帖⼦让其他⼈浏览到有恶意脚本的⻚⾯, 其注⼊⽅式很简单包括但不限于 JavaScript / CSS / Flash 等； </li>
+<li>iframe的滥⽤: iframe中的内容是由第三⽅来提供的，默认情况下他们不受控制，他们可以在iframe中运⾏JavaScirpt脚本、Flash插件、弹出对话框等等，这可能会破坏前端⽤户体验；</li>
+<li>跨站点请求伪造（Cross-Site Request Forgeries，CSRF）: 指攻击者通过设置好的陷阱，强制对已完成认证的⽤户进⾏⾮预期的个⼈信息或设定信息等某些状态更新，属于被动攻击 </li>
+<li>恶意第三⽅库: ⽆论是后端服务器应⽤还是前端应⽤开发，绝⼤多数时候都是在借助开发框架和各种类库进⾏快速开发，⼀旦第三⽅库被植⼊恶意代码很容易引起安全问题。</li>
+</ul>
+<h2 id="网络劫持有哪几种，如何防范？"><a href="#网络劫持有哪几种，如何防范？" class="headerlink" title="网络劫持有哪几种，如何防范？"></a>网络劫持有哪几种，如何防范？</h2><p>⽹络劫持分为两种: </p>
+<p>（1）<strong>DNS</strong>劫持: (输⼊京东被强制跳转到淘宝这就属于dns劫持) </p>
+<ul>
+<li>DNS强制解析: 通过修改运营商的本地DNS记录，来引导⽤户流量到缓存服务器</li>
+<li>302跳转的⽅式: 通过监控⽹络出⼝的流量，分析判断哪些内容是可以进⾏劫持处理的,再对劫持的内存发起302跳转的回复，引导⽤户获取内容 </li>
+</ul>
+<p>（2）<strong>HTTP</strong>劫持: (访问⾕歌但是⼀直有贪玩蓝⽉的⼴告),由于http明⽂传输,运营商会修改你的http响应内容(即加⼴告) </p>
+<p>DNS劫持由于涉嫌违法，已经被监管起来，现在很少会有DNS劫持，⽽http劫持依然⾮常盛⾏，最有效的办法就是全站HTTPS，将HTTP加密，这使得运营商⽆法获取明⽂，就⽆法劫持你的响应内容。 </p>
+<h1 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h1><p>进程是资源分配的最小单位，线程是CPU调度的最小单位。</p>
+<p>进程放在应用上来说就代表了一个程序；线程是进程中的更小单位，描述了执行一段指令所需的时间。</p>
+<p>进程和线程之间的关系：</p>
+<ol>
+<li>进程中的任意一线程执行出错，都会导致整个进程的崩溃</li>
+<li>线程之间共享进程中的数据</li>
+<li>当进程关闭，操作系统会回收进程所占用的内存</li>
+<li>进程之间的内容相互隔离</li>
+</ol>
+<h2 id="浏览器的进程"><a href="#浏览器的进程" class="headerlink" title="浏览器的进程"></a>浏览器的进程</h2><img data-src="https://cdn.nlark.com/yuque/0/2020/png/1500604/1603803289911-191cabf3-e7e2-4354-a83d-858668cc116f.png" alt="浏览器的进程" style="zoom:80%;" />
+
+<ul>
+<li><strong>浏览器进程</strong>：主要负责界面显示、用户交互、子进程管理，同时提供存储等功能</li>
+<li><strong>渲染进程</strong>：核心任务是将 HTML、CSS 和 JavaScript 转换为用户可以与之交互的网页，排版引擎 Blink 和 JavaScript 引擎 V8 都是运行在该进程中，默认情况下，Chrome 会为每个 Tab 标签创建一个渲染进程。出于安全考虑，渲染进程都是运行在沙箱模式下。</li>
+<li><strong>GPU 进程</strong>：其实， GPU 的使用初衷是为了实现 3D CSS 的效果，只是随后网页、Chrome 的 UI 界面都选择采用 GPU 来绘制，这使得 GPU 成为浏览器普遍的需求。最后，Chrome 在其多进程架构上也引入了 GPU 进程。</li>
+<li><strong>网络进程</strong>：主要负责页面的网络资源加载，之前是作为一个模块运行在浏览器进程里面的，直至最近才独立出来，成为一个单独的进程。</li>
+<li><strong>插件进程</strong>：主要是负责插件的运行，因插件易崩溃，所以需要通过插件进程来隔离，以保证插件进程崩溃不会对浏览器和页面造成影响。</li>
+</ul>
+<p><strong>打开一个网页，最少需要四个进程</strong>：1 个网络进程、1 个浏览器进程、1 个 GPU 进程以及 1 个渲染进程。如果打开的页面有运行插件的话，还需要再加上 1 个插件进程。</p>
+<p>虽然多进程模型提升了浏览器的稳定性、流畅性和安全性，但同样不可避免地带来了一些问题：</p>
+<ul>
+<li><strong>更高的资源占用</strong>：因为每个进程都会包含公共基础结构的副本（如 JavaScript 运行环境），这就意味着浏览器会消耗更多的内存资源。</li>
+<li><strong>更复杂的体系架构</strong>：浏览器各模块之间耦合性高、扩展性差等问题，会导致现在的架构已经很难适应新的需求了。</li>
+</ul>
+<h2 id="渲染进程的线程有哪些"><a href="#渲染进程的线程有哪些" class="headerlink" title="渲染进程的线程有哪些"></a>渲染进程的线程有哪些</h2><ol>
+<li><p>GUI渲染线程，渲染浏览器页面</p>
+</li>
+<li><p>JS引擎线程，负责处理Javascript脚本程序，一个Tab页中无论什么时候都只有一个JS引擎线程在运行JS程序；</p>
+</li>
+<li><p>时间触发线程，用来控制事件循环；</p>
+</li>
+<li><p><strong>定时器触发进程</strong>即setInterval与setTimeout所在线程；</p>
+</li>
+<li><p>异步http请求线程，XMLHttpRequest连接后通过浏览器新开一个线程请求；</p>
+<p>检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将回调函数放入事件队列中，等待JS引擎空闲后执行；</p>
+</li>
+</ol>
+<p><strong>GUI渲染线程和JS引擎线程是互斥的</strong>，当JS引擎执行时GUI线程会被挂起，GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行</p>
+<h2 id="进程之间的通信方式"><a href="#进程之间的通信方式" class="headerlink" title="进程之间的通信方式"></a>进程之间的通信方式</h2><p><strong>管道通信</strong></p>
+<p>管道就是操作系统在内核中开辟的一段缓冲区，进程1可以将需要交互的数据拷贝到这段缓冲区，进程2就可以读取了。</p>
+<h2 id="僵尸进程和孤儿进程是什么？"><a href="#僵尸进程和孤儿进程是什么？" class="headerlink" title="僵尸进程和孤儿进程是什么？"></a>僵尸进程和孤儿进程是什么？</h2><ul>
+<li><strong>孤儿进程</strong>：父进程退出了，而它的一个或多个进程还在运行，那这些子进程都会成为孤儿进程。孤儿进程将被init进程(进程号为1)所收养，并由init进程对它们完成状态收集工作。</li>
+<li><strong>僵尸进程</strong>：子进程比父进程先结束，而父进程又没有释放子进程占用的资源，那么子进程的进程描述符仍然保存在系统中，这种进程称之为僵死进程。</li>
+</ul>
+<h2 id="死锁？-如何解决死锁？"><a href="#死锁？-如何解决死锁？" class="headerlink" title="死锁？ 如何解决死锁？"></a>死锁？ 如何解决死锁？</h2><p>所谓死锁，是指多个进程在运行过程中因争夺资源而造成的一种僵局，当进程处于这种僵持状态时，若无外力作用，它们都将无法再向前推进。</p>
+<p>系统中的资源可以分为两类：</p>
+<ul>
+<li>可剥夺资源，是指某进程在获得这类资源后，该资源可以再被其他进程或系统剥夺，CPU和主存均属于可剥夺性资源；</li>
+<li>不可剥夺资源，当系统把这类资源分配给某进程后，再不能强行收回，只能在进程用完后自行释放，如磁带机、打印机等。</li>
+</ul>
+<h1 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h1><h2 id="对浏览器缓存机制的理解"><a href="#对浏览器缓存机制的理解" class="headerlink" title="对浏览器缓存机制的理解"></a>对浏览器缓存机制的理解</h2><ul>
+<li>浏览器第一次加载资源，服务器返回200. 浏览器从服务器下载资源文件，并缓存资源文件与 response header，以供下次加载时对比使用；</li>
+<li>下一次加载资源时，由于强制缓存优先级较高，先比较当前时间与上一次返回 200 时的时间差，如果没有超过 cache-control 设置的 max-age，则没有过期，并命中强缓存，直接从本地读取资源；</li>
+<li>如果资源已过期，则表明强制缓存没有被命中，则开始协商缓存，向服务器发送带有 If-None-Match 和 If-Modified-Since 的请求；</li>
+<li>服务器收到请求后，优先根据Etag值判断被请求文件有无做修改，Etag 值一致则没有修改，命中协商缓存，返回 304；如果不一致则有改动，直接返回新的资源文件带上新的 Etag 值并返回 200；</li>
+<li>如果服务器收到的请求没有 Etag 值，则将 If-Modified-Since 和被请求文件的最后修改时间做比对，一致则命中协商缓存，返回 304；不一致则返回新的 last-modified 和文件并返回 200；</li>
+</ul>
+<p>很多网站的资源后面都加了版本号，这样做的目的是：每次升级了 JS 或 CSS 文件后，为了防止浏览器进行缓存，强制改变版本号，客户端浏览器就会重新下载新的 JS 或 CSS 文件 ，以保证用户能够及时获得网站的最新更新。</p>
+<h2 id="浏览器资源缓存位置"><a href="#浏览器资源缓存位置" class="headerlink" title="浏览器资源缓存位置"></a>浏览器资源缓存位置</h2><h3 id="Server-Worker"><a href="#Server-Worker" class="headerlink" title="Server Worker"></a>Server Worker</h3><p>Service Worker 运行在 JavaScript 主线程之外，虽然由于脱离了浏览器窗体无法直接访问 DOM，但是它可以完成离线缓存、消息推送、网络代理等功能。它可以让我们<strong>自由控制</strong>缓存哪些文件、如何匹配缓存、如何读取缓存，并且<strong>缓存是持续性的</strong>。当 Service Worker 没有命中缓存的时候，需要去调用 <code>fetch</code> 函数获取  数据。也就是说，如果没有在 Service Worker 命中缓存，会根据缓存查找优先级去查找数据。<strong>但是不管是从 Memory Cache 中还是从网络请求中获取的数据，浏览器都会显示是从 Service Worker 中获取的内容。</strong></p>
+<h3 id="Memory-Cache"><a href="#Memory-Cache" class="headerlink" title="Memory Cache"></a>Memory Cache</h3><p>Memory Cache 就是内存缓存，它的效率最快，<strong>但是内存缓存虽然读取高效，可是缓存持续性很短，会随着进程的释放而释放。</strong>一旦我们关闭 Tab 页面，内存中的缓存也就被释放了。</p>
+<p>内存缓存中有一块重要的缓存资源是preloader相关指令下载的资源，preloader的相关指令已经是页面优化的常见手段之一，它可以一边解析js/css文件，一边网络请求下一个资源。</p>
+<h3 id="Disk-Cache"><a href="#Disk-Cache" class="headerlink" title="Disk Cache"></a>Disk Cache</h3><p>Disk Cache 也就是存储在硬盘中的缓存，读取速度慢点，但是什么都能存储到磁盘中，比之 Memory Cache <strong>胜在容量和存储时效性上。</strong>在所有浏览器缓存中，Disk Cache 覆盖面基本是最大的。它会根据 HTTP Header 中的字段判断哪些资源需要缓存，哪些资源可以不请求直接使用，哪些资源已经过期需要重新请求。<strong>并且即使在跨站点的情况下，相同地址的资源一旦被硬盘缓存下来，就不会再次去请求数据。</strong></p>
+<p>绝大部分的缓存都来自 Disk Cache</p>
+<h3 id="访问缓存优先级"><a href="#访问缓存优先级" class="headerlink" title="访问缓存优先级"></a>访问缓存优先级</h3><ol>
+<li>先在内存中查找,如果有,直接加载。</li>
+<li>如果内存中不存在,则在硬盘中查找,如果有直接加载。</li>
+<li>如果硬盘中也没有,那么就进行网络请求。</li>
+<li>请求获取的资源缓存到硬盘和内存。</li>
+</ol>
+<h2 id="协商缓存和强缓存的区别"><a href="#协商缓存和强缓存的区别" class="headerlink" title="协商缓存和强缓存的区别"></a>协商缓存和强缓存的区别</h2><h3 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h3><p>强缓存，如果缓存资源有效，直接使用缓存资源，不必向服务器发起请求。</p>
+<p>通过http头信息中expires和cache-control属性</p>
+<p>服务器通过在响应头中添加 Expires 属性，来指定资源的过期时间。在过期时间以内，该资源可以被缓存使用，不必再向服务器发送请求。这个时间是一个绝对时间，它是服务器的时间，因此可能存在这样的问题，就是客户端的时间和服务器端的时间不一致，或者用户可以对客户端时间进行修改的情况，这样就可能会影响缓存命中的结果。</p>
+<p>Expires 是 http1.0 中的方式，因为它的一些缺点，在 HTTP 1.1 中提出了一个新的头部属性就是 Cache-Control 属性，它提供了对资源的缓存的更精确的控制。</p>
+<p><code>Cache-Control</code>可设置的字段：</p>
+<ul>
+<li><code>public</code>：设置了该字段值的资源表示可以被任何对象（包括：发送请求的客户端、代理服务器等等）缓存。这个字段值不常用，</li>
+<li><code>private</code>：设置了该字段值的资源只能被用户浏览器缓存，不允许任何代理服务器缓存。在实际开发当中，对于一些含有用户信息的HTML，通常都要设置这个字段值，避免代理服务器(CDN)缓存；</li>
+<li><code>no-cache</code>：设置了该字段需要先和服务端确认返回的资源是否发生了变化，如果资源未发生变化，则直接使用缓存好的资源；</li>
+<li><code>no-store</code>：设置了该字段表示禁止任何缓存，每次都会向服务端发起新的请求，拉取最新的资源；</li>
+<li><code>max-age=</code>：设置缓存的最大有效期，单位为秒；</li>
+<li><code>s-maxage=</code>：优先级高于max-age=，仅适用于共享缓存(CDN)，优先级高于max-age或者Expires头；</li>
+<li><code>max-stale[=]</code>：设置了该字段表明客户端愿意接收已经过期的资源，但是不能超过给定的时间限制。</li>
+</ul>
+<p>一般来说只需要设置其中一种方式就可以实现强缓存策略，当两种方式一起使用时，Cache-Control 的优先级要高于 Expires。</p>
+<p><strong>no-cache和no-store很容易混淆：</strong></p>
+<ul>
+<li>no-cache 是指先要和服务器确认是否有资源更新，在进行判断。也就是说没有强缓存，但是会有协商缓存；</li>
+<li>no-store 是指不使用任何缓存，每次请求都直接从服务器获取资源。</li>
+</ul>
+<h3 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h3><p>如果没有命中强制缓存，如果设置了协商缓存，这个时候协商缓存就会发挥作用了。</p>
+<p>命中协商缓存的条件有两个：</p>
+<ul>
+<li><code>max-age=xxx</code> 过期了</li>
+<li>值为<code>no-store</code></li>
+</ul>
+<p>使用协商缓存策略时，会先向服务器发送一个请求，如果资源没有发生修改，则返回一个 304 状态，让浏览器使用本地的缓存副本。如果资源发生了修改，则返回修改后的资源。</p>
+<p>协商缓存也可以通过两种方式来设置，分别是 http 头信息中的 <strong>Etag</strong> 和 <strong>Last-Modified</strong> 属性。</p>
+<p>（1）服务器通过在响应头中添加 Last-Modified 属性来指出资源最后一次修改的时间，当浏览器下一次发起请求时，会在请求头中添加一个 If-Modified-Since 的属性，属性值为上一次资源返回时的 Last-Modified 的值。当请求发送到服务器后服务器会通过这个属性来和资源的最后一次的修改时间来进行比较，以此来判断资源是否做了修改。如果资源没有修改，那么返回 304 状态，让客户端使用本地的缓存。如果资源已经被修改了，则返回修改后的资源。使用这种方法有一个缺点，就是 Last-Modified 标注的最后修改时间只能精确到秒级，如果某些文件在1秒钟以内，被修改多次的话，那么文件已将改变了但是 Last-Modified 却没有改变，这样会造成缓存命中的不准确。</p>
+<p>（2）因为 Last-Modified 的这种可能发生的不准确性，http 中提供了另外一种方式，那就是 Etag 属性。服务器在返回资源的时候，在头信息中添加了 Etag 属性，这个属性是资源生成的唯一标识符，当资源发生改变的时候，这个值也会发生改变。在下一次资源请求时，浏览器会在请求头中添加一个 If-None-Match 属性，这个属性的值就是上次返回的资源的 Etag 的值。服务接收到请求后会根据这个值来和资源当前的 Etag 的值来进行比较，以此来判断资源是否发生改变，是否需要返回资源。通过这种方式，比 Last-Modified 的方式更加精确。</p>
+<p>当 Last-Modified 和 Etag 属性同时出现的时候，Etag 的优先级更高。使用协商缓存的时候，服务器需要考虑负载平衡的问题，因此多个服务器上资源的 Last-Modified 应该保持一致，因为每个服务器上 Etag 的值都不一样，因此在考虑负载平衡时，最好不要设置 Etag 属性。</p>
+<p><strong>总结：</strong></p>
+<p>强缓存策略和协商缓存策略在缓存命中时都会直接使用本地的缓存副本，区别只在于协商缓存会向服务器发送一次请求。它们缓存不命中时，都会向服务器发送请求来获取资源。在实际的缓存机制中，强缓存策略和协商缓存策略是一起合作使用的。浏览器首先会根据请求的信息判断，强缓存是否命中，如果命中则直接使用资源。如果不命中则根据头信息向服务器发起请求，使用协商缓存，如果协商缓存命中的话，则服务器不返回资源，浏览器直接使用本地资源的副本，如果协商缓存不命中，则浏览器返回最新的资源给浏览器。</p>
+<h2 id="为什么需要浏览器缓存？"><a href="#为什么需要浏览器缓存？" class="headerlink" title="为什么需要浏览器缓存？"></a>为什么需要浏览器缓存？</h2><p>所谓的<strong>浏览器缓存</strong>指的是浏览器将用户请求过的静态资源，存储到电脑本地磁盘中，当浏览器再次访问时，就可以直接从本地加载，不需要再去服务端请求了。</p>
+<p>使用浏览器缓存，有以下优点：</p>
+<ul>
+<li>减少了服务器的负担，提高了网站的性能</li>
+<li>加快了客户端网页的加载速度</li>
+<li>减少了多余网络数据传输</li>
+</ul>
+<h2 id="点击刷新按钮或者按-F5、按-Ctrl-F5-（强制刷新）、地址栏回车有什么区别？"><a href="#点击刷新按钮或者按-F5、按-Ctrl-F5-（强制刷新）、地址栏回车有什么区别？" class="headerlink" title="点击刷新按钮或者按 F5、按 Ctrl+F5 （强制刷新）、地址栏回车有什么区别？"></a>点击刷新按钮或者按 F5、按 Ctrl+F5 （强制刷新）、地址栏回车有什么区别？</h2><ul>
+<li><strong>点击刷新按钮或者按 F5：</strong>浏览器直接对本地的缓存文件过期，但是会带上If-Modifed-Since，If-None-Match，这就意味着服务器会对文件检查新鲜度，返回结果可能是 304，也有可能是 200。</li>
+<li><strong>用户按 Ctrl+F5（强制刷新）：</strong>浏览器不仅会对本地文件过期，而且不会带上 If-Modifed-Since，If-None-Match，相当于之前从来没有请求过，返回结果是 200。</li>
+<li>地址栏回车： 浏览器发起请求，按照正常流程，本地检查是否过期，然后服务器检查新鲜度，最后返回内容。</li>
+</ul>
+<h1 id="浏览器组成"><a href="#浏览器组成" class="headerlink" title="浏览器组成"></a>浏览器组成</h1><h2 id="对浏览器的理解"><a href="#对浏览器的理解" class="headerlink" title="对浏览器的理解"></a>对浏览器的理解</h2><p>浏览器可以分为两部分，shell 和 内核。其中 shell 的种类相对比较多，内核则比较少。</p>
+<ul>
+<li>shell 是指浏览器的外壳：例如菜单，工具栏等。主要是提供给用户界面操作，参数设置等等。它是调用内核来实现各种功能的。</li>
+<li>内核是浏览器的核心。内核是基于标记语言显示内容的程序或模块。</li>
+</ul>
+<h2 id="对浏览器内核的理解"><a href="#对浏览器内核的理解" class="headerlink" title="对浏览器内核的理解"></a>对浏览器内核的理解</h2><p>浏览器内核主要分成两部分：</p>
+<ul>
+<li>渲染引擎就是渲染，即在浏览器窗口中显示所请求的内容。默认情况下，渲染引擎可以显示 html、xml 文档及图片，它也可以借助插件显示其他类型数据，例如PDF 格式。</li>
+<li>JS 引擎：解析和执行 javascript 来实现网页的动态效果。</li>
+</ul>
+<p>最开始渲染引擎和 JS 引擎并没有区分的很明确，后来 JS 引擎越来越独立，内核就倾向于只指渲染引擎。</p>
+<h2 id="常见浏览器内核"><a href="#常见浏览器内核" class="headerlink" title="常见浏览器内核"></a>常见浏览器内核</h2><table>
+<thead>
+<tr>
+<th>5大主流浏览器</th>
+<th>内核</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IE</td>
+<td>trident</td>
+</tr>
+<tr>
+<td>chrome</td>
+<td>webkit  -&gt;  blink</td>
+</tr>
+<tr>
+<td>safari</td>
+<td>webkit</td>
+</tr>
+<tr>
+<td>firefox</td>
+<td>gocko</td>
+</tr>
+<tr>
+<td>opera</td>
+<td>presto  -&gt; blink</td>
+</tr>
+</tbody></table>
+<h3 id="浏览器的主要组成部分"><a href="#浏览器的主要组成部分" class="headerlink" title="浏览器的主要组成部分"></a>浏览器的主要组成部分</h3><ul>
+<li><strong>⽤户界⾯</strong> - 包括地址栏、前进/后退按钮、书签菜单等。除了浏览器主窗⼝显示的您请求的⻚⾯外，其他显示的各个部分都属于⽤户界⾯。 </li>
+<li><strong>浏览器引擎</strong> - 在⽤户界⾯和呈现引擎之间传送指令。 </li>
+<li><strong>渲染引擎</strong> - 负责显示请求的内容。如果请求的内容是 HTML，它就负责解析 HTML 和 CSS 内容，并将解析后的内容显示在屏幕上。 </li>
+<li><strong>⽹络</strong> - ⽤于⽹络调⽤，⽐如 HTTP 请求。其接⼝与平台⽆关，并为所有平台提供底层实现。 </li>
+<li><strong>JavaScript</strong> <strong>解释器</strong>。⽤于解析和执⾏ JavaScript 代码。 </li>
+<li><strong>数据存储</strong> - 这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“⽹络数据库”，这是⼀个完整（但是轻便）的浏览器内数据库。 </li>
+</ul>
+<p> 浏览器的每个标签⻚都分别对应⼀个呈现引擎实例。<strong>每个标签⻚都是⼀个独⽴的进程</strong></p>
+<h1 id="浏览器渲染机制"><a href="#浏览器渲染机制" class="headerlink" title="浏览器渲染机制"></a>浏览器渲染机制</h1><h2 id="DOM-tree"><a href="#DOM-tree" class="headerlink" title="DOM tree"></a>DOM tree</h2><p>解析是根据收到的HTML文件生成DOM树；加载是加载内部资源，比如img等；</p>
+<p>解析和加载异步完成，解析完毕并不说明页面加载完毕</p>
+<p>加载，当前节点若解析完成（并不是页面解析完成），就开始加载资源</p>
+<p>解析过程中：</p>
+<ol>
+<li>解析过程是将节点挂载到DOM树上，遵循<strong>深度优先解析</strong>原则</li>
+<li>遇到link的外部css，遇到css的代码会进行css的加载，并行操作</li>
+<li>遇见script标签时，会先执行js代码，然后继续构建DOM树，<strong>这就是在底部加入JavaScript代码的原因</strong>。</li>
+</ol>
+<h2 id="CSSom"><a href="#CSSom" class="headerlink" title="CSSom"></a>CSSom</h2><p>CSSom类似于DOM tree的生成过程。</p>
+<h2 id="渲染树"><a href="#渲染树" class="headerlink" title="渲染树"></a>渲染树</h2><p>render tree = DOM tree + CSS tree，渲染树构建完毕后，浏览器的渲染引擎根据它绘制页面。</p>
+<ul>
+<li>渲染树不包含隐藏节点，display:none head类等不需要绘制的节点；visibility: hidden 绘制了只是看不见</li>
+<li>渲染树的每个节点都有自己的样式，被当成一个盒子box，具有内容填充、边距、边框、位置、大小等其他样式</li>
+</ul>
+<h2 id="回流与重绘"><a href="#回流与重绘" class="headerlink" title="回流与重绘"></a>回流与重绘</h2><p>当浏览器渲染引擎对页面的节点操作时，就会产生回流或者重绘。<strong>回流一定重绘，重绘不一定回流</strong></p>
+<h3 id="回流reflow"><a href="#回流reflow" class="headerlink" title="回流reflow"></a><strong>回流reflow</strong></h3><p>当浏览器生成渲染树以后，就会根据渲染树来进行布局。这一阶段浏览器要弄清楚各个节点在页面中的<strong>确切位置和大小，所有相对测量值都将转换为屏幕上的绝对像素</strong>。这一过程被称为 回流，也被称为“自动重排”。</p>
+<p>当<strong>元素属性发生改变且影响布局时</strong>（宽度、高度、内外边距等），产生回流，相当于 刷新页面。</p>
+<ul>
+<li>回流是相当消耗性能的，开发中应该减少回流次数</li>
+<li>回流会引起 渲染树中的一部分或全部重新构建</li>
+<li>引起回流的因素：<ul>
+<li>页面初始化，即（至少有一次回流）</li>
+<li>DOM节点增加 删除、位置变化</li>
+<li>元素的尺寸、边距、填充、边框、显示(display:none block)改变</li>
+<li>浏览器窗口尺寸变化，resize</li>
+<li>向浏览器请求某些样式信息 offset client scroll width </li>
+</ul>
+</li>
+</ul>
+<h3 id="重绘repaint"><a href="#重绘repaint" class="headerlink" title="重绘repaint"></a><strong>重绘repaint</strong></h3><p>当元素<strong>属性发生改变且不影响布局</strong>时（背景颜色、透明度、字体样式等），产生重绘，相当于 不刷新页面，动态更新内容。</p>
+<ul>
+<li>若发生回流，浏览器根据新的渲染树重新绘制，这个过程称为 重绘</li>
+</ul>
+<h3 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略"></a><strong>优化策略</strong></h3><ul>
+<li>浏览器<strong>队列处理机制</strong></li>
+<li>增添样式 放在 class中，批量处理，减少回流次数  或者 this.style.cssText 做动态值变化</li>
+<li>使用 visibility 替换 display: none ，因为前者只会引起重绘，后者会引发回流</li>
+<li>documentFragment</li>
+<li>动画一定要做绝对定位，相对定位每次变化都会引起父级的回流重绘</li>
+<li>……</li>
+</ul>
+<p><strong>浏览器的渲染队列机制：</strong>浏览器会将所有的回流、重绘的操作放在一个队列中，当队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会对队列进行批处理。这样就会让多次的回流、重绘变成一次回流重绘。         </p>
+<h2 id="渲染过程中遇到JS文件如何处理"><a href="#渲染过程中遇到JS文件如何处理" class="headerlink" title="渲染过程中遇到JS文件如何处理"></a>渲染过程中遇到JS文件如何处理</h2><p>JavaScript文件的加载、解析与执行会阻塞DOM的构建，JS文件也会导致CSSOM阻塞DOM的构建</p>
+<h2 id="async、defer和window-onload的区别"><a href="#async、defer和window-onload的区别" class="headerlink" title="async、defer和window.onload的区别"></a>async、defer和window.onload的区别</h2><p><img data-src="https://s2.loli.net/2022/12/13/pQGk9N2UHnjZeg3.png" alt="img"></p>
+<p>async属性的script脚本：HTML解析与script加载并行发生，但在script执行时，HTML解析被阻塞，script执行结束后，继续HTML解析。多个带async属性的标签，不能保证加载的顺序</p>
+<p>defer属性的script脚本：HTML解析与script加载并行发生，但script的执行要等到所有的HTML解析完成后才会发生。多个带defer属性的标签，按照顺序执行</p>
+<p>1.defer和async在网络加载过程是一致的，都是异步执行的； </p>
+<p>2.两者的区别在于脚本加载完成之后何时执行</p>
+<p><strong>window.onload()</strong> 方法用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行某个方法。</p>
+<h2 id="CSS如何阻塞文档解析"><a href="#CSS如何阻塞文档解析" class="headerlink" title="CSS如何阻塞文档解析"></a>CSS如何阻塞文档解析</h2><p>理论上，样式表不改变DOM树，也就没有必要停下文档解析等待它们。但是，JavaScript脚本执行时可能会请求样式信息，如果样式还没有加载解析，脚本会得到错误的值。 </p>
+<p>为了避免这种错误，浏览器会先下载和构建 CSSOM，然后再执行 JavaScript，最后再继续文档的解析。至此，CSS可以阻塞文档解析</p>
+<h2 id="浏览器渲染优化"><a href="#浏览器渲染优化" class="headerlink" title="浏览器渲染优化"></a>浏览器渲染优化</h2><p><strong>针对JavaScript：</strong></p>
+<p>（1）尽量将JavaScript文件放在body的最后，用async和defer属性来异步引入</p>
+<p>（2） body中间尽量不要写<code>&lt;script&gt;</code>标签</p>
+<p><strong>针对CSS：</strong></p>
+<p>（1）在开发过程中，导入外部样式使用link，而不用@import。</p>
+<p>（2）如果css少，尽可能采用内嵌样式，直接写在style标签中</p>
+<p>使用CSS有三种方式：使用<strong>link、@import、内联样式</strong>，其中link和@import都是导入外部样式。区别：</p>
+<ul>
+<li><strong>link</strong>：浏览器会派发一个新线程(HTTP线程)去加载资源文件，与此同时GUI渲染线程会继续向下渲染代码</li>
+<li><strong>@import</strong>：GUI渲染线程会暂时停止渲染，去服务器加载资源文件，资源文件没有返回之前不会继续渲染(阻碍浏览器渲染)</li>
+<li><strong>style</strong>：GUI直接渲染</li>
+</ul>
+<p>外部样式如果长时间没有加载完毕，浏览器为了用户体验，会使用浏览器会默认样式，确保首次渲染的速度。所以CSS一般写在head中，让浏览器尽快发送请求去获取css样式。</p>
+<p><strong>针对DOM树、CSSOM树</strong></p>
+<p>（1）HTML代码层级尽量不要太深，减少CSSD代码的层级</p>
+<p>（2）使用语义化的标签，避免不标准语义化的特殊处理</p>
+<p><strong>减少回流与重绘</strong></p>
+<h2 id="如何优化关键渲染路径？"><a href="#如何优化关键渲染路径？" class="headerlink" title="如何优化关键渲染路径？"></a>如何优化关键渲染路径？</h2><p><strong>关键渲染路径</strong>是浏览器将 HTML，CSS 和 JavaScript 转换为屏幕上的像素所经历的步骤序列。</p>
+<ol>
+<li>通过异步、延迟加载或者消除非关键资源来减少关键资源的请求数量</li>
+<li>优化必须的请求数量和每个请求的文件体积</li>
+<li>通过区分关键资源的优先级来优化被加载关键资源的顺序，来缩短关键路径长度。</li>
+</ol>
+<h2 id="一定要掌握的时间线"><a href="#一定要掌握的时间线" class="headerlink" title="一定要掌握的时间线"></a>一定要掌握的时间线</h2><p>在浏览器加载页面开始到页面加载完成，按顺序发生的每一件事情</p>
+<ol>
+<li><p>生成document对象，以供DOM操作</p>
+</li>
+<li><p>解析文档，构建DOM树</p>
+<p>document.readyState = ‘loading’</p>
+</li>
+<li><p>遇到link开始异步加载css外部文件的新线程，遇到style开始异步构建CSSOM的新线程</p>
+</li>
+<li><p>没有设置异步加载的script，阻塞文档解析，等到JS脚本加载并执行完成后，继续解析文档</p>
+</li>
+<li><p>异步加载script，异步加载JS脚本，不阻塞解析文档（不能使用documen.write)</p>
+</li>
+<li><p>解析文档遇到img，先解析节点。创建加载线程，异步加载图片资源，不阻塞解析文档</p>
+</li>
+<li><p>文档解析完成，document.readyState = ‘interactive’</p>
+</li>
+<li><p>defer script，JS脚本按照顺序执行</p>
+</li>
+<li><p>DOMContentLoaded事件，</p>
+</li>
+<li><p>async script加载并执行完毕，img等资源加载完毕，window对象中的onload事件才开始触发，document.readyState = ‘complete’</p>
+</li>
+</ol>
+<p>window.onload 和 DOMContentLoaded的区别：window.onload是页面全部加载完毕才触发，DOMContentLoaded是文档解析完成和异步脚本加载完成后就触发</p>
+<h1 id="浏览器本地存储"><a href="#浏览器本地存储" class="headerlink" title="浏览器本地存储"></a>浏览器本地存储</h1><p>浏览器本地存储方式主要5种，点击随便一个网页，F12，应用程序下的存储就可以看到了。</p>
+<p>下面的学习对应着一个真实的网页会快很多</p>
+<p><img data-src="https://s2.loli.net/2022/12/09/t4JQZ1aPoNdcBuw.png"></p>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>Cookie是最早被提出来的本地存储方式，在此之前，服务端是无法判断网络中的两个请求是否是同一用户发起的，为解决这个问题，Cookie就出现了。Cookie的大小只有4kb，它是一种纯文本文件，每次发起HTTP请求都会携带Cookie</p>
+<p><strong>Cookie的特性：</strong></p>
+<ul>
+<li>Cookie一旦创建成功，名称就无法修改</li>
+<li>Cookie是无法跨域名的</li>
+<li>每个Cookie的大小不能超过4kb</li>
+<li>Cookie在请求一个新的页面的时候都会被发送过去</li>
+</ul>
+<p>如果需要域名之间跨域共享Cookie，有两种方法：</p>
+<ol>
+<li>使用Nginx反向代理</li>
+<li>在一个站点登陆之后，往其他网站写Cookie。服务端的Session存储到一个节点，Cookie存储sessionId</li>
+</ol>
+<p><strong>Cookie的使用场景：</strong></p>
+<ul>
+<li>最常见的使用场景就是Cookie和session结合使用，我们将sessionId存储到Cookie中，每次发请求都会携带这个sessionId，这样服务端就知道是谁发起的请求，从而响应相应的信息。</li>
+<li>可以用来统计页面的点击次数</li>
+</ul>
+<p><strong>Cookie字段组成：</strong></p>
+<ul>
+<li><p><strong>Name</strong>：cookie的名称</p>
+</li>
+<li><p><strong>Value</strong>：cookie的值，对于认证cookie，value值包括web服务器所提供的访问令牌；</p>
+</li>
+<li><p><strong>Size</strong>： cookie的大小</p>
+</li>
+<li><p><strong>Domain</strong>：可以访问该cookie的域名，Cookie 机制并未遵循严格的同源策略，允许一个子域可以设置或获取其父域的 Cookie。</p>
+<p>当需要实现单点登录方案时，Cookie 的上述特性非常有用，然而也增加了 Cookie受攻击的危险，比如攻击者可以借此发动会话定置攻击。因而，浏览器禁止在 Domain 属性中设置.org、.com 等通用顶级域名、以及在国家及地区顶级域下注册的二级域名，以减小攻击发生的范围。</p>
+</li>
+<li><p><strong>Path</strong>：可以访问此cookie的页面路径。 比如domain是ychch.com，path是<code>/about</code>，那么只有<code>/about</code>路径下的页面可以读取此cookie</p>
+</li>
+<li><p><strong>Secure</strong>： 指定是否使用HTTPS安全协议发送Cookie。使用HTTPS安全协议，可以保护Cookie在浏览器和Web服务器间的传输过程中不被窃取和篡改。该方法也可用于Web站点的身份鉴别，即在HTTPS的连接建立阶段，浏览器会检查Web网站的SSL证书的有效性。</p>
+<p>但是基于兼容性的原因（比如有些网站使用自签署的证书）在检测到SSL证书无效时，浏览器并不会立即终止用户的连接请求，而是显示安全风险信息，用户仍可以选择继续访问该站点。</p>
+</li>
+<li><p><strong>HTTP</strong>： 该字段包含<code>HTTPOnly</code> 属性 ，该属性用来设置cookie能否通过脚本来访问，默认为空，即可以通过脚本访问。在客户端是不能通过js代码去设置一个httpOnly类型的cookie的，这种类型的cookie只能通过服务端来设置。该属性用于防止客户端脚本通过<code>document.cookie</code>属性访问Cookie，有助于保护Cookie不被跨站脚本攻击窃取或篡改。但是，HTTPOnly的应用仍存在局限性，一些浏览器可以阻止客户端脚本对Cookie的读操作，但允许写操作；此外大多数浏览器仍允许通过XMLHTTP对象读取HTTP响应中的Set-Cookie头。</p>
+</li>
+<li><p><strong>Expires/Max-size</strong> ： 此cookie的超时时间。若设置其值为一个时间，那么当到达此时间后，此cookie失效。不设置的话默认值是Session，意思是cookie会和session一起失效。当浏览器关闭(不是浏览器标签页，而是整个浏览器) 后，此cookie失效。</p>
+</li>
+</ul>
+<h2 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h2><p>LocalStorage是HTML5新引入的特性。</p>
+<p><strong>LocalStorage的优点：</strong></p>
+<ul>
+<li>在大小方面，LocalStorage的大小一般为5MB，有时候我们存储的信息较大，Cookie就不能满足我们的需求，LocalStorage可以储存更多的信息</li>
+<li>LocalStorage是持久储存，并不会随着页面的关闭而消失，除非主动清理，不然会永久存在</li>
+<li>仅储存在本地，不像Cookie那样每次HTTP请求都会被携带</li>
+</ul>
+<p><strong>LocalStorage的缺点：</strong></p>
+<ul>
+<li>浏览器兼容问题，IE8以下不支持</li>
+<li>隐私模式，无法读取LocalStorage</li>
+<li>LocalStorage受到同源策略的限制，即端口、协议、主机地址有任何一个不相同，都不会访问</li>
+</ul>
+<p><strong>LocalStorage的常用API：</strong></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 保存数据到 localStorage</span>
+localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'key'</span><span class="token punctuation">,</span> <span class="token string">'value'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 从 localStorage 获取数据</span>
+<span class="token keyword">let</span> data <span class="token operator">=</span> localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'key'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 从 localStorage 删除保存的数据</span>
+localStorage<span class="token punctuation">.</span><span class="token function">removeItem</span><span class="token punctuation">(</span><span class="token string">'key'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 从 localStorage 删除所有保存的数据</span>
+localStorage<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 获取某个索引的Key</span>
+localStorage<span class="token punctuation">.</span><span class="token function">key</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>LocalStorage的</strong>使用场景：</p>
+<ul>
+<li>有些网站有换肤的功能，这时候就可以将换肤的信息存储在本地的LocalStorage中，当需要换肤的时候，直接操作LocalStorage即可</li>
+<li>在网站中的用户浏览信息和一些不常变动的个人信息等可以存储在本地的LocalStorage中</li>
+</ul>
+<h2 id="SessionStorage"><a href="#SessionStorage" class="headerlink" title="SessionStorage"></a>SessionStorage</h2><p>SessionStorage和LocalStorage都是在HTML5才提出来的存储方案，SessionStorage 主要用于临时保存同一窗口(或标签页)的数据，刷新页面时不会删除，关闭窗口或标签页之后将会删除这些数据。</p>
+<p><strong>SessionStorage与LocalStorage对比：</strong></p>
+<ul>
+<li>都在<strong>本地进行数据存储</strong>；</li>
+<li><strong>都不能被爬虫爬取</strong>；</li>
+<li>SessionStorage也有同源策略的限制，但是更严格，SessionStorage只有在<strong>同一浏览器的同一窗口下</strong>才能够共享；</li>
+</ul>
+<p><strong>SessionStorage的使用场景</strong></p>
+<ul>
+<li>由于SessionStorage具有时效性，可以用来存储游客登录的信息和临时的浏览记录。当关闭网站之后，这些信息也就随之消除了。</li>
+</ul>
+<h2 id="IndexedDB"><a href="#IndexedDB" class="headerlink" title="IndexedDB"></a>IndexedDB</h2><p>cookies、localStorage、sessionStorage都是存储少量数据的存储方式，当需要在本地存储大量数据时，使用浏览器的 indexDB 。</p>
+<p>这是浏览器提供的一种本地的数据库存储机制。它不是关系型数据库，更接近 NoSQL 数据库。它内部⽤键值对进⾏存储数据，可以进⾏快速读取操作，⾮常适合web场景，同时⽤JavaScript进⾏操作会⾮常方便。</p>
+<p>IndexedDB 具有以下特点</p>
+<ul>
+<li><p><strong>键值对储存</strong>：IndexedDB 内部采用对象仓库（object store）存放数据，所有类型的数据都可以直接存入。</p>
+<p>对象仓库中，数据以”键值对”的形式保存，每一个数据记录都有对应的主键，主键是独一无二的，不能有重复，否则会抛出一个错误。</p>
+</li>
+<li><p><strong>异步</strong>：IndexedDB 操作时不会锁死浏览器，用户依然可以进行其他操作，这与 LocalStorage 形成对比，后者的操作是同步的。</p>
+<p>异步设计是为了防止大量数据的读写，拖慢网页的表现。</p>
+</li>
+<li><p><strong>支持事务</strong>：IndexedDB 支持事务（transaction），系列操作中，只要有一步失败，整个事务就都取消，数据库回滚到事务发生之前的状态，不存在只改写一部分数据的情况。</p>
+</li>
+<li><p><strong>同源限制：</strong>IndexedDB 受到同源限制，每一个数据库对应创建它的域名。网页只能访问自身域名下的数据库，而不能访问跨域的数据库。</p>
+</li>
+<li><p><strong>储存空间大</strong>：IndexedDB 的储存空间比 LocalStorage 大得多，一般来说不少于 250MB，甚至没有上限。</p>
+</li>
+<li><p><strong>支持二进制储存</strong>：IndexedDB 不仅可以储存字符串，还可以储存二进制数据（ArrayBuffer 对象和 Blob 对象）。</p>
+</li>
+</ul>
+<h1 id="浏览器同源策略"><a href="#浏览器同源策略" class="headerlink" title="浏览器同源策略"></a>浏览器同源策略</h1><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说 Web 是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。</p>
+<p>它认为自任何站点装载的信赖内容是不安全的。当被浏览器半信半疑的脚本运行在沙箱时，它们应该只被允许访问来自同一站点的资源，而不是那些来自其它站点可能怀有恶意的资源。</p>
+<p>同源指的是：protocol<strong>协议</strong>、domain<strong>域名</strong>、port<strong>端口号</strong>必须一致。</p>
+<p><strong>同源政策主要限制了三个方面：</strong></p>
+<ul>
+<li>当前域下的 js 脚本不能够访问其他域下的 cookie、localStorage 和 indexDB。</li>
+<li>当前域下的 js 脚本不能够操作访问操作其他域下的 DOM。</li>
+<li>当前域下 ajax 无法发送跨域请求。</li>
+</ul>
+<h2 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h2><p>有了跨域限制，才使我们能安全的上网。但是在实际中，有时候我们需要突破这样的限制，下面将介绍几种跨域的解决方法。</p>
+<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><p>CORS是一种W3C标准，它允许服务器通过一些自定义的头部来限制哪些源可以访问它自身的资源。CORS需要浏览器和服务器同时支持。</p>
+<p>整个CORS通信过程，都是浏览器自动完成，不需要用户参与。对于开发者来说，CORS通信与同源的AJAX通信没有差别，代码完全一样。浏览器一旦发现AJAX请求跨源，就会自动添加一些附加的头信息，有时还会多出一次附加的请求，但用户不会有感觉。</p>
+<p><strong>实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。</strong></p>
+<p>根据是否需要预检请求，CORS可以分为简单请求和复杂请求</p>
+<h4 id="简单请求"><a href="#简单请求" class="headerlink" title="简单请求"></a>简单请求</h4><p>满足以下两大条件，就属于简单请求</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">（<span class="token number">1</span><span class="token punctuation">)</span> 请求方法是以下三种方法之一：
+<span class="token constant">HEAD</span>
+<span class="token constant">GET</span>
+<span class="token constant">POST</span>
+（<span class="token number">2</span>）<span class="token constant">HTTP</span>的头信息不超出以下几种字段：
+Accept
+Accept<span class="token operator">-</span>Language
+Content<span class="token operator">-</span>Language
+Last<span class="token operator">-</span>Event<span class="token operator">-</span><span class="token constant">ID</span>
+Content<span class="token operator">-</span>Type：只限于三个值application<span class="token operator">/</span>x<span class="token operator">-</span>www<span class="token operator">-</span>form<span class="token operator">-</span>urlencoded、multipart<span class="token operator">/</span>form<span class="token operator">-</span>data、text<span class="token operator">/</span>plain<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对于简单请求，浏览器直接发出CORS请求。浏览器在头信息之中，自动增加一个<code>Origin</code>字段。<code>Origin</code>字段用来说明，本次请求来自哪个源（协议 + 域名 + 端口）。服务器根据这个值，决定是否同意这次请求。</p>
+<p>如果<code>Origin</code>指定的源，不在许可范围内，服务器会返回一个正常的HTTP回应。这种错误<strong>无法通过状态码识别</strong>，因为HTTP回应的状态码有可能是200。</p>
+<p>如果<code>Origin</code>指定的域名在许可范围内，响应报文会多出几个头信息字段。</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//要么是请求时Origin字段的值，要么是一个*</span>
+Access<span class="token operator">-</span>Control<span class="token operator">-</span>Allow<span class="token operator">-</span>Origin<span class="token operator">:</span> http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>api<span class="token punctuation">.</span>bob<span class="token punctuation">.</span>com
+<span class="token comment">//布尔值，表示是否允许发送Cookie</span>
+Access<span class="token operator">-</span>Control<span class="token operator">-</span>Allow<span class="token operator">-</span>Credentials<span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token comment">//如果想拿到其他字段，就必须在Access-Control-Expose-Headers里面指定。</span>
+Access<span class="token operator">-</span>Control<span class="token operator">-</span>Expose<span class="token operator">-</span>Headers<span class="token operator">:</span> FooBar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="withCredentials"><a href="#withCredentials" class="headerlink" title="withCredentials"></a>withCredentials</h4><p>CORS请求默认不发送Cookie和HTTP认证信息，如果要把Cookie发到服务器，一方面服务器同意，指定<code>Access-Control-Allow-Credentials = true</code> 字段；另一方面，请求中打开<code>withCredentials</code>属性</p>
+<p>需要注意的是，如果要发送Cookie，<code>Access-Control-Allow-Origin</code>就不能设为星号，必须指定明确的、与请求网页一致的域名。</p>
+<h4 id="非简单请求"><a href="#非简单请求" class="headerlink" title="非简单请求"></a>非简单请求</h4><p>对服务器有特殊要求的请求，比如请求方法是<code>PUT</code>或<code>DELETE</code>，或者<code>Content-Type</code>字段的类型是<code>application/json</code></p>
+<p>浏览器先询问服务器，当前网页所在的域名是否在服务器的许可名单之中，以及可以使用哪些HTTP动词和头信息字段。只有得到肯定答复，浏览器才会发出正式的<code>XMLHttpRequest</code>请求，否则就报错。</p>
+<p>“预检”请求用的请求方法是<code>OPTIONS</code>，表示这个请求是用来询问的。除了<code>Origin</code>字段，”预检”请求的头信息包括两个特殊字段。</p>
+<p><strong>Access-Control-Request-Method</strong></p>
+<p>该字段是必须的，用来列出浏览器的CORS请求会用到哪些HTTP方法，上例是<code>PUT</code></p>
+<p><strong>Access-Control-Request-Headers</strong></p>
+<p>一个逗号分隔的字符串，指定浏览器CORS请求会额外发送的头信息字段，上例是<code>X-Custom-Header</code></p>
+<h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><p>利用<code>&lt;script&gt;</code>标签没有跨域限制，通过<code>&lt;script&gt;</code>标签src属性，发送带有callback参数的GET请求，服务端将接口返回数据拼凑到callback函数中，返回给浏览器，浏览器解析执行，从而前端拿到callback函数返回的数据。</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 原生JavaScript实现</span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+    <span class="token keyword">var</span> script <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    script<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'text/javascript'</span><span class="token punctuation">;</span>
+    <span class="token comment">// 传参一个回调函数名给后端，方便后端返回时执行这个在前端定义的回调函数</span>
+    script<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'http://www.domain2.com:8080/login?user=admin&amp;callback=handleCallback'</span><span class="token punctuation">;</span>
+    document<span class="token punctuation">.</span>head<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>script<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 回调执行函数</span>
+    <span class="token keyword">function</span> <span class="token function">handleCallback</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+ <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>JSONP的缺点：</strong></p>
+<ul>
+<li>具有局限性， 仅支持get方法</li>
+<li>不安全，可能会遭受XSS攻击</li>
+</ul>
+<h3 id="postMessage跨域"><a href="#postMessage跨域" class="headerlink" title="postMessage跨域"></a>postMessage跨域</h3><p>postMessage是HTML5 XMLHttpRequest Level 2中的API，且是为数不多可以跨域操作的window属性之一。</p>
+<p><code>window.postMessage()</code> 方法允许来自一个文档的脚本可以传递文本消息到另一个文档里的脚本，可以用这种消息传递技术来实现安全的通信，称为“<strong>跨文档消息传递</strong>”。</p>
+<p><strong>发送消息</strong></p>
+<p>postMessage(data,origin)方法接受两个参数：</p>
+<ul>
+<li><strong>data</strong>： html5规范支持任意基本类型或可复制的对象，但部分浏览器只支持字符串，所以传参时最好用JSON.stringify()序列化。</li>
+<li><strong>origin</strong>： 协议+主机+端口号，也可以设置为”*”，表示可以传递给任意窗口，如果要指定和当前窗口同源的话设置为”/“。</li>
+</ul>
+<p><strong>接收消息</strong></p>
+<p>如果指定的源匹配的话，那么当调用 <code>postMessage()</code> 方法的时候，在目标窗口的Window对象上就会触发一个 <code>message</code> 事件。</p>
+<h3 id="nginx代理跨域"><a href="#nginx代理跨域" class="headerlink" title="nginx代理跨域"></a>nginx代理跨域</h3><p>Nginx跨域的原理是利用Nginx的代理功能，让浏览器认为它访问的是同源的服务器，而实际上是访问了其他的服务器。这样就避免了浏览器的跨域限制。</p>
+<h3 id="nodejs中间件代理跨域"><a href="#nodejs中间件代理跨域" class="headerlink" title="nodejs中间件代理跨域"></a>nodejs中间件代理跨域</h3><p>node中间件实现跨域代理，原理大致与nginx相同，是一种解决前后端交互时跨域问题的方法。它利用Nodejs作为中间层，转发前端的请求到后端服务器，从而绕过浏览器的同源策略。</p>
+<h3 id="document-domain-iframe跨域"><a href="#document-domain-iframe跨域" class="headerlink" title="document.domain + iframe跨域"></a>document.domain + iframe跨域</h3><p>此方案仅限主域相同，子域不同的跨域应用场景。父窗口：(domain.com/a.html)，子窗口：(child.domain.com/a.html)。两个页面都通过js强制设置document.domain为基础主域domain.com，就实现了同域。</p>
+<h3 id="WebSocket协议跨域"><a href="#WebSocket协议跨域" class="headerlink" title="WebSocket协议跨域"></a>WebSocket协议跨域</h3><p>WebSocket协议是一种在浏览器和服务器之间进行全双工通信的技术。WebSocket协议不受同源策略的限制，因此可以跨域请求。</p>
+<p>利用webSocket的API，可以直接new一个socket实例，然后通过open方法内send要传输到后台的值，也可以利用message方法接收后台传来的数据。</p>
+<h2 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a>正向代理和反向代理</h2><ul>
+<li><strong>正向代理：</strong>隐藏客户端</li>
+</ul>
+<p>客户端想获得一个服务器的数据，但是因为种种原因无法直接获取。于是客户端设置了一个代理服务器，并且指定目标服务器，之后代理服务器向目标服务器转交请求并将获得的内容发送给客户端。这样本质上起到了对真实服务器隐藏真实客户端的目的。实现正向代理需要修改客户端，比如修改浏览器配置。</p>
+<ul>
+<li><strong>反向代理：</strong>隐藏服务器</li>
+</ul>
+<p>服务器为了能够将工作负载分不到多个服务器来提高网站性能 (负载均衡)等目的，当其受到请求后，会首先根据转发规则来确定请求应该被转发到哪个服务器上，然后将请求转发到对应的真实服务器上。这样本质上起到了对客户端隐藏真实服务器的作用。</p>
+<p>一般使用反向代理后，需要通过修改 DNS 让域名解析到代理服务器 IP，这时浏览器无法察觉到真正服务器的存在，当然也就不需要修改配置了。</p>
+<ul>
+<li><strong>两者异同</strong></li>
+</ul>
+<p>正向代理和反向代理的结构是一样的，都是 client-proxy-server 的结构，它们主要的区别就在于中间这个 proxy 是哪一方设置的。在正向代理中，proxy 是 client 设置的，用来隐藏 client；而在反向代理中，proxy 是 server 设置的，用来隐藏 server。</p>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2020/jpeg/1500604/1605256274960-50bd9e69-dde9-4782-b2c0-6afc8188fca2.jpeg" alt="正向代理和反向代理"></p>
+<h2 id="Nginx的概念及其工作原理"><a href="#Nginx的概念及其工作原理" class="headerlink" title="Nginx的概念及其工作原理"></a>Nginx的概念及其工作原理</h2><p>Nginx 是一款轻量级的 Web 服务器，也可以用于反向代理、负载平衡和 HTTP 缓存等。Nginx 使用异步事件驱动的方法来处理请求，是一款面向性能设计的 HTTP 服务器。</p>
+<p>传统的 Web 服务器如 Apache 是 process-based 模型的，而 Nginx 是基于event-driven模型的。正是这个主要的区别带给了 Nginx 在性能上的优势。</p>
+<p>Nginx 架构的最顶层是一个 master process，这个 master process 用于产生其他的 worker process，这一点和Apache 非常像，但是 Nginx 的 worker process 可以同时处理大量的HTTP请求，而每个 Apache process 只能处理一个。</p>
+<h1 id="浏览器事件机制"><a href="#浏览器事件机制" class="headerlink" title="浏览器事件机制"></a>浏览器事件机制</h1><h2 id="事件是什么"><a href="#事件是什么" class="headerlink" title="事件是什么"></a>事件是什么</h2><p>事件是用户操作网页时发生的交互动作，比如 click/move， 事件除了用户触发的动作外，还可以是文档加载，窗口滚动和大小调整。事件被封装成一个 event 对象，包含了该事件发生时的所有相关信息（ event 的属性）以及可以对事件进行的操作（ event 的方法）</p>
+<p>事件是用户操作网页时发生的交互动作或者网页本身的一些操作，现代浏览器一共有三种事件模型：</p>
+<ul>
+<li><strong>DOM0 级事件模型</strong>，这种模型不会传播，所以没有事件流的概念，但是现在有的浏览器支持以冒泡的方式实现，它可以在网页中直接定义监听函数，也可以通过 js 属性来指定监听函数。所有浏览器都兼容这种方式。直接在dom对象上注册事件名称，就是DOM0写法。</li>
+<li><strong>IE 事件模型</strong>，在该事件模型中，一次事件共有两个过程，事件处理阶段和事件冒泡阶段。事件处理阶段会首先执行目标元素绑定的监听事件。然后是事件冒泡阶段，冒泡指的是事件从目标元素冒泡到 document，依次检查经过的节点是否绑定了事件监听函数，如果有则执行。这种模型通过attachEvent 来添加监听函数，可以添加多个监听函数，会按顺序依次执行。</li>
+<li><strong>DOM2 级事件模型</strong>，在该事件模型中，一次事件共有三个过程，第一个过程是事件捕获阶段。捕获指的是事件从 document 一直向下传播到目标元素，依次检查经过的节点是否绑定了事件监听函数，如果有则执行。后面两个阶段和 IE 事件模型的两个阶段相同。这种事件模型，事件绑定的函数是addEventListener，其中第三个参数可以指定事件是否在捕获阶段执行。</li>
+</ul>
+<h2 id="如何阻止事件冒泡"><a href="#如何阻止事件冒泡" class="headerlink" title="如何阻止事件冒泡"></a>如何阻止事件冒泡</h2><ul>
+<li>普通浏览器使用：event.stopPropagation() </li>
+<li>IE浏览器使用：event.cancelBubble = true;</li>
+</ul>
+<h2 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h2><p>事件委托 是利用浏览器事件冒泡的机制，将子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件，这种方式称为事件委托。</p>
+<p>使用事件委托可以不必要为每一个子元素都绑定一个监听事件，<strong>减少内存消耗</strong>。并且还可以<strong>实现事件动态绑定</strong>，比如说新增了一个子节点，并不需要单独地为它添加一个监听事件，它绑定的事件会交给父元素中的监听函数来处理。</p>
+<p>事件委托不是只有优点，它也是有<strong>缺点</strong>的：</p>
+<p>比如 focus、blur 之类的事件没有事件冒泡机制，所以无法实现事件委托；mousemove、mouseout 这样的事件，虽然有事件冒泡，但是只能不断通过位置去计算定位，对性能消耗高，因此也是不适合于事件委托的。</p>
+<h1 id="浏览器垃圾回收机制"><a href="#浏览器垃圾回收机制" class="headerlink" title="浏览器垃圾回收机制"></a>浏览器垃圾回收机制</h1><p>GC<code>就是</code>Garbage Collection<code> 也就是我们常说的</code>垃圾回收机制，它工作在引擎的内部，对于前端来说是相对无感的。</p>
+<p>一般的高级语言里面会自带 GC，比如 Java、Python、JavaScript 等，也有无 GC 的语言，比如 C、C++ 等，那这种就需要我们程序员手动管理内存了，相对比较麻烦。</p>
+<h2 id="V8的垃圾回收机制"><a href="#V8的垃圾回收机制" class="headerlink" title="V8的垃圾回收机制"></a>V8的垃圾回收机制</h2><p>V8 的垃圾回收策略主要基于分代式垃圾回收机制，V8 中将堆内存分为新生代和老生代两区域，采用不同的垃圾回收器。</p>
+<p>新生代的对象为存活时间较短的对象，简单来说就是新产生的对象，通常只支持<code>1～8M</code>的容量，而老生代的对象为存活时间较长或常驻内存的对象，简单来说就是经历过新生代垃圾回收后还存活下来的对象，容量通常比较大。</p>
+<h3 id="新生代垃圾回收器"><a href="#新生代垃圾回收器" class="headerlink" title="新生代垃圾回收器"></a>新生代垃圾回收器</h3><p>新生代对象是通过一个名为 <code>Scavenge</code> 的算法进行垃圾回收，主要采用了一种复制式的方法即 <code>Cheney 算法</code>：</p>
+<p><code>Cheney 算法</code> 中将堆内存一分为二，一个是处于使用状态的空间我们暂且称之为 <code>使用区</code>，一个是处于闲置状态的空间我们称之为 <code>空闲区</code>：</p>
+<p><img data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7fd1a43f0380484288590fff97466d4b~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp"></p>
+<p>当开始进行垃圾回收时，新生代垃圾回收器会对使用区中的活动对象做标记，标记完成之后将使用区的活动对象复制进空闲区并进行排序，随后进入垃圾清理阶段，即将非活动对象占用的空间清理掉。最后进行角色互换，把原来的使用区变成空闲区，把原来的空闲区变成使用区。</p>
+<h3 id="老生代垃圾回收"><a href="#老生代垃圾回收" class="headerlink" title="老生代垃圾回收"></a>老生代垃圾回收</h3><p>先来说下什么情况下对象会出现在老生代空间中：</p>
+<ul>
+<li>新生代中的对象是否已经经历过一次 Scavenge 算法，如果经历过的话，会将对象从新生代空间移到老生代空间中。</li>
+<li>To 空间的对象占比大小超过 25 %。在这种情况下，为了不影响到内存分配，会将对象从新生代空间移到老生代空间中。</li>
+</ul>
+<p>对于大多数占用空间大、存活时间长的对象会被分配到老生代里，因为老生代中的对象通常比较大，如果再如新生代一般分区然后复制来复制去就会非常耗时，从而导致回收执行效率不高，所以老生代垃圾回收器来管理其垃圾回收执行，它的整个流程就采用的就是<strong>标记清除</strong>了。</p>
+<p>标记阶段，从一组根元素开始，递归遍历这组根元素，遍历过程中能到达的元素称为活动对象，没有到达的元素就可以判断为非活动对象。</p>
+<p>清除阶段，直接将非活动对象，也就是数据清理掉。</p>
+<p>分代式机制把一些新、小、存活时间短的对象作为新生代，采用一小块内存频率较高的快速清理，而一些大、老、存活时间长的对象作为老生代，使其很少接受检查，新老生代的回收机制及频率是不同的，可以说此机制的出现很大程度提高了垃圾回收机制的效率。</p>
+<h3 id="并行回收"><a href="#并行回收" class="headerlink" title="并行回收"></a>并行回收</h3><p> JavaScript 是一门单线程的语言，它是运行在主线程上的，那在进行垃圾回收时就会阻塞 JavaScript 脚本的执行，需等待垃圾回收完毕后再恢复脚本执行，我们把这种行为叫做 <code>全停顿</code>。</p>
+<p><img data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/05a802dfb84b494ea0bac6281e292a11~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp"></p>
+<p>假如一次 GC 的时间过长，对用户来说就可能造成页面卡顿等问题。这里引入多个辅助线程来同时处理，以此加速垃圾回收的执行速度</p>
+<p>在执行垃圾回收的过程中，会启动了多个线程来负责新生代中的垃圾清理操作，这些线程同时将对象空间中的数据移动到空闲区域，这个过程中由于数据地址会发生改变，所以还需要同步更新引用这些对象的指针，这就是并行回收。</p>
+<p><img data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da8164de8a1245fe962673e9c2bfb473~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp"></p>
+<h3 id="增量标记"><a href="#增量标记" class="headerlink" title="增量标记"></a>增量标记</h3><p><code>并行回收</code> 可以提高回收效率，对于新生代垃圾回收器能够有很好的优化，但是它还是一种全停顿式的垃圾回收方式；</p>
+<p>对于老生代来说，它的内部存放的都是一些比较大的对象，对于这些大的对象 GC 时哪怕我们使用并行策略依然可能会消耗大量时间</p>
+<p>在 2011 年，V8 对老生代的标记进行了优化，从 <code>全停顿标记</code>切换到<code>增量标记</code></p>
+<p><img data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2cf5dc1cf0b04856809050ed165a0d7a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp"></p>
+<p>如果采用非黑即白的标记策略，那在垃圾回收器执行了一段增量回收后，暂停后启用主线程去执行了应用程序中的一段JavaScript 代码，随后当垃圾回收器再次被启动，这时候内存中黑白色都有，我们无法得知下一步走到哪里了</p>
+<p>为了解决这个问题，V8 团队采用了一种特殊方式： <code>三色标记法</code></p>
+<h3 id="惰性清理"><a href="#惰性清理" class="headerlink" title="惰性清理"></a>惰性清理</h3><p>增量标记其实只是对活动对象和非活动对象进行标记，对于真正的清理释放内存 V8 采用的是<code>惰性清理</code></p>
+<p>当增量标记完成后，假如当前的可用内存足以让我们快速的执行代码，其实我们是没必要立即清理内存的，可以将清理过程稍微延迟一下，让 JavaScript 脚本代码先执行，也无需一次性清理完所有非活动对象内存，可以按需逐一进行清理直到所有的非活动对象内存都清理完毕，后面再接着执行增量标记。</p>
+<h3 id="并发回收"><a href="#并发回收" class="headerlink" title="并发回收"></a>并发回收</h3><p>并行回收依然会阻塞主线程，增量标记同样有增加了总暂停时间、降低应用程序吞吐量两个缺点，那么怎么才能在不阻塞主线程的情况下执行垃圾回收并且与增量相比更高效呢？</p>
+<p>并发回收了，它指的是主线程在执行 JavaScript 的过程中，辅助线程能够在后台完成执行垃圾回收的操作，辅助线程在执行垃圾回收的时候，主线程也可以自由执行而不会被挂起：</p>
+<p><img data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f28fab4cc224c18952929a738959a98~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp"></p>
+<p>辅助线程在执行垃圾回收的时候，主线程也可以自由执行而不会被挂起，这是并发的优点，但同样也是并发回收实现的难点，因为它需要考虑主线程在执行 JavaScript 时，堆中的对象引用关系随时都有可能发生变化，这时辅助线程之前做的一些标记或者正在进行的标记就会要有所改变，所以它需要额外实现一些<code>读写锁机制</code>来控制这一点。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>新生代主要使用分为了使用区和空闲区，使用相关的算法进行垃圾回收机制;</li>
+<li>老生代使用<code>标记清除算法</code>，还是使用了<code>并行回收</code>、<code>增量标记</code>、<code>惰性清理</code>来辅提高回收效率，增量标记中使用<code>三色标记法</code>来达到暂停和恢复的作用;</li>
+<li>还是使用<code>并发回收</code>使回收更高效;</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>ych-ch
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ychch.top/archives/f1e02d11.html" title="浏览器原理">https://ychch.top/archives/f1e02d11.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/archives/590dfd2.html" rel="prev" title="组件库开发技巧">
+                  <i class="fa fa-chevron-left"></i> 组件库开发技巧
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/archives/610a7c6b.html" rel="next" title="2023深圳跨年之行">
+                  2023深圳跨年之行 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-crow"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ych-ch</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">232k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:31</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        你是本站第<span id="busuanzi_value_site_uv"></span>位访客
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        本站已被浏览<span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="/lib/medium-zoom/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="/lib/lozad/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="/lib/pangu/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.ychch.top/","placeholder":"雁过留痕,欢迎交流评论(●'◡'●)","avatar":"mm","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"meta":["nick","mail","link"],"libUrl":"//cdn.jsdelivr.net/npm/@waline/client","el":"#waline-comments","path":"/archives/f1e02d11.html"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() => 
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => {
+    new Waline(CONFIG.waline);
+  });
+});
+</script>
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":80},"mobile":{"show":true,"scale":0.5},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</html>
